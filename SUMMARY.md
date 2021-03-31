@@ -5,7 +5,7 @@
 
 ## Application
 
-* [App \(Singleton\)](application/app-singleton.md)
+* [App](application/app.md)
 * [App\_Config](application/app_config.md)
 * [Dependency Injection](application/dependency-injection/README.md)
   * [Basic Usage](application/dependency-injection/basic-usage.md)

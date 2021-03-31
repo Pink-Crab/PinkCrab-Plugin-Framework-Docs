@@ -103,7 +103,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 If you using this in a theme, ensure these are added to the top of your functions.php file.
 {% endhint %}
 
-The framework requires 3 config files, these are usually placed in the /config directory but can be placed elsewhere. If you do use these elsewhere, please update the paths in the bootstrap.php file.
+The framework requires 3 config files, these are usually placed in the /config directory but can be placed elsewhere. If you do use these elsewhere, please update the paths in the ```plugin.php``` file.
 
 ## config/dependencies.php 
 
