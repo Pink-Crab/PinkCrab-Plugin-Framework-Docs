@@ -197,7 +197,7 @@ return [
     ]
 ];
 ```
-The above will then allow the passing of wpdb as a dependency, for all classes they will receive the same global instance used throughout WordPress. Unless you are using calling the **Some_Special_Case** class, in which case a custom instance of **WPDB** will be used (this allows you to have custom tables, for some use cases).
+The above will then allow the passing of wpdb as a dependency, for all classes they will receive the same global instance used throughout WordPress. Unless you are using calling the **Some_Special_Case** class, in which case a custom instance of **WPDB** will be constructed (this allows you to have custom databases, for some use cases).
 
 > By default the Plugin Framework will have the global wpdb rule applied. 
 
