@@ -52,6 +52,7 @@ The DI Container can not inferre which implemenation to use, so we need to defin
 
 ### Using Interfaces
 
+The following example shows how you can use interfaces to make testing easier and your code more exendable, without rewriting everything if you want to use a new data store or process.
 ```php
 // Customer Details Interface
 interface Customer_Details{
@@ -89,3 +90,40 @@ class In_Memory_Customer_Details implements Customer_Details{
 
 }
 ```
+Now we have our Customer_Details service setup, we can start using it. But first we need to set the rules, to denote what implementation we want.
+
+```php 
+class Customer_Requests {
+    /** @var Customer_Details */
+    protected $customer_details;
+
+    public function __construct(Customer_Details $customer_details){
+        $this->customer_details = $customer_details;
+    }
+
+    // Some code that uses the Customer_Details services
+}
+```
+**Setting the DI Rules**
+
+There are a few options on how to setup your rules, these can be stacked to allow different setups per class on top of global rules.
+
+```php
+<?php // file:config/depenencies.php
+
+return [
+
+    // Global Rule
+    Customer_Details::class => [
+        'instanceOf' => WP_User_Customer_Details::class
+    ],
+
+    // Class by class
+    Other_Customer_Requests::class => [
+        'substitutions' => [
+            Customer_Details => In_Memory_Customer_Details::class
+        ]
+    ]
+];
+```
+Using the rules defined above, any class which has **Customer_Details** as a dependency will be injected with an instance of the **WP_User_Customer_Details** object. Unless its the **Other_Customer_Requests** class, which will be injected with an instance of  **In_Memory_Customer_Details**
