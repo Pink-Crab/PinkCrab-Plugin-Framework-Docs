@@ -4,78 +4,9 @@ description: Required and options files
 
 # Setup \(Files\)
 
-### Bootstrap.php
+The framework on requires a few files to be in place, most of these are just for populating the App with its required details.
 
-Main bootstrap file, this can be given any name, so long as its called from your plugin.php or functions.php file.
-
-```php
-// @file - bootstrap.php
-
-<?php
-
-declare(strict_types=1);
-
-/**
- * Used to bootload the application.
- *
- * @package Your Plugin
- * @author Awesome Devs <awesome.devs@rock.com>
- * @since 1.2.3
- */
-
-use Dice\Dice;
-use PinkCrab\Core\Application\App;
-use PinkCrab\Core\Services\Dice\WP_Dice;
-use PinkCrab\Core\Application\App_Config;
-use PinkCrab\Core\Services\Registration\Loader;
-use PinkCrab\Core\Services\ServiceContainer\Container;
-use PinkCrab\Core\Services\Registration\Register_Loader;
-
-// Populate Config with settings, if file exists.
-$settings = file_exists( 'config/settings.php' )
-    ? require 'config/settings.php'
-    : array();
-$config   = new App_Config( $settings );
-
-// Load hook loader, DI & container.
-$loader    = Loader::boot();
-$di        = WP_Dice::constructWith( new Dice() );
-$container = new Container();
-
-// Setup the service container .
-$container->set( 'di', $di );
-$container->set( 'config', $config );
-
-// Boot the app.
-$app = App::init( $container );
-
-// Add all DI rules and register the actions from loader.
-add_action(
-    'init',
-    function () use ( $loader, $app, $config ) {
-
-        // If the dependencies file exists, add rules.
-        if ( file_exists( 'config/dependencies.php' ) ) {
-            $dependencies = include 'config/dependencies.php';
-            $app->get( 'di' )->addRules( $dependencies );
-        }
-
-        // Add all registerable objects to loader, if file exists.
-        if ( file_exists( 'config/registration.php' ) ) {
-            $registerables = include 'config/registration.php';
-            Register_Loader::initalise( $app, $registerables, $loader );
-        }
-
-        // You can hook in with the $loader here to add any other setup hook calls.
-
-        // Initalise all registerable classes.
-        $loader->register_hooks();
-    },
-    1
-);
-```
-
-### composer.json
+## composer.json
 
 This is an example of the composer.json file used in our boilerplate. If you do not plan on running any tests \(BUT YOU SHOULD!!!!\), you can remove the require-dev packags and the script listings as they will not be needed.
 
@@ -85,139 +16,117 @@ This is an example of the composer.json file used in our boilerplate. If you do 
     "type": "library",
     "description": "##DESCRIPTION##",
     "keywords": [],
-    "homepage": "https://pinkcrab.co.uk",
+    "homepage": "##YOUR URL##",
     "license": "MIT",
     "authors": [{
-        "name": "Glynn Quelch",
-        "email": "glynn.quelch@pinkcrab.co.uk",
-        "homepage": "http://pinkcrab.co.uk",
+        "name": "##AUTHOR##",
+        "email": "##YOUR EMAIL##",
+        "homepage": "##YOUR URL##",
         "role": "Developer"
     }],
     "autoload": {
         "psr-4": {
-            "PinkCrab\\Test_Plugin\\": "src",
-            "PinkCrab\\WP\\": "wp"
+            "##NAMESPACE##\\": "src"
         },
         "files": []
     },
-    "minimum-stability": "dev",
-    "prefer-stable": true,
     "autoload-dev": {
         "psr-4": {
-            "PinkCrab\\##NAMESPACE##\\Tests\\": "tests/"
+            "##NAMESPACE##\\Tests\\": "tests"
         }
     },
-    "repositories": [{
-            "url": "https://github.com/Pink-Crab/PHP_Unut_Helpers.git",
-            "type": "git"
-        }
-    ],
     "require-dev": {
         "phpunit/phpunit": "^7.0",
         "roots/wordpress": "^5.5",
         "wp-phpunit/wp-phpunit": "^5.0",
-        "yoast/phpunit-polyfills": "^0.1.0",
-        "symfony/var-dumper": "^5.0",
+        "symfony/var-dumper": "4.*",
         "phpstan/phpstan": "^0.12.6",
         "szepeviktor/phpstan-wordpress": "^0.7.2",
-        "php-stubs/wordpress-stubs": "^5.5.0",
-        "pinkcrab/phpunit-helpers": "dev-master"
+        "php-stubs/wordpress-stubs": "^5.6.0",
+        "dealerdirect/phpcodesniffer-composer-installer": "*",
+        "wp-coding-standards/wpcs": "*",
+        "object-calisthenics/phpcs-calisthenics-rules": "*",
+        "jetbrains/phpstorm-stubs": "dev-master",
+        "kimhf/woocommerce-stubs": "^0.2.0",
+        "kimhf/advanced-custom-fields-pro-stubs": "^5.9"
     },
     "require": {
         "php": ">=7.1.0",
-        "pinkcrab/plugin-framework": "0.3.*"
+        "pinkcrab/plugin-framework": "0.4.*"
     },
     "scripts": {
-        "test": "phpunit",
-        "analyse": "vendor/bin/phpstan analyse src -l8"
-    }
+        "test": "phpunit --coverage-clover coverage.xml --testdox",
+        "coverage": "phpunit --coverage-html coverage-report --testdox",
+        "analyse": "vendor/bin/phpstan analyse src -l8",
+        "sniff": "./vendor/bin/phpcs src/ -v",
+        "all": "composer test && composer analyse && composer sniff"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
 ```
 
-If you are planning to give all of your vendor libraries custom namespaces using Php Scoper \(more details below\), to use the new mapped namespaces.
+If you are planning to prefix all of your namespaces with PHP-Scoper, please see the [PHP-Scoper docs](application/php-scoper.md)
 
-### plugin.php
+## plugin.php
 
 Once you have your bootstrap file created, it's just a case of hooking it up in your plugin.php file.
 
 ```php
 <?php
-// @file plugin.php
 
 /**
  * @wordpress-plugin
  * Plugin Name:     ##PLUGIN NAME##
  * Plugin URI:      ##YOUR URL##
- * Description:     ##YOUR PLUGIN DESC##
+ * Description:     ##DESCRIPTION##
  * Version:         ##VERSION##
  * Author:          ##AUTHOR##
  * Author URI:      ##YOUR URL##
  * License:         GPL-2.0+
  * License URI:     http://www.gnu.org/licenses/gpl-2.0.txt
- * Text Domain:     ##TEXT DOMAIN##
+ * TextDomain:      ##TEXT DOMAIN##
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
- die;
-}
+use PinkCrab\Core\Application\App_Factory;
 
 require_once __DIR__ . '/vendor/autoload.php';
-require_once __DIR__ . '/bootstrap.php';
 
-// Optional activation hooks
-
-use PinkCrab\WP\Activation;
-use PinkCrab\WP\Deactivation;
-use PinkCrab\Core\Application\App;
-
-register_activation_hook( __FILE__, array( App::make( Activation::class ), 'activate' ) );
-register_deactivation_hook( __FILE__, array( App::make( Deactivation::class ), 'deactivate' ) );
+( new App_Factory() )->with_wp_dice( true )
+	->di_rules( require __DIR__ . '/config/dependencies.php' )
+	->app_config( require __DIR__ . '/config/settings.php' )
+	->registration_classses( require __DIR__ . '/config/registration.php' )
+	->boot();
 ```
 
 {% hint style="info" %}
-If you using this in a theme, ensure the autoload.php and bootstrap.php files are added to the top of your functions.php file.
+If you using this in a theme, ensure these are added to the top of your functions.php file.
 {% endhint %}
 
-The framework requires 3 config files, these are usually placed in the /config directory but can be placed elsewhere. If you do use these elsewhere, please update the paths in the bootstrap.php file.
+The framework requires 3 config files, these are usually placed in the /config directory but can be placed elsewhere. If you do use these elsewhere, please update the paths in the ```plugin.php``` file.
 
-### config/dependencies.php 
+## config/dependencies.php 
+
+Registers all custom rules for the DI Container which can be assumed from the types on the constructor.
 
 ```php
-    <?php
-    // @file config/dependencies.php
+// @file config/dependencies.php
+<?php
 
-    /**
-     * Handles all depenedency injection rules and config.
-     *
-     * @package Your Plugin
-     * @author Awesome Devs <awesome.devs@rock.com>
-     * @since 1.2.3
-     */
+declare(strict_types=1);
 
-    use PinkCrab\Core\Application\App;
-    use PinkCrab\Core\Interfaces\Renderable;
-    use PinkCrab\Core\Services\View\PHP_Engine;
+/**
+ * All custom rules for the DI Container.
+ * See docs at https://app.gitbook.com/@glynn-quelch/s/pinkcrab/application/dependency-injection
+ */
 
-    return array(
-    // Gloabl Rules
-    '*'         => array(
-        'substitutions' => array(
-            App::class        => App::get_instance(),
-            Renderable::class => PHP_Engine::class,
-        ),
-    ),
-
-    // Use wpdb as an injectable object.
-    wpdb::class => array(
-        'shared'          => true,
-        'constructParams' => array( \DB_USER, \DB_PASSWORD, \DB_NAME, \DB_HOST ),
-    ),
-
-    /** ADD YOUR CUSTOM RULES HERE */
-);
+return array();
 ```
+{% hint style="info" %}
+When adding classes you can use Class_Name::class, so long as the full namespaced name is imported ```use My\Namespace\Class_Name;```
+{% endhint %}
 
-### config/registration.php
+## config/registration.php
 
 ```php
 // @file config/registration.php
@@ -226,156 +135,82 @@ The framework requires 3 config files, these are usually placed in the /config d
 declare(strict_types=1);
 
 /**
- * Holds all classes which are to be loaded on initalisation.
- *
- * @package Your Plugin
- * @author Awesome Devs <awesome.devs@rock.com>
- * @since 1.2.3
+ * List of classes passed through the registaion service.
+ * See docs at https://app.gitbook.com/@glynn-quelch/s/pinkcrab/application/registration
  */
 
 return array(
-  /** Include all your classes which implemenet Registerable here */
+	/** Include all your classes which implemenet Registerable here */
 );
-```
 
-### config/settings.php
+```
+{% hint style="info" %}
+When adding classes you can use Class_Name::class, so long as the full namespaced name is imported ```use My\Namespace\Class_Name;```
+{% endhint %}
+
+## config/settings.php
 
 ```php
     // @file config/settings.php
-    <?php
-
-    declare(strict_types=1);
-
-    /**
-     * Handles all the data used by App_Config
-     *
-     * @package Your Plugin
-     * @author Awesome Devs <awesome.devs@rock.com>
-     * @since 1.2.3
-     */
-
-    // Get the path of the plugin base.
-    $base_path  = \dirname( __DIR__, 1 );
-    $plugin_dir = \basename( $base_path );
-    $wp_uploads = \wp_upload_dir();
-
-    return array(
-        'additional' => array(
-            // Register your custom config data.
-        ),
-
-    );
-```
-
-## Optional Plugin Activation 
-
-If you wish to fire the activation/deactivation and/or uninstall hooks, you can use these 3 wrapper classes. They are currently in a seperate directory and will be to be added to the composer.json namespace list.
-
-```javascript
-    "autoload": {
-        "psr-4": {
-            "PinkCrab\\Test_Plugin\\": "src",
-            "PinkCrab\\WP\\": "wp" <-- ADD THIS
-        },
-        "files": []
-    },
-```
-
-{% hint style="info" %}
-You can have these inside your src/ directory and part of the main namespace, just remeber to alter the use statments in plugin.php
-{% endhint %}
-
-### wp/Activation.php
-
-```php
-<?php
-
-declare(strict_types=1);
-/**
- * Actiation hook event.
- *
- * @author Glynn Quelch <glynn.quelch@gmail.com>
- * @license http://www.opensource.org/licenses/mit-license.html  MIT License
- * @package PinkCrab\WP
- */
-
-namespace PinkCrab\WP;
-
-use PinkCrab\WP\Uninstalled;
-use PinkCrab\Core\Application\App;
-
-class Activation {
-
-	/**
-	 * Entry point for action hook call.
-	 *
-	 * @return void
-	 */
-	public function activate() {
-		// Register unistall hook.
-		register_uninstall_hook( __FILE__, array( App::make( Uninstalled::class ), 'uninstall' ) );
-	}
-}
-
-```
-
-### wp/Deactivation.php
-
-```php
 <?php
 
 declare(strict_types=1);
 
 /**
- * Deactivate hook event.
- *
- * @author Glynn Quelch <glynn.quelch@gmail.com>
- * @license http://www.opensource.org/licenses/mit-license.html  MIT License
- * @package PinkCrab\WP
+ * Holds all custom app config values.
+ * See docs at https://app.gitbook.com/@glynn-quelch/s/pinkcrab/application/app_config
  */
 
-namespace PinkCrab\WP;
+// Base path and urls
+$base_path  = \dirname( __DIR__, 1 );
+$plugin_dir = \basename( $base_path );
 
-class Deactivation {
+// Useful WP helpers
+$wp_uploads = \wp_upload_dir();
+global $wpdb;
 
-	/**
-	 * Entry point for the deactivation hook.
-	 *
-	 * @return void
-	 */
-	public function deactivate() {
-	}
+// Include the plugins file for access plugin details before init.
+if ( ! function_exists( 'get_plugin_data' ) ) {
+	require_once ABSPATH . 'wp-admin/includes/plugin.php';
 }
+$plugin_data = get_plugin_data( $base_path . '/plugin.php' );
 
+return array(
+	'path'       => array(
+		'plugin'         => $base_path,
+		'view'           => $base_path . '/views',
+		'assets'         => $base_path . '/assets',
+		'upload_root'    => $wp_uploads['basedir'],
+		'upload_current' => $wp_uploads['path'],
+	),
+	'url'        => array(
+		'plugin'         => \plugins_url( $plugin_dir ),
+		'view'           => \plugins_url( $plugin_dir ) . '/views',
+		'assets'         => \plugins_url( $plugin_dir ) . '/assets',
+		'upload_root'    => $wp_uploads['baseurl'],
+		'upload_current' => $wp_uploads['url'],
+	),
+	'post_types' => array(
+		// 'your_key' => array(   // use with Config::post_types('your_key')
+		// 	'slug' => 'cpt_slug',
+		// 	'meta' => array(
+		// 		'your_key'  => 'meta_key',
+		// 	),
+		// ),
+	),
+	'taxonomies' => array(
+		// 'your_key' => array( // use with Config::taxonomies('your_key')
+		// 	'slug' => 'tax_slug',
+		// 	'term' => array(),
+		// ),
+	),
+	'plugin'     => array(
+		'version' => is_array( $plugin_data ) && array_key_exists( 'Version', $plugin_data )
+			? $plugin_data['Version'] : '0.1.0',
+	),
+	'namespaces' => array(
+		'rest'  => 'pinkcrab/boilerplate',
+		'cache' => 'pinkcrab_boilerplate',
+	),
+);
 ```
-
-### Unintalled.php
-
-```php
-<?php
-
-declare(strict_types=1);
-
-/**
- * Uninstall hook event.
- *
- * @author Glynn Quelch <glynn.quelch@gmail.com>
- * @license http://www.opensource.org/licenses/mit-license.html  MIT License
- * @package PinkCrab\
- */
-
-namespace PinkCrab\WP;
-
-class Uninstalled {
-
-	/**
-	 * Entry points for the uninstall hook call.
-	 *
-	 * @return void
-	 */
-	public function uninstall() {
-	}
-}
-
-```
-

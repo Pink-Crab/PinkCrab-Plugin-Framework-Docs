@@ -38,13 +38,11 @@ A callback can be applied to every element in the collection. This works like ma
 > @return Existing Collection
 
 ```php
-$collection->each(function($value, $key){
-    echo "{$key} is for {$value} \n";
-});$collection->each(function($value, $key){
-    echo "{$key} is for {$value} \n";
-});$collection = Collection::from([1,2,3,4]);
+$collection = Collection::from([1,2,3,4]);
+
 $collection->apply(fn($e) => $e*2);
-dump($collection); // 2,4,6,8
+
+var_dump($collection); // 2,4,6,8
 ```
 
 ### Collection::map\(\);
@@ -59,8 +57,8 @@ A callback can be applied to all items in a collection, then a new collection is
 $initial_collection = Collection::from([1,2,3,4]);
 $new_collection = $initial_collection->map(fn($e) => $e*2);
 
-dump($initial_collection); // 1,2,3,4
-dump($new_collection); // 2,4,6,8
+var_dump($initial_collection); // 1,2,3,4
+var_dump($new_collection); // 2,4,6,8
 ```
 
 ### Collection::each\(\)
@@ -96,13 +94,13 @@ $initial_collection = Collection::from([1,2,3,4,5,6,7,8]);
 $filtered_collection = $initial_collection->filter(function( $e ) {
 	return $e % 2 === 0;
 });
-dump($filtered_collection); // 2, 4, 6, 8
+var_dump($filtered_collection); // 2, 4, 6, 8
 
 // Using both flag.
 $with_both = $initial_collection->filter(function( $value, $key ) {
 	return $key % 2 === 0;
 }, ARRAY_FILTER_USE_BOTH);
-dump($with_both); // 1, 3, 5, 7
+var_dump($with_both); // 1, 3, 5, 7
 
 ```
 
@@ -204,7 +202,7 @@ Returns the underlying array.
 
 ```php
 $collection = new Collection([1,2,3]);
-dump(is_array($collection->to_array())); //true
+var_dump(is_array($collection->to_array())); //true
 ```
 
 ### Collection::contains\(\)
@@ -286,9 +284,9 @@ Does a copy of the existing collection, to a new instance \(new static\(\)\)
 ```php
 $collection = new Collection([1,2,3]);
 $copy_collection = $collection->copy();
-dump($collection); // 1,2,3
-dump($copy_collection); // 1,2,3
-dump($collection === $copy_collection); //false
+var_dump($collection); // 1,2,3
+var_dump($copy_collection); // 1,2,3
+var_dump($collection === $copy_collection); //false
 ```
 
 ### Collection::sort\(\)
@@ -303,7 +301,7 @@ $collection = Collection::from( array( 'a', 'z', 'f', 'y', 'o' ) );
 
 // By passing no comparator function, natsort() is used.
 $collection->sort();
-dump($collection); // a, f, o, y, z
+var_dump($collection); // a, f, o, y, z
 
 // A custom comparator can be passed
 $collection->sort(
@@ -311,7 +309,7 @@ $collection->sort(
      return $b <=> $a;
 	}
 );
-dump($collection); // z,y,o,f,a
+var_dump($collection); // z,y,o,f,a
 ```
 
 ### Collection::sorted\(\)
@@ -324,9 +322,9 @@ Sorts the contents of the collection using sort\(\) above, but returns a new col
 ```php
 $collection = Collection::from( array( 'a', 'z', 'f', 'y', 'o' ) );
 $sorted = $collection->sorted();
-dump($sorted); // a, f, o, y, z
+var_dump($sorted); // a, f, o, y, z
 // inital collection will still be as it was.
-dump($collection); // a, z, f, y, o
+var_dump($collection); // a, z, f, y, o
 ```
 
 ### Collection::slice\(\)
@@ -340,10 +338,10 @@ Creates a new Collection instance with sub collection. The length can be supplie
 ```php
 $collection = Collection::from( array( 1,2,3,4,5,6,7,8,9,10 ) );
 $first_half = $collection->slice(5);
-dump($first_half); // 1,2,3,4,5
+var_dump($first_half); // 1,2,3,4,5
 
 // inital collection will still be as it was.
-dump($collection); //  1,2,3,4,5,6,7,8,9,10
+var_dump($collection); //  1,2,3,4,5,6,7,8,9,10
 ```
 
 ### Collection::diff\(\)
@@ -359,8 +357,8 @@ $collection = Collection::from( [1,2,3,4,5,6,7,8,9,10] );
 $diff_array = [1,2,3,4,5,6,7,8];
 $diff_collection = Collection::from( [4,5,6,7,8,9,10] );
 
-dump($collection->diff($diff_array)); // 9,10
-dump($collection->diff($diff_collection)); // 1,2,3
+var_dump($collection->diff($diff_array)); // 9,10
+var_dump($collection->diff($diff_collection)); // 1,2,3
 ```
 
 ### Collection::intersect\(\)
@@ -376,7 +374,7 @@ $collection = Collection::from( [1,2,3,4,5,6,7,8,9,10] );
 $as_array = [1,2,3,4,5,11,12,13];
 $as_collection = Collection::from( [6,7,8,9,10,20,21,99] );
 
-dump($collection->diff($as_array)); // 1,2,3,4,5
-dump($collection->diff($as_collection)); // 6,7,8,9,10
+var_dump($collection->diff($as_array)); // 1,2,3,4,5
+var_dump($collection->diff($as_collection)); // 6,7,8,9,10
 ```
 

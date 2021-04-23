@@ -4,7 +4,7 @@ description: >-
   construct the objects we are injecting.
 ---
 
-# Constructing Dependencies
+# Constructing Dependency Examples
 
 ```php
 interface Cache{
