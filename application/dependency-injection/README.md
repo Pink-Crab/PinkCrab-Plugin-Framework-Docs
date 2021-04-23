@@ -149,9 +149,13 @@ class Mock_Foo extends Some_Thing {
     }
 }
 ```
+**Setting the DI Rules**
+
 Like interfaces we can define the rules either globally or on a class by class basis.
 
 ```php
+<?php // file:config/depenencies.php
+
 return [
     // Global Rule
     Some_Thing::class => [
