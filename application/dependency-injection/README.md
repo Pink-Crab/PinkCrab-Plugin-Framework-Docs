@@ -6,7 +6,86 @@ description: The PinkCrab Framework uses the DICE dependency injection container
 
 For a more detailed set of documentation on how to use DICE please visit the [Level2 GitHub](https://github.com/Level-2/Dice/) or on [Tom Butler \(Authors\) website](https://r.je/dice). 
 
+At its core the PinkCrab Plugin Framework makes use of the DI container and the Reistration process, to register hooks and connect into WordPress. Through using the DI container, you can build complex dependency trees and ensure your code is not coupled and highly testable.
 
+## Basic Useage
 
-### 
+The primary way to use the DI container, is via the Registration process. All classes which are passed to the registration process are created and cached using the container. This means you can just inject all of your dependencies and use them in your callbacks.
 
+```php
+
+class Do_Something implements Registerable {
+
+    protected $some_service;
+
+    public function __construct(Some_Service $some_service){
+        $this->some_service = $some_service;
+    }
+
+    public function register(Loader $loader): void{
+        $loader->action('some_action', [$this, 'my_callback']);
+    }
+
+    public function my_callback(): void {
+        // Now you can access the some_service in this callback.
+        $this->some_service->do_something();
+    }
+}
+```
+Once this class is added to the Reigstration.php list, it will be constructed and the action will be registered.
+
+**Static Useage**
+
+You can also access the DI container at any time, this is useful for quick calls or for when you want to create objects and have them cached/shared. While this is easier than injecting (especially if you already have a complex constructor).
+
+```php
+<?php
+$some_service = App::make(Some_Service::class);
+$some_service->do_something();
+```
+
+## Interfaces and Abstracts
+
+Obviously where using DI becomes really powerful is through the use of Interfaces and Abstract classes. This allows us to decide at runtime what class to use to implement/extend the Interfaces/Abstracts. 
+
+The DI Container can not inferre which implemenation to use, so we need to define these in the DI rule set (```config/depenedencies.php```)
+
+### Using Interfaces
+
+```php
+// Customer Details Interface
+interface Customer_Details{
+    
+    public function get_name(int $user_id): ?string;
+
+}
+
+// Using WP_User data.
+class WP_User_Customer_Details implements Customer_Details{
+    
+    public function get_name(int $user_id): ?string{
+        $user = get_userdata($user_id)
+        if ( $user === false ){
+            return null;
+        }
+        return $user->data->display_name;
+    }
+
+}
+
+// Using a custom implementation for testing.
+class In_Memory_Customer_Details implements Customer_Details{
+    
+    public function get_name(int $user_id): ?string{
+        switch ($i) {
+            case 1:
+                return 'Customer 1';
+            case 2:
+                return 'Customer 2';
+            default:
+                return null; // Test for invalid ID.
+        }
+    }
+
+}
+```

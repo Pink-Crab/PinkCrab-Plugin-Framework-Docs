@@ -10,9 +10,9 @@ description: >-
 
 WordPress development involves lots of keys, slugs, namespaces and paths, lots of them. App_Config gives an injectable container for holding your keys.
 
-## Setup
+**UNLIKE PREVIOUS VERSION OF THE FRAMEWORK APP_CONFIG IS NO LONGER ACCESSIBLE IN THIS FILE. PLEASE ENSURE YOU USE TRUE PATHS**
 
-**App\_Config** is constructed and bound to the **App Instance** at initalisation. A set of defaults are set for wp\_upload paths, but these can be overwritten. All custom values can be set in the config/settings.php file \(this location can be anywhere, based on your setup\)
+## Setup
 
 ```php
 // file - config/settings.php
@@ -47,7 +47,7 @@ return array(
 		'upload_current' => $wp_uploads['url'],
 	),
 	'post_types' => array(
-		// 'your_key' => array(   // use with Config::post_types('your_key')
+		// 'your_key' => array(
 		// 	'slug' => 'cpt_slug',
 		// 	'meta' => array(
 		// 		'your_key'  => 'meta_key',
@@ -55,7 +55,7 @@ return array(
 		// ),
 	),
 	'taxonomies' => array(
-		// 'your_key' => array( // use with Config::taxonomies('your_key')
+		// 'your_key' => array(
 		// 	'slug' => 'tax_slug',
 		// 	'term' => array(),
 		// ),
@@ -191,7 +191,7 @@ return array(
 	 	'namespaces' => array(
 	 		'rest'        => 'my_plugin',
 	 		'cache'       => 'file_cache',
-	    'some_prefix' => 'dcv_'
+	        'some_prefix' => 'dcv_'
 	 	),
 );
 
@@ -513,9 +513,11 @@ This allows the setting of the plugin details to the app config. At present it o
 ```php
 return [
     ....
-    'plugin' => [
-       'version' => '0.2.6',
-    ],
+	'plugin'     => array(
+		'version' => is_array( $plugin_data ) && array_key_exists( 'Version', $plugin_data )
+			? $plugin_data['Version'] 
+            : '0.1.0', // Set this as a fallback.
+	),
     ....
 ];
 ```

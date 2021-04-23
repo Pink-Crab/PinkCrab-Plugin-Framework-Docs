@@ -6,3 +6,4 @@ description: >-
 
 # PHP-Scoper
 
+Detailed information to follow.
