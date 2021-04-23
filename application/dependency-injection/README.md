@@ -32,11 +32,11 @@ class Do_Something implements Registerable {
     }
 }
 ```
-Once this class is added to the Reigstration.php list, it will be constructed and the action will be registered.
+Once this class is added to the ```config/registration.php``` file, it will be constructed and the action will be registered as a wp hook.
 
 **Static Useage**
 
-You can also access the DI container at any time, this is useful for quick calls or for when you want to create objects and have them cached/shared. While this is easier than injecting (especially if you already have a complex constructor).
+You can also access the DI container at any time, this is useful for quick calls or for when you want to create objects and have them cached/shared. While this is easier than injecting (especially if you already have a complex constructor), it can lead to messy, coupled code.
 
 ```php
 <?php
