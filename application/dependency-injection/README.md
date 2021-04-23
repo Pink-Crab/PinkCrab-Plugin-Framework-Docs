@@ -155,7 +155,6 @@ Like interfaces we can define the rules either globally or on a class by class b
 
 ```php
 <?php // file:config/depenencies.php
-
 return [
     // Global Rule
     Some_Thing::class => [
@@ -181,18 +180,19 @@ While the above is great for 90% of the usecases, we sometimes need to inject pr
 Much like the definition of the classes to inject for dependencies we can set these at a global level or on a class by class basis.
 
 ```php 
+<?php // file:config/depenencies.php
 return [
     // Global (Any class)
     '*' => [
         'substitutions' => [
-            \wpdb => $GLOBALS['wpdb']
+            \wpdb::class => $GLOBALS['wpdb']
         ]
     ],
 
     // Class by class
     Some_Special_Case::class => [
         'substitutions' => [
-            \wpdb => new wpdb(..connection details..)
+            \wpdb::class => new wpdb(..connection details..)
         ]
     ]
 ];
@@ -203,3 +203,48 @@ The above will then allow the passing of wpdb as a dependency, for all classes t
 
 **You can only use instances of objects as part of a substitutions statment and only class names can be used with instanceOf**
 
+### *Just In Time* Instances
+
+Sometimes you might not want to create instances if they are not used, the above example will construct the custom instance of wpdb at runtime. We can however build this dependency as an when we need it using the **Call** functionality provided by *DICE*.
+
+```php 
+<?php // file:config/depenencies.php
+return [
+    // Using a JIT factory.
+    Some_Special_Case::class => [
+        'substitutions' => [
+            \wpdb::class => [
+                \Dice\Dice::INSTANCE => function() {
+                    return new wpdb(..connection details..);
+                }
+            ]
+        ]
+    ]
+];
+```
+Now our custom version of WPDB would only be constructed as and when its needed.
+
+### Custom Setter Dependencies
+
+Sometimes you will want to call various methods on an object before its passed as a dependncy. We can use the Call rules to do this.
+
+```php 
+<?php // file:config/depenencies.php
+return [
+    Some_Complex_Dependency::class => [
+        'call' => [
+            ['method_a', ['arg1', 1] ],
+            ['method_b', [true] ],
+            ['method_c', [] ],
+        ]
+    ]
+];
+```
+Now whenever we pass Some_Complex_Dependency to be injected, the container will do the follwing before it is passsed.
+```php
+$class = new Some_Complex_Dependency();
+$class->method_a('arg1', 1);
+$class->method_b(true);
+$class->method_c();
+return $class; // This is what will be injected!
+```
