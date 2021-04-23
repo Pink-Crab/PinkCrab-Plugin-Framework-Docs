@@ -78,7 +78,7 @@ class WP_User_Customer_Details implements Customer_Details{
 class In_Memory_Customer_Details implements Customer_Details{
     
     public function get_name(int $user_id): ?string{
-        switch ($i) {
+        switch ($user_id) {
             case 1:
                 return 'Customer 1';
             case 2:
