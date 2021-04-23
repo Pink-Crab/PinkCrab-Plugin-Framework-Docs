@@ -150,7 +150,7 @@ class Mock_Foo extends Some_Thing {
 }
 ```
 **Setting the DI Rules**
-
+g
 Like interfaces we can define the rules either globally or on a class by class basis.
 
 ```php
@@ -182,7 +182,7 @@ Much like the definition of the classes to inject for dependencies we can set th
 
 ```php 
 return [
-    // Global 
+    // Global (Any class)
     '*' => [
         'substitutions' => [
             \wpdb => $GLOBALS['wpdb']
