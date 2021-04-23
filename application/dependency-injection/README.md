@@ -127,3 +127,75 @@ return [
 ];
 ```
 Using the rules defined above, any class which has **Customer_Details** as a dependency will be injected with an instance of the **WP_User_Customer_Details** object. Unless its the **Other_Customer_Requests** class, which will be injected with an instance of  **In_Memory_Customer_Details**
+
+### Using Abstract Classes
+
+Like Interfaces, we can do the same setup with Abstract Classes.
+
+```php
+abstract class Some_Thing {
+    abstract public function foo(): void;
+}
+
+class Real_Foo extends Some_Thing {
+    public function foo(): void {
+        print 'Real Foo';
+    }
+}
+
+class Mock_Foo extends Some_Thing {
+    public function foo(): void {
+        print 'Mock Foo';
+    }
+}
+```
+Like interfaces we can define the rules either globally or on a class by class basis.
+
+```php
+return [
+    // Global Rule
+    Some_Thing::class => [
+        'instanceOf' => Real_Foo::class
+    ],
+
+    // Class by class
+    Some_Special_Case::class => [
+        'substitutions' => [
+            Some_Thing => Mock_Foo::class
+        ]
+    ]
+];
+```
+Like before, any class which has **Some_Thing** as a dependency will be passed **Real_Foo**, unless its **Some_Special_Case** and then it will injected with **Mock_Foo**.
+
+## Injected Instances
+
+While the above is great for 90% of the usecases, we sometimes need to inject pre constructed dependencies. WPDB for example isnt constructed on the fly, its held as global which we need to fetch it from. While it might be tempting to use global $wpdb in your contstrutor, it is then very hard to test. So to get around this, we have a few options. 
+
+### Global Instances.
+
+Much like the definition of the classes to inject for dependencies we can set these at a global level or on a class by class basis.
+
+```php 
+return [
+    // Global 
+    '*' => [
+        'substitutions' => [
+            \wpdb => $GLOBALS['wpdb']
+        ]
+    ],
+
+    // Class by class
+    Some_Special_Case::class => [
+        'substitutions' => [
+            \wpdb => new wpdb(..connection details..)
+        ]
+    ]
+];
+```
+The above will then allow the passing of wpdb as a dependency, for all classes they will receive the same global instance used throughout WordPress. Unless you are using calling the **Some_Special_Case** class, in which case a custom instance of **WPDB** will be used (this allows you to have custom tables, for some use cases).
+
+> By default the Plugin Framework will have the global wpdb rule applied. 
+
+**You can only use instances of objects as part of a substitutions statment and only class names can be used with instanceOf**
+
