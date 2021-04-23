@@ -248,3 +248,45 @@ $class->method_b(true);
 $class->method_c();
 return $class; // This is what will be injected!
 ```
+
+> For more details on construction object before passing them see the official [DICE documentation](https://r.je/dice).
+
+## Constructor Properties
+
+All of the examples above are bassed on passing objects to objects, this however can not be done using other scalar types such as string, arrays etc. If your depenedency has constuctor properties that need to be passed, you have a couple options.
+
+```php 
+<?php // file:config/depenencies.php
+return [
+    // Global pre constructed
+    '*' => [
+        'substitutions' => [
+            \Some_Service::class => new Some_Service('prop1', 2, null)
+        ]
+    ],
+
+    // Define Global constructor properties to be passed when called.
+    Some_Service::class => [
+        'constructParams' => ['prop3', 12, [999,10125]]
+    ],
+
+    // Allow for custom values on a class by class basis
+    Service_Consumer_A::class => [
+        'substitutions' => [
+            \Some_Service::class => new Some_Service('prop2', 999, [1,4,5])
+        ]
+    ],
+
+    // Using a JIT factory.
+    Service_Consumer_B::class => [
+        'substitutions' => [
+            \Some_Service::class => [
+                \Dice\Dice::INSTANCE => function() {
+                    return new Some_Service('JIT', 1, null);
+                }
+            ]
+        ]
+    ],
+
+    
+];
