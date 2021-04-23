@@ -23,7 +23,7 @@ class My_Service implements Registerable {
      */
     public function register( Loader $loader ): void{
         $loader->filter(
-            'ache_users', 
+            'achme_users', 
             function($users){
                 return array_merge( $users, $this->get_users();
             }
@@ -77,7 +77,7 @@ return array(
 Now when the App is initialised, MyService will be constructed using the DI container and have **Loader** passed into the service on the **register\(\)** method. Then once we are ready to register all, our hooks will be added and we have full access to our **File\_Cache** and **User\_Repository** within our class.
 
 ```php
-$users = apply_filters('ache_users', []);
+$users = apply_filters('achme_users', []);
 dump(count($users)); // 5 (assuming 5 are added from My_Service)
 ```
 
@@ -124,7 +124,7 @@ class Test_My_Service extends WC_Unit_Test_Case {
 
     // Create the mocked instance of our service
     // register its actions and test.
-    public function test_ache_users_filters(){
+    public function test_achme_users_filters(){
     
         // Create the service.
         $my_service = new My_Service(
@@ -141,7 +141,7 @@ class Test_My_Service extends WC_Unit_Test_Case {
         $loader->register_hooks();
         
         // We can then test our filter has been registered.
-        $users = apply_filters('ache_users', ['id' => 999, 'name' => 'Jane']);
+        $users = apply_filters('achme_users', ['id' => 999, 'name' => 'Jane']);
         $this->assertEquals('Jane', $users[0]['name']);
         $this->assertEquals('Jo', $users[1]['name']);
         $this->assertEquals('Sam', $users[2]['name']);
