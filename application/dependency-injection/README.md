@@ -261,19 +261,19 @@ return [
     // Global pre constructed
     '*' => [
         'substitutions' => [
-            \Some_Service::class => new Some_Service('prop1', 2, null)
+            \Some_Service::class => new Some_Service( 'prop1', 2, null )
         ]
     ],
 
     // Define Global constructor properties to be passed when called.
     Some_Service::class => [
-        'constructParams' => ['prop3', 12, [999,10125]]
+        'constructParams' => [ 'prop3', 12, [999,10125] ]
     ],
 
     // Allow for custom values on a class by class basis
     Service_Consumer_A::class => [
         'substitutions' => [
-            \Some_Service::class => new Some_Service('prop2', 999, [1,4,5])
+            \Some_Service::class => new Some_Service( 'prop2', 999, [1,4,5] )
         ]
     ],
 
@@ -282,11 +282,92 @@ return [
         'substitutions' => [
             \Some_Service::class => [
                 \Dice\Dice::INSTANCE => function() {
-                    return new Some_Service('JIT', 1, null);
+                    return new Some_Service( 'JIT', 1, null );
                 }
             ]
         ]
+    ],    
+];
+
+```
+> Both global methods above will work fine, choosing which one to use will all depend on how often you use the object in question. Personally we find the ```'*' => [...]``` suitable for vast majority of cases for defining the global rules.
+
+## Shared & Inherited.
+
+By defuault all rules are shared (cached) and inherited (by child objects). This not only speeds up the process of constructing complex objects, but also ensures that all child objects are constructed with the same properties as there parent.
+
+Obviously at times, its better to create new instances and not allowing instances to the shared with child objects.
+
+### Shared
+
+As mentioned this is assumed when creating rules, a cache of the instance is saved inside the container and all future requests for it are taken from the cache. Sometimes this can be undesirable if your dependencies are unqiue for each instance. We can set a dependency as not shared doing the following.
+
+```php 
+<?php // file:config/depenencies.php
+return [
+    // Global
+    Some_Thing::class => [
+        'instanceOf' => Real_Foo::class,
+        'shared'     => false,
+    ],  
+    // Class by class
+    Some_Special_Case::class => [
+        'substitutions' => [
+            Some_Thing => Mock_Foo::class
+        ]
+        'inherit' => false,
+    ]
+];
+```
+Now whenever we pass Some_Thing interface as a dependency, the instance will be freshly constructed each time.
+
+### Inherited
+
+If you was to create a child class of Parent_Class as Child_Class. You can prevent the Some_Thing rules being applied to its children. This allows for the creation of specific hirarcies of objects, each with there own depenedencies.
+
+```php 
+<?php // file:config/depenencies.php
+return [
+    Parent_Class::class => [
+        'substitutions' => [
+            Some_Thing => Real_Foo::class
+        ]
+        'inherit' => false,
     ],
 
-    
+    // Class by class
+    Child_Class::class => [
+        'substitutions' => [
+            Some_Thing => Mock_Foo::class
+        ]
+        'inherit' => true,
+    ]
 ];
+
+class Child_Class extends Parent_Class {...}
+```
+The above would see Child_Class (and any that extend from it), being injected with the Mock_Foo class, whereas the parent is passed Real_Foo. A lot of the time, its easier to just set these rules on a class, by class basis.
+
+## All Together
+
+Many of the rules defined above can be combined when defining your dependency rules. This allows the setitng of construtor properties, the calling of methods, replacing instances and defining if its shared/inherited or not.
+
+```php 
+<?php // file:config/depenencies.php
+return [
+    PDO::class => [
+        'constructParams' => [
+            'mysql:host=127.0.0.1;dbname=mydb',
+            'username',
+            'password'
+        ],
+        'shared' = true,
+        'inherit' => false,
+        'call' => [
+            ['setAttribute', [PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ]]
+        ]
+    ]
+];
+```
+The above example would allow the passing of PDO as dependency, constructred with the correct DB credentials and with attributes defined, ready to go. But would not allow any class which extends it, to have access to the same data.
+
