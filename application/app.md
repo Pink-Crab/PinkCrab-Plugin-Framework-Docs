@@ -77,7 +77,7 @@ $emailer->send();
 
 ---
 
-## App::config(string $key, ...$child): mixed ##
+## App::config(string \$key, ...$child): mixed ##
 * @param string $key The config key to call
 * @param ...string $child Additional params passed.
 * @return mixed

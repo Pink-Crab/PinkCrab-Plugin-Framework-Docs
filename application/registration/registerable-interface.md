@@ -100,11 +100,11 @@ class Events_Post_Table_Controller implements Registerable {
   public function register( Loader $loader ): void {
   
     // Hook in on the earlies hook where your data is ready.
-    $loader->action('some_later_action', function() {
+    $loader->action('plugins_loaded', function() {
       
       // Now add out our action. This is useful in woo, as the cart
       // is not ready until plugins_loaded.
-      add_action( 'init' [$this, 'my_method'] );
+      add_action( 'some_later_action' [$this, 'my_method'] );
     }
   }
 }

@@ -99,8 +99,8 @@ $metabox->view = function($post, $args){
 
 use Some\Namespace\My_Service;
 use PinkCrab\Core\Interfaces\Registerable;
-use PinkCrab\Modules\Registerables\MetaBox;
-use PinkCrab\Core\Services\Registration\Loader
+use PinkCrab\Registerables\MetaBox;
+use PinkCrab\Loader\Loader;
 
 class MetaBox_Controller implements Registerable {
     
@@ -171,7 +171,7 @@ class Some_Controller {
     protected function register_metabox(Loader $loader){
         MetaBox::normal('my_metabox_key_1')
             ->view_vars(['user' => get_current_user_id(), 'foo' => 'bar'])
-            ->set_renderable($this->view)
+            ->set_renderable($this->view->engine) // App::view()->engine() can also be used
             ->render('path/to/template/')
             ->register($loader);
     }
