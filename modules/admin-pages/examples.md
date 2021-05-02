@@ -68,13 +68,14 @@ class My_Admin_Group extends Menu_Page_Group {
 		$children->add( $this->child_page_one() );
 
 		// Using the factory method in the Child Page Collection, 
-		// you can do it chained as all methods are fluent.
-		$page_two = $children->create_child_page( 'Page Two', 'page_2' )
-				->title( 'Page Title for Page Two' )
-				->view_template( 'admin/page/page-two' )
-				->view_data( $this->my_other_service->page_two_data() );
-				
-		$children->add( $page_two	);
+		$children->add_child_page(
+			function( Page_Factory $factory ): Page {
+				return $factory->child_page('Page Two', 'page_2')
+					->title(  'Page Title for Page Two')
+					->view_template( 'admin/page/page-two')
+					->view_data( $this->my_other_service->page_two_data() );
+			}
+		);
 
 		return $children;
 	}

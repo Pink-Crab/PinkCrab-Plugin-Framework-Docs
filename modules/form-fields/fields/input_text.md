@@ -57,7 +57,7 @@ Input_Text::create('input_text')->render();
 Input_Text::create( 'basic_text' )->render()
 ```
 
-![](../../.gitbook/assets/input_text_simple.png)
+![](../../../.gitbook/assets/input_text_simple.png)
 
 ```php
 Input_Text::create( 'api_key' )
@@ -70,5 +70,5 @@ Input_Text::create( 'api_key' )
 	->render();
 ```
 
-![](../../.gitbook/assets/input_text_detailed.png)
+![](../../../.gitbook/assets/input_text_detailed.png)
 

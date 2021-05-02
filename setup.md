@@ -1,5 +1,5 @@
 ---
-description: Required and options files
+description: Required files
 ---
 
 # Setup \(Files\)

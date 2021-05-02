@@ -79,7 +79,7 @@ public function set_child_pages( Page_Collection $children ): Page_Collection {
 		$child_page = Page::create_page('child_key1', 'Menu Title', 'parent_key' );
 		$child_page->title('Child Page 1 Page Title');
 		$child_page->view_template('group/child1');
-		$child_page->view_data(['key' => 'value pairs', 'key2' => true']);
+		$child_page->view_data(['key' => 'value pairs', 'key2' => true]);
 		
 		// Add page to collection.
 		$children->add($child_page);
@@ -92,12 +92,13 @@ The Page\_Collection comes with a nice little child page factory included. This 
 
 ```php
 public function set_child_pages( Page_Collection $children ): Page_Collection {		
-		$children->add(
-				// No need to pass parent, as autofilled.
-				$children->create_child_page('child_key1', 'Menu Title')
-						->title('Child Page 1 Page Title')
-						->view_template('group/child1')
-						->view_data(['key' => 'value pairs', 'key2' => true'])
+		$children->add_child_page(
+			function( Page_Factory $factory ): Page {
+				return $factory->child_page('child_key2', 'Menu Title')
+					->title('Child Page 2 Page Title')
+					->view_template('group/child2')
+					->view_data(['key' => 'value pairs', 'key2' => true]);
+			}
 		);
 		
 		return $children;
@@ -116,18 +117,16 @@ This method is fired before the Group has been added to the loader. You can use 
 
 ## Injecting Additional Dependencies
 
-Obviously injecting dependencies into your Group will help you in populating your pages. The constructor currently has 3 dependencies already injected, so if you extend the constructor, ensure these are passed it the parent.
+Obviously injecting dependencies into your Group will help you in populating your pages. The constructor currently requires App to be passed as a dependency, so ensure it is passed to the parent construtor if injecting additional dependencies.
 
 ```php
 	public function __construct(
 		My_Service $my_service,
 		My_Other_Service $my_other_service,
-		App $app,
-		Renderable $view,
-		Page_Validator $page_validator
+		App $app
 	) {
 		// Ensure parent constructor is populated and ran as expected!
-		parent::__construct( $app, $view, $page_validator );
+		parent::__construct( $app);
 
 		$this->my_service       = $my_service;
 		$this->my_other_service = $my_other_service;

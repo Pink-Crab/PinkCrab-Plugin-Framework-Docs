@@ -28,16 +28,12 @@ return array(
 	// Can be set to any path.
 	PHP_Engine::class => array(
 		'shared'          => true,
-		'constructParams' => array( App::config( 'path', 'view' ) ),
+		'constructParams' => array( 'path/to/to/templates' ),
 	),
 );
 
 // These are included in the plugin boilerplate as are.
 ```
-
-{% hint style="info" %}
-Both **$app** & **$config** should already be availiable in the files function scope if included from _bootstrap.php_ file, so could be used over the **App::xx** singleton.
-{% endhint %}
 
 ### Data
 

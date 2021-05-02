@@ -9,7 +9,7 @@ description: >-
 This class has access to a repository for getting data from a db, filesystem, remote api and also access to a custom cache instance.
 
 ```php
-class My_Service implements Registerable {
+class User_Controller implements Registerable {
     protected $repository;
     protected $cache;
     
@@ -52,7 +52,7 @@ We need to declare a few rules for the dependency injection and also to ensure *
 
 return array(
     .....
-    My_Service::class => array(
+    User_Controller::class => array(
         'substitutions' => array(
             Cache::class => new File_Cache('my/user/cache/path', '.do'),
             Repository::class => User_Repository::class
@@ -67,7 +67,7 @@ return array(
 
 return array(
     ......
-    My_Service::class,
+    User_Controller::class,
     ......
 );
 ```
@@ -78,7 +78,7 @@ Now when the App is initialised, MyService will be constructed using the DI cont
 
 ```php
 $users = apply_filters('achme_users', []);
-dump(count($users)); // 5 (assuming 5 are added from My_Service)
+dump(count($users)); // 5 (assuming 5 are added from User_Controller)
 ```
 
 Testing
@@ -120,24 +120,24 @@ class Mock_File_Cache implements Cache{
 // Then in your tests.
 use PinkCrab\Core\Services\Registration\Loader;
 
-class Test_My_Service extends WC_Unit_Test_Case {
+class Test_User_Controller extends WC_Unit_Test_Case {
 
     // Create the mocked instance of our service
     // register its actions and test.
     public function test_achme_users_filters(){
     
         // Create the service.
-        $my_service = new My_Service(
+        $user_controller = new User_Controller(
             new Mock_User_Repository(),
             new Mock_File_Cache(null) 
             // Returns null from cache, so calls from user repository is used.
         );
         
-        // Create new instance of Loader, do not use Loader::boot() in tests.
+        // Create new instance of Loader.
         $loader = new Loader();
         
         // Add all hooks & register them.
-        $my_service->register($loader);
+        $user_controller->register($loader);
         $loader->register_hooks();
         
         // We can then test our filter has been registered.

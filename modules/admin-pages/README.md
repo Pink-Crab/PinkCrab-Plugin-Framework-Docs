@@ -6,13 +6,11 @@ description: Registerable based module for creating Admin Pages and Groups.
 
 The PinkCrab framework package for creating admin pages/groups using inheritance very easily from plugins and themes.
 
- [![Open Source Love](https://badges.frapsoft.com/os/mit/mit.svg?v=102)](https://github.com/ellerbrock/open-source-badge/)![ ](https://img.shields.io/badge/PHPStan-level%208-brightgreen.svg?style=flat) ![ ](https://img.shields.io/badge/PHPUnit-PASSING-brightgreen.svg?style=flat) ![ ](https://img.shields.io/badge/PHCBF-WP_Extra-brightgreen.svg?style=flat)
-
 ### Why?
 
-Creating many of WordPress's internal fixtures can sometimes be very verbose with large arrays of values that do not throw errors if incorrect.
+Creating many of WordPress's internal fixtures can sometimes be very verbose with large arrays of values which do not throw errors if incorrect.
 
-The PinkCrab Registerables module provides a small selection of Abstract Classes that can be extended and added to the registration system.
+The PinkCrab Registerables module provides a small selection of Abstract Classes which can be extended and added to the registration system.
 
 ### Dependencies
 
@@ -64,32 +62,27 @@ class My_Admin_Group extends Menu_Page_Group {
     public $key        = 'my_admin_group';
     public $menu_title = 'Admin Group';
 
-    /**
-     * Creats an instance of a Menu_Page_Group injected with our
-     * needed additional dependencies.
-     *
-     * The intial $app, $view & $page_validator must be passed
-     * to the parent constructor.
-     *
-     * @param \My_Plugin\Something\My_Service $my_service
-     * @param \My_Plugin\Something\My_Other_Service $my_other_service
-     * @param \PinkCrab\Core\Application\App $app
-     * @param \PinkCrab\Core\Interfaces\Renderable $view
-     * @param \PinkCrab\Admin_Pages\Page_Validator $page_validator
-     */
-    public function __construct(
-        My_Service $my_service,
-        My_Other_Service $my_other_service,
-        App $app,
-        Renderable $view,
-        Page_Validator $page_validator
-    ) {
-        // Ensure parent constructor is populated and ran as expected!
-        parent::__construct( $app, $view, $page_validator );
+	/**
+	 * Creats an instance of a Menu_Page_Group injected with our
+	 * needed additional dependencies.
+	 *
+	 * The intial $app must be passed to the parent constructor.
+	 *
+	 * @param \My_Plugin\Something\My_Service $my_service
+	 * @param \My_Plugin\Something\My_Other_Service $my_other_service
+	 * @param \PinkCrab\Core\Application\App $app
+	 */
+	public function __construct(
+		My_Service $my_service,
+		My_Other_Service $my_other_service,
+		App $app
+	) {
+		// Ensure parent constructor is populated and ran as expected!
+		parent::__construct( $app );
 
-        $this->my_service       = $my_service;
-        $this->my_other_service = $my_other_service;
-    }
+		$this->my_service       = $my_service;
+		$this->my_other_service = $my_other_service;
+	}
 
     /**
      * Register the parent/main page.
@@ -100,60 +93,62 @@ class My_Admin_Group extends Menu_Page_Group {
     public function set_parent_page( Page $page ): Page {
         return $page
             ->title( 'Inital Page for the group title' )
-            ->view_template( 'admin/page/page-index' )
-            ->view_data( $this->my_other_service->page_two_data() );
+            ->view_template( 'admin/page/page-one' )
+            ->view_data( $this->my_other_service->page_one_data() );
     }
 
     /**
-     * Register all child pages.
-     *
-     * @param Page_Collection $children
-     * @return Page_Collection
-     */
-    public function set_child_pages( Page_Collection $children ): Page_Collection {
+	 * Register all child pages.
+	 *
+	 * @param Page_Collection $children
+	 * @return Page_Collection
+	 */
+	public function set_child_pages( Page_Collection $children ): Page_Collection {
 
-        // Populate from a seperate method, returns the populated page.
-        $children->add( $this->child_page_one() );
+		// Populate from a seperate method, returns the populated page.
+		$children->add( $this->child_page_one() );
 
-        // Using the factory method in the Child Page Collection, 
-        // you can do it chained as all methods are fluent.
-        $page_two = $children->create_child_page( 'Page Two', 'page_2' )
-                ->title( 'Page Title for Page Two' )
-                ->view_template( 'admin/page/page-two' )
-                ->view_data( $this->my_other_service->page_two_data() );
+		// Using the factory method in the Child Page Collection, 
+		$children->add_child_page(
+			function( Page_Factory $factory ): page {
+				return $factory->child_page( 'Page Two', 'page_2' )
+					->title( 'Page Title for Page Two' )
+					->view_template( 'admin/page/page-two' )
+					->view_data( $this->my_other_service->page_two_data() );
+			}
+		);
 
-        $children->add( $page_two    );
 
-        return $children;
-    }
+		return $children;
+	}
 
-    /**
-     * Holds the configuration for our child page.
-     *
-     * @return Page
-     */
-    public function child_page_one(): Page {
+	/**
+	 * Holds the configuration for our child page.
+	 *
+	 * @return Page
+	 */
+	public function child_page_one(): Page {
+		
+		// Create the page using the static constructor for a Page
+		// Arguments = age key/slug, menu title & parent key/slug
+		$page = Page::create_page( 'page_one', 'Page One', $this->key );		
 
-        // Create the page using the static constructor for a Page
-        // Arguments = age key/slug, menu title & parent key/slug
-        $page = Page::create_page( 'page_one', 'Page One', $this->key );        
+		$page->title( 'Page Title for Page One' );
+		$page->position( 3 ); // Show last
 
-        $page->title( 'Page Title for Page One' );
-        $page->position( 3 ); // Show last
+		// Set the view details
+		$page->view_template( 'admin/page/page-one' );
+		$page->view_data(
+			array(
+				'header'   => $this->my_service->pages->header,
+				'sections' => $this->my_service->pages->get_sections( 'page_one' ),
+				'footer'   => $this->my_service->pages->footer,
+				'user'     => \get_current_user(),
+			)
+		);
 
-        // Set the view details
-        $page->view_template( 'admin/page/page-one' );
-        $page->view_data(
-            array(
-                'header'   => $this->my_service->pages->header,
-                'sections' => $this->my_service->pages->get_sections( 'page_one' ),
-                'footer'   => $this->my_service->pages->footer,
-                'user'     => \get_current_user(),
-            )
-        );
-
-        return $page;
-    }
+		return $page;
+	}
 }
 ```
 

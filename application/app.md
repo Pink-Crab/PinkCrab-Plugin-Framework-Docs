@@ -77,7 +77,7 @@ $emailer->send();
 
 ---
 
-## App::config(string $key, ...$child): mixed ##
+## App::config(string \$key, ...$child): mixed ##
 * @param string $key The config key to call
 * @param ...string $child Additional params passed.
 * @return mixed
@@ -166,3 +166,11 @@ Sets the hook loader used by Registerable to register all hooks subscriptions.
 * @return App
 * @throws App_Initialization_Exception Code 7 If Registration_Service has already been set.
 Sets the internal Registration service, which takes in the array of classes and passes to every middleware declared.
+
+---
+
+## $app->registration_middleware( Registration_Middleware $middleware ): App
+* @param PinkCrab\Core\Interfaces\Registration_Middleware $middleware
+* @return App
+* @throws App_Initialization_Exception Code 3 Must only be called after the registration service has been set.
+Allows the adding of additional **Regisistration_Middleware's**. Must be run before `boot()` is called.
