@@ -1,4 +1,4 @@
----
+****---
 description: >-
   The PinkCrab loader allows for actions, filters, shortcodes and Ajax calls to
   be hooked into wordpress.
@@ -173,7 +173,7 @@ $loader->front_filter(
 > @param int $priority The priority of the hook call. \(Defaults to 10\)  
 > @return void
 
-Actions can be removed using the loader, this works differently from calling remove\_action\(\) in the way it handles classes. You can remove a hook registered via a class in another plugin or theme using only the class name \(for either instantiated or static methods\). This allows for the removal of hooks without needing to recreate the initial class \(especially if someone filled the constructor with hook calls 😠\)
+Actions can be removed using the loader, this works differently from calling standard remove\_action\(\), especially in the way it handles classes. You can remove a hook registered via a class in another plugin or theme using only the class name \(for either instantiated or static methods\). This allows for the removal of hooks without needing to recreate the initial class \(especially if someone filled the constructor with hook calls and other functionality which shouldnt be run again without causing issues 😠\)
 
 ```php
 $loader->remove_action( 'the_title', [ new Some_Class(), 'the_method' ], 10 );
@@ -194,7 +194,7 @@ $loader->remove_action( 'some_action', 'some_global_function', 20 );
 Filters can be removed using the loader, works the same as the remove\_action\(\) above in regards classes.
 
 ```php
-$loader->remove_filter( 'the_title', [ new Some_Class(), 'filter_title' ]);
+$loader->remove_filter( 'the_title', [ Some_Class::class, 'filter_title' ]);
 
 // or 
 

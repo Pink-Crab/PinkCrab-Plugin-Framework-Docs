@@ -88,8 +88,8 @@ return array(
 	// So long as the method returns itself (return $this;)
 	My_Service_A::class => array(
 		'substitutions' => array(
-				Cache::class => (new File_Cache('some/path', 'do'))->maybe_create_dir(),
-			),
+			Cache::class => (new File_Cache('some/path', 'do'))->maybe_create_dir(),
+		),
 	),
 );
 ```

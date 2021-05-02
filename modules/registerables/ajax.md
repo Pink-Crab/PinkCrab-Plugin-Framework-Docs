@@ -153,7 +153,6 @@ URL Form Encoded    `(array) $request->getParsedBody();`      //array
  * @return ResponseInterface
  */
 public function callback( ResponseInterface $response ): ResponseInterface {
-	
 	// Get request (do some validation & sanitization!
 	$request = $this->request->getQueryParams();
 	
@@ -171,10 +170,10 @@ By default, the **Response** is returned with a **200** status and **JSON** head
 
 ```php
 public function callback( ResponseInterface $response ): ResponseInterface {
-		return $response->withHeader( 'Encoding', 'gzip,deflate' )
-				->withBody( HTTP_Helper::stream_from_scala( $data )	)				
-		 		->withStatus(418);
-	}
+	return $response->withHeader( 'Encoding', 'gzip,deflate' )
+		->withBody( HTTP_Helper::stream_from_scala( $data )	)				
+		->withStatus(418);
+}
 ```
 
 > You can cut the **ResponseInterface** out altogether if you want and just the wp\__send\__json\(\) method.

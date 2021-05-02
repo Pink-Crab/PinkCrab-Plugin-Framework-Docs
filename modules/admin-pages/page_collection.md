@@ -38,45 +38,32 @@ This is how pages are added within the set\_child\_pages\(\) method of the Group
 
 We have a couple of factory methods on this collection, these can be used to create pages that are already bound to the group. Without the need to pass the group key.
 
-### public function create\_child\_page\(string $menu\_title, string $key \): Page
+### public function add_child_page( Closure $create ): self
 
-> @param string $menu\_title  
-> @param string $key  
-> @return PinkCrab\Admin\_Pages\Page
+> @param Closure(Page_Factory): Page $create  
+> @return self
 
-This creates a partially populated Page with its parent key bound to the group its self.
-
-```php
-$page = $collection->create_child_page('Sub Page', 'sub_page_1');
-$page->title('Set as normal');
-$page->view_tempalte('path');
-$page->view_data([.....]);
-
-// Or fluently
-$page = $collection->create_child_page('Sub Page', 'sub_page_1')
-    ->title('Set as normal')
-    ->view_tempalte('path')
-    ->view_data([.....]);
-```
-
-
-
-### public function create\_child\_acf\_page\(string $menu\_title, string $key \): Page
-
-> @param string $menu\_title  
-> @param string $key  
-> @return PinkCrab\Admin\_Pages\Page
-
-This creates a simple ACF options page, as a child in your group. See the ACF page docs for more details.
+Alows the passing of a closure for registering a child page. 
 
 ```php
-$page = $collection->create_child_page('Sub Page', 'sub_page_1');
-$page->title('Set as normal');
+$collection->add_child_page(function(Page_Factory $factory): Page {
+	return $factory->child_page('child_key2', 'Menu Title')
+		->title('Child Page 2 Page Title')
+		->view_template('group/child2')
+		->view_data(['key' => 'value pairs', 'key2' => true])
+        ->position(2)
+        ->capability('manage_options');
+	}
+);
 
-// Or fluently
-$page = $collection->create_child_page('Sub Page', 'sub_page_1')
-    ->title('Set as normal');
+// Nicer in php7.4 syntax
+$collection->add_child_page(fn( Page_Factory $factory): Page => $factory
+    ->child_page('child_key2', 'Menu Title')
+	->title('Child Page 2 Page Title')
+	->view_template('group/child2')
+	->view_data(['key' => 'value pairs', 'key2' => true])
+    ->position(2)
+    ->capability('manage_options')
+);
 ```
-
-
-
+			

@@ -38,7 +38,7 @@ Input_Text::create( 'my_input' )
 
 ### Field Types
 
-* [Text](https://glynn-quelch.gitbook.io/pinkcrab/modules/modules/form-fields/input_text)
+* [Text](./fields/input_text.md)
 * Number
 * Password
 * Email
@@ -67,7 +67,7 @@ Input_Text::create('test')->as_string() // Returns as HTML string.
 
 ### Field Creation
 
-All of our Form Fields has protected `__construct`'ors and need to be created using the **create\(\)** named constructor.
+All of our Form Fields have protected `__construct`ors and need to be created using the **create\(\)** named constructor.
 
 ```php
 Input_Text::create('name')->render();

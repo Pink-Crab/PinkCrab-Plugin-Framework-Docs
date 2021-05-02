@@ -147,7 +147,7 @@ Input_Password::create( 'password' )
 > @param array&lt;key, value&gt; $attributes Array of attributes   
 > @return static
 
-Unlike **attribute\(\)**, **set\_attribute\(\)** will set mutliple attributes in a single call. Care should be taken as this repalces the current attribute value, so could overwrite the current value or other preset values.
+Unlike **attribute\(\)**, **set\_attributes\(\)** will set mutliple attributes in a single call. Care should be taken as this repalces the current attribute value, so could overwrite the current value or other preset values.
 
 ```php
 Input_Text::create( 'red_text' )

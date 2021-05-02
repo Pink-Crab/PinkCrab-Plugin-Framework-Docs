@@ -8,9 +8,7 @@ description: >-
 
 ## Autocomplete / Trait
 
-> `namespace PinkCrab\Form_Fields\Traits;  
->   
-> trait Autocomplete { ... }`
+> trait PinkCrab\Form_Fields\Traits\Autocomplete { ... }`
 
 ### autocomplete\(\)
 
