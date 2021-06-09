@@ -58,6 +58,7 @@ While you can extend Perique to do anything you need, we also have a collection 
 * **BladeOne** - Out of the box we only offer a basic PHP based view engine, but this module allows the use of Blade via the BladeOne package, along with its BladeOne HTML module included. 
 * **Hook_Subscriber** - Sometimes creating entire Controllers is a bit excessive, especially if you only want to trigger on a single action. The Hook_Subscriber modules allows you to create single subscribers with the ability to delay the registration of callbacks to specific actions. (Read more)
 
-While these modules are created especially for the Perique Framework, we also have a selection of other libraries which are usefule
 ## License 
 
+MIT License
+[http://www.opensource.org/licenses/mit-license.html](http://www.opensource.org/licenses/mit-license.html)
