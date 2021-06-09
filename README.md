@@ -1,79 +1,63 @@
----
-description: >-
-  The core components of the PinkCrab framework, a small and highly extendable
-  framework for building WordPress Plugins and Themes.
----
+![logo](.gitbook/assets/1500x500.jpeg "Pink Crab")
 
-# PinkCrab Perique Framework::Core V1.0.0
+# Perique Framework 
 
-## Why?
+The Perique Framework offers a highly extendable platform for building WordPress Plugins and themes in a MVC inspired style. At its heart the base of Perique is a lightweight system that allows developers to build their Plugins with the use of Composer Packages with the power of Dependency Injection and an internal registration process which removes the need for hook files and less than ideal static **Plugin::init()** methods.
 
-WordPress is a powerful tool for building a wide range of websites, but due to its age and commitment to backwards compatibility it's often frustration to work with using more modern tools.
+## Core Components
 
-Perique allows the creation of plugins, themes and MU libraries for use on more complex websites.
+At its heart the Perique Framework offers a DI Container, Hook Loader, Custom class loader, View and Config. These can be used be custom plugins in any style or structure you wish.
 
-The Core only provides access to the Hook_Loader, Registration, DI (DICE Dependency Injection Container), App_Config and basic (native) PHP render engine for view.
+* ### DI Container (DICE)
+* ### Hook Loader
+* ### Registration (class loader)
+* ### View
+* ### App Config
 
-## Extendable
+## Setup 
 
-We have a varied range of additional modules and dependencies. With use of these, you can easily work with Public and Admin api's in a more object oriented fashion. Extensions provide wrappers around creating Post Types, PSR Compliant (transient and file) caching, Blade templating, WPDB Migrations, Admin and Settings page creation.
+Setup is fairly easy, you can make use of out boilerplate packages or just roll the framework into your own Plugin or Theme using composer  
+```$ composer require xx```
 
-On top of our collection of Extensions various hooks are fired during the initialisation of the plugins App boot process. This allows for hooking additional plugins to a single core App, further separating concerns.
+Read the full setup instruction here
 
-## Dependency Injection, Hookable & Hook Loader
+## Configuration
 
-As most code you are likely to write for WordPress is based off Action and Filter calls. The Plugin Framework is built around a Registration process which used to define hook subscriptions and trigger many of WordPress's registerable features (Post Types, Menu Pages, Enqueued Scripts and Styles).
+The core Application can take 3 configuration arrays. You can define these as you wish, either directly in your plugin.php file or by using external files. Throughout these docs we will be using example of using external files held in `config/{file}.php` but you are free to do this however works for you.
 
-Classes can be stacked up and all processed at initialisation. Through the use of both Dependency Injection and extendable middleware which each class to passed though. You are able to create various Controllers, Services, Factories with DI.
+Read configuration guide here
 
-```php
-<?php
+## Extendability
 
-class Post_Controller implements Hookable {
+While out of the box Perique comes with DICE for Dependency Injection and a basic PHP View Engine, these can replaced to make use of Blade, Mustache, Pimple or any other packages. We make use of various Interfaces throughout the Framework, so its just a case of writing a bridge to use any implementation you wish. 
 
-    protected $post_repository;
-    protected $some_service;
+Click here to find more about writing custom implementations for internal interfaces
 
-    public __construct(Post_Repository $post_repository, Some_Service $some_service){...}
+On top of these low level changes, Perique makes use of custom **Registration_Middleware** allowing you to hook in the initial class loader and run additional processes. Out of the box we include the **Hookable** interface which allows for the creation of controllers, but we also offer additional Modules and its easy to create your own implementations too.
 
-    public function register(Hook_Hook_Loader $loader): void {
-        $loader->front_filter('the_title', [$this, 'modify_title'], 10, 2);
-        $loader->front_action('some_action', [$this, 'do_something']);
-    }
+Click here for details on the **Registration** process and extending via **Registration Middleware**.
 
-    public function modify_title(string $title, int $post_id): string {
-        if($this->post_repository->can_modify_title($post_id)){
-            $title = $this->some_service->something_post_title($post_id);
-        }
-        return $title;
-    }
+As this is WordPress we are working with, we have a number of hooks (Actions and Filters) which are fired during the initialisation process. This allows you to create a **CORE** application which other plugins can hook into.
 
-    public function do_something(WP_Post $post): void {
-        if( $this->post_repository->can_do_something($post->ID) ){
-            $this->some_service->render_something($post);
-        }
-    }
-}
-```
-> Makes use of the Hookable interface & middleware. This ensures ```register()``` is passed the current **Hook Loader**
+Click here for more information about the hooks we use.
 
-## Simple Setup
+## Dependencies
 
-While this is primarily made for creating plugins, you can easily use this for themes and MU functionality. All you need is access to composer and to add the core package. 
+The Core of Perique is very slim and makes use of a few dependencies either our own or via . For the sake of completeness these Dependencies are documented here.
 
-```bash
-$ composer require pinkcrab/plugin-framework 
-```
+* **Hook_Loader** - The primary loader used to registering all Actions and Filters throughout the framework (Read more)
+* **DICE** - An externally developed, light weight Dependency Injection Container created by [Tom Butler](https://r.je/dice). (Read More) ([DICE GitHub](https://github.com/Level-2/Dice))
+* **PSR11 (Container)** - The PHP-FIG interface for Containers, we use this as a base to our own DI_Container interface ([Read More](https://www.php-fig.org/psr/psr-11/))
 
-Once you have added all of you additional modules, you can bootstrap the application. This can be done on ```plugin.php``` or your themes ```functions.php```. Three additional files are required, these should return an array containing the setup details.
+## Modules 
 
-```php 
-require_once __DIR__ '/vendor/autoload.php';
+While you can extend Perique to do anything you need, we also have a collection of Modules created to give access commonly used functionality. In the years we have been using Perique (and predecessors), these are modules we have used over and over. In previous versions, these modules were a part of the core package.
 
-( new App_Factory() )->with_wp_dice( true )
-	->di_rules( require __DIR__ . '/config/dependencies.php' )
-	->app_config( require __DIR__ . '/config/settings.php' )
-	->registration_classes( require __DIR__ . '/config/registration.php' )
-	->boot();
-```
-> For a detailed setup guide please [see here](setup.md)
+* **Registerables** - This small module gives access easy to create, object based implementations for Post_Types, Taxonomies, Meta and Metaboxes. (Read more)
+* **Ajax** Ajax calls are an integral part of most Wordpress projects and can be verbose to create every time. This module allows you to create simple and PSR7 compliant Ajax calls using WP_Ajax (Read more)
+* **BladeOne** - Out of the box we only offer a basic PHP based view engine, but this module allows the use of Blade via the BladeOne package, along with its BladeOne HTML module included. 
+* **Hook_Subscriber** - Sometimes creating entire Controllers is a bit excessive, especially if you only want to trigger on a single action. The Hook_Subscriber modules allows you to create single subscribers with the ability to delay the registration of callbacks to specific actions. (Read more)
+
+While these modules are created especially for the Perique Framework, we also have a selection of other libraries which are usefule
+## License 
+
