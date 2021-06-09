@@ -77,7 +77,7 @@ $schema = new Schema('table', function(Schema $schema): void{
 
 Gets the table that is used in the Foreign_Key reference data. If this has not been set, it will return null and should throw an exception if passed to a builder without being defined. 
 
-This is maninly used intnerally within a Builder
+This is maninly used internally within a Builder
 
 ```php
 $f_key = new Foreign_Key('id', 'id_key') 
@@ -113,7 +113,7 @@ $schema = new Schema('table', function(Schema $schema): void{
 
 Gets the columns that is used in the Foreign_Key reference data. If this has not been set, it will return null and should throw an exception if passed to a builder without being defined. 
 
-This is maninly used intnerally within a Builder
+This is maninly used internally within a Builder
 
 ```php
 $f_key = new Foreign_Key('id', 'id_key') 

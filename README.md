@@ -4,39 +4,39 @@ description: >-
   framework for building WordPress Plugins and Themes.
 ---
 
-# PinkCrab Framework::Core V0.4.0
+# PinkCrab Perique Framework::Core V1.0.0
 
 ## Why?
 
-WordPress is powerful tool for building a wide range of website, but due to its age and commitment to backwards compatibility. Its often fustrating to work with using more modern tools.
+WordPress is a powerful tool for building a wide range of websites, but due to its age and commitment to backwards compatibility it's often frustration to work with using more modern tools.
 
-The PinkCrab Framework allows the creation of Plugins, Themes and MU Libraries for use on more complex websites.
+Perique allows the creation of plugins, themes and MU libraries for use on more complex websites.
 
-The Core only provides access to the Loader, Registration, Collection, DI (DICE Dependency Injection Container), App_Config and basic (native) PHP render engine for view.
+The Core only provides access to the Hook_Loader, Registration, DI (DICE Dependency Injection Container), App_Config and basic (native) PHP render engine for view.
 
 ## Extendable
 
-We have a varied range of additional modules and dependencies. With use of these, you can easily work with Public and Admin api's in a more object oriented fashion. Extensions provide wrappers around creating Post Types, PSR Complient (transient and file) caching, Blade templating, WPDB Migrations, Admin and Settings page creation.
+We have a varied range of additional modules and dependencies. With use of these, you can easily work with Public and Admin api's in a more object oriented fashion. Extensions provide wrappers around creating Post Types, PSR Compliant (transient and file) caching, Blade templating, WPDB Migrations, Admin and Settings page creation.
 
-On top of our collection of Extensions various hooks are fired during the intialisation of the plugins App boot process. This allows for hooking additional plugins to a single core App, further seperating conserns.
+On top of our collection of Extensions various hooks are fired during the initialisation of the plugins App boot process. This allows for hooking additional plugins to a single core App, further separating concerns.
 
-## Dependency Injection, Registration & Hook Loader
+## Dependency Injection, Hookable & Hook Loader
 
 As most code you are likely to write for WordPress is based off Action and Filter calls. The Plugin Framework is built around a Registration process which used to define hook subscriptions and trigger many of WordPress's registerable features (Post Types, Menu Pages, Enqueued Scripts and Styles).
 
-Classes can be stacked up and all processed at initalisation. Through the use of both Dependency Injection and extendable middleware which each class to passed though. You are able to create various Controllers, Services, Factories with DI.
+Classes can be stacked up and all processed at initialisation. Through the use of both Dependency Injection and extendable middleware which each class to passed though. You are able to create various Controllers, Services, Factories with DI.
 
 ```php
 <?php
 
-class Post_Controller implements Registerable {
+class Post_Controller implements Hookable {
 
     protected $post_repository;
     protected $some_service;
 
-    public __cosntruct(Post_Repository $post_repository, Some_Service $some_service){...}
+    public __construct(Post_Repository $post_repository, Some_Service $some_service){...}
 
-    public function register(Loader $loader): void {
+    public function register(Hook_Hook_Loader $loader): void {
         $loader->front_filter('the_title', [$this, 'modify_title'], 10, 2);
         $loader->front_action('some_action', [$this, 'do_something']);
     }
@@ -55,7 +55,7 @@ class Post_Controller implements Registerable {
     }
 }
 ```
-> Makes use of the Renderable interface & middleware. This ensures ```register()``` is passed the current **Hook Loader**
+> Makes use of the Hookable interface & middleware. This ensures ```register()``` is passed the current **Hook Loader**
 
 ## Simple Setup
 
@@ -65,7 +65,7 @@ While this is primarily made for creating plugins, you can easily use this for t
 $ composer require pinkcrab/plugin-framework 
 ```
 
-Once you have added all of you additional modules, you can bootstrap the application. This can be done on ```plugin.php``` or your themese ```functions.php```. Three additional files are required, these should return an array containing the setup details.
+Once you have added all of you additional modules, you can bootstrap the application. This can be done on ```plugin.php``` or your themes ```functions.php```. Three additional files are required, these should return an array containing the setup details.
 
 ```php 
 require_once __DIR__ '/vendor/autoload.php';

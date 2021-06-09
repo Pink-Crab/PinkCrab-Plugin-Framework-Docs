@@ -23,17 +23,17 @@ Before the app is booted, this hook is fired giving access to DI_Container, Load
 ```php
 
 /**
- * Allows for the modification of all intneral states before the apps Registation process is run.
+ * Allows for the modification of all internal states before the apps Registration process is run.
  * 
  * @param App_Config $app_config  Gives access to the internal App_Config
- * @param Loader $loader          The hook loader used during registation.
- * @param DI_Container $container The DI Container can be used to defined new rules and consturct objects
+ * @param Hook_Loader $loader     The hook loader used during registration.
+ * @param DI_Container $container The DI Container can be used to defined new rules and construct objects
  * @return void
  */
 add_action(
     PinkCrab\Core\Application\Hooks::APP_INIT_PRE_BOOT, 
-    function(App_Config $app_config, Loader $loader, DI_Container $container ): void {        
-        // Alter DI Rules at runtime, based on some conditonal.
+    function(App_Config $app_config, Hook_Loader $loader, DI_Container $container ): void {        
+        // Alter DI Rules at runtime, based on some conditional.
         if(! $container->has(Some_Interface::class)){
             $container->addRules([
                 Some_Interface::class => [
@@ -57,23 +57,23 @@ Once the Application's internal states has been populated with all DI Rules, Hoo
 
 ```php
 /**
- * Allows for the modification of all internal states before registation is run.
+ * Allows for the modification of all internal states before registration is run.
  * 
  * @param App_Config $app_config  Gives access to the internal App_Config
- * @param Loader $loader          The hook loader used during registation.
+ * @param Hook_Loader $loader          The hook loader used during registration.
  * @param DI_Container $container The DI Container can be used to defined new rules and consturct objects
  * @return void
  */
 add_action(
     PinkCrab\Core\Application\Hooks::APP_INIT_PRE_BOOT, 
-    function(App_Config $app_config, Loader $loader, DI_Container $container ): void {
+    function(App_Config $app_config, Hook_Loader $loader, DI_Container $container ): void {
         
         // Bind additional rules to DI Container.
         $container->addRules([External_Interface::class => 
             ['instanceOf' => Some_External_Implementation::class]
         ]);
         
-        // Add aditional hook calls, using the DI Container.
+        // Add additional hook calls, using the DI Container.
         $loader->add_action('save_post', [ $container::make( Some_External_Controller::class ), 'save_post' ] );
     },
     10,
@@ -81,4 +81,4 @@ add_action(
 );
 
 ```
-> This can also be used to override rules defined in the App itself from an additonal plugin.
+> This can also be used to override rules defined in the App itself from an additional plugin.

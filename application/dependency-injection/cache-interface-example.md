@@ -63,7 +63,7 @@ class My_Service_B extends My_Service_A{}
 Here we have 2 classes that implement the Cache interface, but both take different parameters and have methods that need to be called, to ensure they are correctly configured. To ensure this is done, we can define rules which not only pass the parameters but also call the methods.
 
 ```php
-//@file_location = config/depenecies.php
+//@file_location = config/dependencies.php
 
 return array(
   
@@ -101,7 +101,7 @@ With the 2 examples above, the first will create **File\_Cache** the same on eve
 If your class needs to call various methods for setup, these can be chained easily using.
 
 ```php
-//@file_location = config/depenecies.php
+//@file_location = config/dependencies.php
 
 return array(  
 	......

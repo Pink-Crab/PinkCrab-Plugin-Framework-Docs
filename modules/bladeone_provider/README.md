@@ -57,7 +57,7 @@ class Some_Controller implements Registerable {
         $this->view = $view;
     }
     
-    public function register(Loader $loader){ ... } 
+    public function register(Hook_Loader $loader){ ... } 
     
     public function render_view(){
         $this->view->render('some_path', ['foo' => 'bar']);
@@ -80,7 +80,7 @@ class Some_Controller implements Registerable {
         $this->php_engine = $php_engine;
     }
     
-    public function register(Loader $loader){ ... } 
+    public function register(Hook_Loader $loader){ ... } 
     
     public function render_view_with_blades(){
         // file located views/some_path.blade.php

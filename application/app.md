@@ -25,7 +25,7 @@ $app->container_config(
 );
 
 // Set hook loader
-$loader = new Loader();
+$loader = new Hook_Loader();
 $app->set_loader( $loader );
 
 // Setup registration and add registerables middleware
@@ -35,7 +35,7 @@ $app->registration_middleware(
 );
 
 // Include registration classes.
-$app->registration_classses(include __DIR__ . '/config/registration.php' );
+$app->registration_classes(include __DIR__ . '/config/registration.php' );
 
 // Set the App_Config data.
 $app->app_config( include __DIR__ . '/config/settings.php' );
@@ -51,7 +51,7 @@ Created with PinkCrab_Dice (DICE wrapper) container and including default App, A
 $app = ( new App_Factory() )->with_wp_dice( true )
 	->di_rules( require __DIR__ . '/config/dependencies.php' )
 	->app_config( require __DIR__ . '/config/settings.php' )
-	->registration_classses( require __DIR__ . '/config/registration.php' )
+	->registration_classes( require __DIR__ . '/config/registration.php' )
 	->boot();
 
 ```
@@ -67,7 +67,7 @@ The App object has a few helper methods, which can be called statically (either 
 * @return object Object instance
 * @throws App_Initialization_Exception Code 4 If app isnt intialised.
 
-```make()``` can be used to access the Apps DI Container to fully resuolve the depenecies of an object. 
+```make()``` can be used to access the Apps DI Container to fully resuolve the dependencies of an object. 
 
 ```php 
 $emailer = App::make(Customer_Emailer::class);
@@ -153,8 +153,8 @@ Sets the App_Config based on the array passed.
 
 ---
 
-## $app->set_loader( Loader $loader ): App
-* @param \PinkCrab\Loader\Loader $loader
+## $app->set_loader( Hook_Loader $loader ): App
+* @param \PinkCrab\Loader\Hook_Loader $loader
 * @return App
 * @throws App_Initialization_Exception Code 8 If Loader has already been set.
 Sets the hook loader used by Registerable to register all hooks subscriptions.

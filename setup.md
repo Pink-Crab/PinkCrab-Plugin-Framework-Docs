@@ -8,7 +8,7 @@ The framework on requires a few files to be in place, most of these are just for
 
 ## composer.json
 
-This is an example of the composer.json file used in our boilerplate. If you do not plan on running any tests \(BUT YOU SHOULD!!!!\), you can remove the require-dev packags and the script listings as they will not be needed.
+This is an example of the composer.json file used in our boilerplate. If you do not plan on running any tests \(BUT YOU SHOULD!!!!\), you can remove the require-dev packages and the script listings as they will not be needed.
 
 ```javascript
 {
@@ -95,7 +95,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 ( new App_Factory() )->with_wp_dice( true )
 	->di_rules( require __DIR__ . '/config/dependencies.php' )
 	->app_config( require __DIR__ . '/config/settings.php' )
-	->registration_classses( require __DIR__ . '/config/registration.php' )
+	->registration_classes( require __DIR__ . '/config/registration.php' )
 	->boot();
 ```
 
@@ -135,12 +135,12 @@ When adding classes you can use Class_Name::class, so long as the full namespace
 declare(strict_types=1);
 
 /**
- * List of classes passed through the registaion service.
+ * List of classes passed through the registration service.
  * See docs at https://app.gitbook.com/@glynn-quelch/s/pinkcrab/application/registration
  */
 
 return array(
-	/** Include all your classes which implemenet Registerable here */
+	/** Include all your classes which implement Registerable here */
 );
 
 ```
@@ -191,19 +191,22 @@ return array(
 		'upload_current' => $wp_uploads['url'],
 	),
 	'post_types' => array(
-		// 'your_key' => array(   // use with Config::post_types('your_key')
-		// 	'slug' => 'cpt_slug',
-		// 	'meta' => array(
-		// 		'your_key'  => 'meta_key',
-		// 	),
-		// ),
-	),
-	'taxonomies' => array(
-		// 'your_key' => array( // use with Config::taxonomies('your_key')
-		// 	'slug' => 'tax_slug',
-		// 	'term' => array(),
-		// ),
-	),
+        //'events' => 'pc_prefix_events'
+    ),
+    'taxonomies' => array(
+        //'locations' => 'pc_prefix_locations'
+    ),
+    'meta'       => array(
+        self::POST_META => array(
+            //'meta' => 'pc_prefix_meta'
+        ),
+        self::USER_META => array(
+            //'meta' => 'pc_prefix_meta'
+        ),
+        self::TERM_META => array(
+            //'meta' => 'pc_prefix_meta'
+        ),
+    ),
 	'plugin'     => array(
 		'version' => is_array( $plugin_data ) && array_key_exists( 'Version', $plugin_data )
 			? $plugin_data['Version'] : '0.1.0',

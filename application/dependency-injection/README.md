@@ -6,15 +6,15 @@ description: The PinkCrab Framework uses the DICE dependency injection container
 
 For a more detailed set of documentation on how to use DICE please visit the [Level2 GitHub](https://github.com/Level-2/Dice/) or on [Tom Butler \(Authors\) website](https://r.je/dice). 
 
-At its core the PinkCrab Plugin Framework makes use of the DI container and the Reistration process, to register hooks and connect into WordPress. Through using the DI container, you can build complex dependency trees and ensure your code is not coupled and highly testable.
+At its core the Perique Plugin Framework makes use of the DI container and the Reistration process, to register hooks and connect into WordPress. Through using the DI container, you can build complex dependency trees and ensure your code is not coupled and highly testable.
 
-## Basic Useage
+## Basic Usage
 
 The primary way to use the DI container, is via the Registration process. All classes which are passed to the registration process are created and cached using the container. This means you can just inject all of your dependencies and use them in your callbacks.
 
 ```php
 
-class Do_Something implements Registerable {
+class Do_Something implements Hookable {
 
     protected $some_service;
 
@@ -22,7 +22,7 @@ class Do_Something implements Registerable {
         $this->some_service = $some_service;
     }
 
-    public function register(Loader $loader): void{
+    public function register(Hook_Hook_Loader $loader): void{
         $loader->action('some_action', [$this, 'my_callback']);
     }
 
@@ -34,7 +34,7 @@ class Do_Something implements Registerable {
 ```
 Once this class is added to the ```config/registration.php``` file, it will be constructed and the action will be registered as a wp hook.
 
-**Static Useage**
+**Static Usage**
 
 You can also access the DI container at any time, this is useful for quick calls or for when you want to create objects and have them cached/shared. While this is easier than injecting (especially if you already have a complex constructor), it can lead to messy, coupled code.
 
@@ -48,11 +48,11 @@ $some_service->do_something();
 
 Obviously where using DI becomes really powerful is through the use of Interfaces and Abstract classes. This allows us to decide at runtime what class to use to implement/extend the Interfaces/Abstracts. 
 
-The DI Container can not inferre which implemenation to use, so we need to define these in the DI rule set (```config/depenedencies.php```)
+The DI Container can not inferrer which implementation to use, so we need to define these in the DI rule set (```config/dependencies.php```)
 
 ### Using Interfaces
 
-The following example shows how you can use interfaces to make testing easier and your code more exendable, without rewriting everything if you want to use a new data store or process.
+The following example shows how you can use interfaces to make testing easier and your code more extendable, without rewriting everything if you want to use a new data store or process.
 ```php
 // Customer Details Interface
 interface Customer_Details{
@@ -109,7 +109,7 @@ class Customer_Requests {
 There are a few options on how to setup your rules, these can be stacked to allow different setups per class on top of global rules.
 
 ```php
-<?php // file:config/depenencies.php
+<?php // file:config/dependencies.php
 
 return [
 
@@ -154,7 +154,7 @@ g
 Like interfaces we can define the rules either globally or on a class by class basis.
 
 ```php
-<?php // file:config/depenencies.php
+<?php // file:config/dependencies.php
 return [
     // Global Rule
     Some_Thing::class => [
@@ -173,14 +173,14 @@ Like before, any class which has **Some_Thing** as a dependency will be passed *
 
 ## Injected Instances
 
-While the above is great for 90% of the usecases, we sometimes need to inject pre constructed dependencies. WPDB for example isnt constructed on the fly, its held as global which we need to fetch it from. While it might be tempting to use global $wpdb in your contstrutor, it is then very hard to test. So to get around this, we have a few options. 
+While the above is great for 90% of the usecase's, we sometimes need to inject pre constructed dependencies. WPDB for example isn't constructed on the fly, its held as global which we need to fetch it from. While it might be tempting to use global $wpdb in your constructor, it is then very hard to test. So to get around this, we have a few options. 
 
 ### Global Instances.
 
 Much like the definition of the classes to inject for dependencies we can set these at a global level or on a class by class basis.
 
 ```php 
-<?php // file:config/depenencies.php
+<?php // file:config/dependencies.php
 return [
     // Global (Any class)
     '*' => [
@@ -208,7 +208,7 @@ The above will then allow the passing of wpdb as a dependency, for all classes t
 Sometimes you might not want to create instances if they are not used, the above example will construct the custom instance of wpdb at runtime. We can however build this dependency as an when we need it using the **Call** functionality provided by *DICE*.
 
 ```php 
-<?php // file:config/depenencies.php
+<?php // file:config/dependencies.php
 return [
     // Using a JIT factory.
     Some_Special_Case::class => [
@@ -229,7 +229,7 @@ Now our custom version of WPDB would only be constructed as and when its needed.
 Sometimes you will want to call various methods on an object before its passed as a dependncy. We can use the Call rules to do this.
 
 ```php 
-<?php // file:config/depenencies.php
+<?php // file:config/dependencies.php
 return [
     Some_Complex_Dependency::class => [
         'call' => [
@@ -240,7 +240,7 @@ return [
     ]
 ];
 ```
-Now whenever we pass Some_Complex_Dependency to be injected, the container will do the follwing before it is passsed.
+Now whenever we pass Some_Complex_Dependency to be injected, the container will do the following before it is passed.
 ```php
 $class = new Some_Complex_Dependency();
 $class->method_a('arg1', 1);
@@ -253,10 +253,10 @@ return $class; // This is what will be injected!
 
 ## Constructor Properties
 
-All of the examples above are bassed on passing objects to objects, this however can not be done using other scalar types such as string, arrays etc. If your depenedency has constuctor properties that need to be passed, you have a couple options.
+All of the examples above are based on passing objects to objects, this however can not be done using other scalar types such as string, arrays etc. If your dependency has constructor properties that need to be passed, you have a couple options.
 
 ```php 
-<?php // file:config/depenencies.php
+<?php // file:config/dependencies.php
 return [
     // Global pre constructed
     '*' => [
@@ -300,10 +300,10 @@ Obviously at times, its better to create new instances and not allowing instance
 
 ### Shared
 
-As mentioned this is assumed when creating rules, a cache of the instance is saved inside the container and all future requests for it are taken from the cache. Sometimes this can be undesirable if your dependencies are unqiue for each instance. We can set a dependency as not shared doing the following.
+As mentioned this is assumed when creating rules, a cache of the instance is saved inside the container and all future requests for it are taken from the cache. Sometimes this can be undesirable if your dependencies are unique for each instance. We can set a dependency as not shared doing the following.
 
 ```php 
-<?php // file:config/depenencies.php
+<?php // file:config/dependencies.php
 return [
     // Global
     Some_Thing::class => [
@@ -323,10 +323,10 @@ Now whenever we pass Some_Thing interface as a dependency, the instance will be 
 
 ### Inherited
 
-If you was to create a child class of Parent_Class as Child_Class. You can prevent the Some_Thing rules being applied to its children. This allows for the creation of specific hirarcies of objects, each with there own depenedencies.
+If you was to create a child class of Parent_Class as Child_Class. You can prevent the Some_Thing rules being applied to its children. This allows for the creation of specific hierarchies of objects, each with there own dependencies.
 
 ```php 
-<?php // file:config/depenencies.php
+<?php // file:config/dependencies.php
 return [
     Parent_Class::class => [
         'substitutions' => [
@@ -350,10 +350,10 @@ The above would see Child_Class (and any that extend from it), being injected wi
 
 ## All Together
 
-Many of the rules defined above can be combined when defining your dependency rules. This allows the setitng of construtor properties, the calling of methods, replacing instances and defining if its shared/inherited or not.
+Many of the rules defined above can be combined when defining your dependency rules. This allows the setting of constructor properties, the calling of methods, replacing instances and defining if its shared/inherited or not.
 
 ```php 
-<?php // file:config/depenencies.php
+<?php // file:config/dependencies.php
 return [
     PDO::class => [
         'constructParams' => [
@@ -369,5 +369,6 @@ return [
     ]
 ];
 ```
-The above example would allow the passing of PDO as dependency, constructred with the correct DB credentials and with attributes defined, ready to go. But would not allow any class which extends it, to have access to the same data.
+The above example would allow the passing of PDO as dependency, constructed with the correct DB credentials and with attributes defined, ready to go. But would not allow any class which extends it, to have access to the same data.
 
+F

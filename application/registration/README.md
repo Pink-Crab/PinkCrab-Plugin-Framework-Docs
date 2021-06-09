@@ -12,7 +12,7 @@ Out of the box, Registerable is the only middleware included. Custom middleware 
 
 ## Registerable (Interface)
 
-Registerable is a simple interface with a single method ```public function register(Loader $loader): void```, this allows you to create classes which can "register" hook calls using the **Hook Loader**
+Registerable is a simple interface with a single method ```public function register(Hook_Loader $loader): void```, this allows you to create classes which can "register" hook calls using the **Hook Loader**
 
 
 ```php
@@ -38,10 +38,10 @@ class Events_Post_Table_Controller implements Registerable {
 		/**
 		 * Register all hooks
 		 *
-		 * @param Loader $loader
+		 * @param Hook_Loader $loader
 		 * @return void
 		 */
-	  public function register( Loader $loader ): void {
+	  public function register( Hook_Loader $loader ): void {
 		  $loader->action( "manage_{$this->events->cpt_key}_posts_columns", [$this, 'add_columns'] );
 		  $loader->action( "manage_{$this->events->cpt_key}_posts_custom_column", [$this, 'render_tickets_sold_cell'], 10, 2 );
 	  }
@@ -85,7 +85,7 @@ As all classes which are added to the registration array are called when the app
 class CPT_Mananger implements Registerable {
 
   // Used to call other methds
-  public function register(Loader $loader): void{
+  public function register(Hook_Loader $loader): void{
     $this->register_movies_post_type();
   }
 

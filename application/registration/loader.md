@@ -4,7 +4,7 @@ description: >-
   be hooked into wordpress.
 ---
 
-# Loader
+# Hook_Loader
 
 ## Actions
 
@@ -22,7 +22,7 @@ As with the native add\_action\(\) function, these take the same parameters in t
 
 As with the native add\_action functionality, priority defaults to 10 and argument count to 1.
 
-### Loader::action\(\)
+### Hook_Loader::action\(\)
 
 > @param string $handle Hook name/handle  
 > @param callable $method The function/method to call.  
@@ -43,7 +43,7 @@ $loader->action(
 );
 ```
 
-### Loader::admin\_action\(\)
+### Hook_Loader::admin\_action\(\)
 
 > @param string $handle Hook name/handle  
 > @param callable $method The function/method to call.  
@@ -66,7 +66,7 @@ $loader->admin_action(
 );
 ```
 
-### Loader::front\_action\(\)
+### Hook_Loader::front\_action\(\)
 
 > @param string $handle Hook name/handle  
 > @param callable $method The function/method to call.  
@@ -95,7 +95,7 @@ The PinkCrab loader has 3 filter methods;
 
 These work just the same as the action methods above, same arguments and defualts.
 
-### Loader::filter\(\)
+### Hook_Loader::filter\(\)
 
 > @param string $handle Hook name/handle  
 > @param callable $method The function/method to call.  
@@ -116,7 +116,7 @@ $loader->filter(
 );
 ```
 
-### Loader::admin\_filter\(\)
+### Hook_Loader::admin\_filter\(\)
 
 > @param string $handle Hook name/handle  
 > @param callable $method The function/method to call.  
@@ -145,7 +145,7 @@ $loader->admin_filter(
 );
 ```
 
-### Loader::front\_filter\(\)
+### Hook_Loader::front\_filter\(\)
 
 > @param string $handle Hook name/handle  
 > @param callable $method The function/method to call.  
@@ -166,7 +166,7 @@ $loader->front_filter(
 );
 ```
 
-### Loader::remove\_action\(\)
+### Hook_Loader::remove\_action\(\)
 
 > @param string $handle Hook name/handle  
 > @param callable $method The function/method to call.  
@@ -184,7 +184,7 @@ $loader->remove_action( 'the_title', [ Some_Class::class, 'the_method' ], 10 );
 $loader->remove_action( 'some_action', 'some_global_function', 20 );
 ```
 
-### Loader::remove\_filter\(\)
+### Hook_Loader::remove\_filter\(\)
 
 > @param string $handle Filter name/handle  
 > @param callable $method The function/method to call.  

@@ -115,7 +115,7 @@ class MetaBox_Controller implements Registerable {
      * We use the register hook, to register
      * as many metaboxes as we need
      */
-    public function register( Loader $loader): void {
+    public function register( Hook_Loader $loader): void {
         $this->register_metabox($loader);        
         // $this->register_another_metabox($loader);
     }
@@ -123,7 +123,7 @@ class MetaBox_Controller implements Registerable {
     /**
      * Registers the metabox
      */
-    protected function register_metabox(Loader $loader){
+    protected function register_metabox(Hook_Loader $loader){
         MetaBox::normal('my_metabox_key_1')
             ->title('My MetaBox')
             ->screen('post')
@@ -168,7 +168,7 @@ class Some_Controller {
         $this->view = $view;
     }
     
-    protected function register_metabox(Loader $loader){
+    protected function register_metabox(Hook_Loader $loader){
         MetaBox::normal('my_metabox_key_1')
             ->view_vars(['user' => get_current_user_id(), 'foo' => 'bar'])
             ->set_renderable($this->view->engine) // App::view()->engine() can also be used

@@ -21,7 +21,7 @@ class User_Controller implements Registerable {
     /**
      * Allow our class to register hook calls via the loader.
      */
-    public function register( Loader $loader ): void{
+    public function register( Hook_Loader $loader ): void{
         $loader->filter(
             'achme_users', 
             function($users){
@@ -40,7 +40,7 @@ class User_Controller implements Registerable {
             $this->cache->set('users', $users, 1 * HOURS_IN_SECONDS);
         }
         
-        reutrn $users ?? [];
+        return $users ?? [];
     }
 }
 ```
@@ -48,7 +48,7 @@ class User_Controller implements Registerable {
 We need to declare a few rules for the dependency injection and also to ensure **My\_Service** is added to the registration process.
 
 ```php
-//@file_location = config/depenecies.php
+//@file_location = config/dependencies.php
 
 return array(
     .....
@@ -98,7 +98,7 @@ class Mock_User_Repository implements Repository{
 }
 
 // The mock file cache instance.
-// Constrcutor allows for setting the cache payload, so you can mock its values.
+// Constructor allows for setting the cache payload, so you can mock its values.
 class Mock_File_Cache implements Cache{
     
     public $cache_contents;
@@ -118,7 +118,7 @@ class Mock_File_Cache implements Cache{
 }
 
 // Then in your tests.
-use PinkCrab\Core\Services\Registration\Loader;
+use PinkCrab\Loader\Hook_Loader;
 
 class Test_User_Controller extends WC_Unit_Test_Case {
 
@@ -134,7 +134,7 @@ class Test_User_Controller extends WC_Unit_Test_Case {
         );
         
         // Create new instance of Loader.
-        $loader = new Loader();
+        $loader = new Hook_Loader();
         
         // Add all hooks & register them.
         $user_controller->register($loader);

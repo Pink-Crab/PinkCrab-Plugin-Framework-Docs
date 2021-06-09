@@ -8,13 +8,13 @@ description: >-
 
 ## WordPress Hook Subscriber
 
-Creates a single subscriber for a hook, part of the PinkCrab Plugin Framework
+Creates a single subscriber for a hook, part of the Perique Plugin Framework
 
  ![Open Source Love](https://badges.frapsoft.com/os/mit/mit.svg?v=102)![ ](https://img.shields.io/badge/PHPStan-level%208-brightgreen.svg?style=flat) ![ ](https://img.shields.io/badge/WP_PHPUnit-V5-brightgreen.svg?style=flat) ![ ](https://img.shields.io/badge/PHPCS-WP_Extra-brightgreen.svg?style=flat)
 
 ### Requirements
 
-Requires PinkCrab Plugin Framework Composer and WordPress.
+Requires Perique Plugin Framework Composer and WordPress.
 
 Works with PHP versions _7.1, 7.2, 7.3 & 7.4_
 
@@ -47,7 +47,7 @@ class On_Single_Hook extends Abstract_Hook_Subscription {
      */
     protected $my_service;
 
-    public function __constuct(My_Service $my_service ){
+    public function __construct(My_Service $my_service ){
         $this->my_service = $my_service;
     }
 
@@ -57,7 +57,7 @@ class On_Single_Hook extends Abstract_Hook_Subscription {
      */
     public function execute( ...$args ): void {
         // Args are accessed in the order they are passed.
-        // do_actuion('foo', 'first','second','third',.....);
+        // do_action('foo', 'first','second','third',.....);
         //$args[0] = first, $args[1] = second, $args[2] = third, .....
 
         if($args[0] === 'something'){
@@ -82,7 +82,7 @@ class Deferred_Hook extends Abstract_Hook_Subscription {
     protected $hook = 'some_hook';
 
     /**
-     * Defered hook to call
+     * Deferred hook to call
      *
      * @var string|null
      */
@@ -94,7 +94,7 @@ class Deferred_Hook extends Abstract_Hook_Subscription {
      */
     protected $some_global;
 
-    public function __constuct(){
+    public function __construct(){
         global $some_global;
         $this->some_global = $some_global;
     }
@@ -104,7 +104,7 @@ class Deferred_Hook extends Abstract_Hook_Subscription {
      * @param mixed ...$args
      */
     public function execute( ...$args ): void {
-        // Depends on a global wich is set later than init.
+        // Depends on a global which is set later than init.
         if ( $args[0] === 'something' && ! empty( $this->some_global ) ) {
             do_something( $this->some_global->some_property, $args[1] );
         }        

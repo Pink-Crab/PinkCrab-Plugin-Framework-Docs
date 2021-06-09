@@ -20,9 +20,9 @@ class Post_Controller implements Registerable {
 	}
 
 	/**
-	 * @param Loader $loader
+	 * @param Hook_Loader $loader
 	 */
-	public function register( Loader $loader ): void {
+	public function register( Hook_Loader $loader ): void {
 		$loader->filter( 'the_content', [ $this, 'render_content' ], 1, 20 );
 	}
 
