@@ -5,6 +5,19 @@ description: >-
   in the base Collection object.
 ---
 
+> **Collection**  
+> 
+> » [Typed Collections](Typed_Collections.md)  
+>   
+> » [Traits](traits/index.md)
+>    * [Sequence](traits/sequence.md)  
+>    * [Indexed](traits/indexed.md)  
+>    * [Is_Iterable](traits/is_iterable.md)  
+>    * [JSONSeriliable](traits/jsonserializable.md)  
+>    * [Has_Array_Access](traits/has_arrayaccess.md)  
+
+***
+
 # Indexed
 
 ### Custom Collection

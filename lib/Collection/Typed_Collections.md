@@ -1,7 +1,15 @@
----
-description: >-
-  The base Collection can be extended with the traits included, but also to enforce types.
----
+> **Collection**  
+> 
+> » [Typed Collections](Typed_Collections.md)  
+>   
+> » [Traits](traits/index.md)
+>    * [Sequence](traits/sequence.md)  
+>    * [Indexed](traits/indexed.md)  
+>    * [Is_Iterable](traits/is_iterable.md)  
+>    * [JSONSeriliable](traits/jsonserializable.md)  
+>    * [Has_Array_Access](traits/has_arrayaccess.md)  
+
+***
 
 # Typed Collection
 
@@ -15,8 +23,8 @@ class WP_Post_Collection extends Collection {
 
   /**
    * Filters out all none WP_Post instances.
-   * @param array<int|string, mixed> $data
-   * @return array<int|string, mixed>
+   * @param array<int∣string, mixed> $data
+   * @return array<int∣string, mixed>
    */
   protected function map_construct( array $data ): array {
     return array_filter($data, function($e): bool{
@@ -38,8 +46,8 @@ class String_Collection extends Collection {
 
   /**
    * Only allow valid strings.
-   * @param array<int|string, mixed> $data
-   * @return array<int|string, mixed>
+   * @param array<int∣string, mixed> $data
+   * @return array<int∣string, mixed>
    */
   protected function map_construct( array $data ): array {
     return array_filter($data, function($e): bool{

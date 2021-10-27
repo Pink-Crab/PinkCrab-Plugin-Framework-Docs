@@ -13,12 +13,12 @@ description: >-
 ## Contents
 These docs are broken down into the following sub sections.
 * [Typed Collections](Typed_Collections.md)
-* [Traits](traits/traits.md)
-    * [Sequence](traits/trait-sequence.md)
-    * [Indexed](traits/trait-indexed.md)
-    * [Is_Iterable](traits/trait-is_iterable.md)
-    * [JSONSeriliable](traits/trait-jsonserializable.md)
-    * [Has_Array_Access](traits/trait-has_arrayaccess.md)
+* [Traits](traits/index.md)
+    * [Sequence](traits/sequence.md)
+    * [Indexed](traits/indexed.md)
+    * [Is_Iterable](traits/is_iterable.md)
+    * [JSONSeriliable](traits/jsonserializable.md)
+    * [Has_Array_Access](traits/has_arrayaccess.md)
 
 ***
 

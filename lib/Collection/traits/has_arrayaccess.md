@@ -3,6 +3,19 @@ description: >-
   By adding this trait to Collection, you will be able to use the collection with ArrayAccess.
 ---
 
+> **Collection**  
+> 
+> » [Typed Collections](Typed_Collections.md)  
+>   
+> » [Traits](traits/index.md)
+>    * [Sequence](traits/sequence.md)  
+>    * [Indexed](traits/indexed.md)  
+>    * [Is_Iterable](traits/is_iterable.md)  
+>    * [JSONSeriliable](traits/jsonserializable.md)  
+>    * [Has_Array_Access](traits/has_arrayaccess.md)  
+
+***
+
 # Has_ArrayAccess
 
 ### Custom Collections
