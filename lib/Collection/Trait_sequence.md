@@ -4,8 +4,8 @@ description: >-
   functionality more suited for none indexed arrays/lists.
 ---
 
-## Contents
-These docs are broken down into the following sub sections.
+## Collection Class Documentation
+*Pages*
 * [Collection](index.md)
 * [Typed Collections](Typed_Collections.md)
 * [Traits](Traits.md)

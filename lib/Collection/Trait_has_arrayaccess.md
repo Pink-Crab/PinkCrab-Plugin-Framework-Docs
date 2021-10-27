@@ -3,8 +3,8 @@ description: >-
   By adding this trait to Collection, you will be able to use the collection with ArrayAccess.
 ---
 
-## Contents
-These docs are broken down into the following sub sections.
+## Collection Class Documentation
+*Pages*
 * [Collection](index.md)
 * [Typed Collections](Typed_Collections.md)
 * [Traits](Traits.md)

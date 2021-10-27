@@ -3,8 +3,8 @@ description: >-
   Give iterable access to your collection, allowing for use in while and foreach loops.
 ---
 
-## Contents
-These docs are broken down into the following sub sections.
+## Collection Class Documentation
+*Pages*
 * [Collection](index.md)
 * [Typed Collections](Typed_Collections.md)
 * [Traits](Traits.md)

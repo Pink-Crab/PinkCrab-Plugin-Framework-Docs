@@ -5,8 +5,8 @@ description: >-
   in the base Collection object.
 ---
 
-## Contents
-These docs are broken down into the following sub sections.
+## Collection Class Documentation
+*Pages*
 * [Collection](index.md)
 * [Typed Collections](Typed_Collections.md)
 * [Traits](Traits.md)
