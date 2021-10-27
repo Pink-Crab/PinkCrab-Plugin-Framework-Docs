@@ -39,7 +39,7 @@ Collection consists of the following methods.
 
 ### Collection::from\(\);
 
-> @param array\|void $data  
+> @param array∣void $data  
 > @return New Collection
 
 You can create a collection either by using the constructor or the static constructor.   
@@ -88,7 +88,7 @@ var_dump($new_collection); // 2,4,6,8
 A callback can be used to perform a foreach loop of the data. The callback takes both $value and $key and a return value is not required/ignored.
 
 > @param callable $function  
->       function\(mixed $value, int\|string $key\): void {...}  
+>       function\(mixed $value, int∣string $key\): void {...}  
 > @return Existing Collection
 
 ```php
@@ -108,7 +108,7 @@ C is for Cat
 The collection can be filtered into a new collection. It uses the regular array\_filter under the hood and allows the use of its additional flags.
 
 > @param callable $function  
->       function\(mixed $value\|value \[, int\|string $key\], int $mode = 0\): bool {...}  
+>       function\(mixed $value∣value \[, int∣string $key\], int $mode = 0\): bool {...}  
 > @return New Collection
 
 ```php
@@ -130,7 +130,7 @@ var_dump($with_both); // 1, 3, 5, 7
 
 Any array or other existing collection can be merged, resulting in a new collection instance.
 
-> @param array\|Collection $data  
+> @param array∣Collection $data  
 > @return New Collection
 
 ```php
@@ -315,7 +315,7 @@ var_dump($collection === $copy_collection); //false
 
 Sorts the internal array using either natsort\(\) or usort\(\). The same instance is returned after sorting, if you wish to create a new instance, see sorted\(\)
 
-@param callable\|null $function   
+@param callable∣null $function   
 @return Existing Collection
 
 ```php
@@ -338,7 +338,7 @@ var_dump($collection); // z,y,o,f,a
 
 Sorts the contents of the collection using sort\(\) above, but returns a new collection instance.
 
-@param callable\|null $function   
+@param callable∣null $function   
 @return New Collection
 
 ```php
@@ -354,7 +354,7 @@ var_dump($collection); // a, z, f, y, o
 Creates a new Collection instance with sub collection. The length can be supplied or not, if not supplied will use the length of the current collection as the $limit value
 
 > @param int $offset  
-> @param int\|null $length   
+> @param int∣null $length   
 > @return New Collection
 
 ```php
@@ -370,8 +370,8 @@ var_dump($collection); //  1,2,3,4,5,6,7,8,9,10
 
 Computes the difference between the existing collection and another \(array or Collection\). As with array\_diff this only compares in 1 direction.
 
-> @param array\|collection $data  
-> @param callable\|null $comparator  
+> @param array∣collection $data  
+> @param callable∣null $comparator  
 > @return New Collection  
 > @thorws TypeError if $data is not an array or collection.
 
@@ -400,8 +400,8 @@ $collection->diff($some_array, Comparisons::by_instances());
 
 Computes the matches between the existing collection and another \(array or Collection\). As with array\_intersect this only compares in 1 direction.
 
-> @param array\|collection $data  
-> @param callable\|null $comparator  
+> @param array∣collection $data  
+> @param callable∣null $comparator  
 > @return New Collection  
 > @thorws TypeError if $data is not an array or collection.
 

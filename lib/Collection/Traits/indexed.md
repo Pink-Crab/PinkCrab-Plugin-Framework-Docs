@@ -25,7 +25,7 @@ class Indexed_Collection extends Collection {
 
 ### Indexed::has\(\)
 
-> @param int\|float\|string $key   
+> @param int∣float∣string $key   
 > @return bool
 
 Reverses the data internally to the collection, returns the same instance.
@@ -41,7 +41,7 @@ dump($collection->has('d')); // false
 
 ### Indexed::get\(\)
 
-> @param int\|float\|string $key   
+> @param int∣float∣string $key   
 > @return mixed  
 > @thows OutOfRangeException if key doesnt exist.
 
@@ -58,7 +58,7 @@ dump($collection->get('d')); // Throws OutOfRangeException
 
 ### Indexed::set\(\)
 
-> @param int\|float\|string $key   
+> @param int∣float∣string $key   
 > @param mixed $value  
 > @return Existing Collection
 
@@ -76,7 +76,7 @@ dump($collection->get('b')); // CUSTOM
 ### Indexed::find\(\)
 
 @param mixed $value   
-@return int\|float\|string\|false
+@return int∣float∣string∣false
 
 Returns the first index which matches that passed to find. Works with arrays and objects, although with objects it finds matches on the actual instance, no values \(see example\).
 
@@ -107,7 +107,7 @@ dump($collection->find(new class(){	public $property = 'value';})); // false
 
 ### Indexed::remove\(\)
 
-@param int\|float\|string $index   
+@param int∣float∣string $index   
 @return mixed  
 @throws OutOfRangeException if key doesnt exist.
 

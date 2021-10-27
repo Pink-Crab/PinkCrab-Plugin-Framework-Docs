@@ -35,22 +35,22 @@ foreach($collection as $num){
 The following methods are required to satisify the Iterator interface.
 
 ### rewind\() 
-> @return mixed|null
+> @return mixed∣null
 
 Resets the internal array pointer to the start of the internal array and returns the first value.
 
 ### current\()
-> @return mixed|null  
+> @return mixed∣null  
 
 Returns the value at the current pointer location.
 
 ### key\()
-> @return string|int  
+> @return string∣int  
 
 Returns the key at the current pointer location.
 
 ### next\()
-> @return mixed|false 
+> @return mixed∣false 
 
 Advances the pointer to the next element and returns the value, or false if no next element.
 

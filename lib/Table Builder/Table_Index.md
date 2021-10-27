@@ -14,7 +14,7 @@
 
 ## __construct( string $column, ?string $keyname = null )
 * @param string $column The column this Index applies to
-* @param string|null $keyname Sets a custom keyname to the index
+* @param string∣null $keyname Sets a custom keyname to the index
 
 Creates a new index for a defined column, with an optional keyname. If the keyname is not passed, will be set at ix_{column_name}
 

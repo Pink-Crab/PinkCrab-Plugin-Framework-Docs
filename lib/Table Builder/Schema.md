@@ -14,7 +14,7 @@
 
 ## __construct(string $table_name, ?callable $configure = null )
 * @param string $table_name The name of your table, if you wish to use a prefix, you can set this during the build
-* @param callable|null $configure Used to set the schema values are the same time as declaring the schema object.
+* @param callable∣null $configure Used to set the schema values are the same time as declaring the schema object.
 
 ```php
 $schema = new Schema('table', function(Schema $schema): void{
@@ -28,7 +28,7 @@ $schema->column('id');
 ***
 
 ## prefix( ?string $prefix = null ): self
-* @param string \| null $prefix
+* @param string∣null $prefix
 * @return self
 
 You can set an optional table name prefix either at Schema definition or during the build/drop processes.
@@ -186,7 +186,7 @@ $schema->get_indexes(); // [Index{column: id..}, Index{column: booking_ref..}]
 
 ## foreign_key( string $column, ?string $keyname = null ): Foreign_Key
 * @param string $column Column index is applied to
-* @param string|null $keyname The indexes reference
+* @param string∣null $keyname The indexes reference
 * @return \PinkCrab\Table_Builder\Foreign_Key
 
 Creates a Foreign Key relationship with another table. Can be set with a custom or default keyname. Returns a partially applied 

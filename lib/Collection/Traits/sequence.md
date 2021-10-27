@@ -87,7 +87,7 @@ dump($collection->last()); // 5
 
 Adds up all of the numerical values within the collection.
 
-> @return int\|float
+> @return int∣float
 
 ```php
 $collection = new Sequence_Collection([1, 'tree', '2', 5, 9.9]);
