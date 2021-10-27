@@ -1,11 +1,6 @@
-Skip to content Search or jump to… Pull requests Issues Marketplace Explore @gin0115 pages-themes / architect Public 12 206 479 Code Issues 4 Pull requests 3 Actions Security Insights architect/_layouts/default.html @parkr parkr Add head-custom.html to
-allow easier customization of the
-
 <head>
-    Latest commit 827290b on Jul 26 History 6 contributors @benbalter@mguerreiro@parkr@olestourko@jasonlong@coliff 63 lines (54 sloc) 2.23 KB
-
     <!DOCTYPE html>
-    <html lang="{{ site.lang | default: " en-US " }}">
+    <html lang="{{ site.lang | default: 'en-GB' }}">
 
     <head>
         <meta charset='utf-8'>
@@ -46,8 +41,7 @@ allow easier customization of the
                         <small>Download</small> .zip file
                     </a>
                     <a href="{{ site.github.tar_url }}" class="button">
-                        <small>Download</small> .tar.gz file
-                    </a>
+                        <small>Download</small> .tar.gz fileg </a>
                     {% endif %} {% if site.github.is_project_page %}
                     <p class="repo-owner"><a href="{{ site.github.repository_url }}">{{ site.github.repository_name }}</a> is maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a>.</p>
                     {% endif %}
@@ -60,4 +54,3 @@ allow easier customization of the
     </body>
 
     </html>
-    © 2021 GitHub, Inc. Terms Privacy Security Status Docs Contact GitHub Pricing API Training Blog About Loading complete
