@@ -28,7 +28,7 @@ $schema->column('id');
 ***
 
 ## prefix( ?string $prefix = null ): self
-* @param string\|null $prefix
+* @param string \| null $prefix
 * @return self
 
 You can set an optional table name prefix either at Schema definition or during the build/drop processes.
