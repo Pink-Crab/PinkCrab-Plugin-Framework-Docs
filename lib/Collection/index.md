@@ -13,7 +13,7 @@ description: >-
 ## Contents
 These docs are broken down into the following sub sections.
 * [Typed Collections](Typed_Collections.md)
-* [Traits](traits/index.md)
+* [Traits](./traits/index.md)
     * [Sequence](traits/sequence.md)
     * [Indexed](traits/indexed.md)
     * [Is_Iterable](traits/is_iterable.md)
