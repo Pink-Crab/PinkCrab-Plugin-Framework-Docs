@@ -1,4 +1,4 @@
-![logo](.gitbook/assets/1500x500.jpeg "Pink Crab")
+![logo](assets/1500x500.jpeg "Pink Crab")
 
 # Perique Framework 
 
