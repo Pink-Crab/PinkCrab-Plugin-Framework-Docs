@@ -2,11 +2,11 @@
 
 > **Related Pages**
 >
-> » Schema
-> 
 > » [Schema](Schema.md)
 > 
-> » [Foreign_Key](Foreign_Key.md)
+> » [Index](Table_Index.md)
+> 
+> » [Foreign_Key](Foreign_Key.md) 
 > 
 > » [Examples](examples.md)
 

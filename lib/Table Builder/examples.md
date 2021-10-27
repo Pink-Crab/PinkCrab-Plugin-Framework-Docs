@@ -4,6 +4,16 @@ description: A few examples of table definition and creation.
 
 # Examples
 
+> **Related Pages**
+>
+> » [Schema](Schema.md)
+> 
+> » [Index](Table_Index.md)
+> 
+> » [Foreign_Key](Foreign_Key.md) 
+> 
+> » [Examples](examples.md)
+
 ### Simple Table
 
 ``` php
