@@ -5,16 +5,15 @@ description: >-
   in the base Collection object.
 ---
 
-> **Collection**  
-> 
-> » [Typed Collections](Typed_Collections.md)  
->   
-> » [Traits](traits/index.md)
->    * [Sequence](traits/sequence.md)  
->    * [Indexed](traits/indexed.md)  
->    * [Is_Iterable](traits/is_iterable.md)  
->    * [JSONSeriliable](traits/jsonserializable.md)  
->    * [Has_Array_Access](traits/has_arrayaccess.md)  
+## Contents
+These docs are broken down into the following sub sections.
+* [Typed Collections](Typed_Collections.md)
+* [Traits](Traits.md)
+    * [Sequence](Trait_sequence.md)
+    * [Indexed](Trait_indexed.md)
+    * [Is_Iterable](Trait_is_iterable.md)
+    * [JSONSeriliable](Trait_jsonserializable.md)
+    * [Has_Array_Access](Trait_has_arrayaccess.md)
 
 ***
 
