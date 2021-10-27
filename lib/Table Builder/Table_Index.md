@@ -1,6 +1,6 @@
 # Index
 
-> **Related Pages**
+> **Table Builder**
 >
 > » [Schema](Schema.md)
 > 

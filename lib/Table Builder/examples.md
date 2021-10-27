@@ -4,7 +4,7 @@ description: A few examples of table definition and creation.
 
 # Examples
 
-> **Related Pages**
+> **Table Builder**
 >
 > » [Schema](Schema.md)
 > 

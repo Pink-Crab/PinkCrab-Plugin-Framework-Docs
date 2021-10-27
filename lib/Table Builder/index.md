@@ -2,7 +2,7 @@
 description: A chainable MySQL schema and wpdb (db delta) table builder.
 ---
 
-> **Related Pages**
+> **Table Builder**
 >
 > » [Schema](Schema.md)
 > 

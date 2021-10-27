@@ -1,6 +1,6 @@
 # Foreign_Key
 
-> **Related Pages**
+> **Table Builder**
 >
 > » [Schema](Schema.md)
 > 
