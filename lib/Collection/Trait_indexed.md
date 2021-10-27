@@ -21,7 +21,7 @@ These docs are broken down into the following sub sections.
 
 ### Custom Collection
 
-To create a custom collection that uses the Sequence trait, just do the following. You can overwrite any of the existing methods, or use other traits if needed.
+To create a custom collection that uses the Indexed trait, just do the following. You can overwrite any of the existing methods, or use other traits if needed.
 
 ```php
 use PinkCrab\Collection\Collection;
