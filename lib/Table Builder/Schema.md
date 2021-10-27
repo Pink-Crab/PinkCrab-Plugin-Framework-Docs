@@ -12,7 +12,7 @@
 
 ***
 
-## public function __construct(string $table_name, ?callable $configure = null )
+## __construct(string $table_name, ?callable $configure = null )
 * @param string $table_name The name of your table, if you wish to use a prefix, you can set this during the build
 * @param callable|null $configure Used to set the schema values are the same time as declaring the schema object.
 
@@ -27,8 +27,8 @@ $schema->column('id');
 
 ***
 
-## public function prefix( ?string $prefix = null ): self
-* @param string|null $prefix
+## prefix( ?string $prefix = null ): self
+* @param string\|null $prefix
 * @return self
 
 You can set an optional table name prefix either at Schema definition or during the build/drop processes.
@@ -45,7 +45,7 @@ $schema->prefix($wpdb->prefix); // table name = wp_table (assuming the prefix se
 
 ***
 
-## public function column( string $name ): Column
+## column( string $name ): Column
 * @param string $name
 * @return Column
 
@@ -68,7 +68,7 @@ $schema = new Schema('table', function(Schema $schema): void{
 
 ***
 
-## public function has_column( string $name ): bool
+## has_column( string $name ): bool
 * @param string $name
 * @return Column
 
@@ -86,7 +86,7 @@ $schema->has_column('user_id'); // TRUE
 
 ***
 
-## public function get_columns(): array
+## get_columns(): array
 * @return array<Column>
 
 Retruns an array of Column objects.
@@ -103,7 +103,7 @@ $schema->get_columns(); // [Column{name: id..}, Column{name: user_id....}]
 
 ***
 
-## public function remove_column( string $name ): self 
+## remove_column( string $name ): self 
 * @param string $name
 * @return self
 * @throws Exception If columnn doesnt exist.
@@ -126,7 +126,7 @@ if(! is_multisite()){
 
 ***
 
-## public function index( string $column, ?string $keyname = null ): Index
+## index( string $column, ?string $keyname = null ): Index
 * @param string $keyname
 * @return \PinkCrab\Table_Builder\Index
 
@@ -146,7 +146,7 @@ $schema = new Schema('table', function(Schema $schema): void{
 ```
 ***
 
-## public function has_indexes(): bool
+## has_indexes(): bool
 * @return bool
 
 Returns if the table has indexes applied.
@@ -164,7 +164,7 @@ $schema->has_indexes(); // TRUE
 ```
 ***
 
-## public function get_indexes(): array
+## get_indexes(): array
 * @return array<Index>
 
 Returns an array of all indexes currently set to the Schema.
@@ -184,7 +184,7 @@ $schema->get_indexes(); // [Index{column: id..}, Index{column: booking_ref..}]
 
 ***
 
-## public function foreign_key( string $column, ?string $keyname = null ): Foreign_Key
+## foreign_key( string $column, ?string $keyname = null ): Foreign_Key
 * @param string $column Column index is applied to
 * @param string|null $keyname The indexes reference
 * @return \PinkCrab\Table_Builder\Foreign_Key
@@ -205,7 +205,7 @@ $schema = new Schema('table', function(Schema $schema): void{
 
 ***
 
-## public function has_foreign_keys(): bool
+## has_foreign_keys(): bool
 * @return bool
 
 Returns if the table has Foreign Keys applied.
@@ -225,7 +225,7 @@ $schema->has_foreign_keys(); // TRUE
 ```
 ***
 
-## public function get_foreign_keys(): array
+## get_foreign_keys(): array
 * @return array<Foreign_Key>
 
 Returns an array of all Foreign Keys currently set to the Schema.

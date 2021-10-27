@@ -114,10 +114,10 @@ $builder->create_table($parent_table);
 $builder->create_table($child_table);
 ```
 
-![parent\_table](../../.gitbook/assets/parent_table_structure.png)
+![parent\_table](../../assets/parent_table_structure.png)
 
-![Child Table](../../.gitbook/assets/child_table_structure.png)
+![Child Table](../../assets/child_table_structure.png)
 
-![](../../.gitbook/assets/child_table_indexes.png)
+![](../../assets/child_table_indexes.png)
 
-![Child Table Insert](../../.gitbook/assets/child_table_insert.png)
+![Child Table Insert](../../assets/child_table_insert.png)
