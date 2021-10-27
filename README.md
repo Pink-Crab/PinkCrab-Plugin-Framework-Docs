@@ -53,10 +53,11 @@ The Core of Perique is very slim and makes use of a few dependencies either our 
 
 While you can extend Perique to do anything you need, we also have a collection of Modules created to give access commonly used functionality. In the years we have been using Perique (and predecessors), these are modules we have used over and over. In previous versions, these modules were a part of the core package.
 
-* **Registerables** - This small module gives access easy to create, object based implementations for Post_Types, Taxonomies, Meta and Metaboxes. (Read more)
+* **Registerables** - This small module gives access easy to create, object based implementations for Post_Types, Taxonomies, Meta and Meta Boxes. (Read more)
 * **Ajax** Ajax calls are an integral part of most Wordpress projects and can be verbose to create every time. This module allows you to create simple and PSR7 compliant Ajax calls using WP_Ajax (Read more)
 * **BladeOne** - Out of the box we only offer a basic PHP based view engine, but this module allows the use of Blade via the BladeOne package, along with its BladeOne HTML module included. 
 * **Hook_Subscriber** - Sometimes creating entire Controllers is a bit excessive, especially if you only want to trigger on a single action. The Hook_Subscriber modules allows you to create single subscribers with the ability to delay the registration of callbacks to specific actions. (Read more)
+* **Collection** A class based Collection for making working with arrays/lists cleaner. Comes with the ability to create simple typed collections. [Reade the Docs](libs/Collection/README.md) | [View on GitHub](https://github.com/Pink-Crab/Collection)
 
 ## License 
 
