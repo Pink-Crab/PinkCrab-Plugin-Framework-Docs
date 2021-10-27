@@ -12,7 +12,7 @@
 
 ***
 
-## public function __construct( string $column, ?string $keyname = null )
+## __construct( string $column, ?string $keyname = null )
 * @param string $column The column this Foreign_Key applies to
 * @param string|null $keyname Sets a custom keyname to the Foreign_Key
 
@@ -31,7 +31,7 @@ $schema = new Schema('table', function(Schema $schema): void{
 
 ***
 
-## public function get_column(): string
+## get_column(): string
 * @return string The column the Foreign Key is assigned to.
 
 Returns the set column, used in constructor.
@@ -43,7 +43,7 @@ $key->get_column();                 // 'column-a'
 
 ***
 
-## public function get_keyname(): string
+## get_keyname(): string
 * @return string The Foreign_Key keyname
 
 Returns the keyname, either defualt or defined.
@@ -59,7 +59,7 @@ $f_key->get_keyname(); // 'fk_user;
 ***
 
 
-## public function reference_table( string $reference_table ): Foreign_Key
+## reference_table( string $reference_table ): Foreign_Key
 * @param string $reference_table The table which this is referencing.
 * @return Foreign_Key 
 
@@ -78,7 +78,7 @@ $schema = new Schema('table', function(Schema $schema): void{
 
 ***
 
-## public function get_reference_table(): ?string
+## get_reference_table(): ?string
 * @return string|null The set reference_table, or null if not set.
 
 Gets the table that is used in the Foreign_Key reference data. If this has not been set, it will return null and should throw an exception if passed to a builder without being defined. 
@@ -95,7 +95,7 @@ $f_key->get_reference_table(); // 'my_other_table'
 
 ***
 
-## public function reference_column( string $reference_column ): Foreign_Key
+## reference_column( string $reference_column ): Foreign_Key
 * @param string $reference_column Column on reference tablet to use.
 * @return Foreign_Key 
 
@@ -114,7 +114,7 @@ $schema = new Schema('table', function(Schema $schema): void{
 
 ***
 
-## public function get_reference_column(): ?string
+## get_reference_column(): ?string
 * @return string|null The set reference_column, or null if not set.
 
 Gets the columns that is used in the Foreign_Key reference data. If this has not been set, it will return null and should throw an exception if passed to a builder without being defined. 
@@ -131,7 +131,7 @@ $f_key->get_reference_column(); // 'column_a'
 
 ***
 
-## public function reference( string $reference_table, string $reference_column ): ?string
+## reference( string $reference_table, string $reference_column ): ?string
 * @param string $reference_table The table which this is referencing.
 * @param string $reference_column Column on reference tablet to use.
 * @return Foreign_Key 
@@ -145,7 +145,7 @@ $f_key = new Foreign_Key('id', 'id_key')
 
 ***
 
-## public function on_update( string $action ): Foreign_Key
+## on_update( string $action ): Foreign_Key
 * @param string $action The action to be carried out.
 * @return Foreign_Key 
 
@@ -165,7 +165,7 @@ $schema = new Schema('table', function(Schema $schema): void{
 
 ***
 
-## public function get_on_update(): ?string
+## get_on_update(): ?string
 * @return string The defined on_update operation, if 
 
 Get the set action to carry on an update of the reference data. Reurns a blank string if not set.
@@ -181,7 +181,7 @@ $f_key->get_on_update(); // 'CASCADE'
 
 ***
 
-## public function on_delete( string $action ): Foreign_Key
+## on_delete( string $action ): Foreign_Key
 * @param string $action The action to be carried out on reference data delete.
 * @return Foreign_Key 
 
@@ -201,7 +201,7 @@ $schema = new Schema('table', function(Schema $schema): void{
 
 ***
 
-## public function get_on_delete(): ?string
+## get_on_delete(): ?string
 * @return string The defined on_delete operation, if 
 
 Get the set action to carry on an update of the reference data. Reurns a blank string if not set.
@@ -217,7 +217,7 @@ $f_key->get_on_delete(); // 'CASCADE'
 
 ***
 
-## public function export(): object
+## export(): object
 * @return object Returns a simple object representation of the internal state.
   
 ```php

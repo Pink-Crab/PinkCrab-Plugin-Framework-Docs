@@ -12,7 +12,7 @@
 
 ***
 
-## public function __construct( string $column, ?string $keyname = null )
+## __construct( string $column, ?string $keyname = null )
 * @param string $column The column this Index applies to
 * @param string|null $keyname Sets a custom keyname to the index
 
@@ -52,7 +52,7 @@ CREATE TABLE bookings(
 
 ***
 
-## public function get_keyname(): string
+## get_keyname(): string
 * @return string The index keyname
 
 Returns the keyname, either defualt or defined.
@@ -67,7 +67,7 @@ $index_a->get_keyname(); // 'ix_user;
 
 ***
 
-## public function primary( bool $primary = true ): self
+## primary( bool $primary = true ): self
 * @param bool $primary  is primary key
 
 Sets an index as the table primary key/index. Should only be used once, will throw exceptions on build if multiple exists.
@@ -85,7 +85,7 @@ $schema = new Schema('some_table', function(Schema $schema): void{
 
 ***
 
-## public function is_primary(): bool
+## is_primary(): bool
 * @return bool
 
 Returns true if the index is a primary key
@@ -102,7 +102,7 @@ $schema->get_indexes()[0]->is_primary(); // true
 
 ***
 
-## public function unique( bool $unique = true ): self
+## unique( bool $unique = true ): self
 * @param bool $unique  is unique
 
 Denotes if a column has a unique value.
@@ -128,7 +128,7 @@ CREATE TABLE some_table(
 
 ***
 
-## public function is_unique(): bool
+## is_unique(): bool
 * @return bool
 
 Returns true if the index is unique
@@ -145,7 +145,7 @@ $schema->get_indexes()[0]->is_unique(); // true
 
 ***
 
-## public function full_text( bool $unique = true ): self
+## full_text( bool $unique = true ): self
 * @param bool $unique  is unique
 
 Denotes if a column has a unique value.
@@ -169,7 +169,7 @@ CREATE TABLE some_table(
 );
 ```
 
-## public function is_full_text(): bool
+## is_full_text(): bool
 * @return bool
 
 Checks if using a full text index.
