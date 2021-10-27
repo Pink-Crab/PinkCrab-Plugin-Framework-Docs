@@ -66,6 +66,17 @@ $schema = new Schema('table', function(Schema $schema): void{
 });
 ```
 
+> **Shortcut types** *(passing null, will not set the length or default)*  
+> `varchar( ?int $length = null )`
+> `text( ?int $length = null )`
+> `int( ?int $length = null )`
+> `float( ?int $length = null )`
+> `double( ?int $length = null )`
+> `datetime( ?string $default = null )`
+> `timestamp( ?string $default = null )`
+> `unsigned_int( ?int $length = null )`
+> `unsigned_medium( ?int $length = null )`
+
 ***
 
 ## has_column( string $name ): bool
