@@ -1,6 +1,6 @@
 # Libs
 
-> The following is a collection of Libraries which while not been explictily created for Perique, can be used or are often used as dependencies for Perique Modules
+The following is a collection of Libraries which while not been explictily created for Perique, can be used or are often used as dependencies for Perique Modules
 
 ## Collection
 
