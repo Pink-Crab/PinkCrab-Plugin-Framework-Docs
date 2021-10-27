@@ -12,6 +12,7 @@ description: >-
 
 ## Contents
 These docs are broken down into the following sub sections.
+* [Collection](index.md)
 * [Typed Collections](Typed_Collections.md)
 * [Traits](Traits.md)
     * [Sequence](Trait_sequence.md)
