@@ -5,11 +5,6 @@ description: >-
   extended with custom methods.
 ---
 
-
-# Collection
-
-> While not included in the base instance of the Perique Framework, the [PinkCrab Collection](https://github.com/Pink-Crab/Collection) class is used in many of the Modules that can be added. This can also be added to any php project and is compatible with php7.1+
-
 ## Contents
 These docs are broken down into the following sub sections.
 * [Collection](index.md)
@@ -22,6 +17,10 @@ These docs are broken down into the following sub sections.
     * [Has_Array_Access](Trait_has_arrayaccess.md)
 
 ***
+
+# Collection
+
+> While not included in the base instance of the Perique Framework, the [PinkCrab Collection](https://github.com/Pink-Crab/Collection) class is used in many of the Modules that can be added. This can also be added to any php project and is compatible with php7.1+
 
 ## Installation
 
