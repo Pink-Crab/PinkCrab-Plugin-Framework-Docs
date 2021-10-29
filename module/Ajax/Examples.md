@@ -13,6 +13,7 @@
 ### Example ###
 
 > Create the Ajax callback object.
+
 ```php
 class My_Ajax extends \PinkCrab\Ajax\Ajax{
 
