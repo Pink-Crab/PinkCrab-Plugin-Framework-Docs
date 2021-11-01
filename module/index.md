@@ -18,3 +18,9 @@ A BladeOne implementation of te core Renderable interface. Can be used to create
 Register single hook subscribers with full use of the DI AND Registration system. Comes with a hook deferal process, to help with race conditions with global variables.
 
 [Docs](Hook_Subscriber/index.md) ∣ [View on GitHub](https://github.com/Pink-Crab/Perique-Hook-Subscriber)
+
+## Route Builder
+
+Create custom REST routes for your WordPress website with this library which allows for a more conventional (PHP style) way to define single routes and route groups. 
+
+[Docs](Hook_Subscriber/index.md) ∣ [View on GitHub](https://github.com/Pink-Crab/Perique-Hook-Subscriber)
