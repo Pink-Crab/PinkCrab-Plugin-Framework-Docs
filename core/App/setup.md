@@ -9,61 +9,30 @@ This is an example of the composer.json file used in our boilerplate. If you do 
 
 ```javascript
 {
-    "name": "##PACKAGE_NAME##",
+    "name": "Acme Project",
     "type": "library",
-    "description": "##DESCRIPTION##",
-    "keywords": [],
-    "homepage": "##YOUR URL##",
-    "license": "MIT",
-    "authors": [{
-        "name": "##AUTHOR##",
-        "email": "##YOUR EMAIL##",
-        "homepage": "##YOUR URL##",
-        "role": "Developer"
-    }],
     "autoload": {
         "psr-4": {
-            "##NAMESPACE##\\": "src"
+            "Acme\\Thingy\\": "src"
         },
         "files": []
     },
     "autoload-dev": {
         "psr-4": {
-            "##NAMESPACE##\\Tests\\": "tests"
+            "Acme\\Thingy\\Tests\\": "tests"
         }
     },
     "require-dev": {
-        "phpunit/phpunit": "^7.0",
-        "roots/wordpress": "^5.5",
-        "wp-phpunit/wp-phpunit": "^5.0",
-        "symfony/var-dumper": "4.*",
-        "phpstan/phpstan": "^0.12.6",
-        "szepeviktor/phpstan-wordpress": "^0.7.2",
-        "php-stubs/wordpress-stubs": "^5.6.0",
-        "dealerdirect/phpcodesniffer-composer-installer": "*",
-        "wp-coding-standards/wpcs": "*",
-        "object-calisthenics/phpcs-calisthenics-rules": "*",
-        "jetbrains/phpstorm-stubs": "dev-master",
-        "kimhf/woocommerce-stubs": "^0.2.0",
-        "kimhf/advanced-custom-fields-pro-stubs": "^5.9"
+        ......
     },
     "require": {
         "php": ">=7.1.0",
         "pinkcrab/plugin-framework": "0.4.*"
-    },
-    "scripts": {
-        "test": "phpunit --coverage-clover coverage.xml --testdox",
-        "coverage": "phpunit --coverage-html coverage-report --testdox",
-        "analyse": "vendor/bin/phpstan analyse src -l8",
-        "sniff": "./vendor/bin/phpcs src/ -v",
-        "all": "composer test && composer analyse && composer sniff"
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true
+    }
 }
 ```
 
-If you are planning to prefix all of your namespaces with PHP-Scoper, please see the [PHP-Scoper docs](application/php-scoper.md)
+If you are planning to prefix all of your namespaces with PHP-Scoper, please see the [PHP-Scoper docs](../../PHP_Scoper/)
 
 ## plugin.php
 
