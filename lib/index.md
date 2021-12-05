@@ -13,3 +13,8 @@ A classic PHP Collection class which allows for working with Indexed and Sequent
 
 A simple, fluent API for enqueueing and registering scripts and styles. Allows for simpler enqueuing, inline rendering and denoting for either defered or async loading.
 [Docs](Enqueue.md) ∣ [View on GitHub](https://github.com/Pink-Crab/Enqueue)
+
+## WP Nonce
+
+An OO representation of a WP Nonce
+[Docs](WP_Nonce.md) ∣ [View on GitHub](https://github.com/Pink-Crab/Nonce)
