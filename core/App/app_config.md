@@ -358,9 +358,8 @@ App::config('post_type','events', 'meta', 'date' ); // "rjc_event_date"
 App::config('post_type','events', 'meta', 'location' ); // "rjc_location_id"  
 ```
 
-{% hint style="info" %}
-OutOfBoundsException will be thrown if a post type or meta key is called, that doesnt exist.
-{% endhint %}
+> OutOfBoundsException will be thrown if a post type or meta key is called, that doesnt exist.
+
 
 ## Taxonomies
 
@@ -438,9 +437,8 @@ App::config('taxonomies','event_type', 'term', 'advanced' ); // "advanced_only"
 App::config('taxonomies','event_type', 'term', 'featured' ); // "featured_event"  
 ```
 
-{% hint style="info" %}
-OutOfBoundsException will be thrown if a post type or meta key is called, that doesnt exist.
-{% endhint %}
+> OutOfBoundsException will be thrown if a post type or meta key is called, that doesnt exist.
+
 
 ## Additional 
 
