@@ -8,7 +8,9 @@
 WordPress development involves lots of keys, slugs, namespaces and paths, lots of them. App_Config gives an injectable container for holding your keys.
 
 
-## Setup
+## Example Setup
+
+Sets a custom set of asset and view paths/urls. And sets various aliases which you can use to set actual Keys and Slugs used controlled in a single location.
 
 ```php
 // file - config/settings.php
@@ -16,9 +18,6 @@ WordPress development involves lots of keys, slugs, namespaces and paths, lots o
 // Base path and urls
 $base_path  = \dirname( __DIR__, 1 );
 $plugin_dir = \basename( $base_path );
-
-// Useful WP helpers
-$wp_uploads = \wp_upload_dir();
 global $wpdb;
 
 // Include the plugins file for access plugin details before init.
@@ -29,12 +28,10 @@ $plugin_data = get_plugin_data( $base_path . '/plugin.php' );
 
 return array(
 	'path'       => array(
-		'plugin'         => $base_path,
 		'view'           => $base_path . '/views',
 		'assets'         => $base_path . '/build/assets',
 	),
 	'url'        => array(
-		'plugin'         => \plugins_url( $plugin_dir ),
 		'view'           => \plugins_url( $plugin_dir ) . '/views',
 		'assets'         => \plugins_url( $plugin_dir ) . '/build/assets',
 	),
