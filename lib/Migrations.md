@@ -33,7 +33,7 @@ Creates a wrapper around the WPDB_Table_Builder to make it easier to create Migr
 
 You will need to create your Migrations using the ```Database_Migration``` abstract class. 
 
-**[Read the Schema documentation](Table%20Builder/Schema.md)**
+**[Read the Schema documentation](Table%20Builder/Schema)**
 
 ```php
 <?php
@@ -75,7 +75,7 @@ class Foo_Migration extends Database_Migration {
 
 Once you have your Migrations created it is a case of using the Migration_Manager to handle the creation, seeding and eventual dropping of the table.
 
-**[Read the Builder documentation](Table%20Builder/index.md)**
+**[Read the Builder documentation](Table%20Builder)**
 
 ```php
 <?php
