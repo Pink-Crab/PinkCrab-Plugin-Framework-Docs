@@ -1,5 +1,9 @@
 # App\_Config
 
+*Pages*
+* [Setup](setup)
+* [App_Config](app_config)
+
 
 WordPress development involves lots of keys, slugs, namespaces and paths, lots of them. App_Config gives an injectable container for holding your keys.
 

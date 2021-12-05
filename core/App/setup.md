@@ -1,5 +1,8 @@
-HI
 # Setup \(Files\)
+
+*Pages*
+* [Setup](setup)
+* [App_Config](app_config)
 
 The framework on requires a few files to be in place, most of these are just for populating the App with its required details.
 
