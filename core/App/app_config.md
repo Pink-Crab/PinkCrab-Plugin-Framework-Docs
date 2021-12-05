@@ -158,9 +158,7 @@ App::config('url','assets'); // "https://url.com/wp-content/plugins/my-plugin/as
 App::config('url','view'); // "https://url.com/wp-content/plugins/my-plugin/views/"
 ```
 
-{% hint style="info" %}
-Returns null if the key passed doesn't exist.
-{% endhint %}
+> Returns null if the key passed doesn't exist.
 
 ## Namespaces
 
