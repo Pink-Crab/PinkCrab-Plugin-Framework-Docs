@@ -48,7 +48,9 @@ return array(
             'alias' => 'verbose_value'
         ),
     ),
-    'plugin'     => SOME_CONSTANT_FOR_PLUGIN_VERSION,
+    'plugin' => array(
+        'version' => SOME_CONSTANT_FOR_PLUGIN_VERSION
+    ),
     'db_tables' => array(
         'alias' => "{$wpdb->prefix}verbose_table_name"
     ),
@@ -619,7 +621,7 @@ return [
 	'plugin'     => array(
 		'version' => is_array( $plugin_data ) && array_key_exists( 'Version', $plugin_data )
 			? $plugin_data['Version'] 
-            : '0.1.0', // Set this as a fallback.
+			: '0.1.0', // Set this as a fallback.
 	),
     ....
 ];
