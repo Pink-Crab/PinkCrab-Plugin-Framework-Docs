@@ -286,21 +286,14 @@ App::config('db_tables','email_log'); // "my_plugin_email_log"
 
 ## Post Types
 
-**Post Types** are added with both a slug and meta keys, both of which must be set or and OutOfBoundsException will be thrown at run time.
+**Post Types** are added as a key value pair for the post types slug.
 
 ```php
 return [
     ....
     'post_types' => [
-        // Events
-        'events' => [ 
-            // Allows expressions for values.
-            'slug' => get_option( 'rjc_event_cpt_slug', 'rjc_events' ),
-            'meta' => [
-                'date' => 'rjc_event_date',
-                'location' => 'rjc_location_id'
-            ]
-        ]
+        'order' => 'acme_plugin_order',
+        'product' => 'acme_plugin_product'
     ],
     ....
 ];
@@ -313,17 +306,14 @@ Now anywhere in our code, we can access these values using the post\_type\(\)
  * Returns the key for a post type.
  *
  * @param string $key
- * @return string|array
+ * @return string
  * @throws OutOfBoundsException
  */
-public function post_types( string $key, string $field = 'slug', ?string $meta_key = null )
+public function post_types( string $key ): string
 ```
 
-Whatever key you set your slug and meta array, will be the key used to access it. 
+Whatever key you set your slug, will be the key used to access it. 
 
-* Calling with just the key `post_type( {$key} )`; will return the slug value \(as will calling `post_type( {$key},  'slug' )`;
-* Calling with the key and just meta as the field value `post_type( {$key},  'meta' )` will return the array of all meta key values.
-* Calling with the key, meta, and the meta\_key will return your value. `post_type( {$key},  'meta', {$meta_key} )`
 
 ```php
 // Via Dependency Injection
@@ -335,49 +325,29 @@ class Foo {
     }
     
     public function something(){
-        $this->config->post_type('events'); // "rjc_events"
-        $this->config->post_type('events', 'slug' ); // "rjc_events"
-        $this->config->post_type('events', 'meta' ); // [ 'date' => 'rjc_event_date', 'location' => 'rjc_location_id' ]
-        $this->config->post_type('events', 'meta', 'date' ); // "rjc_event_date"
-        $this->config->post_type('events', 'meta', 'location' ); // "rjc_location_id"
+        $this->config->post_type('product'); // "acme_plugin_product"
     }
 }
 
 // Via Config Proxy Class
-Config::post_type('events'); // "rjc_events"
-Config::post_type('events', 'slug' ); // "rjc_events"
-Config::post_type('events', 'meta' ); // [ 'date' => 'rjc_event_date', 'location' => 'rjc_location_id' ]
-Config::post_type('events', 'meta', 'date' ); // "rjc_event_date"
-Config::post_type('events', 'meta', 'location' ); // "rjc_location_id"
+Config::post_type('product'); // "acme_plugin_product"
+
 
 // Via App Helper
-App::config('post_type','events'); // "rjc_events"
-App::config('post_type','events', 'slug' ); // "rjc_events"
-App::config('post_type','events', 'meta' ); // [ 'date' => 'rjc_event_date', 'location' => 'rjc_location_id' ]
-App::config('post_type','events', 'meta', 'date' ); // "rjc_event_date"
-App::config('post_type','events', 'meta', 'location' ); // "rjc_location_id"  
+App::config('post_type','product'); // "acme_plugin_product"
 ```
 
-> OutOfBoundsException will be thrown if a post type or meta key is called, that doesnt exist.
+> OutOfBoundsException will be thrown if a post type is called, that doesnt exist.
 
 
 ## Taxonomies
 
-**Taxonmies** are added with both a slug and term keys, both of which must be set or and OutOfBoundsException will be thrown at run time. You can set common term 
-
+**Taxonmies** are added as a key value pair for the taxonomy slug.
 ```php
 return [
     ....
     'taxonmies' => [
-        // Events
-        'event_type' => [ 
-            // Allows expressions for values.
-            'slug' => get_option( 'rjc_event_type_tax_slug', 'rjc_event_type' ),
-            'term' => [
-                'advanced' => 'advanced_only',
-                'featured' => 'featured_event'
-            ]
-        ]
+        'order_type' => 'acme_plugin_order_type'
     ],
     ....
 ];
@@ -390,19 +360,13 @@ Now anywhere in our code, we can access these values using the taxonmies\(\)
  * Returns keys for taxonomies.
  *
  * @param string $key
- * @param string $field
- * @param string $term_key
- * @return string|array
+ * @return string
  * @throws OutOfBoundsException
  */
-public function taxonomies( string $key, string $field = 'slug', ?string $term_key = null )
+public function taxonomies( string $key ): string
 ```
 
-Whatever key you set your slug and meta array, will be the key used to access it. 
-
-* Calling with just the key `post_type( {$key} )`; will return the slug value \(as will calling `taxonomies( {$key},  'slug' )`;
-* Calling with the key and just meta as the field value `taxonomies( {$key},  'term' )` will return the array of all term values.
-* Calling with the key, term, and the term will return your value. `taxonomies( {$key},  'term', {$meta_key} )`
+Whatever key you set your slug and will be the key used to access it. 
 
 ```php
 // Via Dependency Injection
@@ -414,30 +378,159 @@ class Foo {
     }
     
     public function something(){
-        $this->config->taxonomies('event_type'); // "rjc_event_type"
-        $this->config->taxonomies('event_type', 'slug' ); // "rjc_event_type"
-        $this->config->taxonomies('event_type', 'term' ); // [ 'advanced' => 'advanced_only', 'location' => 'rjc_location_id' ]
-        $this->config->taxonomies('event_type', 'term', 'advanced' ); // "advanced_only"
-        $this->config->taxonomies('event_type', 'term', 'featured' ); // "featured_event"
+        $this->config->taxonomies('order_type'); // "acme_plugin_order_type"
     }
 }
 
 // Via Config Proxy Class
-Config::taxonomies('event_type'); // "rjc_event_type"
-Config::taxonomies('event_type', 'slug' ); // "rjc_event_type"
-Config::taxonomies('event_type', 'term' ); // [ 'advanced' => 'advanced_only', 'featured' => 'featured_event' ]
-Config::taxonomies('event_type', 'term', 'advanced' ); // "advanced_only"
-Config::taxonomies('event_type', 'term', 'featured' ); // "featured_event"
+Config::taxonomies('order_type'); // "acme_plugin_order_type"
 
 // Via App Helper
-App::config('taxonomies','event_type'); // "rjc_event_type"
-App::config('taxonomies','event_type', 'slug' ); // "rjc_event_type"
-App::config('taxonomies','event_type', 'term' ); // [ 'advanced' => 'advanced_only', 'featured' => 'featured_event' ]
-App::config('taxonomies','event_type', 'term', 'advanced' ); // "advanced_only"
-App::config('taxonomies','event_type', 'term', 'featured' ); // "featured_event"  
+App::config('taxonomies','order_type'); // "acme_plugin_order_type" 
 ```
 
-> OutOfBoundsException will be thrown if a post type or meta key is called, that doesnt exist.
+> OutOfBoundsException will be thrown if a taxonomy is called, that doesnt exist.
+
+## Meta
+
+It is possible to define post, term and user meta keys. This allows for the prefixing and shortenting keys.
+
+### Post Meta
+```php
+return [
+    ....
+    'meta' => [
+       'post' => [
+           'foo' => 'acme_plugin_foo'
+       ]
+    ],
+    ....
+];
+```
+Now we have access to these value anywhere in our codebase (as above)
+
+```php
+/**
+ * Return a additional by its key.
+ *
+ * @param string $key
+ * @return mixed
+ */
+public function post_meta( string $key )
+```
+
+
+```php
+// Via Dependency Injection
+class Foo {
+    protected $config;
+    
+    public function __constuct(App_Config $config){
+        $this->config = $config;
+    }
+    
+    public function something($post_id){
+        return get_post_meta($post_id, $this->config->post_meta('foo'), true);
+    }
+}
+
+// Via Config Proxy Class
+Config::post_meta('foo'); // "acme_plugin_foo"
+
+// Via App Helper
+App::config('post_meta','foo'); // "acme_plugin_foo"
+```
+### term Meta
+```php
+return [
+    ....
+    'meta' => [
+       'term' => [
+           'bar' => 'acme_plugin_bar'
+       ]
+    ],
+    ....
+];
+```
+Now we have access to these value anywhere in our codebase (as above)
+
+```php
+/**
+ * Returns a term meta key 
+ *
+ * @param string $key
+ * @return mixed
+ */
+public function term_meta( string $key )
+```
+
+
+```php
+// Via Dependency Injection
+class Foo {
+    protected $config;
+    
+    public function __constuct(App_Config $config){
+        $this->config = $config;
+    }
+    
+    public function something($term_id){
+        return get_term_meta($term_id, $this->config->term_meta('bar'), true);
+    }
+}
+
+// Via Config Proxy Class
+Config::term_meta('bar'); // "acme_plugin_bar"
+
+// Via App Helper
+App::config('term_meta','bar'); // "acme_plugin_bar"
+```
+
+### user Meta
+```php
+return [
+    ....
+    'meta' => [
+       'user' => [
+           'baz' => 'acme_plugin_baz'
+       ]
+    ],
+    ....
+];
+```
+Now we have access to these value anywhere in our codebase (as above)
+
+```php
+/**
+ * Returns a user meta key 
+ *
+ * @param string $key
+ * @return mixed
+ */
+public function user_meta( string $key )
+```
+
+
+```php
+// Via Dependency Injection
+class Foo {
+    protected $config;
+    
+    public function __constuct(App_Config $config){
+        $this->config = $config;
+    }
+    
+    public function something($user_id){
+        return get_user_meta($user_id, $this->config->user_meta('baz'), true);
+    }
+}
+
+// Via Config Proxy Class
+Config::user_meta('baz'); // "acme_plugin_baz"
+
+// Via App Helper
+App::config('user_meta','baz'); // "acme_plugin_baz"
+```
 
 
 ## Additional 
@@ -467,7 +560,7 @@ public function additional( string $key )
 ```
 
 * Calling $app_config->additional('key1'); // 'value1'
-* Calling $app_config->key1; // 'value' *Please note this only works with unique keys which are not **paths**, **namespaces**, **plugin**, **taxonomies**, **post_types**, **db_table** or **additional***
+* Calling $app_config->key1; // 'value' *Please note this only works with unique keys which are not **paths**, **namespaces**, **plugin**, **taxonomies**, **post_types**, **meta**, **db_table** or **additional***
 
 ```php
 // Via Dependency Injection
