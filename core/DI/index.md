@@ -144,3 +144,41 @@ return array(
 
 Injecting dependencies that are `Abstract` Classes works exactly the same as `Interfaces`. You can use a mix or either/or `Global` or `Class by Class` Rules
 
+## 
+
+## Built in rules
+
+Perique comes with a selection of predefined rules, which can be used out of the box, or changed by replacing the rules from within your own custom rules.
+
+### App
+
+You can inject access to the Perique instance, just pass App $app as a dependency and you will have access to the core App instance
+```php
+class Foo{
+    public function __construct(App $app){
+        /** @var PinkCrab\Perique\Application\App */
+        $this->app = $app;
+    }
+}
+```
+
+### Container
+
+If you need access to the DI Container, you can pass the `DI_Container` interface and you will be passed an instance of the container populated with all defined rules.
+```php
+class Foo{
+    public function __construct(DI_Container $container){
+        // Set container to use later
+        $this->container = $container->create('Something');
+    }
+
+    public function do_something($data){
+        $thingy = $this->container->create(Thingy::class);
+        $thingy->action($data);
+    }
+}
+```
+> The above is useful if you need to delay the creation of your class until its needed, rather than straight away. 
+
+### WPDB
+
