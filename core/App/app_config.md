@@ -544,10 +544,10 @@ return [
             'alias' => 'verbose_value'
         ),
         App_Config::USER_META => array(
-			'alias' => 'verbose_value'
+            'alias' => 'verbose_value'
 		),
         App_Config::TERM_META => array(
-			'alias' => 'verbose_value'
+            'alias' => 'verbose_value'
 		),
 	),
 ];
