@@ -146,7 +146,7 @@ Injecting dependencies that are `Abstract` Classes works exactly the same as `In
 
 ## 
 
-## Built in rules
+## Built in Constructor Dependency Rules
 
 Perique comes with a selection of predefined rules, which can be used out of the box, or changed by replacing the rules from within your own custom rules.
 
@@ -169,7 +169,7 @@ If you need access to the DI Container, you can pass the `DI_Container` interfac
 class Foo{
     public function __construct(DI_Container $container){
         // Set container to use later
-        $this->container = $container->create('Something');
+        $this->container = $container;
     }
 
     public function do_something($data){
@@ -182,3 +182,52 @@ class Foo{
 
 ### WPDB
 
+Lets be honest, no one like using globals, they make code unpredictable and can cause massive headaches when debugging. To not only avoid having to do `global $wpdb` every time we need access, but also make test mocking easier. You can pass the current global instance of WPDB to any class.
+```php
+class Foo{
+    public function __construct(\wpdb $wpdb){
+        /** @var wpdb */
+        $this->wpdb = $wpdb;
+    }
+}
+```
+
+### Built in Method Dependency Rules
+
+While these are more useful when writing modules for Perique, these can be used in projects, especially if you are writing your own reusable implementations that should have empty constructors.
+
+### App_Config
+
+If you would like to have access to App Config without passing it as a dependency, you can have your class implement the `Inject_App_Config` interface. This requires a single method `public function set_app_config( App_Config $app_config ): void;`
+
+```php
+abstract Abstract_Foo{
+    protected App_Config $app_config
+    
+    public function set_app_config( App_Config $app_config ): void{
+        $this->app_config = $app_config;
+    }
+    
+    abstract public function needed_value():string;
+    
+    public function run(){
+        do_something_with_assets(
+            $this->app_config->url('assets'),
+            $this->needed_value()
+        );
+    }
+}
+
+// Custom implementation
+class Foo extends Abstract_Foo{
+    protected Service $service;
+    public function __construct(Service $service){
+        $this->service = $service;
+    }
+
+    public function needed_value():string{
+        return $this->service->get_value();
+    }
+}
+```
+> In the above example we didn't need to worry about remembering to pass `App_Config` and `Service` to `Foo` and then calling `parent::__construct($app_config)`
