@@ -9,11 +9,11 @@ At its core the Perique Plugin Framework makes use of the DI container and the R
 The primary way to use the DI container, is via the Registration process. All classes which are passed to the registration process are created and cached using the container. This means you can just inject all of your dependencies and use them in your callbacks.
 
 ```php
-
-class Do_Something implements Hookable {
+class Do_Something_Using_DI implements Hookable {
 
     protected $some_service;
 
+    /** Some_Service will be auto injected by the container */
     public function __construct(Some_Service $some_service){
         $this->some_service = $some_service;
     }
@@ -35,7 +35,20 @@ Once this class is added to the ```config/registration.php``` file, it will be c
 You can also access the DI container at any time, this is useful for quick calls or for when you want to create objects and have them cached/shared. While this is easier than injecting (especially if you already have a complex constructor), it can lead to messy, coupled code.
 
 ```php
-<?php
-$some_service = App::make(Some_Service::class);
-$some_service->do_something();
+class Do_Something_Without_DI implements Hookable {
+
+    public function register(Hook_Hook_Loader $loader): void{
+        $loader->action('some_action', [$this, 'my_callback']);
+    }
+
+    public function my_callback(): void {
+        // Call this using the App helper (statically)
+        $some_service = App::make(Some_Service::class);
+        $some_service->do_something();
+    }
+}
 ```
+
+## Using Interfaces
+
+Where DI really comes into its own is using `Interfaces`, this allows you to write code where implementations are are not tightly bound. For an example of this, please see the [Message Example](examples/message_example)
