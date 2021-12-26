@@ -446,7 +446,7 @@ Config::post_meta('foo'); // "acme_plugin_foo"
 // Via App Helper
 App::config('post_meta','foo'); // "acme_plugin_foo"
 ```
-### term Meta
+### Term Meta
 ```php
 return [
     ....
@@ -493,7 +493,7 @@ Config::term_meta('bar'); // "acme_plugin_bar"
 App::config('term_meta','bar'); // "acme_plugin_bar"
 ```
 
-### user Meta
+### User Meta
 ```php
 return [
     ....
