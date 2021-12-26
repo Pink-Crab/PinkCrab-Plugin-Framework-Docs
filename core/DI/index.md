@@ -76,7 +76,7 @@ return array(
             // Either by class name to be constructed by container
             Foo_Interface::class => Some_Class_That_Implements_Foo::class,
             // Or as an instance.
-            Foo_Interface::class => (new Foo('with', 'some'))->setup('required'),
+            Foo_Interface::class => (new Foo('with', 'some'))->setup('required')
         ),
     )
 )
