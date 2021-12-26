@@ -116,7 +116,9 @@ Rather than calling the ob_*() functions directly, the View class comes with a h
  */
 public static function print_buffer( callable $to_buffer ): string
 ```
+
 > Best to pass an anoymous function, which calls the printing function/snippet
+
 ```php
 class Something {
 	public function create_some_view($data): string{
