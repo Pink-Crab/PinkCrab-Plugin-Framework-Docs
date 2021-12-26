@@ -416,10 +416,11 @@ Now we have access to these value anywhere in our codebase (as above)
 
 ```php
 /**
- * Return a additional by its key.
+ * Return the verbose post meta key from an alias
  *
  * @param string $key
  * @return mixed
+ * @throws OutOfBoundsException if key doesnt exist
  */
 public function post_meta( string $key )
 ```
@@ -464,7 +465,8 @@ Now we have access to these value anywhere in our codebase (as above)
  * Returns a term meta key 
  *
  * @param string $key
- * @return mixed
+ * @return string
+ * @throws OutOfBoundsException if key doesnt exist
  */
 public function term_meta( string $key )
 ```
@@ -510,7 +512,8 @@ Now we have access to these value anywhere in our codebase (as above)
  * Returns a user meta key 
  *
  * @param string $key
- * @return mixed
+ * @return string
+ * @throws OutOfBoundsException if key doesnt exist
  */
 public function user_meta( string $key )
 ```
