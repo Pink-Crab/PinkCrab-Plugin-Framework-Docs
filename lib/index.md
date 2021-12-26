@@ -24,3 +24,16 @@ A simple, fluent API for enqueueing and registering scripts and styles. Allows f
 
 An OO representation of a WP Nonce
 [Docs](WP_Nonce.md) ∣ [View on GitHub](https://github.com/Pink-Crab/Nonce)
+
+## Hook Loader
+
+A class based loader for WP Hooks and Shortcodes. This is used as part of Periques core and used as part of the registration process.
+[Docs](Hook_Loader.md) ∣ [View on GitHub](https://github.com/Pink-Crab/Loader)
+
+## WP Cache (PSR 16 Implementation)
+
+## Form Fields
+
+## WP HTTP Helper (PSR 7 & WP_HTTP)
+
+## Memoize
