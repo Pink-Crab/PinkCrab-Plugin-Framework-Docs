@@ -618,11 +618,11 @@ This allows the setting of the plugin details to the app config. At present it o
 ```php
 return [
     ....
-	'plugin'     => array(
-		'version' => is_array( $plugin_data ) && array_key_exists( 'Version', $plugin_data )
-			? $plugin_data['Version'] 
-			: '0.1.0', // Set this as a fallback.
-	),
+    'plugin'     => array(
+        'version' => is_array( $plugin_data ) && array_key_exists( 'Version', $plugin_data )
+            ? $plugin_data['Version'] 
+            : '0.1.0', // Set this as a fallback.
+    ),
     ....
 ];
 ```
