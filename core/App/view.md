@@ -183,3 +183,18 @@ return [
 
 ### Custom Render Engines
 
+The [`Renderable`](https://github.com/Pink-Crab/Perqiue-Framework/blob/master/src/Interfaces/Renderable.php) interface only needs to implement a single method.
+
+```php
+/**
+ * Display a view and its context.
+ *
+ * @param string $view path to the view template file.
+ * @param iterable<string, mixed> $data
+ * @param bool $print If true should print view, if false return string representation of view.
+ * @return void|string
+ */
+public function render( string $view, iterable $data, bool $print = true );
+```
+
+We offer a [BladeOne](../../module/BladeOne_Provider/index.md) implementation which should give a good example of how to not only create a custom Render Engine but also how to create workable configurations with Perique and its workflow. [BladeOne Provider Github](https://github.com/Pink-Crab/Perique-BladeOne-Provider)
