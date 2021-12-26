@@ -9,13 +9,10 @@ A classic PHP Collection class which allows for working with Indexed and Sequent
 
 ## Table Builder
 
-A table schema definition and an extendable table builder. Comes with a `WPDB` and `DB_Delta()`  implementation for WordPress.
+> Comes with a wrapper for use with [Perique](../module/Migrations/index.md)
+
+A table schema definition and an extendable table builder. Comes with a `WPDB` and `DB_Delta()`  implementation for WordPress. 
 [Docs](Table%20Builder/README.md) ∣ [View on GitHub](https://github.com/Pink-Crab/WPDB-Table-Builder)
-
-## Migrations
-
-Extension for the Table Builder Library, which makes it easy to upsert table definitions and seed with initial data.
-[Docs](Migrations.md) ∣ [View on GitHub](https://github.com/Pink-Crab/WP_DB_Migration)
 
 
 ## Enqueue
