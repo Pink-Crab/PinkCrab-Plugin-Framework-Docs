@@ -23,43 +23,44 @@ $plugin_dir = \basename( $base_path );
 global $wpdb;
 
 return array(
-	'path'       => array(
-		'view'           => $base_path . '/views',
-		'assets'         => $base_path . '/build/assets',
-	),
-	'url'        => array(
-		'view'           => \plugins_url( $plugin_dir ) . '/views',
-		'assets'         => \plugins_url( $plugin_dir ) . '/build/assets',
-	),
-	'post_types' => array(
-		'alias' => 'verbose_value'
-	),
-	'taxonomies' => array(
-		'alias' => 'verbose_value'
-	),
-	'meta' => array(
-		App_Config::POST_META => array(
-			'alias' => 'verbose_value'
-		),
+    'path' => array(
+        'view'     => $base_path . '/views',
+        'assets'   => $base_path . '/build/assets',
+    ),
+    'url' => array(
+        'view'     => \plugins_url($plugin_dir) . '/views',
+        'assets'   => \plugins_url($plugin_dir) . '/build/assets',
+    ),
+    'post_types' => array(
+        'alias' => 'verbose_value'
+    ),
+    'taxonomies' => array(
+        'alias' => 'verbose_value'
+    ),
+    'meta' => array(
+        App_Config::POST_META => array(
+            'alias' => 'verbose_value'
+        ),
         App_Config::USER_META => array(
-			'alias' => 'verbose_value'
-		),
+            'alias' => 'verbose_value'
+        ),
         App_Config::TERM_META => array(
-			'alias' => 'verbose_value'
-		),
-	),
-	'plugin'     => SOME_CONSTANT_FOR_PLUGIN_VERSION,
-	'db_tables' => array(
-		'alias' => "{$wpdb->prefix}verbose_table_name"
-	),
-	'namespaces' => array(
-		'rest'  => 'pinkcrab/boilerplate',
-		'cache' => 'pinkcrab_boilerplate',
-	),
-	'additional' => array(
-		'alias' => 'verbose_value'
-	)
+            'alias' => 'verbose_value'
+        ),
+    ),
+    'plugin'     => SOME_CONSTANT_FOR_PLUGIN_VERSION,
+    'db_tables' => array(
+        'alias' => "{$wpdb->prefix}verbose_table_name"
+    ),
+    'namespaces' => array(
+        'rest'  => 'pinkcrab/boilerplate',
+        'cache' => 'pinkcrab_boilerplate',
+    ),
+    'additional' => array(
+        'alias' => 'verbose_value'
+    )
 );
+
 ```
 
 > If you do not wish to change any of the path or url details, you can remove them from your settings.php file, as they will be added.
