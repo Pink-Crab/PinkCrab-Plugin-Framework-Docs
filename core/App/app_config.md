@@ -183,11 +183,11 @@ Can only be called with a key, but will just return null if the key is not defin
 // file - config/settings.php
 return array(
     ....
-	 	'namespaces' => array(
-	 		'rest'        => 'my_plugin',
-	 		'cache'       => 'file_cache',
-	        'some_prefix' => 'dcv_'
-	 	),
+    'namespaces' => array(
+        'rest'        => 'my_plugin',
+        'cache'       => 'file_cache',
+        'some_prefix' => 'dcv_'
+    ),
 );
 
 // Useage
