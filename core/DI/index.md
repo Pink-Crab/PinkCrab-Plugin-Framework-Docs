@@ -53,4 +53,33 @@ class Do_Something_Without_DI implements Hookable {
 
 Where DI really comes into its own is using `Interfaces`, this allows you to write code where implementations are are not tightly bound. For an example of this, please see the [Message Example](examples/message_example).
 
-When using interfaces as dependencies, a custom rule will have to be defined, as the implementation can be not be inferred through type hints. There are a few ways to define these rules, for a more detailed explenation, see the [Rules page](Rules)
+When using interfaces as dependencies, a custom rule will have to be defined, as the implementation can be not be inferred through type hints. There are a few ways to define these rules, for a more detailed explanation, see the [Rules page](Rules)
+
+```php
+class Example_With_Interface_Dependency{
+    public function __construct(Foo_Interface $foo){
+        $this->foo = $foo;
+    }
+}
+```
+
+### Global (fallback) Rule
+
+We can easily set a global rule for this interface, this will allow us to define which class or instance we want to inject whenever we request the class. 
+
+```php
+// @file config/dependencies.php
+
+return array(
+    '*' => array(
+        'substitutions' => array(
+            // Either by class name to be constructed by container
+            Foo_Interface::class => Some_Class_That_Implements_Foo::class,
+            // Or as an instance.
+            Foo_Interface::class => (new Foo('with', 'some'))->setup('required'),
+        ),
+    )
+)
+```
+
+### Class by Class
