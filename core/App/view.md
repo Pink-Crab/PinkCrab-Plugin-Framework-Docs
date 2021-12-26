@@ -155,3 +155,31 @@ The render method accepts a 3rd property `bool $print = true`, passing false her
 // To get the string
 $string = $this->view->render('view/something', ['data' => 'foo'], View::RETURN_VIEW);
 // <div id="something">I am something with foo</div>
+
+```
+
+## Render Engine
+
+It is possible to use any valid PHP Rendering engine with Perique. Out of the box Perique comes with just a basic vanilla PHP implementation.
+
+### PHP Engine.
+
+Out of the box, the Perique View service will use the default PHP Rendering engine. However this will need to be configure before use, this is allow the setting of the base path of your templates.
+
+```php
+// @file config/dependencies
+
+return [
+	// Other dependencies
+	'*' => array(
+		'substitutions' => array(
+			Renderable::class => new PHP_Engine( 'full/path/to/root/of/view/directory' ),
+		),
+	),
+];
+```
+> It is advisable to have this as one of the first global substitutions 
+
+
+### Custom Render Engines
+
