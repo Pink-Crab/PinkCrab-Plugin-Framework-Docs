@@ -540,9 +540,9 @@ There are 3 constants that can be used when defining meta data. These constants 
 ```php
 return [
     'meta' => array(
-		App_Config::POST_META => array(
-			'alias' => 'verbose_value'
-		),
+        App_Config::POST_META => array(
+            'alias' => 'verbose_value'
+        ),
         App_Config::USER_META => array(
 			'alias' => 'verbose_value'
 		),
