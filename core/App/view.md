@@ -100,3 +100,44 @@ $this->view->render('teams/members',[
 </div>
 ```
 > If for any reasion you can not access the view instance passed as a dependency, you can call it statically using `App::view()->render('template', ['data'=>true]);`
+
+## Output Buffer
+
+Many times when you are working with WordPress, functionality will directly output. This is fine if you are calling these from within templates, but can be problematic for Ajax calls and composing views programmatically in general.
+
+Rather than calling the ob_*() functions directly, the View class comes with a handy helper (static) method.
+
+```php
+/**
+ * Buffer for use with WordPress functions that display directly.
+ *
+ * @param callable $to_buffer
+ * @return string
+ */
+public static function print_buffer( callable $to_buffer ): string
+```
+> Best to pass an anoymous function, which calls the printing function/snippet
+```php
+class Something {
+	public function create_some_view($data): string{
+		return View::print_buffer(function() use ($data){
+			// This function will echo/print something.
+			i_echo_something($data);
+		});
+	}
+}
+
+// Usage.
+
+function something_with_wrapper($data): string {
+	$some_class = new Something();
+	return sprintf(
+		'<div class="something">%s</div>', 
+		$some_class->create_some_view($data)
+	);
+}
+```
+
+## Render Type
+
+Like with the output buffer sometimes you need to generate the HTML string representation of a view, rather than print it to the output. The `View::render()` method allows doing either.
