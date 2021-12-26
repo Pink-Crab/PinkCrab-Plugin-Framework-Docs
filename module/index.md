@@ -19,8 +19,14 @@ Register single hook subscribers with full use of the DI AND Registration system
 
 [Docs](Hook_Subscriber/index.md) ∣ [View on GitHub](https://github.com/Pink-Crab/Perique-Hook-Subscriber)
 
-## Route Builder
+## Route
 
 Create custom REST routes for your WordPress website with this library which allows for a more conventional (PHP style) way to define single routes and route groups. 
 
-[Docs](Hook_Subscriber/index.md) ∣ [View on GitHub](https://github.com/Pink-Crab/Perique-Hook-Subscriber)
+[Docs](Hook_Subscriber/index.md) ∣ [View on GitHub](https://github.com/Pink-Crab/Perique-Route)
+
+## Migrations
+
+Create custom REST routes for your WordPress website with this library which allows for a more conventional (PHP style) way to define single routes and route groups. 
+
+[Docs](Migrations/index.md) ∣ [View on GitHub](https://github.com/Pink-Crab/Perique_Migrations)
