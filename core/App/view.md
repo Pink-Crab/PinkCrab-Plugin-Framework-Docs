@@ -145,8 +145,8 @@ function something_with_wrapper($data): string {
 Like with the output buffer sometimes you need to generate the HTML string representation of a view, rather than print it to the output. The `View::render()` method allows doing either. 
 
 The render method accepts a 3rd property `bool $print = true`, passing false here will see the method return the string representation. To make this a little more verbose when reading, there are 2 constants that can be used
-* View::PRINT_VIEW  // true
-* View::RETURN_VIEW // false   
+* `View::PRINT_VIEW`  // true
+* `View::RETURN_VIEW` // false   
 
 ```php
 // @file: view/something.php
