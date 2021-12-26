@@ -145,8 +145,8 @@ return array(
 		'assets'         => \plugins_url( $plugin_dir ) . '/assets',
 	),
 	'post_types' => array(
-        'events' => 'pc_prefix_events'
-    ),
+		'events' => 'pc_prefix_events'
+	),
 	'plugin'     => '1.1.12',
 	)
 );

@@ -18,13 +18,9 @@ Sets a custom set of asset and view paths/urls. And sets various aliases which y
 // Base path and urls
 $base_path  = \dirname( __DIR__, 1 );
 $plugin_dir = \basename( $base_path );
-global $wpdb;
 
-// Include the plugins file for access plugin details before init.
-if ( ! function_exists( 'get_plugin_data' ) ) {
-	require_once ABSPATH . 'wp-admin/includes/plugin.php';
-}
-$plugin_data = get_plugin_data( $base_path . '/plugin.php' );
+// Need to get the current table prefix
+global $wpdb;
 
 return array(
 	'path'       => array(
@@ -36,27 +32,33 @@ return array(
 		'assets'         => \plugins_url( $plugin_dir ) . '/build/assets',
 	),
 	'post_types' => array(
-		'cpt_slug' => 'Post Type Alias'
+		'alias' => 'verbose_value'
 	),
 	'taxonomies' => array(
-		'tax_slug' => 'Taxonomy Type Alias'
+		'alias' => 'verbose_value'
 	),
-    'meta' => array(
-        App_Config::POST_META => array(
-            'post_meta_key' => 'Post Meta Key Alias'
-        )
-    ),
+	'meta' => array(
+		App_Config::POST_META => array(
+			'alias' => 'verbose_value'
+		),
+        App_Config::USER_META => array(
+			'alias' => 'verbose_value'
+		),
+        App_Config::TERM_META => array(
+			'alias' => 'verbose_value'
+		),
+	),
 	'plugin'     => SOME_CONSTANT_FOR_PLUGIN_VERSION,
-    'db_tables' => array(
-        "{$wpdb->prefix}table_name" => 'Table Name Alias'
-    ),
+	'db_tables' => array(
+		'alias' => "{$wpdb->prefix}verbose_table_name"
+	),
 	'namespaces' => array(
 		'rest'  => 'pinkcrab/boilerplate',
 		'cache' => 'pinkcrab_boilerplate',
 	),
-    'additional' => array(
-        'some_key' => 'some_value'
-    )
+	'additional' => array(
+		'alias' => 'verbose_value'
+	)
 );
 ```
 
@@ -531,7 +533,24 @@ Config::user_meta('baz'); // "acme_plugin_baz"
 // Via App Helper
 App::config('user_meta','baz'); // "acme_plugin_baz"
 ```
+### Costants
+There are 3 constants that can be used when defining meta data. These constants are used when retriving the value, so using these constants avoids the risk of mistyping.
 
+```php
+return [
+    'meta' => array(
+		App_Config::POST_META => array(
+			'alias' => 'verbose_value'
+		),
+        App_Config::USER_META => array(
+			'alias' => 'verbose_value'
+		),
+        App_Config::TERM_META => array(
+			'alias' => 'verbose_value'
+		),
+	),
+];
+```
 
 ## Additional 
 
