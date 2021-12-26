@@ -71,15 +71,71 @@ We can easily set a global rule for this interface, this will allow us to define
 // @file config/dependencies.php
 
 return array(
-    '*' => array(
-        'substitutions' => array(
-            // Either by class name to be constructed by container
-            Foo_Interface::class => Some_Class_That_Implements_Foo::class,
-            // Or as an instance.
-            Foo_Interface::class => (new Foo('with', 'some'))->setup('required')
-        ),
-    )
+    Foo_Interface::class => array(
+        'instanceOf' => Some_Class_That_Implements_Foo::class,
+    ),
 )
 ```
 
+Now whenever any class that has `Foo_Interface` as a dependency, will be passed whatever `substitution` rule we have defined.
+
 ### Class by Class
+
+Having a single implementation might be useful for sending emails and logging events within your application, it doesn't really give you that much granular control. You are able to define [rules](Rules) for specific classes, to allow specific implementations on a class by class basis. 
+
+```php
+class Class_A{
+    public function __construct(Cache $foo){
+        $this->foo = $foo;
+    }
+}
+
+class Class_B{
+    public function __construct(Cache $foo){
+        $this->foo = $foo;
+    }
+}
+```
+If we wanted to use different caching methods here we have 2 options.
+
+**Define all instances**
+```php
+// @file config/dependencies.php
+
+return array(
+    Class_A::class => array(
+        'substitutions' => array(
+            Cache::class => DB_Cache::class,
+        ),
+    ),
+    Class_B::class => array(
+        'substitutions' => array(
+            Cache::class => File_Cache::class,
+        ),
+    ),
+)
+```
+> Now whenever we inject `Class_A` as a dependency, we will get `DB_Cache` and for `Class_B` we will get `File_Cache`. 
+ 
+Of course any other dependency we create will need to be defined as above, which while giving us a very verbose representation of our dependencies, its no ideal for development.
+
+**Using a global fallback**
+To get around having to define every unique implementation, we can use a mix of global and class definitions. To do this, we just need to define our fallback as a global and any class which doesnt have a custom rule, will use this.
+
+```php
+// @file config/dependencies.php
+
+return array(
+    // Unless otherwise defined, use Fallback Cache
+    Cache::class => array(
+        'instanceOf' => Fallback_Cache::class,
+    ),
+    Class_A::class => array(
+        // When we inject Class A, use DB Cache for Cache (not Fallback Cache)
+        'substitutions' => array(
+            Cache::class => DB_Cache::class,
+        ),
+    ),
+)
+```
+> Now whenever we inject `Class_A` as a dependency, we will get `DB_Cache` and for `Class_B` or any future class that has `Cache` as a dependency we will get `Fallback_Cache`. 
