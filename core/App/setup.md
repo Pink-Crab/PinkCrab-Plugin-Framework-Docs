@@ -61,7 +61,7 @@ use PinkCrab\Core\Application\App_Factory;
 
 require_once __DIR__ . '/vendor/autoload.php';
 
-( new App_Factory() )->with_wp_dice( true )
+$app = ( new App_Factory() )->with_wp_dice( true )
 	->di_rules( require __DIR__ . '/config/dependencies.php' )
 	->app_config( require __DIR__ . '/config/settings.php' )
 	->registration_classes( require __DIR__ . '/config/registration.php' )
@@ -147,7 +147,8 @@ return array(
 	'post_types' => array(
 		'events' => 'pc_prefix_events'
 	),
-	'plugin'     => '1.1.12',
+	'plugin'     => array(
+        'version' => '1.1.12'
 	)
 );
 ```
