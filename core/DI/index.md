@@ -192,7 +192,7 @@ class Foo{
 }
 ```
 
-### Built in Method Dependency Rules
+## Built in Method Dependency Rules
 
 While these are more useful when writing modules for Perique, these can be used in projects, especially if you are writing your own reusable implementations that should have empty constructors.
 
@@ -231,3 +231,18 @@ class Foo extends Abstract_Foo{
 }
 ```
 > In the above example we didn't need to worry about remembering to pass `App_Config` and `Service` to `Foo` and then calling `parent::__construct($app_config)`
+
+### DI_Container
+
+You can inject the DI Container without the needing the constructor using the Inject_DI_Container interface which requires  `public function set_di_container( DI_Container $container ): void;`
+
+```php
+abstract class Some_Group {
+    protected DI_Container $di_container
+    
+    public function set_di_container( DI_Container $di_container ): void{
+        $this->app_config = $di_container;
+    }
+}
+
+
