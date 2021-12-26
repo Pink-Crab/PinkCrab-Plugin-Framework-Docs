@@ -139,3 +139,8 @@ return array(
 )
 ```
 > Now whenever we inject `Class_A` as a dependency, we will get `DB_Cache` and for `Class_B` or any future class that has `Cache` as a dependency we will get `Fallback_Cache`. 
+
+## Using Abstract Classes
+
+Injecting dependencies that are `Abstract` Classes works exactly the same as `Interfaces`. You can use a mix or either/or `Global` or `Class by Class` Rules
+
