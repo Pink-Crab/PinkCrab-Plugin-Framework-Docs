@@ -1,0 +1,41 @@
+# Dependency Injection
+
+For a more detailed set of documentation on how to use DICE please visit the [Level2 GitHub](https://github.com/Level-2/Dice/) or on [Tom Butler \(Authors\) website](https://r.je/dice). 
+
+At its core the Perique Plugin Framework makes use of the DI container and the Registration process, to register hooks and connect into WordPress. Through using the DI container, you can build complex dependency trees and ensure your code is not coupled and highly testable.
+
+## Basic Usage
+
+The primary way to use the DI container, is via the Registration process. All classes which are passed to the registration process are created and cached using the container. This means you can just inject all of your dependencies and use them in your callbacks.
+
+```php
+
+class Do_Something implements Hookable {
+
+    protected $some_service;
+
+    public function __construct(Some_Service $some_service){
+        $this->some_service = $some_service;
+    }
+
+    public function register(Hook_Hook_Loader $loader): void{
+        $loader->action('some_action', [$this, 'my_callback']);
+    }
+
+    public function my_callback(): void {
+        // Now you can access the some_service in this callback.
+        $this->some_service->do_something();
+    }
+}
+```
+Once this class is added to the ```config/registration.php``` file, it will be constructed and the action will be registered as a wp hook.
+
+**Static Usage**
+
+You can also access the DI container at any time, this is useful for quick calls or for when you want to create objects and have them cached/shared. While this is easier than injecting (especially if you already have a complex constructor), it can lead to messy, coupled code.
+
+```php
+<?php
+$some_service = App::make(Some_Service::class);
+$some_service->do_something();
+```
