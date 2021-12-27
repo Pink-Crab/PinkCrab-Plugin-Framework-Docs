@@ -201,7 +201,8 @@ While these are more useful when writing modules for Perique, these can be used 
 If you would like to have access to App Config without passing it as a dependency, you can have your class implement the `Inject_App_Config` interface. This requires a single method `public function set_app_config( App_Config $app_config ): void;`
 
 ```php
-abstract Abstract_Foo{
+abstract Abstract_Foo implements Inject_App_Config {
+    
     protected App_Config $app_config
     
     public function set_app_config( App_Config $app_config ): void{
@@ -226,7 +227,10 @@ class Foo extends Abstract_Foo{
     }
 
     public function needed_value():string{
-        return $this->service->get_value();
+        return $this->service->get_value(
+            // We of course also have access to App Config too.
+            $this->app_config->additional('something')
+        );
     }
 }
 ```
@@ -234,16 +238,55 @@ class Foo extends Abstract_Foo{
 
 ### DI_Container
 
-You can inject the DI Container without the needing the constructor using the Inject_DI_Container interface which requires  `public function set_di_container( DI_Container $container ): void;`   
+You can inject the DI Container without the needing the constructor using the `Inject_DI_Container` interface which requires  `public function set_di_container( DI_Container $container ): void;`   
 
 
 ```php
-abstract class Some_Group {
-    protected DI_Container $di_container
+abstract class Some_Group implements Inject_DI_Container {
     
+    protected DI_Container $di_container
+    // Array of built items
+    protected array $items;
+
     public function set_di_container( DI_Container $di_container ): void{
-        $this->app_config = $di_container;
+        $this->di_container = $di_container;
     }
+
+    abstract protected function items(): array;
+
+    public function create_items(): void {
+        $item_class_names = $this->items();
+
+        foreach( $item_class_names as $item_class_name ) {
+            $item = $this->di_container->create($item_class_name);
+            $this->items[] = $item;
+        }
+    }
+
 }
 
+// Implementation
+class My_Group extends Some_Group {
 
+    protected My_Item_Repository $repository;
+
+    public function __construct(My_Item_Repository $repository){
+        $this->repository = $repository;
+    }
+
+    protected function items(): array{
+        return $this->repository->where( 'foo', 'bar', '=' );
+    }
+
+}
+
+// This allow sub child dependencies, acces to the container for dependency hirarcy 
+class My_Item {
+    protected Translations $translations;
+    public function __construct(Translations $translations){
+        $this->translations = $translations;
+    }
+}
+```
+
+> The above example shows how you can use the container when creating services that allow access to the container with a empty constructor used only for services needed by each implemntation. We use this frequently in our modules and as part of our Registration Middleware system.
