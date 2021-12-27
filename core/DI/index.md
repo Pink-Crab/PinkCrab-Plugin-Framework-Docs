@@ -234,7 +234,7 @@ class Foo extends Abstract_Foo{
 
 ### DI_Container
 
-You can inject the DI Container without the needing the constructor using the Inject_DI_Container interface which requires  `public function set_di_container( DI_Container $container ): void;`
+You can inject the DI Container without the needing the constructor using the Inject_DI_Container interface which requires  `public function set_di_container( DI_Container $container ): void;`   
 
 ```php
 
