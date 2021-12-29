@@ -314,11 +314,3 @@ class Has_Container implements Inject_DI_Container{
 }
 ```
 This adds `protected $di_container;` and populates using `public function set_di_container( DI_Container $container ): void`
-
-***
-
-### Hook_Loader
-
-> **THIS CAN ONLY BE USED FOR REGISTRATION MIDDLEWARE**
-
-You can inject the Hook Loader without the needing the constructor using the `Inject_Hook_Loader` interface which requires  `public function set_hook_loader( Hook_Loader $hook_loader ): void`   
