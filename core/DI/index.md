@@ -236,6 +236,19 @@ class Foo extends Abstract_Foo{
 ```
 > In the above example we didn't need to worry about remembering to pass `App_Config` and `Service` to `Foo` and then calling `parent::__construct($app_config)`
 
+**Container Aware Trait**
+
+We have a simple trait which can be used with this Interface to remove the need to manually add the method and properties.
+
+```php
+class Has_Config implements Inject_App_Config{
+    use Inject_App_Config_Aware;
+}
+```
+This adds `protected $app_config;` and populates using `public function set_app_config( App_Config $app_config ): void`
+
+***
+
 ### DI_Container
 
 You can inject the DI Container without the needing the constructor using the `Inject_DI_Container` interface which requires  `public function set_di_container( DI_Container $container ): void;`   
@@ -280,7 +293,7 @@ class My_Group extends Some_Group {
 
 }
 
-// This allow sub child dependencies, acces to the container for dependency hirarcy 
+// This allow sub child dependencies, access to the container for dependency hirarcy 
 class My_Item {
     protected Translations $translations;
     public function __construct(Translations $translations){
@@ -289,4 +302,23 @@ class My_Item {
 }
 ```
 
-> The above example shows how you can use the container when creating services that allow access to the container with a empty constructor used only for services needed by each implemntation. We use this frequently in our modules and as part of our Registration Middleware system.
+> The above example shows how you can use the container when creating services that allow access to the container with a empty constructor used only for services needed by each implementation. We use this frequently in our modules and as part of our Registration Middleware system.
+
+**Container Aware Trait**
+
+We have a simple trait which can be used with this Interface to remove the need to manually add the method and properties.
+
+```php
+class Has_Container implements Inject_DI_Container{
+    use Inject_DI_Container_Aware;
+}
+```
+This adds `protected $di_container;` and populates using `public function set_di_container( DI_Container $container ): void`
+
+***
+
+### Hook_Loader
+
+> **THIS CAN ONLY BE USED FOR REGISTRATION MIDDLEWARE**
+
+You can inject the Hook Loader without the needing the constructor using the `Inject_Hook_Loader` interface which requires  `public function set_hook_loader( Hook_Loader $hook_loader ): void`   
