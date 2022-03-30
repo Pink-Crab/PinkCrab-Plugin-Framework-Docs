@@ -32,6 +32,9 @@ A class based loader for WP Hooks and Shortcodes. This is used as part of Periqu
 
 ## WP Cache (PSR 16 Implementation)
 
+Provides both WP Transient and WP FileSystem (Direct) implementation to [*PSR16`s CacheInterface*](https://github.com/php-fig/simple-cache).
+[Docs](PSR16_Cache.md) ∣ [View on GitHub](https://github.com/Pink-Crab/WP_PSR16_Cache)
+
 ## Form Fields
 
 ## WP HTTP Helper (PSR 7 & WP_HTTP)
