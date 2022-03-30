@@ -11,28 +11,28 @@ A classic PHP Collection class which allows for working with Indexed and Sequent
 
 > Comes with a wrapper for use with [Perique](../module/Migrations/index.md)
 
-A table schema definition and an extendable table builder. Comes with a `WPDB` and `DB_Delta()`  implementation for WordPress. 
+A table schema definition and an extendable table builder. Comes with a `WPDB` and `DB_Delta()`  implementation for WordPress.  
 [Docs](Table%20Builder/README.md) ∣ [View on GitHub](https://github.com/Pink-Crab/WPDB-Table-Builder)
 
 
 ## Enqueue
 
-A simple, fluent API for enqueueing and registering scripts and styles. Allows for simpler enqueuing, inline rendering and denoting for either defered or async loading.
+A simple, fluent API for enqueueing and registering scripts and styles. Allows for simpler enqueuing, inline rendering and denoting for either deferred or async loading.  
 [Docs](Enqueue.md) ∣ [View on GitHub](https://github.com/Pink-Crab/Enqueue)
 
 ## WP Nonce
 
-An OO representation of a WP Nonce
+An OO representation of a WP Nonce  
 [Docs](WP_Nonce.md) ∣ [View on GitHub](https://github.com/Pink-Crab/Nonce)
 
 ## Hook Loader
 
-A class based loader for WP Hooks and Shortcodes. This is used as part of Periques core and used as part of the registration process.
+A class based loader for WP Hooks and Shortcodes. This is used as part of Periques core and used as part of the registration process.  
 [Docs](Hook_Loader.md) ∣ [View on GitHub](https://github.com/Pink-Crab/Loader)
 
 ## WP Cache (PSR 16 Implementation)
 
-Provides both WP Transient and WP FileSystem (Direct) implementation to [*PSR16`s CacheInterface*](https://github.com/php-fig/simple-cache).
+Provides both WP Transient and WP FileSystem (Direct) implementation to [*PSR16`s CacheInterface*](https://github.com/php-fig/simple-cache).  
 [Docs](PSR16_Cache.md) ∣ [View on GitHub](https://github.com/Pink-Crab/WP_PSR16_Cache)
 
 ## Form Fields
