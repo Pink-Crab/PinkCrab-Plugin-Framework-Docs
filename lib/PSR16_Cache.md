@@ -2,25 +2,25 @@
 
 Provides both WP Transient and WP FileSystem (Direct) implementation to [*PSR16`s CacheInterface*](https://github.com/php-fig/simple-cache).
 
+![alt text](https://img.shields.io/badge/Current_Version-2.0.4-yellow.svg?style=flat " ") 
+[![Open Source Love](https://badges.frapsoft.com/os/mit/mit.svg?v=102)]()
 ![](https://github.com/Pink-Crab/WP_PSR16_Cache/workflows/GitHub_CI/badge.svg " ")
 [![codecov](https://codecov.io/gh/Pink-Crab/WP_PSR16_Cache/branch/master/graph/badge.svg?token=DZOCZVPKBN)](https://codecov.io/gh/Pink-Crab/WP_PSR16_Cache)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Pink-Crab/WP_PSR16_Cache/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Pink-Crab/WP_PSR16_Cache/?branch=master)
 
 ***********************************************
 
 ## Requirements
 
 Requires Composer and WordPress.
+* Tested with PHP7.1, 7.2, 7.3, 7.4, 8.0, 8.1
+* Tested with WP5.5, 5.6, 5.7, 5.8, 5.9
 
-Works with PHP versions 7.1, 7.2, 7.3 & 7.4
-
-***********************************************
 ## Installation
 
 ``` bash
 $ composer require pinkcrab/wp-psr16-cache
 ```
-
-
 
 ## Getting Started
 
@@ -134,3 +134,8 @@ Calling clear() will use $wpdb to get all transients from the database and clear
 
 > ALSO: 
 Some managed hosts store transients outside of the regular Options table. This can lead to problems when fetching all transients with your prefix.
+
+
+
+***********************************************
+
