@@ -48,7 +48,7 @@ The Core of Perique is very slim and makes use of a few dependencies either our 
 * **Hook_Loader** - The primary loader used to registering all Actions and Filters throughout the framework (Read more)
 * **DICE** - An externally developed, light weight Dependency Injection Container created by [Tom Butler](https://r.je/dice). (Read More) ([DICE GitHub](https://github.com/Level-2/Dice))
 * **PSR11 (Container)** - The PHP-FIG interface for Containers, we use this as a base to our own DI_Container interface ([Read More](https://www.php-fig.org/psr/psr-11/))
-
+* **Collection** A class based Collection for making working with arrays/lists cleaner. Comes with the ability to create simple typed collections. 
 ## Modules 
 
 While you can extend Perique to do anything you need, we also have a collection of Modules created to give access commonly used functionality. In the years we have been using Perique (and predecessors), these are modules we have used over and over. In previous versions, these modules were a part of the core package.
@@ -57,7 +57,8 @@ While you can extend Perique to do anything you need, we also have a collection 
 * **Ajax** Ajax calls are an integral part of most Wordpress projects and can be verbose to create every time. This module allows you to create simple and PSR7 compliant Ajax calls using WP_Ajax (Read more)
 * **BladeOne** - Out of the box we only offer a basic PHP based view engine, but this module allows the use of Blade via the BladeOne package, along with its BladeOne HTML module included. 
 * **Hook_Subscriber** - Sometimes creating entire Controllers is a bit excessive, especially if you only want to trigger on a single action. The Hook_Subscriber modules allows you to create single subscribers with the ability to delay the registration of callbacks to specific actions. (Read more)
-* **Collection** A class based Collection for making working with arrays/lists cleaner. Comes with the ability to create simple typed collections. [Read the Docs](libs/Collection/README.md) ∣ [View on GitHub](https://github.com/Pink-Crab/Collection)
+
+* **Admin_Menu** - This small module allows for the creation of OOP menu pages and groups. With ease of enqueueing and triggering pre-load actions. Can be used with BladeOne to create Blade driven templates.
 
 ## License 
 

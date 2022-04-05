@@ -36,3 +36,9 @@ Create custom REST routes for your WordPress website with this library which all
 Events for plugin state changes (Activation, Deactivation and Installation). Allows for full Perique access (DI & App_Config)  
 
 [Docs](Plugin_Lifecycle/index.md) ∣ [View on GitHub](https://github.com/Pink-Crab/Perique_Plugin_Life_Cycle)
+
+## Menu Page
+
+Allows the creation of Admin Pages and Groups of pages. Allow for full Perique access (DI and App_Config) and can be used with BladeOne
+
+[Docs](Menu_Page) ∣ [View on GitHub](https://github.com/Pink-Crab/Perique_Admin_Menu)
