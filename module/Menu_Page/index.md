@@ -47,7 +47,7 @@ To define a group, there are a few properties which must be defined and a few me
 
 These must all be declared as `protected` and can either be defined directly or via the constructor.
 
-> ### protected string $group_title  
+### protected string $group_title  
 > @var string  
 > @throws Group_Exception (code 252) If not defined and fails validation.
 
@@ -59,7 +59,7 @@ class My_Group extends Abstract_Group{
 ```
 ---
 
-> ### protected string $capability  
+### protected string $capability  
 > @var string  
 > @default 'manage_options' if not defined
 
@@ -71,7 +71,7 @@ class My_Group extends Abstract_Group{
 ```
 ---
 
-> ### protected string $icon  
+### protected string $icon  
 > @var string  
 > @default 'dashicons-admin-generic' if not defined
 
@@ -83,7 +83,7 @@ class My_Group extends Abstract_Group{
 ```
 ---
 
-> ### protected string $primary_page  
+### protected string $primary_page  
 > @var string / class-string   
 > @throws Group_Exception (code 252) If not defined and fails validation.
 
@@ -95,7 +95,7 @@ class My_Group extends Abstract_Group{
 ```
 ---
 
-> ### protected array $pages  
+### protected array $pages  
 > @var string[] | class-string[]   
 
 An array of fully namespaced class names, which extend the Menu_Page object
@@ -112,7 +112,7 @@ class My_Group extends Abstract_Group{
 > You can use the `::class` helper constant if you wish.
 ---
 
-> ### protected int $position  
+### protected int $position  
 > @var int  
 > @default 65 if not defined
 
@@ -130,7 +130,7 @@ These must all be declared as `public` and are optional.
 
 *Shared Group Methods are called before individual page methods are called. Applied to `enqueue()` and `load()`*
   
-> ### public function enqueue( Abstract_Group $group, Page $page ): void 
+### public function enqueue( Abstract_Group $group, Page $page ): void 
 > @param Abstract_Group $group
 > @param Page $page  
 
@@ -153,7 +153,7 @@ class My_Group extends Abstract_Group{
 
 ---
 
-> ### public function load( Abstract_Group $group, Page $page ): void 
+### public function load( Abstract_Group $group, Page $page ): void 
 > @param Abstract_Group $group
 > @param Page $page  
 
@@ -188,7 +188,7 @@ These must all be declared as `protected` and can either be defined directly or 
 
 > When used in context with a group, various values can be omitted and these will be populated by the `Group`s values.
 
-> ### protected string|null $parent_slug  
+### protected string|null $parent_slug  
 > @var string  
 > @optional If registered as part of a group, the parent will be set based on the Groups parent page.  
 
@@ -202,7 +202,7 @@ class My_Page extends Menu_Page {
 ```
 ---
 
-> ### protected string|null $parent_slug  
+### protected string|null $parent_slug  
 > @var string  
 > @optional If registered as part of a group, the parent will be set based on the Groups parent page.  
 
@@ -216,7 +216,7 @@ class My_Page extends Menu_Page {
 ```
 ---
 
-> ### protected string $page_slug  
+### protected string $page_slug  
 > @var string  
 > @throws Page_Exception (code 201) If not defined and fails validation. 
 
@@ -229,7 +229,7 @@ class My_Page extends Menu_Page {
 ```
 ---
 
-> ### protected string $menu_title  
+### protected string $menu_title  
 > @var string  
 > @throws Page_Exception (code 201) If not defined and fails validation. 
 
@@ -241,7 +241,7 @@ class My_Page extends Menu_Page {
 ```
 ---
 
-> ### protected string $page_title  
+### protected string $page_title  
 > @var string  
 
 This is used as the pages title, is only automatically displayed if using the WP Settings API.
@@ -252,7 +252,7 @@ class My_Page extends Menu_Page {
 ```
 ---
 
-> ### protected int|null $position  
+### protected int|null $position  
 > @var int|null  
 
 An optional page position, this is only used in context of the submenu. Use group for main menu placements.
@@ -263,7 +263,7 @@ class My_Page extends Menu_Page {
 ```
 ---
 
-> ### protected string $capability  
+### protected string $capability  
 > @var string  
 > @optional will default to 'manage_options' if not defined.
 
@@ -281,7 +281,7 @@ class My_Page extends Menu_Page {
 You can render your template using [Perique's View service](https://perique.info/core/App/view). To use `View`, you will need to define a template path and any optional data to pass to the view.
 
 
-> ### protected string $view_template  
+### protected string $view_template  
 > @var string  
 > @throws Page_Exception (code 200) If no view template defined (and not using the `render_view()` method)
 
@@ -298,7 +298,7 @@ class My_Page extends Menu_Page {
 
 ---
 
-> ### protected string $view_data  
+### protected string $view_data  
 > @var string  
 > @optional Will pass an empty array without access
 
@@ -321,7 +321,7 @@ class My_Page extends Menu_Page {
 
 These must all be declared as `public` and are optional.
 
-> ### public function enqueue( Page $page ): void 
+### public function enqueue( Page $page ): void 
 > @param Page $page  
 
 This allows for the enqueueing of Scripts and Styles using `wp_enqueue_script()`, `wp_enqueue_style()` or [PinkCrab - Enqueue](https://github.com/Pink-Crab/Enqueue). To whatever page this is declared as.
@@ -343,7 +343,7 @@ class My_Page extends Menu_Page {
 
 ---
 
-> ### public function load( Page $page ): void 
+### public function load( Page $page ): void 
 > @param Page $page  
 
 This allows for the handling for form submissions or other checks before the page is loaded.
@@ -366,7 +366,7 @@ class My_Page extends Menu_Page {
 ---
 #### Render View with a function [Read More](#public-function-render_view-callable)
 
-> ### public function render_view(): callable 
+### public function render_view(): callable 
 > @return callable  
 
 This can be used to override the use of View and the definition of template files.
