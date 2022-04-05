@@ -109,7 +109,9 @@ class My_Group extends Abstract_Group{
     ];
 }
 ```
-> You can use the `::class` helper constant if you wish.
+
+> **You can use the `::class` helper constant if you wish.**
+
 ---
 
 ### protected int $position  
