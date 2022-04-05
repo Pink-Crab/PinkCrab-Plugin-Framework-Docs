@@ -85,7 +85,7 @@ $this->view->render('teams/members',[
 <p>Members</p>
 <div>
     <?php foreach($members as $member) {
-        $this->render('team/member-profile', $member, View::PRINT_VIEW );
+        $this->render('team/member-profile', [$member], View::PRINT_VIEW );
     } ?>
 </div>
 
