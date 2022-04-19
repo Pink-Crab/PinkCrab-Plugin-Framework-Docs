@@ -5,7 +5,7 @@ Collection of extension modules for Perique.
 ## Registerables
 
 A collection of Abstract Classes for registering `Post Types`, `Taxonomies`, `Meta Data` and `Meta Boxes` all with help of the DI Container and Registration process.  
-[Docs](Registerabes/index.md) ∣ [View on GitHub](https://github.com/Pink-Crab/Perique-Registerables)
+[Docs](Registerables/index.md) ∣ [View on GitHub](https://github.com/Pink-Crab/Perique-Registerables)
 
 ## Ajax
 
