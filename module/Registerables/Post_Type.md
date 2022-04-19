@@ -8,6 +8,7 @@
 
 ***
 <!-- pagenav[end] -->
+<!-- content[start] -->
 
 # Post_Type
 
@@ -481,3 +482,5 @@ The following labels are automatically defined, but can be changed using [`filte
 | item_link_description    | A link to a **{singular name}** |
 
 > Additional or missing labels can be added via the [`filter_labels()`](#using-filter_labels) `Post_Type` method
+
+<!-- content[end] -->

@@ -1,5 +1,18 @@
 # Registerables
 
+<!-- pagenav[start] -->
+## Perique Ajax Documentation
+* [Registerables](index.md)
+* [Post Type](Post_Type.md)
+* [Taxonomy](Taxonomy.md)
+* [Meta Data](Meta_Data.md)
+* [Meta Box](Meta_Box.md)
+
+***
+<!-- pagenav[end] -->
+<!-- content[start] -->
+
+
 ![Current Version 0.8.0](https://img.shields.io/badge/Current_Version-0.8.0-yellow.svg?style=flat " ") 
 [![Open Source Love](https://badges.frapsoft.com/os/mit/mit.svg?v=102)](https://github.com/ellerbrock/open-source-badge/)
 [![GitHub_CI](https://github.com/Pink-Crab/Perique-Registerables/actions/workflows/php.yaml/badge.svg)](https://github.com/Pink-Crab/Perique-Registerables/actions/workflows/php.yaml)
@@ -15,13 +28,6 @@ A collection of Abstract Classes for creating common WordPress fixtures which ne
 - [Meta Data](#meta-data)
   - [Additional Meta Data](#additional_meta_data_controller)
 
-
-
-## Version ##
-
-**Release 0.8.0**
-
-> For older versions of the PinkCrab Plugin Framework please use Registerables V0.5.\*
 
 ## Why? ##
 
@@ -219,3 +225,4 @@ You can also define MetaData for [Post Types](Post-Type#registering-meta_data) a
 To register standalone Meta_Data, you can use the `Additional_Meta_Data_Controller` which has a single method `meta_data(array $meta_data): array`. Like in the [example above](#meta-data), you add your Meta_Data instances to the array and return.
 
 The class has an empty constructor, so you can easily inject dependencies in and make use of the `App_Config` meta options.
+<!-- content[end] -->

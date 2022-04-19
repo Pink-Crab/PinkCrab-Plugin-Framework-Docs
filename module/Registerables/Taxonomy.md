@@ -8,6 +8,7 @@
 
 ***
 <!-- pagenav[end] -->
+<!-- content[start] -->
 
 # Taxonomy
 
@@ -333,3 +334,4 @@ The following labels are automatically defined, but can be changed using [`filte
 | parent_item      | Parent **{singular name}** |
 | filter_by_item    | Filter by **{singular name}** |
 
+<!-- content[end] -->

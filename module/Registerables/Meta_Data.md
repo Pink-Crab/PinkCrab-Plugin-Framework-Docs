@@ -8,6 +8,7 @@
 
 ***
 <!-- pagenav[end] -->
+<!-- content[start] -->
 
 # Meta Data
 
@@ -243,3 +244,6 @@ function( $value, array $object ){
   // $object['id'] will give access to the Post, Comment, Term or User ID. 
 }
 ```
+
+<!-- content[end] -->
+

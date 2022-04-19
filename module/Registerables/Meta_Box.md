@@ -8,6 +8,7 @@
 
 ***
 <!-- pagenav[end] -->
+<!-- content[start] -->
 
 # Meta_Box
 
@@ -349,3 +350,4 @@ Meta_Box::normal('my_meta_box_key_1')
   });
 ```
 
+<!-- content[end] -->

@@ -19,8 +19,6 @@ A simple but powerful Ajax library for the PinkCrab Perique framework. Allows fo
 ![](https://github.com/Pink-Crab/Perique-Ajax/workflows/GitHub_CI/badge.svg " ")
 [![codecov](https://codecov.io/gh/Pink-Crab/Perique-Ajax/branch/master/graph/badge.svg?token=NEZOz6FsKK)](https://codecov.io/gh/Pink-Crab/Perique-Ajax)
 
-## Version 1.0.2 ##
-
 ****
 
 ## Why? ##
@@ -127,19 +125,5 @@ return [
     ....
 ];
 ```
-
-****
-
-
-## License ##
-
-### MIT License ###
-http://www.opensource.org/licenses/mit-license.html  
-
-## Change Log ##
-* 1.0.2 - Added in Ajax_Bootstrap class with ::use() method, for simpler inclusion with Perique. Docs improved as part of Perique.info site
-* 1.0.1 - Update yoast/phpunit-polyfills requirement from ^0.2.0 to ^0.2.0 || ^1.0.0 by @dependabot in #13
-* 1.0.0 - Supports Perique 1.0.0 and includes checks to ensure only added when wp_ajax called
-* 0.1.0 Extracted from the Registerables module. Now makes use of a custom Registration_Middleware service for dispatching all Ajax calls.
 
 <!-- content[end] -->
