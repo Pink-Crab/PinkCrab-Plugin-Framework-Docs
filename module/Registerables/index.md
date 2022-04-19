@@ -1,7 +1,7 @@
 # Registerables
 
 <!-- pagenav[start] -->
-## Perique Ajax Documentation
+*Registerable Pages*
 * [Registerables](index.md)
 * [Post Type](Post_Type.md)
 * [Taxonomy](Taxonomy.md)
@@ -21,14 +21,6 @@
 
 A collection of Abstract Classes for creating common WordPress fixtures which need registering.
 
-- [Post Type](#post-type)  
-- [Taxonomy](#taxonomy)  
-- [Meta Box](#meta-box)
-  - [Shared Meta Boxes](#shared-meta-boxes)
-- [Meta Data](#meta-data)
-  - [Additional Meta Data](#additional_meta_data_controller)
-
-
 ## Why? ##
 
 WordPress has a number of Registerable functions for Post Types, Post Meta and Taxonomies. These tend to require large arrays of arguments to be defined. This library provides Classes which can be registered and used with the Registration process.
@@ -37,7 +29,6 @@ WordPress has a number of Registerable functions for Post Types, Post Meta and T
 
 ```bash 
 $ composer require pinkcrab/registerables
-
 ``` 
 
 You need to include the module and the Registerable_Middleware. They come with their own dependencies which will need to be added using the construct_registration_middleware() from the App_Factory instance.
@@ -107,7 +98,7 @@ class My_CPT extends Post_Type {
 ```
 
 > **If your meta box has any level of complexity, it is recommended to create a separate service which handles this and inject it into the Post_Type class.**
-> 
+
 ```php
 /** The Meta Box Service */
 class Meta_Box_Service {

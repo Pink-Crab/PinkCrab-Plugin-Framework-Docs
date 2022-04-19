@@ -1,5 +1,5 @@
 <!-- pagenav[start] -->
-## Perique Ajax Documentation
+*Registerable Pages*
 * [Registerables](index.md)
 * [Post Type](Post_Type.md)
 * [Taxonomy](Taxonomy.md)
