@@ -1,3 +1,5 @@
-theme: jekyll-theme-architect
-title: PinkCrab's Perique Framework Docs
+theme: just-the-docs
+title: Perique Docs
 description: Docs for the PinkCrab 'Perique' Plugin/Theme framework, along with its modules and dependencies.
+plugins:
+  - jekyll-default-layout

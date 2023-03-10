@@ -1,4 +1,4 @@
-# Libs
+# Module 
 
 Collection of extension modules for Perique.
 

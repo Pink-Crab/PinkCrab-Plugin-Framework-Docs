@@ -67,21 +67,21 @@ $schema = new Schema('table', function(Schema $schema): void{
 ```
 
 > **Shortcut types** *(passing null, will not set the length or default)*  
-> `varchar( ?int $length = null )`
-> `text( ?int $length = null )`
-> `int( ?int $length = null )`
-> `float( ?int $length = null )`
-> `double( ?int $length = null )`
-> `datetime( ?string $default = null )`
-> `timestamp( ?string $default = null )`
-> `unsigned_int( ?int $length = null )`
-> `unsigned_medium( ?int $length = null )`
+> `varchar( ?int $length = null )`  
+> `text( ?int $length = null )`  
+> `int( ?int $length = null )`  
+> `float( ?int $length = null )`  
+> `double( ?int $length = null )`  
+> `datetime( ?string $default = null )`  
+> `timestamp( ?string $default = null )`  
+> `unsigned_int( ?int $length = null )`  
+> `unsigned_medium( ?int $length = null )`  
 
 ***
 
 ## has_column( string $name ): bool
 * @param string $name
-* @return Column
+* @return bool
 
 Checks if a column has been set based in its name.
 
@@ -98,7 +98,7 @@ $schema->has_column('user_id'); // TRUE
 ***
 
 ## get_columns(): array
-* @return array<Column>
+* @return Column[]
 
 Retruns an array of Column objects.
 
@@ -117,9 +117,9 @@ $schema->get_columns(); // [Column{name: id..}, Column{name: user_id....}]
 ## remove_column( string $name ): self 
 * @param string $name
 * @return self
-* @throws Exception If columnn doesnt exist.
+* @throws Exception If column doesn't exist.
 
-Removes a colum from the table, can be used to conditionally remove a column before being created. Will throw an exception of the column doesnt exist.
+Removes a colum from the table, can be used to conditionally remove a column before being created. Will throw an exception of the column doesn't exist.
 
 ```php
 $schema = new Schema('table', function(Schema $schema): void{
@@ -176,7 +176,7 @@ $schema->has_indexes(); // TRUE
 ***
 
 ## get_indexes(): array
-* @return array<Index>
+* @return \PinkCrab\Table_Builder\Index[]
 
 Returns an array of all indexes currently set to the Schema.
 
@@ -237,7 +237,7 @@ $schema->has_foreign_keys(); // TRUE
 ***
 
 ## get_foreign_keys(): array
-* @return array<Foreign_Key>
+* @return Foreign_Key[]
 
 Returns an array of all Foreign Keys currently set to the Schema.
 
