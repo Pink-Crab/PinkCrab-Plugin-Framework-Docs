@@ -32,6 +32,6 @@ source "https://rubygems.org"
 # # do not have a Java counterpart.
 # gem "http_parser.rb", "~> 0.6.0", :platforms => [:jruby]
 
-gem "webrick", "~> 1.7"
+# gem "webrick", "~> 1.7"
 gem "just-the-docs"
 gem "jekyll-default-layout"
