@@ -7,6 +7,9 @@
 
 WordPress development involves lots of keys, slugs, namespaces and paths, lots of them. App_Config gives an injectable container for holding your keys.
 
+{: .bg-red-300.highlight.err }
+> Both the 'plugin' and 'view' paths/urls are defined when the App is setup, they can be overwritten in the settings.php file, but this will not effect internal operations of the plugin. These ideally should be only be configured using the `App_Factory`
+
 
 ## Example Setup
 
@@ -24,11 +27,9 @@ global $wpdb;
 
 return array(
     'path' => array(
-        'view'     => $base_path . '/views',
         'assets'   => $base_path . '/build/assets',
     ),
     'url' => array(
-        'view'     => \plugins_url($plugin_dir) . '/views',
         'assets'   => \plugins_url($plugin_dir) . '/build/assets',
     ),
     'post_types' => array(
@@ -72,9 +73,9 @@ return array(
 The values set by default \(plugin, view, assets, upload\_root & upload\_current\) are the only values that can be called. Any additional keys added, will be stripped, use Additional for any extra values.
 
 ### Default Values
-* `$path['plugin'] = \dirname( __DIR__, 2 )`
-* `$path['view'] = \dirname( __DIR__, 2 ) . '/views`
-* `$path['assets'] = \dirname( __DIR__, 2 ) . '/assets`
+* `$path['plugin'] = {$base_path}`
+* `$path['view'] = {$base_path} . '/views`
+* `$path['assets'] = {$base_path} . '/assets`
 * `$path['upload_root'] = \wp_upload_dir()['basedir']`
 * `$path['upload_current'] = \wp_upload_dir()['path']`
 

@@ -1,5 +1,9 @@
 # Perique Setup
 
+*Pages*
+* [Setup](setup)
+* [App_Config](app_config)
+
 > ### REQUIRES COMPOSER
 
 If you are planning to roll your own setup over using of the boilerplate packages we have. You can either use composer to install the core package using  
@@ -95,15 +99,15 @@ It is possible to define a range of values which can be accessed via the `App_Co
  */
 
 // Base path and urls
-$base_path  = \dirname( __DIR__, 1 );
-$plugin_dir = \basename( $base_path );
+$base_path  = dirname( __DIR__, 1 );
+$plugin_dir = basename( $base_path );
 
 return array(
 	'path'       => array(
 		'assets'         => $base_path . '/assets',
 	),
 	'url'        => array(
-		'assets'         => \plugins_url( $plugin_dir ) . '/assets',
+		'assets'         => plugins_url( $plugin_dir ) . '/assets',
 	),
 	'post_types' => array(
 		'events' => 'pc_prefix_events'
