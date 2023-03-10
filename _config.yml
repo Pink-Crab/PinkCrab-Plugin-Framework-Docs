@@ -1,4 +1,5 @@
 theme: just-the-docs
+remote_theme: pmarsceill/just-the-docs
 title: Perique Docs
 description: Docs for the PinkCrab 'Perique' Plugin/Theme framework, along with its modules and dependencies.
 plugins:
