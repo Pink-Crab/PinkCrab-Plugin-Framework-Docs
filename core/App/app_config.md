@@ -7,7 +7,7 @@
 
 WordPress development involves lots of keys, slugs, namespaces and paths, lots of them. App_Config gives an injectable container for holding your keys.
 
-{: .bg-red-300.highlight.err }
+{: .warning }
 > Both the 'plugin' and 'view' paths/urls are defined when the App is setup, they can be overwritten in the settings.php file, but this will not effect internal operations of the plugin. These ideally should be only be configured using the `App_Factory`
 
 
