@@ -1,14 +1,8 @@
-<!-- pagenav[start] -->
-*Registerable Pages*
-* [Registerables](index.md)
-* [Post Type](Post_Type.md)
-* [Taxonomy](Taxonomy.md)
-* [Meta Data](Meta_Data.md)
-* [Meta Box](Meta_Box.md)
-
-***
-<!-- pagenav[end] -->
-<!-- content[start] -->
+---
+description: >-
+  Post_Type is an Abstract Class which can be extended within your codebase, to
+  create fully customisable custom post types.
+---
 
 # Post_Type
 
@@ -482,5 +476,3 @@ The following labels are automatically defined, but can be changed using [`filte
 | item_link_description    | A link to a **{singular name}** |
 
 > Additional or missing labels can be added via the [`filter_labels()`](#using-filter_labels) `Post_Type` method
-
-<!-- content[end] -->

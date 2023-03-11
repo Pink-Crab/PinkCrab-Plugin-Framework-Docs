@@ -1,14 +1,8 @@
-<!-- pagenav[start] -->
-*Registerable Pages*
-* [Registerables](index.md)
-* [Post Type](Post_Type.md)
-* [Taxonomy](Taxonomy.md)
-* [Meta Data](Meta_Data.md)
-* [Meta Box](Meta_Box.md)
-
-***
-<!-- pagenav[end] -->
-<!-- content[start] -->
+---
+description: >-
+  Taxonomy is an Abstract Class which can be extended within your codebase, to
+  create custom taxonomies, easily and cleanly.
+---
 
 # Taxonomy
 
@@ -334,4 +328,3 @@ The following labels are automatically defined, but can be changed using [`filte
 | parent_item      | Parent **{singular name}** |
 | filter_by_item    | Filter by **{singular name}** |
 
-<!-- content[end] -->

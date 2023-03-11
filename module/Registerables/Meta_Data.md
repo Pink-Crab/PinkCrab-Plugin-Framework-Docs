@@ -1,14 +1,7 @@
-<!-- pagenav[start] -->
-*Registerable Pages*
-* [Registerables](index.md)
-* [Post Type](Post_Type.md)
-* [Taxonomy](Taxonomy.md)
-* [Meta Data](Meta_Data.md)
-* [Meta Box](Meta_Box.md)
-
-***
-<!-- pagenav[end] -->
-<!-- content[start] -->
+---
+description: >-
+  MetaData can be defined and registered as part of Post Type or Taxonomy definitions, but also standalone. Stand alone Meta ata can be assigned to existing Post Types or Taxonomies, but also User and Comment.
+---
 
 # Meta Data
 
@@ -244,6 +237,3 @@ function( $value, array $object ){
   // $object['id'] will give access to the Post, Comment, Term or User ID. 
 }
 ```
-
-<!-- content[end] -->
-
