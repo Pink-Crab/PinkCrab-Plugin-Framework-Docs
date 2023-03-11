@@ -54,7 +54,4 @@ Used to return a 500 response with the passed payload (array) represented as JSO
 > @return Psr\Http\Message\ResponseInterface  
 
 Used to return a 404 response with the passed payload (array) represented as JSON in the response body. Defaults to ['error' => 'not found'] if no body passed.
-
-
-
 <!-- content[end] -->
