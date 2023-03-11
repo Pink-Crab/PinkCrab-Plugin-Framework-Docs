@@ -1,20 +1,23 @@
 # BladeOne_Provider
 A BladeOne Provider for the PinkCrab Renderable Interface.
 
+[![Latest Stable Version](http://poser.pugx.org/pinkcrab/bladeone-provider/v)](https://packagist.org/packages/pinkcrab/bladeone-provider)
+[![Total Downloads](http://poser.pugx.org/pinkcrab/bladeone-provider/downloads)](https://packagist.org/packages/pinkcrab/bladeone-provider)
+[![License](http://poser.pugx.org/pinkcrab/bladeone-provider/license)](https://packagist.org/packages/pinkcrab/bladeone-provider)
+[![PHP Version Require](http://poser.pugx.org/pinkcrab/bladeone-provider/require/php)](https://packagist.org/packages/pinkcrab/bladeone-provider)
+![GitHub contributors](https://img.shields.io/github/contributors/Pink-Crab/Perique-BladeOne-Provider?label=Contributors)
+![GitHub issues](https://img.shields.io/github/issues-raw/Pink-Crab/Perique-BladeOne-Provider)
 
+[![WP5.9 [PHP7.2-8.1] Tests](https://github.com/Pink-Crab/Perique-BladeOne-Provider/actions/workflows/WP_5_9.yaml/badge.svg)](https://github.com/Pink-Crab/Perique-BladeOne-Provider/actions/workflows/WP_5_9.yaml)
+[![WP6.0 [PHP7.2-8.1] Tests](https://github.com/Pink-Crab/Perique-BladeOne-Provider/actions/workflows/WP_6_0.yaml/badge.svg)](https://github.com/Pink-Crab/Perique-BladeOne-Provider/actions/workflows/WP_6_0.yaml)
+[![WP6.1 [PHP7.2-8.1] Tests](https://github.com/Pink-Crab/Perique-BladeOne-Provider/actions/workflows/WP_6_1.yaml/badge.svg)](https://github.com/Pink-Crab/Perique-BladeOne-Provider/actions/workflows/WP_6_1.yaml)
 
-![alt text](https://img.shields.io/badge/Current_Version-1.2.2-green.svg?style=flat " ") 
-[![Open Source Love](https://badges.frapsoft.com/os/mit/mit.svg?v=102)](https://github.com/ellerbrock/open-source-badge/)
-![](https://github.com/Pink-Crab/Loader/workflows/GitHub_CI/badge.svg " ")
 [![codecov](https://codecov.io/gh/Pink-Crab/Perique-BladeOne-Provider/branch/master/graph/badge.svg?token=F7W4S9O5IR)](https://codecov.io/gh/Pink-Crab/Perique-BladeOne-Provider)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Pink-Crab/Perique-BladeOne-Provider/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Pink-Crab/Perique-BladeOne-Provider/?branch=master)
+[![Maintainability](https://api.codeclimate.com/v1/badges/516590e7548eadeeaa8a/maintainability)](https://codeclimate.com/github/Pink-Crab/Perique-BladeOne-Provider/maintainability)
 
 
-## Version ##
-**Release 1.2.2**
-
-> Supports and tested with the PinkCrab Perique Framework versions 0.5.* -> 1.*
-
-*For support of the initial PinkCrab Plugin Frameworks (version 0.2.\*, 0.3.\* and 0.4.\*) please use BladeOne_Provider 1.0.3*
+> Supports and tested with the PinkCrab Perique Framework versions 1.4.*
 
 
 ## Why? ##
@@ -43,7 +46,12 @@ BladeOne_Bootstrap::use( $views_path, $cache_path, $blade_mode, $blade_class );
 $app = ( new App_Factory() )->with_wp_dice( true )
 	->.....
 ```
+> **\$views_path** :: This can be a string or an array of strings. If an array is passed, the first path that exists will be used. If not passed, the path defined in Perique will be used.  
+
+> **\$cache_path** :: This should be a string path to the cache directory. If not passed, the path will be set as the `WP_CONTENT_DIR` . 'uploads/compiled/blade'  
+
 > **\$blade_mode** :: For more details on the options please [see official docs](https://github.com/EFTEC/BladeOne/blob/d3e1efa1c6f776aa87fe47164d77e7ea67fc196f/lib/BladeOne.php#L208 )   
+
 > **\$blade_class** :: This should be a the class name or instance of a class that extends `PinkCrab_BladeOne::class` this allows for the creation of custom components and extending BladeOne in general. For more details please [see official docs](https://github.com/EFTEC/BladeOne/wiki/Extending-the-class) Passing nothing or an invalid type will just use the default PinkCrab_BladeOne.
 
 > If the cache directory doesn't exist, BladeOne will create it for you. It is however best to do this yourself to be sure of permissions etc.
@@ -228,7 +236,7 @@ $provider->add_alias_classes('MyClass', 'Namespace\\For\\Class');
  *
  * @param string|array<string, mixed> $var_name It is the name of the variable or it is an associative array
  * @param mixed        $value
- * @return $this
+ * @return self
  */
 public function share( $var_name, $value = null ): self{}
 ```
@@ -276,7 +284,7 @@ $provider->set_mode(BladeOne::MODE_AUTO);
  * It must includes the leading dot e.g. .blade.php
  *
  * @param string $file_extension Example: .prefix.ext
- * @return $this
+ * @return self
  */
 public function set_file_extension( string $file_extension ): self{}
 ```
@@ -297,7 +305,7 @@ $foo->render('my', ['data'=>'foo']);
  * Including the leading dot for the extension is required, e.g. .bladec
  *
  * @param string $file_extension
- * @return $this
+ * @return self
  */
 public function set_compiled_extension(( string $file_extension ): self{}
 ```
@@ -305,7 +313,22 @@ Allows you to define a custom extension for your compiled views.
 ```php
 $provider->set_file_extension('.view_cache');
 ```
+---
 
+### **set_esc** ###
+```php
+/**
+ * Sets the esc function.
+ * 
+ * @param callable(mixed):string $esc
+ * @return self
+ */
+public function set_esc_function( callable $esc ): self {}
+```
+Allows you to define a custom esc function for your views. By default this is set to `esc_html`.
+```php
+$provider->set_esc_function('esc_attr');
+```
 ---
 
 ## Magic Call Methods ##
@@ -332,20 +355,59 @@ App::view()->engine()->some_method($data);
 
 ***
 
+## View Models ##
+Inside your templates it is possible to render viewModels in your templates by using either of the following methods.
+
+```php
+// @file /views/template.blade.php
+
+// Using the $this->view_models() method.
+{!! $this->view_modes(new View_Model('path.template', ['key' => 'value'])) !!}
+
+// Using the directive
+@viewModel(new View_Model('path.template', ['key' => 'value']))
+```
+
+## Components ##
+Inside your templates it is possible to render components in your templates by using either of the following methods.
+
+```php
+// @file /views/template.blade.php
+
+// Using the $this->component() method.
+{!! $this->component(new SomeComponent()) !!}
+
+// Using the directive
+@component(new SomeComponent())
+```
+> Please note `@component` is not the same as regular BLADE components. BladeOne does not support these and this is the Perique Frameworks own implementation.
+
+
 ## Dependencies ##
 * [BladeOne 4.1](https://github.com/EFTEC/BladeOne)
 * [BladeOne HTML 2.0](https://github.com/eftec/BladeOneHtml)
 
 ## Requires ##
-* [PinkCrab Perique Framework V1.0.0 and above.](https://github.com/Pink-Crab/Perqiue-Framework)
-
+* [PinkCrab Perique Framework V1.4.0 and above.](https://github.com/Pink-Crab/Perqiue-Framework)
+* PHP7.2+
 
 ## License ##
 
 ### MIT License ###
 http://www.opensource.org/licenses/mit-license.html  
 
+## Previous Perique Support ##
+
+* For support of Perique 1.3.\* please use BladeOne_Provider 1.3.\*
+* For support of all versions from 0.5.\* - 1.1.\* please use BladeOne_Provider 1.2.\*
+* For support of the initial PinkCrab Plugin Frameworks (version 0.2.\* -> 0.4.\*) please use BladeOne_Provider 1.0.3
+
 ## Change Log ##
+* 1.4.1 - Fix issue where paths are not correctly assumed if not passed via Bootstrap::use()
+* 1.4.0 - Now matches the changes in Perique 1.4.0, no longer compatible with Perique 1.3.0 and below.
+* 1.3.2 - Updated to match Perique 1.3.0 with both Component and View_Model support. Dropped PHP 7.1 support.
+* 1.3.1 - Adds in direct support from $this->component() and $this->view_models() in views, inline with native `PHP_Engine` renderer.
+* 1.3.0 - Updated to match Perique 1.2.0 with both Component and View_Model support. Dropped PHP 7.1 support.
 * 1.2.2 - Ensure that BladeOne is only loaded once wp is loaded. This avoids issues where template globals are registered before WP has finished loading. See issue #13
 * 1.2.1 - Updated Readme and bumped BladeOne and BladeOneHTMl to the latest versions, now only compatible with Perique 1.\*.\*
 * 1.2.0 - Comes with bootloader and ability to configure internal blade instance and use custom implementations to add directives, components and config in general

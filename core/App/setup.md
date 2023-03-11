@@ -1,5 +1,5 @@
 ---
-title: App Config
+title: Setup
 parent: Setup
 ---
 
