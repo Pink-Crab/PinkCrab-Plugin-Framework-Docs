@@ -1,14 +1,9 @@
-<!-- pagenav[start] -->
-*Registerable Pages*
-* [Registerables](index.md)
-* [Post Type](Post_Type.md)
-* [Taxonomy](Taxonomy.md)
-* [Meta Data](Meta_Data.md)
-* [Meta Box](Meta_Box.md)
-
-***
-<!-- pagenav[end] -->
-<!-- content[start] -->
+---
+description: >-
+  Meta_Boxes can be constructed and used as either parts of registered post types,
+  or independently for Users, Pages and anywhere else you can natively render
+  one.
+---
 
 # Meta_Box
 
@@ -350,4 +345,3 @@ Meta_Box::normal('my_meta_box_key_1')
   });
 ```
 
-<!-- content[end] -->
