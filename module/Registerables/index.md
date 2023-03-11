@@ -43,7 +43,6 @@ WordPress has a number of Registerable functions for Post Types, Post Meta and T
 
 ```bash 
 $ composer require pinkcrab/registerables
-
 ``` 
 
 You need to include the module and the Registerable_Middleware. They come with their own dependencies which will need to be added using the construct_registration_middleware() from the App_Factory instance.
@@ -71,7 +70,7 @@ class Basic_CPT extends Post_Type {
 }
 ```
  
-[See full Post Type docs](docs/Post-Type.md)
+[See full Post Type docs](Post_Type)
 
 ## Taxonomy
 
@@ -90,7 +89,7 @@ class Basic_Tag_Taxonomy extends Taxonomy {
 }
 ```
 
-[See full Taxonomy Docs](docs/Taxonomy.md)
+[See full Taxonomy Docs](Taxonomy)
 
 ## Meta Box
 
@@ -112,8 +111,8 @@ class My_CPT extends Post_Type {
 }
 ```
 
-> **If your meta box has any level of complexity, it is recommended to create a separate service which handles this and inject it into the Post_Type class.**
-> 
+> **If your meta box has any level of complexity, it is recommended to create a separate service which handles this and inject it into the Post_Type class.**  
+
 ```php
 /** The Meta Box Service */
 class Meta_Box_Service {
@@ -152,7 +151,7 @@ class My_CPT extends Post_Type {
 }
 ```
 
-[See full Meta Box Docs](docs/Meta_Box.md)
+[See full Meta Box Docs](Meta_Box)
 
 ### Shared Meta Boxes
 
@@ -194,7 +193,7 @@ class Acme_Meta_Box extends Shared_Meta_Box_Controller {
   }
 }
 ```
-**[Defining Meta Data](docs/Post-Type.md#registering-meta_data)**
+**[Defining Meta Data](Post_Type#registering-meta_data)**
 
 > The above Meta Box would be shown on both `acme_post_type_a` and `acme_post_type_b`  
 > You can also inject any dependencies via the constructor too.
@@ -222,9 +221,9 @@ class Additional_Post_Meta extends Additional_Meta_Data_Controller {
 }
 ```
 
-[See full Meta Data Docs](docs/Meta_Data.md)  
+[See full Meta Data Docs](Meta_Data)  
 
-You can also define MetaData for [Post Types](docs/Post-Type.md#registering-meta_data) and [Taxonomies](docs/Taxonomy.md#registering-meta_data) when creating them.
+You can also define MetaData for [Post Types](Post_Type#registering-meta_data) and [Taxonomies](Taxonomy#registering-meta_data) when creating them.
 
 ### Additional_Meta_Data_Controller
 
