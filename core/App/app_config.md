@@ -1,14 +1,12 @@
 # App\_Config
 
-*Pages*
-* [Setup](setup)
-* [App_Config](app_config)
+{% include setup-sections.md %}
 
 
 WordPress development involves lots of keys, slugs, namespaces and paths, lots of them. App_Config gives an injectable container for holding your keys.
 
-{: .warning }
-> Both the 'plugin' and 'view' paths/urls are defined when the App is setup, they can be overwritten in the settings.php file, but this will not effect internal operations of the plugin. These ideally should be only be configured using the `App_Factory`
+{: .bg-blue-000 .text-grey-lt-000 .p-2 .rounded .mb-4 .text-sm .font-mono  .leading-normal}
+> Both the **plugin** and **view** paths/urls are defined when the App is setup, they can be overwritten in the settings.php file, but this will not effect internal operations of the plugin. These ideally should be only be configured using the **App_Factory**
 
 
 ## Example Setup
@@ -98,7 +96,7 @@ public function path( ?string $path = null )
 // Via Dependency Injection 
 class Foo {
     protected $config;
-    public function __constuct(App_Config $config){
+    public function __construct(App_Config $config){
         $this->config = $config;
     }
     public function something(){
@@ -124,6 +122,13 @@ App::config('path','upload_root'); // "/path/to/wp-content/uploads/"
 
 The values set by default \(plugin, view, assets, upload\_root & upload\_current\) are the only values that can be called. Any additional keys added, will be stripped, use Additional for any extra values.
 
+### Default Values
+* `$url['plugin'] = {$base_url}`
+* `$url['view'] = {$base_url} . '/views`
+* `$url['assets'] = {$base_url} . '/assets`
+* `$url['upload_root'] = \wp_upload_dir()['baseurl']`
+* `$url['upload_current'] = \wp_upload_dir()['url']`
+
 Paths can either be retrieved as a full array or by key.
 
 ```php
@@ -143,7 +148,7 @@ public function url( ?string $path = null )
 // Via Dependency Injection 
 class Foo {
     protected $config;
-    public function __constuct(App_Config $config){
+    public function __construct(App_Config $config){
         $this->config = $config;
     }
     public function something(){
@@ -168,7 +173,7 @@ App::config('url','view'); // "https://url.com/wp-content/plugins/my-plugin/view
 
 ## Namespaces
 
-Out of the box only cache and rest are defined \(and come with helper methods\), if not defined will be set as **rest = pinkcrab** and **cache = pc\_cache.** As many additonal key & value pairs can be added and accessed using the `namespace( $key )` method.
+Out of the box only cache and rest are defined \(and come with helper methods\), if not defined will be set as **rest = pinkcrab** and **cache = pc\_cache.** As many additional key & value pairs can be added and accessed using the `namespace( $key )` method.
 
 ```php
 /**
@@ -193,12 +198,12 @@ return array(
     ),
 );
 
-// Useage
+// Usage
 
 // Via Dependency Injection 
 class Foo {
     protected $config;
-    public function __constuct(App_Config $config){
+    public function __construct(App_Config $config){
         $this->config = $config;
     }
     public function something(){
@@ -224,7 +229,7 @@ Both cache and rest have helpers, these require no arguments and can be called a
 // Via Dependency Injection 
 class Foo {
     protected $config;
-    public function __constuct(App_Config $config){
+    public function __construct(App_Config $config){
         $this->config = $config;
     }
     public function something(){
@@ -269,7 +274,7 @@ return array(
     ),
 );
 
-// Useage  Via Dependency Injection 
+// Usage  Via Dependency Injection 
  class Foo {
     protected $config;
     public function __constuct(App_Config $config){

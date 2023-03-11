@@ -1,8 +1,6 @@
 # Perique Setup
 
-*Pages*
-* [Setup](setup)
-* [App_Config](app_config)
+{% include setup-sections.md %}
 
 > ### REQUIRES COMPOSER
 
@@ -63,7 +61,7 @@ return array(
 > When adding classes you can use `Class_Name::class`, so long as the full namespaced name is imported use `My\Namespace\Class_Name;`
 
 
-## config/registration.php
+## Registration
 
 ```php
 // @file config/registration.php
@@ -82,7 +80,7 @@ return array(
 ```
 >When adding classes you can use `Class_Name::class`, so long as the full namespaced name is imported `use My\Namespace\Class_Name;`
 
-## config/settings.php
+## Config
 
 It is possible to define a range of values which can be accessed via the `App_Config` directory. This allows for the use of alias's for internal keys, paths for assets and namespaces for various applications. 
 

@@ -1,7 +1,9 @@
-remote_theme: just-the-docs/just-the-docs
-color_scheme: "light"
+theme: just-the-docs
+color_scheme: light
 search_enabled: true
 title: Perique Docs
 description: Docs for the PinkCrab 'Perique' Plugin/Theme framework, along with its modules and dependencies.
 plugins:
   - jekyll-default-layout
+aux_links:
+  Template Repository: https://github.com/just-the-docs/just-the-docs-template
