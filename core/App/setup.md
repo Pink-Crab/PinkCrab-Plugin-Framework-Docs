@@ -30,7 +30,7 @@ use PinkCrab\Core\Application\App_Factory;
 require_once __DIR__ . '/vendor/autoload.php';
 
 ( new App_Factory(__DIR__) )
-    ->default_config( )
+    ->default_setup( )
     ->di_rules( require __DIR__ . '/config/dependencies.php' )
     ->app_config( require __DIR__ . '/config/settings.php' )
     ->registration_classes( require __DIR__ . '/config/registration.php' )
