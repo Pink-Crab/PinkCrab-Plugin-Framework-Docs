@@ -89,3 +89,87 @@ All of the custom Registration classes can be added to the App using the `regist
 
 > This can be called inline as an array, but we suggest using a separate file to define your registration classes. [See the example](setup#registration)
 
+## Registration Middleware
+
+Many of the modules for Perique make use of their own `Registration_Middleware`. This allows for additional functionality to be added via the registration process.
+
+The middleware can be added one of two ways, either by passing an instance of a class which is extends `Registration_Middleware`, or by passing the class name as a string.
+
+```php
+// As instance
+(new App_Factory(__DIR__))
+    ->registration_middleware( new Some_Middleware() )
+    ->boot();
+
+// As class name
+(new App_Factory(__DIR__))
+    ->registration_middleware( Some_Middleware::class )
+    ->boot();
+```
+
+## Boot
+
+The `boot` method will create a new instance of the App, and register all the services. It will then call the `boot` method on the App, which will run the registration process.
+
+```php
+(new App_Factory(__DIR__))
+    ->boot();
+```
+
+## Methods
+
+### `public function __construct( $base_path = null )`
+> @param string $base_path The base path for the application.  
+> @return void
+
+### `public function get_base_path(): string`
+> @return string Returns the defined base path.
+
+### `public function set_view base_path( string $base_view_path ): App_Factory`
+> @param string $base_view_path The base path for the views.  
+> @return App_Factory Returns the App_Factory instance.
+
+### `public function get_base_view_path(): string`
+> @return string Returns the defined base view path.
+
+### `public function default_setup( bool $default_di_rules = true ): App_Factory`
+> @param bool $default_di_rules Whether to use the default DI rules.  
+> @return App_Factory Returns the App_Factory instance.
+
+### `public function di_rules( array $di_rules ): App_Factory`
+> @param array $di_rules The DI rules to be used.  
+> @return App_Factory Returns the App_Factory instance.
+
+### `public function app_config( array $app_config ): App_Factory`
+> @param array $app_config The app config to be used.  
+> @return App_Factory Returns the App_Factory instance.
+
+### `public function registration_classes( array $registration_classes ): App_Factory`
+> @param array $registration_classes The registration classes to be used.  
+> @return App_Factory Returns the App_Factory instance.  
+> *@throws App_Initialization_Exception Code 3 If the registration class does not exist*.
+
+### `public function registration_middleware( Registration_Middleware $middleware ): App_Factory`
+> @param Registration_Middleware $middleware The middleware to be used.  
+> @return App_Factory Returns the App_Factory instance.  
+> *@throws App_Initialization_Exception Code 3 If the registration class does not exist.* 
+
+### `public function construct_registration_middleware(string $middleware): App`
+> @param string $middleware The middleware to be used.  
+> @return App_Factory Returns the App_Factory instance.  
+> *@throws App_Initialization_Exception Code 1 If DI container not registered*  
+> *@throws App_Initialization_Exception Code 3 If the registration class does not exist.*  
+> *@throws App_Initialization_Exception Code 9 If class doesn't create as middleware.*
+
+### `public function boot(): App`
+> @return App Returns the App instance.  
+
+### `public function app(): App`
+> @return App Returns the App instance (can be called before or after boot.)
+
+
+### `public function with_wp_dice(bool $include_default_rules): App_Config`
+> @param bool $include_default_rules Whether to include the default DI rules. (default FALSE)  
+> @return App_Config Returns the App_Config instance.
+>
+> **Please note this method is being deprecated in favour of the `default_setup` method. Left in place for legacy projects**
