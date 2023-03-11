@@ -17,8 +17,8 @@ Sets a custom set of asset and view paths/urls. And sets various aliases which y
 // file - config/settings.php
 
 // Base path and urls
-$base_path  = \dirname( __DIR__, 1 );
-$plugin_dir = \basename( $base_path );
+$base_path  = dirname( __DIR__, 1 );
+$plugin_dir = basename( $base_path );
 
 // Need to get the current table prefix
 global $wpdb;
@@ -28,7 +28,7 @@ return array(
         'assets'   => $base_path . '/build/assets',
     ),
     'url' => array(
-        'assets'   => \plugins_url($plugin_dir) . '/build/assets',
+        'assets'   => plugins_url($plugin_dir) . '/build/assets',
     ),
     'post_types' => array(
         'alias' => 'verbose_value'
