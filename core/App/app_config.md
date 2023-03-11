@@ -1,3 +1,9 @@
+---
+title: App Config
+parent: Setup
+---
+
+
 # App\_Config
 
 {% include setup-sections.md %}

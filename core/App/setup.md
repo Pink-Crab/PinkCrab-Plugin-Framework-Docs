@@ -1,3 +1,8 @@
+---
+title: App Config
+parent: Setup
+---
+
 # Perique Setup
 
 {% include setup-sections.md %}

@@ -1,3 +1,7 @@
+---
+title: Perique Core
+---
+
 ![logo](assets/1500x500.jpeg "Pink Crab")
 
 # Perique Framework 
