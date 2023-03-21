@@ -177,6 +177,7 @@ class Example_Registration_Middleware implements Registration_Middleware {
 To include any custom middleware with the App's instance, these can be added after creating the Apps isntance.
 
 ```php
+
 // file: plugin.php
 
 // After the app has been created
@@ -192,4 +193,4 @@ $app->registration_middleware($middleware)
 
 // Now the app can be booted, with the custom middleware.
 $app->boot();
-
+```

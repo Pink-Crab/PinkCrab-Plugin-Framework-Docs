@@ -626,7 +626,7 @@ $app_config->key; // "value1"
 
 ## Plugin 
 
-This allows the setting of the plugin details to the app config. At present it only supports a single value, "VERSION". Following the setup guide here or using the Boilerplate will see this populated with the value added in the plugin.php file. 
+This allows the setting of the plugin details to the app config. Version will default to 0.1.0 if not set, and wpdb_prefix is automatically set based on the `$GLOBAL` wpdb instance.
 
 *At present only version can be accessed, this will be extended in later versions*
 
@@ -673,5 +673,38 @@ Config::version(); // '0.2.6'
 
 // Via App Helper
 App::config('version'); // '0.2.6'
+ 
+```
+
+```php
+/**
+ * Returns the wpdb prefix
+ *
+ * @return string
+ */
+public function wpdb_prefix(): string
+```
+
+* Calling $app_config->wpdb_prefix(); // 'wp_'
+
+```php
+// Via Dependency Injection
+class Foo {
+    protected $config;
+    
+    public function __constuct(App_Config $config){
+        $this->config = $config;
+    }
+    
+    public function something(){
+        $wpdb->query("SELECT * FROM {$this->config->wpdb_prefix()}posts");
+    }
+}
+
+// Via Config Proxy Class
+Config::wpdb_prefix(); // 'wp_'
+
+// Via App Helper
+App::config('wpdb_prefix'); // 'wp_'
  
 ```
