@@ -114,7 +114,7 @@ CREATE TABLE my_table(
     id INT AUTO_INCREMENT
     user INT(11),
     details TEXT,
-    PIRMARY KEY ix_id (id),
+    PRIMARY KEY ix_id (id),
     UNIQUE INDEX unique_keys (user, details)
 );
 ```

@@ -77,6 +77,25 @@ All of the custom App_Config can be added to the App using the `app_config` meth
 ```
 > This can be called inline as an array, but we suggest using a separate file to define your app config. [See the example](setup#app-config)
 
+## Modules
+
+Modules are used to add additional functionality to your Application. They can be easily added to either the App_Factory or the App directly.
+
+Modules are used to fire additional processes throughout the boot process, but can also be used to add additional Registration_Middleware which can be used in conjunction with the registration process.
+
+```php
+(new App_Factory(__DIR__))
+    ->module('Some/Project/Module')
+    ->module(OtherModule::class, function(OtherModule $module) {
+        $module->some_setting(42);
+        return $module;
+    })
+    ->default_setup()
+    ->boot();
+```
+
+> If the module doesnt have middleware, the second argument can be omitted. [Read more about modules](../Registration/Modules)
+
 ## Registration Classes
 
 All of the custom Registration classes can be added to the App using the `registration_classes` method. This will be passed to the Registration class, and can be accessed using the `registration` method on the App.
@@ -88,24 +107,6 @@ All of the custom Registration classes can be added to the App using the `regist
 ```
 
 > This can be called inline as an array, but we suggest using a separate file to define your registration classes. [See the example](setup#registration)
-
-## Registration Middleware
-
-Many of the modules for Perique make use of their own `Registration_Middleware`. This allows for additional functionality to be added via the registration process.
-
-The middleware can be added one of two ways, either by passing an instance of a class which is extends `Registration_Middleware`, or by passing the class name as a string.
-
-```php
-// As instance
-(new App_Factory(__DIR__))
-    ->registration_middleware( new Some_Middleware() )
-    ->boot();
-
-// As class name
-(new App_Factory(__DIR__))
-    ->registration_middleware( Some_Middleware::class )
-    ->boot();
-```
 
 ## Boot
 
@@ -149,16 +150,13 @@ The `boot` method will create a new instance of the App, and register all the se
 > @return App_Factory Returns the App_Factory instance.  
 > *@throws App_Initialization_Exception Code 3 If the registration class does not exist*.
 
-### `public function registration_middleware( Registration_Middleware $middleware ): App_Factory`
-> @param Registration_Middleware $middleware The middleware to be used.  
-> @return App_Factory Returns the App_Factory instance.  
-> *@throws App_Initialization_Exception Code 3 If the registration class does not exist.* 
-
-### `public function construct_registration_middleware(string $middleware): App`
-> @param string $middleware The middleware to be used.  
-> @return App_Factory Returns the App_Factory instance.  
-> *@throws App_Initialization_Exception Code 1 If DI container not registered*  
-> *@throws App_Initialization_Exception Code 3 If the registration class does not exist.*  
+### `public function module(string $module, ?callable $config): App_Factory`  
+> @param class-string\<Module\> $module The modules class named.  
+> @param callable(Module, ?Registration_Middleware): Module $config The modules config method.   
+> @return App_Factory Returns the App_Factory instance.   
+>   
+> *@throws App_Initialization_Exception Code 1 If DI container not registered*   
+> *@throws App_Initialization_Exception Code 3 If the registration class does not exist.*   
 > *@throws App_Initialization_Exception Code 9 If class doesn't create as middleware.*
 
 ### `public function boot(): App`
