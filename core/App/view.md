@@ -197,7 +197,7 @@ App::view()->render('test/view',[
 View Model classes allow data and a template to be packaged into a single class, this makes it easier to pass data and templates to partials and also the population of data to pass to views from a controller.
 
 ```php
-function get_colours() {
+function get_colour_list_view() {
    return new View_Model(
       'test/colour-list',
       'colours' => ['red','green','blue']
@@ -205,7 +205,7 @@ function get_colours() {
 }
 App::view()->render('test/view',[
    'number'  => 5, 
-   'colours' => ,
+   'colours' => get_colour_list_view(),
 ]);
 ```
 
@@ -415,7 +415,7 @@ Prints the output of a function to a buffer and returns the output.
 
 ## Custom Render Engines
 
-We offer a [BladeOne](../../module/BladeOne_Engine/index.md) implementation which should give a good example of how to not only create a custom Render Engine but also how to create workable configurations with Perique and its workflow. [BladeOne Engine Github](https://github.com/Pink-Crab/Perique-BladeOne-Engine)
+We offer a [BladeOne](../../module/BladeOne_Engine/index.md) implementation which should give a good example of how to not only create a custom Render Engine but also how to create workable configurations with Perique and its workflow. [BladeOne Engine Github](https://github.com/Pink-Crab/BladeOne_Engine)
 
 ### Creating a Render Engine
 
