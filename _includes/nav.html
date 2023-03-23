@@ -20,14 +20,9 @@
     </li>
     <li><a href="/lib">Libraries</a>
         <ul class="nav sub">
-            <li> <a href="/lib/Collection">Collection</a> </li>
-            <li> <a href="/lib/Table Builder">Table Builder</a> </li>
-            <li> <a href="/lib/Hook_Loader">Hook Loader<a></li>
-            <li><a href="/lib/PSR16_Cache"> Caching</a></li>
-            <li> <a href="/lib/WP_Nonce">WP Nonce<a></li>
-            <li><a href="/lib/Enqueue">Enqueue</a></li>
-            <li>HTTP Helper</li>
-            <li>WP Rest Schema</li>
+            {% for lib in site.data.libraries %}
+            <li><a href="{{ lib.url }}">{{ lib.title }}</a></li>
+            {% endfor %}
         </ul>
     </li>
 </ul>

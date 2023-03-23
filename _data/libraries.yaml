@@ -1,0 +1,50 @@
+# List of all libs
+- title: Collection
+  url: /lib/Collection/
+  github: https://github.com/Pink-Crab/Collection
+  description: A classic PHP Collection class which allows for working with Indexed and Sequential arrays with an OOP approach. Also allows for basic Generic’s with use of Typed Collections.
+
+- title: Table Builder
+  url: /lib/Table Builder/
+  github: https://github.com/Pink-Crab/WPDB-Table-Builder
+  description: A table schema definition and an extendable table builder. Comes with a WPDB and DB_Delta() implementation for WordPress. used in [Perique Migrations](module/migrations)
+
+- title: Enqueue
+  url: /lib/Enqueue/
+  github: https://github.com/Pink-Crab/Enqueue
+  description: A simple, fluent API for enqueueing and registering scripts and styles. Allows for simpler enqueuing, inline rendering and denoting for either deferred or async loading.
+
+- title: Nonce
+  url: /lib/WP_Nonce/
+  github: https://github.com/Pink-Crab/Nonce
+  description: An OOP representation of a WP Nonce
+
+- title: Hook Loader
+  url: /lib/Hook_Loader
+  github: https://github.com/Pink-Crab/Loader
+  description: A class based loader for WP Hooks and Shortcodes. This is used as part of Periques core and used as part of the registration process.
+
+- title: PSR16 Cache
+  url: /lib/PSR16_Cache/
+  github: https://github.com/Pink-Crab/WP_PSR16_Cache
+  description: Provides both WP Transient and WP FileSystem (Direct) implementation to [*PSR16`s CacheInterface*](https://github.com/php-fig/simple-cache). 
+
+- title: HTTP
+  url: /lib/HTTP/
+  github: https://github.com/Pink-Crab/HTTP
+  description:  acts a wrapper for the Nyholm\Psr7 and Nyholm\Psr7Server libraries and gives a few helper methods. You can easily create and emit either Responses that extend WP_HTTP_RESPONSE or implements [ResponseInterface](https://github.com/php-fig/http-message)
+
+- title: Rest Schema
+  url: /lib/Rest_Schema/
+  github: https://github.com/Pink-Crab/WP_Rest_Schema
+  description: Defining valid JSON rest schema in WordPress is a little messy and easy to make a mistake with it being lots of nested arrays. This library attempts to make this process cleaner and simpler with a fully fluent, object driven interface.
+
+- title: Pixie WPDB
+  url: /lib/Pixie_WPDB/
+  github: https://github.com/gin0115/pixie-wpdb
+  description: An expressive, query builder for WordPRess it can also be referred as a Database Abstraction Layer. Pixie WPDB supports WPDB ONLY and it takes care of query sanitization, table prefixing and many other things with a unified API.
+
+- title: WPUnit Helpers
+  url: /lib/WPUnit_Helpers/
+  github: https://github.com/gin0115/WPUnit_Helpers
+  description: Collection of helper functions, classes and traits for using WPUnit.
