@@ -1,4 +1,10 @@
 # List of all libs
+
+- title: Pixie WPDB
+  url: /lib/Pixie_WPDB
+  github: https://github.com/gin0115/pixie-wpdb
+  description: An expressive, query builder for WordPRess it can also be referred as a Database Abstraction Layer. Pixie WPDB supports WPDB ONLY and it takes care of query sanitization, table prefixing and many other things with a unified API.
+
 - title: Collection
   url: /lib/Collection/
   github: https://github.com/Pink-Crab/Collection
@@ -38,11 +44,6 @@
   url: /lib/Rest_Schema
   github: https://github.com/Pink-Crab/WP_Rest_Schema
   description: Defining valid JSON rest schema in WordPress is a little messy and easy to make a mistake with it being lots of nested arrays. This library attempts to make this process cleaner and simpler with a fully fluent, object driven interface.
-
-- title: Pixie WPDB
-  url: /lib/Pixie_WPDB
-  github: https://github.com/gin0115/pixie-wpdb
-  description: An expressive, query builder for WordPRess it can also be referred as a Database Abstraction Layer. Pixie WPDB supports WPDB ONLY and it takes care of query sanitization, table prefixing and many other things with a unified API.
 
 - title: WPUnit Helpers
   url: /lib/WPUnit_Helpers/
