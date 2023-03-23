@@ -1,7 +1,4 @@
----
-title: Dependency Injection
-parent: Perique Core
----
+{% include DI-sections.md %}
 
 # Dependency Injection
 
@@ -33,11 +30,123 @@ class Do_Something_Using_DI implements Hookable {
     }
 }
 ```
-Once this class is added to the ```config/registration.php``` file, it will be constructed and the action will be registered as a wp hook.
+Once this class is added to the `config/registration.php` file, it will be constructed with an instance of `Some_Service` passed in. Then a callback for the `some_action` hook will be created and added to the `Hook_Loader` which will be run when the hook is triggered.
+
+### Dependencies of Dependencies
+
+The DI container will also resolve dependencies of dependencies, so you can inject as many dependencies as you like. This is useful for creating complex dependency trees, which can be easily mocked for testing.
+
+```php
+class Some_Service {
+
+    protected $another_service;
+
+    public function __construct(Another_Service $another_service){
+        $this->another_service = $another_service;
+    }
+
+    public function do_something(): void {
+        $this->another_service->do_something_else();
+    }
+}
+```
+*Which itself has a dependency...*
+
+```php
+
+class Another_Service {
+
+    protected $wpdb;
+    protected $config;
+
+    public function __construct(wpdb $wpdb, App_Config $config){
+        $this->wpdb = $wpdb;
+        $this->config = $config;
+    }
+
+    public function do_something_else(): void {
+        return $this->wpdb->get_results($this->config->additional('some_query'));
+    }
+}
+```
+While this example is a bit contrived, it shows how you can create complex dependency trees. This is useful for creating reusable classes, which can be easily mocked for testing.
+
+## Working with Interfaces
+
+While the above example works great for concrete classes, it can be a bit more tricky when working with interfaces. This is because the DI container cannot infer the implementation from the type hint. To get around this, you will need to [define a custom rule](Rules) for the container.
+
+```php
+interface Foo_Interface {
+    public function do_something(): void;
+}
+
+// Implementation 1 of Foo_Interface
+class Foo_Implementation_1 implements Foo_Interface {
+    public function do_something(): void {
+        echo 'Do something from Foo_Implementation_1';
+    }
+}
+
+// Implementation 2 of Foo_Interface
+class Foo_Implementation_2 implements Foo_Interface {
+    public function do_something(): void {
+        echo 'Do something from Foo_Implementation_2';
+    }
+}
+
+```
+
+It is now possible to explicitly define which implementation of the interface should be used. This can be done in the `config/registration.php` file, or in a custom rule.
+
+```php
+// Rules.
+return [
+    Class_With_Foo1::class => [
+        'substitutions' => [
+            Foo_Interface::class => Foo_Implementation_1::class
+        ]
+    ],
+    Class_With_Foo2::class => [
+        'substitutions' => [
+            Foo_Interface::class => Foo_Implementation_2::class
+        ]
+    ]
+];
+```
+Now we can create two classes, which both have a dependency on `Foo_Interface`, but will use different implementations.
+
+```php
+class Hookable_Foo_1 implements Hookable {
+
+    protected $foo;
+
+    public function __construct(Class_With_Foo1 $foo){
+        $this->foo = $foo;
+    }
+
+    public function register(Hook_Hook_Loader $loader): void{
+        $loader->action('some_action', [$this, 'my_callback']);
+    }
+
+    public function my_callback(): void {
+        $this->foo->do_something();
+    }
+}
+```
 
 ## Static Usage
 
 You can also access the DI container at any time, this is useful for quick calls or for when you want to create objects and have them cached/shared. While this is easier than injecting (especially if you already have a complex constructor), it can lead to messy, coupled code.
+
+```php
+$instance_1 = App::make(Class_With_Foo1::class);
+$instance_2 = App::make(Class_With_Foo2::class);
+
+$instance_1->do_something(); // Will output 'Do something from Foo_Implementation_1'
+$instance_2->do_something(); // Will output 'Do something from Foo_Implementation_2'
+```
+
+This can even be used as part of the registration process, to create objects using the container.
 
 ```php
 class Do_Something_Without_DI implements Hookable {
@@ -54,268 +163,6 @@ class Do_Something_Without_DI implements Hookable {
 }
 ```
 
-## Using Interfaces
+You can add a range of rule types, more details can be found on the [Rules page](Rules).
 
-Where DI really comes into its own is using `Interfaces`, this allows you to write code where implementations are are not tightly bound. For an example of this, please see the [Message Example](examples/message_example).
-
-When using interfaces as dependencies, a custom rule will have to be defined, as the implementation can be not be inferred through type hints. There are a few ways to define these rules, for a more detailed explanation, see the [Rules page](Rules)
-
-```php
-class Example_With_Interface_Dependency{
-    public function __construct(Foo_Interface $foo){
-        $this->foo = $foo;
-    }
-}
-```
-
-### Global (fallback) Rule
-
-We can easily set a global rule for this interface, this will allow us to define which class or instance we want to inject whenever we request the class. 
-
-```php
-// @file config/dependencies.php
-
-return array(
-    Foo_Interface::class => array(
-        'instanceOf' => Some_Class_That_Implements_Foo::class,
-    ),
-)
-```
-
-Now whenever any class that has `Foo_Interface` as a dependency, will be passed whatever `substitution` rule we have defined.
-
-### Class by Class
-
-Having a single implementation might be useful for sending emails and logging events within your application, it doesn't really give you that much granular control. You are able to define [rules](Rules) for specific classes, to allow specific implementations on a class by class basis. 
-
-```php
-class Class_A{
-    public function __construct(Cache $foo){
-        $this->foo = $foo;
-    }
-}
-
-class Class_B{
-    public function __construct(Cache $foo){
-        $this->foo = $foo;
-    }
-}
-```
-If we wanted to use different caching methods here we have 2 options.
-
-**Define all instances**
-```php
-// @file config/dependencies.php
-
-return array(
-    Class_A::class => array(
-        'substitutions' => array(
-            Cache::class => DB_Cache::class,
-        ),
-    ),
-    Class_B::class => array(
-        'substitutions' => array(
-            Cache::class => File_Cache::class,
-        ),
-    ),
-)
-```
-> Now whenever we inject `Class_A` as a dependency, we will get `DB_Cache` and for `Class_B` we will get `File_Cache`. 
- 
-Of course any other dependency we create will need to be defined as above, which while giving us a very verbose representation of our dependencies, its no ideal for development.
-
-**Using a global fallback**
-To get around having to define every unique implementation, we can use a mix of global and class definitions. To do this, we just need to define our fallback as a global and any class which doesnt have a custom rule, will use this.
-
-```php
-// @file config/dependencies.php
-
-return array(
-    // Unless otherwise defined, use Fallback Cache
-    Cache::class => array(
-        'instanceOf' => Fallback_Cache::class,
-    ),
-    Class_A::class => array(
-        // When we inject Class A, use DB Cache for Cache (not Fallback Cache)
-        'substitutions' => array(
-            Cache::class => DB_Cache::class,
-        ),
-    ),
-)
-```
-> Now whenever we inject `Class_A` as a dependency, we will get `DB_Cache` and for `Class_B` or any future class that has `Cache` as a dependency we will get `Fallback_Cache`. 
-
-## Using Abstract Classes
-
-Injecting dependencies that are `Abstract` Classes works exactly the same as `Interfaces`. You can use a mix or either/or `Global` or `Class by Class` Rules
-
-## 
-
-## Built in Constructor Dependency Rules
-
-Perique comes with a selection of predefined rules, which can be used out of the box, or changed by replacing the rules from within your own custom rules.
-
-### App
-
-You can inject access to the Perique instance, just pass App $app as a dependency and you will have access to the core App instance
-```php
-class Foo{
-    public function __construct(App $app){
-        /** @var PinkCrab\Perique\Application\App */
-        $this->app = $app;
-    }
-}
-```
-
-### Container
-
-If you need access to the DI Container, you can pass the `DI_Container` interface and you will be passed an instance of the container populated with all defined rules.
-```php
-class Foo{
-    public function __construct(DI_Container $container){
-        // Set container to use later
-        $this->container = $container;
-    }
-
-    public function do_something($data){
-        $thingy = $this->container->create(Thingy::class);
-        $thingy->action($data);
-    }
-}
-```
-> The above is useful if you need to delay the creation of your class until its needed, rather than straight away. 
-
-### WPDB
-
-Lets be honest, no one like using globals, they make code unpredictable and can cause massive headaches when debugging. To not only avoid having to do `global $wpdb` every time we need access, but also make test mocking easier. You can pass the current global instance of WPDB to any class.
-```php
-class Foo{
-    public function __construct(\wpdb $wpdb){
-        /** @var wpdb */
-        $this->wpdb = $wpdb;
-    }
-}
-```
-
-## Built in Method Dependency Rules
-
-While these are more useful when writing modules for Perique, these can be used in projects, especially if you are writing your own reusable implementations that should have empty constructors.
-
-### App_Config
-
-If you would like to have access to App Config without passing it as a dependency, you can have your class implement the `Inject_App_Config` interface. This requires a single method `public function set_app_config( App_Config $app_config ): void;`
-
-```php
-abstract Abstract_Foo implements Inject_App_Config {
-    
-    protected App_Config $app_config
-    
-    public function set_app_config( App_Config $app_config ): void{
-        $this->app_config = $app_config;
-    }
-    
-    abstract public function needed_value():string;
-    
-    public function run(){
-        do_something_with_assets(
-            $this->app_config->url('assets'),
-            $this->needed_value()
-        );
-    }
-}
-
-// Custom implementation
-class Foo extends Abstract_Foo{
-    protected Service $service;
-    public function __construct(Service $service){
-        $this->service = $service;
-    }
-
-    public function needed_value():string{
-        return $this->service->get_value(
-            // We of course also have access to App Config too.
-            $this->app_config->additional('something')
-        );
-    }
-}
-```
-> In the above example we didn't need to worry about remembering to pass `App_Config` and `Service` to `Foo` and then calling `parent::__construct($app_config)`
-
-**Container Aware Trait**
-
-We have a simple trait which can be used with this Interface to remove the need to manually add the method and properties.
-
-```php
-class Has_Config implements Inject_App_Config{
-    use Inject_App_Config_Aware;
-}
-```
-This adds `protected $app_config;` and populates using `public function set_app_config( App_Config $app_config ): void`
-
-***
-
-### DI_Container
-
-You can inject the DI Container without the needing the constructor using the `Inject_DI_Container` interface which requires  `public function set_di_container( DI_Container $container ): void;`   
-
-
-```php
-abstract class Some_Group implements Inject_DI_Container {
-    
-    protected DI_Container $di_container
-    // Array of built items
-    protected array $items;
-
-    public function set_di_container( DI_Container $di_container ): void{
-        $this->di_container = $di_container;
-    }
-
-    abstract protected function items(): array;
-
-    public function create_items(): void {
-        $item_class_names = $this->items();
-
-        foreach( $item_class_names as $item_class_name ) {
-            $item = $this->di_container->create($item_class_name);
-            $this->items[] = $item;
-        }
-    }
-
-}
-
-// Implementation
-class My_Group extends Some_Group {
-
-    protected My_Item_Repository $repository;
-
-    public function __construct(My_Item_Repository $repository){
-        $this->repository = $repository;
-    }
-
-    protected function items(): array{
-        return $this->repository->where( 'foo', 'bar', '=' );
-    }
-
-}
-
-// This allow sub child dependencies, access to the container for dependency hirarcy 
-class My_Item {
-    protected Translations $translations;
-    public function __construct(Translations $translations){
-        $this->translations = $translations;
-    }
-}
-```
-
-> The above example shows how you can use the container when creating services that allow access to the container with a empty constructor used only for services needed by each implementation. We use this frequently in our modules and as part of our Registration Middleware system.
-
-**Container Aware Trait**
-
-We have a simple trait which can be used with this Interface to remove the need to manually add the method and properties.
-
-```php
-class Has_Container implements Inject_DI_Container{
-    use Inject_DI_Container_Aware;
-}
-```
-This adds `protected $di_container;` and populates using `public function set_di_container( DI_Container $container ): void`
+There is a number of `Injectable` interfaces and pre populated dependencies which can be used to inject to your classes. More details can be found on the [Existing Definitions page](Existing-Definitions).
