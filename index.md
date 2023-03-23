@@ -2,7 +2,7 @@
 title: Perique Core
 ---
 
-![logo](assets/1500x500.jpeg "Pink Crab")
+![logo](assets/cards/Perique_Card.jpg "Pink Crab")
 
 # Perique Framework 
 
