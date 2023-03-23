@@ -1,6 +1,6 @@
 # View
 
-View can be either injected as dependency into a class or called via the `App::view()` helper function.
+View can be either injected as a dependency into a class or called via the `App::view()` helper function.
 
 The View object is wrapper class which holds the implementation of the `Renderable` interface. Out of the box Perique comes pre setup with the `PHP_Engine`, which uses PHP files as the template engine. However, you can easily create your own implementation of the `Renderable` interface and inject it into the `View` object.
 
@@ -90,7 +90,7 @@ App::view()->render('test/view.php',['foo' => 'bar']);
 ```
 This would render the template found in `/your/path/wp-content/plugins/acme-plugin/views/test/view.php`.
 
-### Assumed filetype.
+### Assumed filetype
 
 All templates (when using the PHP_Engine) must be `.php` files. However the file extension can be omitted from the template path.
 
@@ -116,7 +116,7 @@ App::view()->render('test/view.php',['foo' => 'bar']);
 
 ## Template Data
 
-All data you wish to have access to can be passed into the `render()` methods as an array. The array keys are then cast into variables, allowing for cleaner HTML/PHP code. The standard PHP variable name rules apply, so all keys should be valid. Arrays and Objects can be passed into the views, allow for partials to be rendered too.
+All data you wish to have access to can be passed into the `render()` methods as an array. The array keys are then cast into variables, allowing for cleaner HTML/PHP code. The standard PHP variable name rules apply, so all keys should be valid. Arrays and Objects can be passed into the views, allowing for partials to be rendered too.
 
 ```php
 App::view()->render('test/view',[
@@ -218,7 +218,7 @@ App::view()->render('test/view',[
 ```
 Like `render()` the `view_model()` method can also be passed a second parameter to define whether to print or return the template using the same constants as `render()`.
 
-> It is possible to extend the view model class to create even more resuable view models.
+> It is possible to extend the view model class to create even more reusable view models.
 
 ```php
 class Colour_List extends View_Model {
@@ -239,7 +239,7 @@ App::view()->render('test/view',[
 
 Components are a way of creating reusable view models. They are similar to view models, but they are not tied to a specific template. This allows for the creation of reusable components that can be used in multiple templates.
 
-Components are processed by the Component_Compiler. This is created when `View` is used for the first time. Out of the box, the components base path is assumed as `{view_path}/components`. The path is defined in the DI rules for the `Component_Compiler` class, and can be changed by overriding the rule.
+Components are processed by the `Component_Compiler`. This is created when `View` is used for the first time. Out of the box, the components base path is assumed as `{view_path}/components`. The path is defined in the DI rules for the `Component_Compiler` class, and can be changed by overriding the rule.
 
 ```php
 // file: config/dependencies.php
@@ -251,7 +251,8 @@ return [
 ```
 
 A component class can be extended from `PinkCrab\Perique\Services\View\Component\Component`. Any properties defined with the components, regardless of visibility, will be passed into the template.
-The template path can be defined in a number of ways.
+
+The template path can be defined in a number of ways:
 
 * Global set of template Aliases.
 * Annotation `@view` on the class.
@@ -259,9 +260,10 @@ The template path can be defined in a number of ways.
 * Falling back to the class name.
 
 ### Aliases
+
 It is possible to define a full path to the template using an `Alias`. This allows for components to be loaded from a different directory to the default `views` directory. 
 
-To set an alias, you can use the `Hooks::COMPONENT_ALIASES` filter. This takes in the current array of Aliases and returns the new array of Aliases. The array index is the full class name (inc namespace) and the value is the path to the template.
+To set an alias, you can use the `Hooks::COMPONENT_ALIASES` filter. This takes in the current array of Aliases and returns the new array of Aliases. The array index is the full class name (including namespace) and the value is the path to the template.
 
 > Add the alias to the `Hooks::COMPONENT_ALIASES` filter.
 ```php
@@ -360,7 +362,7 @@ class Contact extends Component {
 
 ### Using Components
 
-Components can be used just similar to view models. They can be passed to templates in the data array like any other view model.
+Components can be used similarly to view models; they can be passed to templates in the data array.
 
 ```php
 App::view()->render('test/view',[
