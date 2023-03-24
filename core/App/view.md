@@ -56,11 +56,7 @@ class Post_Controller implements Hookable {
     */
    public function render_content( string $content ): string {
       return is_single() && get_post_type() === 'post'
-         ? $this->view->render( 
-            'post/single', // for path "views/post/single.php"
-            [ 'post' => get_post() ], 
-            View::RETURN_VIEW // false, true(default) for print  
-         )
+         ? $this->view->render( 'post/single', ['post' => get_post()], View::RETURN_VIEW )
          : $content;
    }
 }
