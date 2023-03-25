@@ -1,3 +1,5 @@
+![logo](docs/Plugin-Registerables.jpg "Pink Crab")
+
 # Registerables
 
 
@@ -32,7 +34,7 @@ A collection of Abstract Classes for creating common WordPress fixtures which ne
   - [Previous Versions](#previous-versions)
   - [Change Log](#change-log)
 
-> ## For Perique V1.4.*
+> ## For Perique V2.0.*
 
 
 ## Why? ##
@@ -43,13 +45,14 @@ WordPress has a number of Registerable functions for Post Types, Post Meta and T
 
 ```bash 
 $ composer require pinkcrab/registerables
+
 ``` 
 
-You need to include the module and the Registerable_Middleware. They come with their own dependencies which will need to be added using the construct_registration_middleware() from the App_Factory instance.
+You need to include the module and the Registerable_Middleware. They come with their own dependencies which will need to be added using the `module()` method from the App_Factory instance.
 ```php
 $app = ( new PinkCrab\Perique\Application\App_Factory() )
   // Normal Perique bootstrapping.   
-  ->construct_registration_middleware( Registerable_Middleware::class );
+  ->module( Registerable::class );
   ->boot();
 ```
 
@@ -70,7 +73,7 @@ class Basic_CPT extends Post_Type {
 }
 ```
  
-[See full Post Type docs](Post_Type)
+[See full Post Type docs](docs/Post-Type)
 
 ## Taxonomy
 
@@ -89,7 +92,7 @@ class Basic_Tag_Taxonomy extends Taxonomy {
 }
 ```
 
-[See full Taxonomy Docs](Taxonomy)
+[See full Taxonomy Docs](docs/Taxonomy)
 
 ## Meta Box
 
@@ -111,7 +114,8 @@ class My_CPT extends Post_Type {
 }
 ```
 
-> **If your meta box has any level of complexity, it is recommended to create a separate service which handles this and inject it into the Post_Type class.**  
+> **If your meta box has any level of complexity, it is recommended to create a separate service which handles this and inject it into the Post_Type class.**
+
 
 ```php
 /** The Meta Box Service */
@@ -130,7 +134,9 @@ class Meta_Box_Service {
     // Handle validating and updating post meta.
   }
 }
+```
 
+```php
 /** Injected into post type */
 class My_CPT extends Post_Type {
   public $key      = 'my_cpt';
@@ -151,7 +157,7 @@ class My_CPT extends Post_Type {
 }
 ```
 
-[See full Meta Box Docs](Meta_Box)
+[See full Meta Box Docs](docs/Meta_Box)
 
 ### Shared Meta Boxes
 
@@ -193,7 +199,7 @@ class Acme_Meta_Box extends Shared_Meta_Box_Controller {
   }
 }
 ```
-**[Defining Meta Data](Post_Type#registering-meta_data)**
+**[Defining Meta Data](docs/Post-Type#registering-meta_data)**
 
 > The above Meta Box would be shown on both `acme_post_type_a` and `acme_post_type_b`  
 > You can also inject any dependencies via the constructor too.
@@ -221,9 +227,9 @@ class Additional_Post_Meta extends Additional_Meta_Data_Controller {
 }
 ```
 
-[See full Meta Data Docs](Meta_Data)  
+[See full Meta Data Docs](docs/Meta_Data)  
 
-You can also define MetaData for [Post Types](Post_Type#registering-meta_data) and [Taxonomies](Taxonomy#registering-meta_data) when creating them.
+You can also define MetaData for [Post Types](docs/Post-Type#registering-meta_data) and [Taxonomies](docs/Taxonomy#registering-meta_data) when creating them.
 
 ### Additional_Meta_Data_Controller
 
@@ -256,10 +262,12 @@ Setup the dev environment
 http://www.opensource.org/licenses/mit-license.html  
 
 ## Previous Versions ##
+* For Perique 1.4.* please use version Registerables 1.0.*
 * For Perique 1.3.* please use version Registerables 0.9.*  
 * For Perique 1.0.* - 1.2.* please use Registerables version 0.8.*  
 
 ## Change Log ##
+* 2.0.0 - Bumped support for Perique 2.0.0, added `Regiserable` module, but no other changes needed.
 * 1.0.0 - Bumped support for Perique 1.4.0 and finally released as 1.0.0
 * 0.9.0 - Move to compatible with Perique 1.3.*, Fixed bug where post types that use Gutenberg do not set meta_cap to true by default.
 * 0.8.2 - Fixed bug with Taxonomy Capabilities to not use fallbacks if not defined.

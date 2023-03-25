@@ -138,7 +138,7 @@ add_filter(
 );
 ```
 ### Triggering actions before finalise
-
+https://github.com/Pink-Crab/Perique_Plugin_Life_Cycle/tree/perique-v2-dev
 You can use the `Plugin_Life_Cycle::PRE_FINALISE` filter to trigger actions before the finalise() method is called.
 
 > Const `Plugin_Life_Cycle::PRE_FINALISE` = 'PinkCrab\Plugin_Lifecycle\Pre_Finalise'
