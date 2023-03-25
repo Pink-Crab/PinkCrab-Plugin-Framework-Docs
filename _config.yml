@@ -5,8 +5,22 @@ title: Perique Docs
 description: Docs for the PinkCrab 'Perique' Plugin/Theme framework, along with its modules and dependencies.
 plugins:
   - jekyll-default-layout
+  - jekyll-spaceship
 aux_links:
   Template Repository: https://github.com/just-the-docs/just-the-docs-template
 
 pygments_options:
   tabsize: 4
+jekyll-spaceship:
+  processors:
+    - mermaid-processor
+  mermaid-processor:
+    mode: default  # mode value 'pre-fetch' for fetching image at building stage
+    css:
+      class: mermaid
+    syntax:
+      code: 'mermaid!'
+      custom: ['@startmermaid', '@endmermaid']
+    config:
+      theme: default
+    src: https://mermaid.ink/svg/

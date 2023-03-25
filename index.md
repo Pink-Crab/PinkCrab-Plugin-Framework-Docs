@@ -6,6 +6,9 @@ title: Perique Core
 
 # Perique Framework 
 
+Perique 
+
+
 The Perique Framework offers a highly extendable platform for building WordPress Plugins and themes in a MVC inspired style. At its heart the base of Perique is a lightweight system that allows developers to build their Plugins with the use of Composer Packages with the power of Dependency Injection and an internal registration process which removes the need for hook files and less than ideal static **Plugin::init()** methods.
 
 ## Core Components
@@ -14,7 +17,7 @@ At its heart the Perique Framework offers a DI Container, Hook Loader, Custom cl
 
 * ### DI Container (DICE)
 * ### Hook Loader
-* ### Registration (class loader)
+* ### Modules & Registration Process
 * ### View
 * ### App Config
 

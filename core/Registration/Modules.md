@@ -1,6 +1,7 @@
 ---
 title: Modules
 ---
+{% include registration-sections.md %}
 
 # Modules
 
