@@ -1,15 +1,3 @@
-<!-- pagenav[start] -->
-## Perique Ajax Documentation
-* [Ajax](index.md)
-* [Ajax Model](Ajax_Model.md)
-* [Ajax Helper](Ajax_Helper.md)
-* [Response Factory](Response_Factory.md)
-* [Hooks](Hooks.md)
-* [Examples](Examples.md)
-
-***
-<!-- pagenav[end] -->
-<!-- content[start] -->
 ## Hooks ##
 
 There are a few actions and filters which are used by the callback, these allow the extension of all Validation checks, manipulating the request/response objects and also for catching Exceptions thrown in callbacks.
@@ -106,4 +94,3 @@ add_action(
     2
 );
 ```
-<!-- content[end] -->

@@ -1,15 +1,4 @@
-<!-- pagenav[start] -->
-## Perique Ajax Documentation
-* [Ajax](index.md)
-* [Ajax Model](Ajax_Model.md)
-* [Ajax Helper](Ajax_Helper.md)
-* [Response Factory](Response_Factory.md)
-* [Hooks](Hooks.md)
-* [Examples](Examples.md)
 
-***
-<!-- pagenav[end] -->
-<!-- content[start] -->
 ## Helper Methods ##
 
 There is a small class of static methods which can be used throughout your code to make it a little easier working with Ajax calls. Primarily these are around accessing values from an Ajax Model without the need to construct the object. This allows us to access the actions, nonce handle etc, without worrying about dependencies. `Please note if you use the constructor to set any of your properties, you will need to use App::make(Your_Ajax_Model::class) in place of these methods`
@@ -65,4 +54,3 @@ Returns the property expected to find the Nonce token held in the ServerRequest.
 > @return array<string, mixed>
 
 When the current ServerRequest is passed in, it will return the Params or Body of the request based on the HTTP Method. Works for $_GET and $_POST (including urlEncoded values.). Returned back in a key=>value array, returns a blank array if unknown method or request is empty. Should not be used if you planning to use a mix of QueryParams and BodyArguments.
-<!-- content[end] -->

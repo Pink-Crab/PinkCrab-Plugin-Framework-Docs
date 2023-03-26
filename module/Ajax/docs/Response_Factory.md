@@ -1,15 +1,3 @@
-<!-- pagenav[start] -->
-## Perique Ajax Documentation
-* [Ajax](index.md)
-* [Ajax Model](Ajax_Model.md)
-* [Ajax Helper](Ajax_Helper.md)
-* [Response Factory](Response_Factory.md)
-* [Hooks](Hooks.md)
-* [Examples](Examples.md)
-
-***
-<!-- pagenav[end] -->
-<!-- content[start] -->
 ## Response Factory ##
 
 We make use of the PSR HTTP Messaging interface throughout this module, as a result all responses should be returned as valid PSR7 Response Objects. To make this a little easier and cleaner, we have injected a `Response_Factory` into the callback method. This allows you to quickly return a response and have all payloads encoded as expected.
@@ -54,4 +42,6 @@ Used to return a 500 response with the passed payload (array) represented as JSO
 > @return Psr\Http\Message\ResponseInterface  
 
 Used to return a 404 response with the passed payload (array) represented as JSON in the response body. Defaults to ['error' => 'not found'] if no body passed.
-<!-- content[end] -->
+
+
+

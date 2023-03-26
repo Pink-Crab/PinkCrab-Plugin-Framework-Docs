@@ -1,15 +1,3 @@
-<!-- pagenav[start] -->
-## Perique Ajax Documentation
-* [Ajax](index.md)
-* [Ajax Model](Ajax_Model.md)
-* [Ajax Helper](Ajax_Helper.md)
-* [Response Factory](Response_Factory.md)
-* [Hooks](Hooks.md)
-* [Examples](Examples.md)
-
-***
-<!-- pagenav[end] -->
-<!-- content[start] -->
 ### Example ###
 
 > Create the Ajax callback object.
@@ -72,4 +60,3 @@ jQuery(".some_click").click( function(e) {
 });
 ```
 
-<!-- content[end] -->

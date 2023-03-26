@@ -1,16 +1,3 @@
-<!-- pagenav[start] -->
-## Perique Ajax Documentation
-* [Ajax](index.md)
-* [Ajax Model](Ajax_Model.md)
-* [Ajax Helper](Ajax_Helper.md)
-* [Response Factory](Response_Factory.md)
-* [Hooks](Hooks.md)
-* [Examples](Examples.md)
-
-***
-<!-- pagenav[end] -->
-<!-- content[start] -->
-
 ## Ajax Models ##
 
 Each ajax call is defined as a model, this is used to define the properties (action, nonce, priv/non_priv) and the callback used. As each Model is constructed using the DI Container, all dependenices can be injected. 
@@ -115,4 +102,3 @@ class Some_Ajax extends Ajax {
     }
 }
 ```
-<!-- content[end] -->
