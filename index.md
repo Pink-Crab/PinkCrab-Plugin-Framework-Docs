@@ -15,16 +15,19 @@ The Perique Framework offers a highly extendable platform for building WordPress
 
 At its heart the Perique Framework offers a DI Container, Hook Loader, Custom class loader, View and Config. These can be used be custom plugins in any style or structure you wish.
 
-* ### DI Container (DICE)
-* ### Hook Loader
-* ### Modules & Registration Process
-* ### View
-* ### App Config
+* **[DI Container](core/DI)**
+* **[Hook Loader](lib/Hook_Loader)**
+* **[Modules & Registration Process](core/Registration)**
+* **[View](core/App/view)**
+* **[App Config](core/App/app_config)**
 
 ## Setup 
 
-Setup is fairly easy, you can make use of out boilerplate packages or just roll the framework into your own Plugin or Theme using composer  
-```$ composer require xx```
+To create a Perique Application, you need to use composer to install the core package. 
+
+```bash
+$ composer require pinkcrab/perique-framework-core
+```
 
 Read the full setup instruction here
 
@@ -32,11 +35,20 @@ Read the full setup instruction here
 
 The core Application can take 3 configuration arrays. You can define these as you wish, either directly in your plugin.php file or by using external files. Throughout these docs we will be using example of using external files held in `config/{file}.php` but you are free to do this however works for you.
 
-Read configuration guide here
+[Read configuration guide here](core/App/setup)
 
 ## Extendability
 
 While out of the box Perique comes with DICE for Dependency Injection and a basic PHP View Engine, these can replaced to make use of Blade, Mustache, Pimple or any other packages. We make use of various Interfaces throughout the Framework, so its just a case of writing a bridge to use any implementation you wish. 
+
+
+
+---
+# WIP 
+
+> Please note these docs are currently incomplete.
+
+---
 
 Click here to find more about writing custom implementations for internal interfaces
 
