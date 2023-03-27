@@ -49,7 +49,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 All of you custom DI rules will need defining, this allows you to use Interfaces and Abstract Classes as dependencies. 
 ```php
 // @file config/dependencies.php
-<?php
+
 /**
  * All custom rules for the DI Container.
  * See docs at https://perique.info/core/DI/
@@ -70,8 +70,6 @@ return array(
 
 ```php
 // @file config/registration.php
-<?php
-
 /**
  * List of classes passed through the registration service.
  * See docs at https://perique.info/core/Registration
@@ -93,8 +91,7 @@ It is possible to define a range of values which can be accessed via the `App_Co
 
 
 ```php
-    // @file config/settings.php
-<?php
+// @file config/settings.php
 
 /**
  * Holds all custom app config values.
@@ -106,16 +103,16 @@ $base_path  = dirname( __DIR__, 1 );
 $plugin_dir = basename( $base_path );
 
 return array(
-   'path'  => array(
-      'assets'         => $base_path . '/assets',
+   'path' => array(
+      'assets' => $base_path . '/assets',
    ),
-   'url'  => array(
-      'assets'         => plugins_url( $plugin_dir ) . '/assets',
+   'url' => array(
+      'assets' => plugins_url( $plugin_dir ) . '/assets',
    ),
    'post_types' => array(
       'events' => 'pc_prefix_events'
    ),
-   'plugin'  => array(
+   'plugin' => array(
       'version' => '1.1.12'
    )
 );

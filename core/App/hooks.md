@@ -21,7 +21,6 @@ Before the app is booted, this hook is fired giving access to DI_Container, Load
 
 
 ```php
-
 /**
  * Allows for the modification of all internal states before the apps Registration process is run.
  */
@@ -43,7 +42,7 @@ add_action(
 
 > Constant: **PinkCrab\Core\Application\Hooks::APP_INIT_PRE_REGISTRATION**    
 > Full Handle: *PinkCrab/App/Boot/pre_registration*  
-> 
+
 Once the Application's internal states has been populated with all DI Rules, Hooks and App_Configuration values, the Registration process is run on the *init* action. By using the *APP_INIT_PRE_REGISTRATION* hook, we can make last minute changes to the classes ready to be processed.
 
 
