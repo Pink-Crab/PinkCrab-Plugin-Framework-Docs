@@ -11,7 +11,7 @@ The application it self comes with a selection of Actions and Filters which can 
 
 ## Pre Boot
 
-> Constant: **PinkCrab\Core\Application\Hooks::APP_INIT_PRE_BOOT**  
+> Constant: **PinkCrab\Core\Application\Hooks::APP_INIT_PRE_BOOT**    
 > Full Handle: *PinkCrab/App/Boot/pre_init_call*
 > 
 Before the app is booted, this hook is fired giving access to DI_Container, Loader and App_Config objects. This allows you to hook in additional DI Rules and Hooks calls, before the app is booted. 
@@ -41,7 +41,7 @@ add_action(
 
 ## Pre Registration
 
-> Constant: **PinkCrab\Core\Application\Hooks::APP_INIT_PRE_REGISTRATION**  
+> Constant: **PinkCrab\Core\Application\Hooks::APP_INIT_PRE_REGISTRATION**    
 > Full Handle: *PinkCrab/App/Boot/pre_registration*  
 > 
 Once the Application's internal states has been populated with all DI Rules, Hooks and App_Configuration values, the Registration process is run on the *init* action. By using the *APP_INIT_PRE_REGISTRATION* hook, we can make last minute changes to the classes ready to be processed.
@@ -69,7 +69,7 @@ add_action(
 
 ### Post Registration
 
-> Constant: **PinkCrab\Core\Application\Hooks::APP_INIT_POST_REGISTRATION**
+> Constant: **PinkCrab\Core\Application\Hooks::APP_INIT_POST_REGISTRATION**  
 > Full Handle: *PinkCrab/App/Boot/post_registration*
 >
 > Once the registration process has been run, the *APP_INIT_POST_REGISTRATION* hook is fired, but before the hooks are dispatched. This allows one final chance to modify any of the hooks calls. 
@@ -94,7 +94,7 @@ add_action(
 
 ### App Config
 
-> Constant: **PinkCrab\Core\Application\Hooks::APP_INIT_CONFIG_VALUES**
+> Constant: **PinkCrab\Core\Application\Hooks::APP_INIT_CONFIG_VALUES**  
 > Full Handle: *PinkCrab/App/Boot/config_values*
 >
 > When any array of values is passed to the App_Config, this hook is fired. This allows for the modification of any values passed to the App_Config. This can be used to override any values defined in the App itself from an additional plugin.
@@ -117,7 +117,7 @@ add_filter(
 
 ### DI Rules
 
-> Constant: **PinkCrab\Core\Application\Hooks::APP_INIT_SET_DI_RULES**
+> Constant: **PinkCrab\Core\Application\Hooks::APP_INIT_SET_DI_RULES**  
 > Full Handle: *PinkCrab/App/Boot/set_di_rules*
 >
 > When any array of DI Rules is passed to the DI_Container, this hook is fired. This allows for the modification of any rules passed to the DI_Container. This can be used to override any rules defined in the App itself from an additional plugin.
@@ -140,7 +140,7 @@ add_filter(
 
 ### Registration Class List
 
-> Constant: **PinkCrab\Core\Application\Hooks::APP_INIT_REGISTRATION_CLASS_LIST**
+> Constant: **PinkCrab\Core\Application\Hooks::APP_INIT_REGISTRATION_CLASS_LIST**  
 > Full Handle: *PinkCrab/App/Boot/registration_class_list*
 >
 > When an array of classes is passed to the Registration service, this hook is fired. This allows for the modification of any classes passed to the Registration service. This can be used to override any classes defined in the App itself from an additional plugin.
@@ -163,7 +163,7 @@ add_filter(
 
 ### Module Manager
 
-> Constant: **PinkCrab\Core\Application\Hooks::MODULE_MANAGER**
+> Constant: **PinkCrab\Core\Application\Hooks::MODULE_MANAGER**  
 > Full Handle: *PinkCrab/App/Boot/module_manager*
 >
 > Before the module manager is processed and any middleware is defined, this hook is fired. This allows for the modification of the module manager before it is processed. This can be used to override any modules defined in the App itself from an additional plugin.
@@ -186,7 +186,7 @@ add_action(
 
 ### Component Alias
 
-> Constant: **PinkCrab\Core\Application\Hooks::COMPONENT_ALIAS**
+> Constant: **PinkCrab\Core\Application\Hooks::COMPONENT_ALIAS**  
 > Full Handle: *PinkCrab/App/Boot/component_alias*
 >
 > It is possible to define the full paths for a components template, this allow for the definition of components to be installed from composer libs or external plugins.
