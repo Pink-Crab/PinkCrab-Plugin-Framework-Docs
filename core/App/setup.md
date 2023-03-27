@@ -35,11 +35,11 @@ use PinkCrab\Core\Application\App_Factory;
 require_once __DIR__ . '/vendor/autoload.php';
 
 ( new App_Factory(__DIR__) )
-    ->default_setup( )
-    ->di_rules( require __DIR__ . '/config/dependencies.php' )
-    ->app_config( require __DIR__ . '/config/settings.php' )
-    ->registration_classes( require __DIR__ . '/config/registration.php' )
-    ->boot();
+   ->default_setup( )
+   ->di_rules( require __DIR__ . '/config/dependencies.php' )
+   ->app_config( require __DIR__ . '/config/settings.php' )
+   ->registration_classes( require __DIR__ . '/config/registration.php' )
+   ->boot();
 ```
 > In the above example, we are using separate files to define our configurations. But these can be replaced with just array if you wish *(but will get messy really quickly if you do)*
 
@@ -55,12 +55,12 @@ All of you custom DI rules will need defining, this allows you to use Interfaces
  * See docs at https://perique.info/core/DI/
  */
 return array(
-    'Acme\Project\SomeInterface' array(
-        'instanceOf' => Some_Class_That_Implements_Foo::class,
-    ),
-    Acme\Project\SomeOtherInterface::class => array(
-        'substitutions' => array( Cache::class => DB_Cache::class ),
-    ),
+   'Acme\Project\SomeInterface' array(
+      'instanceOf' => Some_Class_That_Implements_Foo::class,
+   ),
+   Acme\Project\SomeOtherInterface::class => array(
+      'substitutions' => array( Cache::class => DB_Cache::class ),
+   ),
 );
 ```
 > When adding classes you can use `Class_Name::class`, so long as the full namespaced name is imported use `My\Namespace\Class_Name;`
@@ -78,8 +78,8 @@ return array(
  */
 
 return array(
-    'Acme\Project\SomeController',
-    Acme\Project\SomeOtherController::class
+   'Acme\Project\SomeController',
+   Acme\Project\SomeOtherController::class
 );
 
 ```
@@ -106,17 +106,17 @@ $base_path  = dirname( __DIR__, 1 );
 $plugin_dir = basename( $base_path );
 
 return array(
-	'path'       => array(
-		'assets'         => $base_path . '/assets',
-	),
-	'url'        => array(
-		'assets'         => plugins_url( $plugin_dir ) . '/assets',
-	),
-	'post_types' => array(
-		'events' => 'pc_prefix_events'
-	),
-	'plugin'     => array(
-        'version' => '1.1.12'
-	)
+   'path'  => array(
+      'assets'         => $base_path . '/assets',
+   ),
+   'url'  => array(
+      'assets'         => plugins_url( $plugin_dir ) . '/assets',
+   ),
+   'post_types' => array(
+      'events' => 'pc_prefix_events'
+   ),
+   'plugin'  => array(
+      'version' => '1.1.12'
+   )
 );
 ```
