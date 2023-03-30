@@ -1,0 +1,46 @@
+# List of all modules
+
+- title: Registerables
+  url: /module/Registerables/
+  github: https://github.com/Pink-Crab/Perique-Registerables
+  description: A collection of Abstract Classes for registering `Post Types`, `Taxonomies`, `Meta Data` and `Meta Boxes` all with help of the DI Container and Registration process.
+
+- title: Ajax
+  url: /module/Ajax/
+  github: https://github.com/Pink-Crab/Perique-Ajax/
+  description: A simple way to create encapsulated Ajax endpoints with full use of the Registration/DI processes of Perique
+
+- title: BladeOne Templates
+  url: /module/BladeOne_Engine/
+  github: https://github.com/Pink-Crab/BladeOne_Engine
+  description: A BladeOne implementation of te core Renderable interface. Can be used to create views using Blade Templating for front and backend UI’s.
+
+- title: Admin Menu
+  url: /module/Menu_Page/
+  github: https://github.com/Pink-Crab/Perique_Admin_Menu
+  description: Allows the creation of Admin Pages and Groups of pages. Allow for full Perique access (DI and App_Config) and can be used with BladeOne or any other Render Engine.
+
+- title: Hook Subscriber
+  url: /module/Hook_Subscriber/
+  github: https://github.com/Pink-Crab/Perique-Hook-Subscriber
+  description: Register single hook subscribers with full use of the DI AND Registration system. Comes with a hook deferal process, to help with race conditions with global variables.
+
+- title: Route
+  url: /module/Route/
+  github: https://github.com/Pink-Crab/Perique-Route
+  description: Create custom REST routes for your WordPress website with this library which allows for a more conventional (PHP style) way to define single routes and route groups.
+
+- title: Queue
+  url: /module/Queue/
+  github: https://github.com/Pink-Crab/Perique-Queue
+  description: A queue abstraction for the PinkCrab Perique Plugin Framework. Comes with a built in Action Scheduler implementation, but can be extended to be run with anything.
+
+- title: Plugin Lifecycle
+  url: /module/Plugin_Lifecycle/
+  github: https://github.com/Pink-Crab/Perique_Plugin_Life_Cycle
+  description: Events for plugin state changes (Activation, Deactivation and Installation). Allows for full Perique access (DI & App_Config)
+
+- title: Migrations
+  url: /module/Migrations/
+  github: https://github.com/Pink-Crab/Perique_Migrations
+  description: Create custom REST routes for your WordPress website with this library which allows for a more conventional (PHP style) way to define single routes and route groups.
