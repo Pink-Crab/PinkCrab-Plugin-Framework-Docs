@@ -2,7 +2,7 @@
 title: Perique Core
 ---
 
-![logo](assets/cards/Perique_Card.jpg "Pink Crab")
+![logo](assets/cards/Perique_Card.jpg "PinkCrab Perique Plugin Framework")
 
 # Perique Framework 
 
