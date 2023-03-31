@@ -1,7 +1,7 @@
 ![logo](docs/Perique_BladeOne_Card.png "Pink Crab")
 
-# BladeOne Engine
-A BladeOne Implementation for the PinkCrab Renderable Interface.
+# BladeOne_Engine
+A BladeOne Engine for the PinkCrab Renderable Interface.
 
 [![Latest Stable Version](http://poser.pugx.org/pinkcrab/bladeone-engine/v)](https://packagist.org/packages/pinkcrab/bladeone-engine)
 [![Total Downloads](http://poser.pugx.org/pinkcrab/bladeone-engine/downloads)](https://packagist.org/packages/pinkcrab/bladeone-engine)
@@ -12,7 +12,8 @@ A BladeOne Implementation for the PinkCrab Renderable Interface.
 
 [![WP5.9 [PHP7.4-8.1] Tests](https://github.com/Pink-Crab/BladeOne_Engine/actions/workflows/WP_5_9.yaml/badge.svg)](https://github.com/Pink-Crab/BladeOne_Engine/actions/workflows/WP_5_9.yaml)
 [![WP6.0 [PHP7.4-8.1] Tests](https://github.com/Pink-Crab/BladeOne_Engine/actions/workflows/WP_6_0.yaml/badge.svg)](https://github.com/Pink-Crab/BladeOne_Engine/actions/workflows/WP_6_0.yaml)
-[![WP6.1 [PHP7.4-8.1] Tests](https://github.com/Pink-Crab/BladeOne_Engine/actions/workflows/WP_6_1.yaml/badge.svg)](https://github.com/Pink-Crab/BladeOne_Engine/actions/workflows/WP_6_1.yaml)
+[![WP6.1 [PHP7.4-8.2] Tests](https://github.com/Pink-Crab/BladeOne_Engine/actions/workflows/WP_6_1.yaml/badge.svg)](https://github.com/Pink-Crab/BladeOne_Engine/actions/workflows/WP_6_1.yaml)
+[![WP6.2 [PHP7.4-8.2] Tests](https://github.com/Pink-Crab/BladeOne_Engine/actions/workflows/WP_6_2.yaml/badge.svg)](https://github.com/Pink-Crab/BladeOne_Engine/actions/workflows/WP_6_2.yaml)
 
 [![codecov](https://codecov.io/gh/Pink-Crab/BladeOne_Engine/branch/master/graph/badge.svg?token=jYyPg3FOSN)](https://codecov.io/gh/Pink-Crab/BladeOne_Engine)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Pink-Crab/BladeOne_Engine/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Pink-Crab/BladeOne_Engine/?branch=master)
@@ -64,8 +65,8 @@ class Some_Class {
 ```
 The above would render the template `path/to/project/root/views/some/path/view_name.blade.php` with access to $data in the view which would be `to pass`.
 
-```twig
-<p>{%raw%}{{ $data }}{%endraw%}</p>
+```blade
+<p>{{ $data }}</p>
 ```
 Would render as
 ```html
@@ -73,7 +74,7 @@ Would render as
 ```
 
 It is fully possible to make use of the template inheritance and other blade features. 
-```twig
+```blade
 <div class="wrap">
    @include('partials.header')
    @yield('content')
@@ -81,7 +82,7 @@ It is fully possible to make use of the template inheritance and other blade fea
 </div>
 ```
 
-```twig
+```blade
 @extends('layouts.default')
 @section('content')
    Some content
@@ -245,6 +246,18 @@ App::view()->engine()->some_method($data);
 
 ***
 
+## Extending 
+
+It is possible to extend BladeOne via other plugins, if you would like to add additional functionality by adding custom directives, or adding additional methods to the BladeOne_Engine class. You can do this by using the `PinkCrab_BladeOne::SETUP_CONFIG` action and add any additional configs such as directives.
+
+```php
+add_action( PinkCrab_BladeOne::SETUP_CONFIG, function( PinkCrab_BladeOne $engine ) {
+    $engine->directive( 'my_directive', function( $expression ) {
+        return "<?php echo 'Hello World'; ?>";
+    } );
+} );
+```
+
 ## Dependencies ##
 * [BladeOne V4](https://github.com/EFTEC/BladeOne)
 * [BladeOne HTML V2](https://github.com/eftec/BladeOneHtml)
@@ -260,10 +273,10 @@ http://www.opensource.org/licenses/mit-license.html
 
 ## Previous Perique Support ##
 
-* For support of all versions before Perique V2, please use the [BladeOne_Engine](https://github.com/Pink-Crab/Perique-BladeOne-Provider)
+* For support of all versions before Perique V2, please use the [BladeOne_Provider](https://github.com/Pink-Crab/Perique-BladeOne-Provider)
 
 ## Change Log ##
-* 1.0.0 - Migrated over from the Perique V2 Prep branch of BladeOne_Engine.
+* 1.0.0 - Migrated over from the Perique V2 Prep branch of BladeOne_Provider.
   * New Features
   * Auth and Permissions now hooked up and based on the current user.
   * Perique V2 Module structure.

@@ -10,6 +10,7 @@ Creates a single subscriber for a hook, part of the PinkCrab Plugin Framework
 [![WordPress 5.9 Test Suite [PHP7.2-8.1]](https://github.com/Pink-Crab/Perique-Hook-Subscriber/actions/workflows/WP_5_9.yaml/badge.svg)](https://github.com/Pink-Crab/Perique-Hook-Subscriber/actions/workflows/WP_5_9.yaml)
 [![WordPress 6.0 Test Suite [PHP7.2-8.1]](https://github.com/Pink-Crab/Perique-Hook-Subscriber/actions/workflows/WP_6_0.yaml/badge.svg)](https://github.com/Pink-Crab/Perique-Hook-Subscriber/actions/workflows/WP_6_0.yaml)
 [![WordPress 6.1 Test Suite [PHP7.2-8.2]](https://github.com/Pink-Crab/Perique-Hook-Subscriber/actions/workflows/WP_6_1.yaml/badge.svg)](https://github.com/Pink-Crab/Perique-Hook-Subscriber/actions/workflows/WP_6_1.yaml)
+[![WP6.2 [PHP7.2-8.2] Tests](https://github.com/Pink-Crab/Perique-Hook-Subscriber/actions/workflows/WP_6_2.yaml/badge.svg)](https://github.com/Pink-Crab/Perique-Hook-Subscriber/actions/workflows/WP_6_2.yaml)
 [![codecov](https://codecov.io/gh/Pink-Crab/Perique-Hook-Subscriber/branch/master/graph/badge.svg?token=EYM4QX2CQ9)](https://codecov.io/gh/Pink-Crab/Perique-Hook-Subscriber)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Pink-Crab/Perique-Hook-Subscriber/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Pink-Crab/Perique-Hook-Subscriber/?branch=master)
 [![Maintainability](https://api.codeclimate.com/v1/badges/8ac18bb04673f4a0dfa4/maintainability)](https://codeclimate.com/github/Pink-Crab/Perique-Hook-Subscriber/maintainability)
@@ -40,7 +41,7 @@ class On_Single_Hook extends Abstract_Hook_Subscription {
     * The hook to register the subscriber
     * @var string
     */
-   protected $hook = 'some_hook';
+   protected ?string $hook = 'some_hook';
 
    /**
        * Some service
@@ -80,14 +81,14 @@ class Deferred_Hook extends Abstract_Hook_Subscription {
     * The hook to register the subscriber
     * @var string
     */
-   protected $hook = 'some_hook';
+   protected ?string $hook = 'some_hook';
 
    /**
     * Deferred hook to call
     *
     * @var string|null
     */
-   protected $deferred_hook = 'some_global_populated';
+   protected ?string $deferred_hook = 'some_global_populated';
 
    /**
     * Our global data
@@ -125,6 +126,7 @@ function acme_plugin_function(){
 ```
 
 > When some_global_populated is fired, a new instance of Deferred_Hook is created and the callback is registered. This gives us access to Some_Global no matter whenever some_global_populated(). We end up creating 2 instances of our deferred hooks, once on init to register the first call, then again on our deferred hook, for the actual hook call.
+
 
 ## Previous Versions
 
