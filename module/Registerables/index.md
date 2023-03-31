@@ -9,9 +9,12 @@
 [![PHP Version Require](http://poser.pugx.org/pinkcrab/registerables/require/php)](https://packagist.org/packages/pinkcrab/registerables)
 ![GitHub contributors](https://img.shields.io/github/contributors/Pink-Crab/Perique-Registerables?label=Contributors)
 ![GitHub issues](https://img.shields.io/github/issues-raw/Pink-Crab/Perique-Registerables)
-[![WordPress 5.9 Test Suite [PHP7.2-8.1]](https://github.com/Pink-Crab/Perique-Registerables/actions/workflows/WP_5_9.yaml/badge.svg)](https://github.com/Pink-Crab/Perique-Registerables/actions/workflows/WP_5_9.yaml)
-[![WordPress 6.0 Test Suite [PHP7.2-8.1]](https://github.com/Pink-Crab/Perique-Registerables/actions/workflows/WP_6_0.yaml/badge.svg)](https://github.com/Pink-Crab/Perique-Registerables/actions/workflows/WP_6_0.yaml)
-[![WordPress 6.1 Test Suite [PHP7.2-8.1]](https://github.com/Pink-Crab/Perique-Registerables/actions/workflows/WP_6_1.yaml/badge.svg)](https://github.com/Pink-Crab/Perique-Registerables/actions/workflows/WP_6_1.yaml)
+
+[![WP5.9 [PHP7.4-8.1] Tests](https://github.com/Pink-Crab/Perique-Registerables/actions/workflows/WP_5_9.yaml/badge.svg)](https://github.com/Pink-Crab/Perique-Registerables/actions/workflows/WP_5_9.yaml)
+[![WP6.0 [PHP7.4-8.1] Tests](https://github.com/Pink-Crab/Perique-Registerables/actions/workflows/WP_6_0.yaml/badge.svg)](https://github.com/Pink-Crab/Perique-Registerables/actions/workflows/WP_6_0.yaml)
+[![WP6.1 [PHP7.4-8.2] Tests](https://github.com/Pink-Crab/Perique-Registerables/actions/workflows/WP_6_1.yaml/badge.svg)](https://github.com/Pink-Crab/Perique-Registerables/actions/workflows/WP_6_1.yaml)
+[![WP6.2 [PHP7.4-8.2] Tests](https://github.com/Pink-Crab/Perique-Registerables/actions/workflows/WP_6_2.yaml/badge.svg)](https://github.com/Pink-Crab/Perique-Registerables/actions/workflows/WP_6_2.yaml)
+
 [![codecov](https://codecov.io/gh/Pink-Crab/Perique-Registerables/branch/master/graph/badge.svg?token=R3SB4WDL8Z)](https://codecov.io/gh/Pink-Crab/Perique-Registerables)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Pink-Crab/Perique-Registerables/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Pink-Crab/Perique-Registerables/?branch=master)
 [![Maintainability](https://api.codeclimate.com/v1/badges/19fd3d66720b0c94424d/maintainability)](https://codeclimate.com/github/Pink-Crab/Perique-Registerables/maintainability)
@@ -67,9 +70,9 @@ use PinkCrab\Registerables\Post_Type;
 
 class Basic_CPT extends Post_Type {
 
-  public $key      = 'basic_cpt';
-  public $singular = 'Basic';
-  public $plural   = 'Basics';
+  public string $key      = 'basic_cpt';
+  public string $singular = 'Basic';
+  public string $plural   = 'Basics';
 }
 ```
  
@@ -83,12 +86,12 @@ Creates a flat taxonomy for the **Post** Post Type.
 use PinkCrab\Registerables\Taxonomy;
 
 class Basic_Tag_Taxonomy extends Taxonomy {
-  public $slug         = 'basic_tag_tax';
-  public $singular     = 'Basic Tag Taxonomy';
-  public $plural       = 'Basic Tag Taxonomies';
-  public $description  = 'The Basic Tag Taxonomy.';
-  public $hierarchical = false;
-  public $object_type = array( 'post' );
+  public string $slug         = 'basic_tag_tax';
+  public string $singular     = 'Basic Tag Taxonomy';
+  public string $plural       = 'Basic Tag Taxonomies';
+  public ?string $description  = 'The Basic Tag Taxonomy.';
+  public string $hierarchical = false;
+  public array $object_type = array( 'post' );
 }
 ```
 
@@ -99,9 +102,9 @@ class Basic_Tag_Taxonomy extends Taxonomy {
 Create a simple meta box as part of a post type definition.
 ```php
 class My_CPT extends Post_Type {
-  public $key      = 'my_cpt';
-  public $singular = 'CPT Post';
-  public $plural   = 'CPT Posts';
+  public string $key      = 'my_cpt';
+  public string $singular = 'CPT Post';
+  public string $plural   = 'CPT Posts';
 
   public function meta_boxes( array $meta_boxes ): array {
     $meta_boxes = MetaBox::side('my_meta_box')
@@ -115,8 +118,7 @@ class My_CPT extends Post_Type {
 ```
 
 > **If your meta box has any level of complexity, it is recommended to create a separate service which handles this and inject it into the Post_Type class.**
-
-
+> 
 ```php
 /** The Meta Box Service */
 class Meta_Box_Service {
@@ -134,14 +136,12 @@ class Meta_Box_Service {
     // Handle validating and updating post meta.
   }
 }
-```
 
-```php
 /** Injected into post type */
 class My_CPT extends Post_Type {
-  public $key      = 'my_cpt';
-  public $singular = 'CPT Post';
-  public $plural   = 'CPT Posts';
+  public string $key      = 'my_cpt';
+  public string $singular = 'CPT Post';
+  public string $plural   = 'CPT Posts';
 
   // Pass the service in as a dependency.
   private Meta_Box_Service $meta_box_service;
@@ -298,6 +298,5 @@ http://www.opensource.org/licenses/mit-license.html
 * 0.3.1 - Extended tests for 100 coverage.
 * 0.3.0 - Finalised the move to composer, v2 was skipped as larger internal changes made. External API remained unchanged
 * 0.2.beta - Moved to composer, removed Guzzle for nyholm ps7 in its place. Uses HTTP helper for PS7 responses and tests now include form-urlencode requests.
-
 
 
