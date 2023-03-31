@@ -128,7 +128,6 @@ $route->authentication(function(WP_REST_Request $request): bool{
 });
 ```
 
-### 
 
 [Route Docs](docs/route)
 * [Route::namespace()](docs/route#namespace)
