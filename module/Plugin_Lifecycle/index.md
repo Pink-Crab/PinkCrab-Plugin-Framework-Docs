@@ -1,4 +1,6 @@
 ![logo](../../assets/cards/Plugin-Lifecyle.jpg "Pink Crab")
+
+
 # Perique - Plugin Life Cycle 
 
 A module for the PinkCrab Perique Framework which makes it easy to add subscribers which are triggered during various events within a plugins life cycle(Activation, Deactivation, Uninstall etc)
@@ -6,9 +8,12 @@ A module for the PinkCrab Perique Framework which makes it easy to add subscribe
 [![Latest Stable Version](http://poser.pugx.org/pinkcrab/perique-plugin-lifecycle/v)](https://packagist.org/packages/pinkcrab/perique-plugin-lifecycle) [![Total Downloads](http://poser.pugx.org/pinkcrab/perique-plugin-lifecycle/downloads)](https://packagist.org/packages/pinkcrab/perique-plugin-lifecycle) [![Latest Unstable Version](http://poser.pugx.org/pinkcrab/perique-plugin-lifecycle/v/unstable)](https://packagist.org/packages/pinkcrab/perique-plugin-lifecycle) [![License](http://poser.pugx.org/pinkcrab/perique-plugin-lifecycle/license)](https://packagist.org/packages/pinkcrab/perique-plugin-lifecycle) [![PHP Version Require](http://poser.pugx.org/pinkcrab/perique-plugin-lifecycle/require/php)](https://packagist.org/packages/pinkcrab/perique-plugin-lifecycle)
 ![GitHub contributors](https://img.shields.io/github/contributors/Pink-Crab/Perique_Plugin_Life_Cycle?label=Contributors)
 ![GitHub issues](https://img.shields.io/github/issues-raw/Pink-Crab/Perique_Plugin_Life_Cycle)
-[![WordPress 5.9 Test Suite [PHP7.2-8.1]](https://github.com/Pink-Crab/Perique_Plugin_Life_Cycle/actions/workflows/WP_5_9.yaml/badge.svg)](https://github.com/Pink-Crab/Perique_Plugin_Life_Cycle/actions/workflows/WP_5_9.yaml)
-[![WordPress 6.0 Test Suite [PHP7.2-8.1]](https://github.com/Pink-Crab/Perique_Plugin_Life_Cycle/actions/workflows/WP_6_0.yaml/badge.svg)](https://github.com/Pink-Crab/Perique_Plugin_Life_Cycle/actions/workflows/WP_6_0.yaml)
-[![WordPress 6.1 Test Suite [PHP7.2-8.1]](https://github.com/Pink-Crab/Perique_Plugin_Life_Cycle/actions/workflows/WP_6_1.yaml/badge.svg)](https://github.com/Pink-Crab/Perique_Plugin_Life_Cycle/actions/workflows/WP_6_1.yaml)
+
+[![WordPress 5.9 Test Suite [PHP7.4-8.1]](https://github.com/Pink-Crab/Perique_Plugin_Life_Cycle/actions/workflows/WP_5_9.yaml/badge.svg)](https://github.com/Pink-Crab/Perique_Plugin_Life_Cycle/actions/workflows/WP_5_9.yaml)
+[![WordPress 6.0 Test Suite [PHP7.4-8.1]](https://github.com/Pink-Crab/Perique_Plugin_Life_Cycle/actions/workflows/WP_6_0.yaml/badge.svg)](https://github.com/Pink-Crab/Perique_Plugin_Life_Cycle/actions/workflows/WP_6_0.yaml)
+[![WordPress 6.1 Test Suite [PHP7.4-8.2]](https://github.com/Pink-Crab/Perique_Plugin_Life_Cycle/actions/workflows/WP_6_1.yaml/badge.svg)](https://github.com/Pink-Crab/Perique_Plugin_Life_Cycle/actions/workflows/WP_6_1.yaml)
+[![WordPress 6.2 Test Suite [PHP7.4-8.2]](https://github.com/Pink-Crab/Perique_Plugin_Life_Cycle/actions/workflows/WP_6_2.yaml/badge.svg)](https://github.com/Pink-Crab/Perique_Plugin_Life_Cycle/actions/workflows/WP_6_2.yaml)
+
 [![codecov](https://codecov.io/gh/Pink-Crab/Perique_Plugin_Life_Cycle/branch/master/graph/badge.svg?token=Xucv38xrsa)](https://codecov.io/gh/Pink-Crab/Perique_Plugin_Life_Cycle)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Pink-Crab/Perique_Plugin_Life_Cycle/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Pink-Crab/Perique_Plugin_Life_Cycle/?branch=master)
 [![Maintainability](https://api.codeclimate.com/v1/badges/27aa086ac22f0996516a/maintainability)](https://codeclimate.com/github/Pink-Crab/Perique_Plugin_Life_Cycle/maintainability)
@@ -137,8 +142,23 @@ add_filter(
     }
 );
 ```
+
+You can also use the `Plugin_Life_Cycle::EVENT_LIST` filter to add additional events, after they have been constructed with the DI container.
+> Const `Plugin_Life_Cycle::EVENT_LIST` = 'PinkCrab\Plugin_Lifecycle\Event_List'
+
+```php
+add_filter(
+    Plugin_Life_Cycle::EVENT_LIST,
+    function( array $events ): array {
+        $events[] = new SomeEventInstance();
+        $events[] = $this->container->create(SomeOtherInstance::class);
+        return $events;
+    }
+);
+```
+
 ### Triggering actions before finalise
-https://github.com/Pink-Crab/Perique_Plugin_Life_Cycle/tree/perique-v2-dev
+
 You can use the `Plugin_Life_Cycle::PRE_FINALISE` filter to trigger actions before the finalise() method is called.
 
 > Const `Plugin_Life_Cycle::PRE_FINALISE` = 'PinkCrab\Plugin_Lifecycle\Pre_Finalise'

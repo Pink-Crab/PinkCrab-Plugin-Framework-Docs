@@ -1,11 +1,21 @@
-# Perique - Migration
+![logo](./Perique%20Migrations%20Card.jpg "PinkCrab Ajax Module")
+
+
+# Perique - Migrations
 
 A wrapper around various PinkCrab libraries which make it easier to run DB migrations from a plugin created using the Perique Framework.
 
-[![Open Source Love](https://badges.frapsoft.com/os/mit/mit.svg?v=102)]()
-![](https://github.com/Pink-Crab/Perique-Route/workflows/GitHub_CI/badge.svg " ")
+[![Latest Stable Version](http://poser.pugx.org/pinkcrab/perique-migration/v)](https://packagist.org/packages/pinkcrab/perique-migration) [![Total Downloads](http://poser.pugx.org/pinkcrab/perique-migration/downloads)](https://packagist.org/packages/pinkcrab/perique-migration) [![Latest Unstable Version](http://poser.pugx.org/pinkcrab/perique-migration/v/unstable)](https://packagist.org/packages/pinkcrab/perique-migration) [![License](http://poser.pugx.org/pinkcrab/perique-migration/license)](https://packagist.org/packages/pinkcrab/perique-migration) [![PHP Version Require](http://poser.pugx.org/pinkcrab/perique-migration/require/php)](https://packagist.org/packages/pinkcrab/perique-migration)
+![GitHub contributors](https://img.shields.io/github/contributors/Pink-Crab/Perique_Migrations?label=Contributors)
+![GitHub issues](https://img.shields.io/github/issues-raw/Pink-Crab/Perique_Migrations)
+[![WordPress 5.9 Test Suite [PHP7.4-8.1]](https://github.com/Pink-Crab/Perique_Migrations/actions/workflows/WP_5_9.yaml/badge.svg)](https://github.com/Pink-Crab/Perique_Migrations/actions/workflows/WP_5_9.yaml)
+[![WordPress 6.0 Test Suite [PHP7.4-8.1]](https://github.com/Pink-Crab/Perique_Migrations/actions/workflows/WP_6_0.yaml/badge.svg)](https://github.com/Pink-Crab/Perique_Migrations/actions/workflows/WP_6_0.yaml)
+[![WordPress 6.1 Test Suite [PHP7.4-8.2]](https://github.com/Pink-Crab/Perique_Migrations/actions/workflows/WP_6_1.yaml/badge.svg)](https://github.com/Pink-Crab/Perique_Migrations/actions/workflows/WP_6_1.yaml)
+[![WordPress 6.2 Test Suite [PHP7.4-8.2]](https://github.com/Pink-Crab/Perique_Migrations/actions/workflows/WP_6_2.yaml/badge.svg)](https://github.com/Pink-Crab/Perique_Migrations/actions/workflows/WP_6_2.yaml)
 [![codecov](https://codecov.io/gh/Pink-Crab/Perique-Route/branch/master/graph/badge.svg?token=4yEceIaSFP)](https://codecov.io/gh/Pink-Crab/Perique-Route)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Pink-Crab/Perique_Migrations/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Pink-Crab/Perique_Migrations/?branch=master)
+[![Maintainability](https://api.codeclimate.com/v1/badges/5e99ca90e359a64809ec/maintainability)](https://codeclimate.com/github/Pink-Crab/Perique_Migrations/maintainability)
+
 
 ****
 
@@ -19,7 +29,7 @@ So to make it more seamless adding Database Migrations to Perique, we have creat
 
 As mentioned this library acts more of a bridge for the following packages.
 
-* [WP DB Migrations](https://github.com/Pink-Crab/WP_DB_Migration)
+* [WPDB Migrations](https://github.com/Pink-Crab/WP_DB_Migration)
 * [WPDB Table Builder](https://github.com/Pink-Crab/WPDB-Table-Builder)
 * [Perique Plugin Life Cycle](https://github.com/Pink-Crab/Perique_Plugin_Life_Cycle)
 
@@ -109,38 +119,33 @@ class Use_Dependency_Migration extends Migration {
 
 ### Create the Migrations service
 
-The Migrations service is created using an instance of the Plugin Life Cycle service.  
-[Read more about Plugin Life Cycle](https://github.com/Pink-Crab/Perique_Plugin_Life_Cycle)
+The Perique Migrations Module requires the Plugin Life Cycle to be added to the Perique App. This is to ensure that the migrations are run at the correct time.
 
 ```php
 // @file plugin.php
 
 // Boot the app as normal and create an instance of Plugin_State_Controller
 $app = (new App_Factory())
-    // Rest of Perique setup
+    // setup the app as normal
+    ->default_setup()
+
+    // Ensure Plugin Life Cycle is added
+    ->module(Perique_Plugin_Life_Cycle::class)
+    
+    // Add the Migrations module
+    ->module(
+        Perique_Migrations::class,
+        function( Perique_Migrations $module ) {
+            
+            // Optional key
+            $module->set_migration_log_key( 'acme_plugin_migrations' )
+            
+            // Add you migrations
+            $module->add_migration(Acme_Migration::class)
+            $module->add_migration(Some_Migration_With_Dependencies::class);
+        }
+    )   
     ->boot();
-$plugin_state_controller = new Plugin_State_Controller($app);
-
-// Create instance of the Migrations instance
-$migrations = new Migrations(
-    $plugin_state_controller,
-    'acme_plugin_migrations' // Migration log key 
-);
-
-// Add our migrations
-$migrations->add_migration(new Acme_Migration());
-
-// These can also be added as class names, which will then be constructed via Perique's DI Container. 
-// Please see the Plugin Life Cycle for details of timings and limitations.
-$migrations->add_migration(Some_Migration_With_Dependencies::class);
-
-// Once all migrations are added, the service need to be finalised.
-$migrations->done();
-
-// You can add any additional Plugin Life Cycle events, before finalising that also.
-$plugin_state_controller->event( new Some_Event( ));
-$plugin_state_controller->finalise();
-
 ```
 
 ## Migration Model
@@ -313,3 +318,10 @@ public function seed_on_inital_activation(): bool {
     return true;
 }
 ```
+
+## Change Log
+* 2.0.0 - Support for Perique V2
+* 0.1.1 - Update dependencies and GH Action pipelines.
+* 0.1.0 - Docs added, sample project created.
+* 0.1.0-rc2 - Now uses [Perique Plugin Life Cycle 0.2](https://github.com/Pink-Crab/Perique_Plugin_Life_Cycle) and removes unneeded files when used as a lib via gitattributes
+* 0.1.0-rc1 Inital BETA release.
