@@ -62,7 +62,7 @@ $app = (new App_Factory())
 
 You can either pass the `plugin_base_file` as the path to the main plugin file, or if left empty will assume its the file used to create the app instance.
 
-All events can be passed as there calss name, should be full namespace, or as a string of the class name.
+All events can be passed as there class name, should be full namespace, or as a string of the class name.
 
 ## Event Types ##
 
