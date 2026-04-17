@@ -126,7 +126,7 @@ $app = ( new App_Factory('path/to/project/root') )
    ->boot();
 ```
 
-<details>
+<details markdown="1">
   <summary>Compact BladeOne Config</summary>
   <p>It is possible to do the Module config in a much more concise fashion, using the fluent API and PHP Arrow functions</p>
 
