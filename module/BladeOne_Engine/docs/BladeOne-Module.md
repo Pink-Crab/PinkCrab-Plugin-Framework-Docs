@@ -57,6 +57,18 @@ Allows the setting of the mode, this will be used for all templates run through 
 * **PinkCrab_BladeOne::MODE_SLOW** - Slow mode, the compiled templates will be cached, but the cache will be checked on every request.
 * **PinkCrab_BladeOne::MODE_FAST** - Fast mode, the compiled templates will be cached, and the cache will only be checked if the original template has been modified.
 
+*****
+### **public function comment_mode( int $mode)**
+> @param int $mode  
+> @return self
+
+Allows the setting of the comment mode, this will be used for all templates run through BladeOne.
+
+**Modes:**
+* **PinkCrab_BladeOne::COMMENT_PHP** - PHP comments will be used.
+* **PinkCrab_BladeOne::COMMENT_RAW** - HTML comments will be used.
+* **PinkCrab_BladeOne::COMMENT_NONE** - No comments will be used.
+
 ****
 ### **public function config(\callable $config)**
 > @param callable(BladeOne_Engine $engine) $config  

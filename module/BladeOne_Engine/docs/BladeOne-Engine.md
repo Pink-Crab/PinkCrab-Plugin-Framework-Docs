@@ -7,7 +7,7 @@ The following methods can be used to configure the BladeOne_Engine class.
 > @param bool $bool Default true  
 > @return self  
 
-Calling this will allow you toggle piping `{%raw%}{{ $var | esc_html }}{%endraw%}` on or off. By default this is enabled.  
+Calling this will allow you toggle piping `{{ $var | esc_html }}` on or off. By default this is enabled.  
 
 *Details*: https://github.com/EFTEC/BladeOne/wiki/Template-Pipes-\(Filter\)
 
@@ -95,7 +95,7 @@ $bladeone_engine->add_alias_classes('MyClass', 'Namespace\\For\\Class\\MyClass')
 ```
 ```html
 <!-- Called like so in your views. -->
-{%raw%}{{MyClass::some_method()}}{%endraw%}
+{{MyClass::some_method()}}
 {!! MyClass::some_method() !!}
 @MyClass::some_method()
 ```
@@ -123,7 +123,7 @@ $bladeone_engine->share([
 ```
 ```html
 <!-- Called like so in your views. -->
-{%raw%}{{ $GLOBAL_foo }}{%endraw%}
+{{ $GLOBAL_foo }}
 @include('some.path') 
 <!-- Where some.path uses GLOBAL_foo, ideal for dynamic components like nav menus >
 ```

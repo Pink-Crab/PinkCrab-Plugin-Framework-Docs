@@ -1,26 +1,25 @@
-![logo](docs/Perique_BladeOne_Card.png "Pink Crab")
-
+![logo](docs/Perique_BladeOne_Card.png "Perique BladeOne Engine")
 # BladeOne_Engine
 A BladeOne Engine for the PinkCrab Renderable Interface.
 
-[![Latest Stable Version](http://poser.pugx.org/pinkcrab/bladeone-engine/v)](https://packagist.org/packages/pinkcrab/bladeone-engine)
-[![Total Downloads](http://poser.pugx.org/pinkcrab/bladeone-engine/downloads)](https://packagist.org/packages/pinkcrab/bladeone-engine)
-[![License](http://poser.pugx.org/pinkcrab/bladeone-engine/license)](https://packagist.org/packages/pinkcrab/bladeone-engine)
-[![PHP Version Require](http://poser.pugx.org/pinkcrab/bladeone-engine/require/php)](https://packagist.org/packages/pinkcrab/bladeone-engine)
+[![Latest Stable Version](https://poser.pugx.org/pinkcrab/bladeone-engine/v)](https://packagist.org/packages/pinkcrab/bladeone-engine)
+[![Total Downloads](https://poser.pugx.org/pinkcrab/bladeone-engine/downloads)](https://packagist.org/packages/pinkcrab/bladeone-engine)
+[![License](https://poser.pugx.org/pinkcrab/bladeone-engine/license)](https://packagist.org/packages/pinkcrab/bladeone-engine)
+[![PHP Version Require](https://poser.pugx.org/pinkcrab/bladeone-engine/require/php)](https://packagist.org/packages/pinkcrab/bladeone-engine)
 ![GitHub contributors](https://img.shields.io/github/contributors/Pink-Crab/BladeOne_Engine?label=Contributors)
 ![GitHub issues](https://img.shields.io/github/issues-raw/Pink-Crab/BladeOne_Engine)
 
-[![WP5.9 [PHP7.4-8.1] Tests](https://github.com/Pink-Crab/BladeOne_Engine/actions/workflows/WP_5_9.yaml/badge.svg)](https://github.com/Pink-Crab/BladeOne_Engine/actions/workflows/WP_5_9.yaml)
-[![WP6.0 [PHP7.4-8.1] Tests](https://github.com/Pink-Crab/BladeOne_Engine/actions/workflows/WP_6_0.yaml/badge.svg)](https://github.com/Pink-Crab/BladeOne_Engine/actions/workflows/WP_6_0.yaml)
-[![WP6.1 [PHP7.4-8.2] Tests](https://github.com/Pink-Crab/BladeOne_Engine/actions/workflows/WP_6_1.yaml/badge.svg)](https://github.com/Pink-Crab/BladeOne_Engine/actions/workflows/WP_6_1.yaml)
-[![WP6.2 [PHP7.4-8.2] Tests](https://github.com/Pink-Crab/BladeOne_Engine/actions/workflows/WP_6_2.yaml/badge.svg)](https://github.com/Pink-Crab/BladeOne_Engine/actions/workflows/WP_6_2.yaml)
+[![WP6.6 [PHP8.0-8.4] Tests](https://github.com/Pink-Crab/BladeOne_Engine/actions/workflows/WP_6_6.yaml/badge.svg)](https://github.com/Pink-Crab/BladeOne_Engine/actions/workflows/WP_6_6.yaml)
+[![WP6.7 [PHP8.0-8.4] Tests](https://github.com/Pink-Crab/BladeOne_Engine/actions/workflows/WP_6_7.yaml/badge.svg)](https://github.com/Pink-Crab/BladeOne_Engine/actions/workflows/WP_6_7.yaml)
+[![WP6.8 [PHP8.0-8.4] Tests](https://github.com/Pink-Crab/BladeOne_Engine/actions/workflows/WP_6_8.yaml/badge.svg)](https://github.com/Pink-Crab/BladeOne_Engine/actions/workflows/WP_6_8.yaml)
+[![WP6.9 [PHP8.0-8.4] Tests](https://github.com/Pink-Crab/BladeOne_Engine/actions/workflows/WP_6_9.yaml/badge.svg)](https://github.com/Pink-Crab/BladeOne_Engine/actions/workflows/WP_6_9.yaml)
 
 [![codecov](https://codecov.io/gh/Pink-Crab/BladeOne_Engine/branch/master/graph/badge.svg?token=jYyPg3FOSN)](https://codecov.io/gh/Pink-Crab/BladeOne_Engine)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Pink-Crab/BladeOne_Engine/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Pink-Crab/BladeOne_Engine/?branch=master)
 [![Maintainability](https://api.codeclimate.com/v1/badges/9d4a3c4c0a3e97b8dc34/maintainability)](https://codeclimate.com/github/Pink-Crab/BladeOne_Engine/maintainability)
 
 
-> Supports and tested with the PinkCrab Perique Framework versions 2.0.*
+> Supports and tested with the PinkCrab Perique Framework versions 2.1.*
 
 
 ## Why? ##
@@ -104,7 +103,11 @@ $app = ( new App_Factory('path/to/project/root') )
          ->template_path('path/to/custom/views')
          ->compiled_path('path/to/custom/cache'); // Fluent API for chaining.
       
-      $blade->mode( BladeOne::MODE_DEBUG );
+      // Set the rendering mode.
+      $blade->mode(  PinkCrab_BladeOne::MODE_DEBUG );
+
+      // Set the comment mode.
+      $blade->comment_mode( PinkCrab_BladeOne::COMMENT_RAW );
 
       // BladeOne_Engine config.
       $blade->config( function( BladeOne_Engine $engine  {
@@ -123,7 +126,7 @@ $app = ( new App_Factory('path/to/project/root') )
    ->boot();
 ```
 
-<details>
+<details markdown="1">
   <summary>Compact BladeOne Config</summary>
   <p>It is possible to do the Module config in a much more concise fashion, using the fluent API and PHP Arrow functions</p>
 
@@ -133,7 +136,8 @@ $app = ( new App_Factory('path/to/project/root') )
    ->module(BladeOne::class, fn( BladeOne $blade ) => $blade
       ->template_path('path/to/custom/views')
       ->compiled_path('path/to/custom/cache')
-      ->mode( BladeOne::MODE_DEBUG )
+      ->mode(  PinkCrab_BladeOne::MODE_DEBUG )
+      ->comment_mode( PinkCrab_BladeOne::COMMENT_RAW )
       ->config( fn( BladeOne_Engine $engine ) => $engine
          ->set_compiled_extension('.php')
          ->directive('test', fn($e) =>'test')
@@ -167,6 +171,7 @@ You can call the following methods on the BladeOne Module to configure the Blade
 * [template_path](docs/BladeOne-Module#public-function-template_path-string-template_path-)
 * [compiled_path](docs/BladeOne-Module#public-function-compiled_path-string-compiled_path-)
 * [mode](docs/BladeOne-Module#public-function-mode-int-mode-)
+* [comment_mode](docs/BladeOne-Module#public-function-comment_mode-int-mode)
 * [config](docs/BladeOne-Module#public-function-configcallable-config)
 
 ## BladeOne_Engine Config
@@ -263,8 +268,8 @@ add_action( PinkCrab_BladeOne::SETUP_CONFIG, function( PinkCrab_BladeOne $engine
 * [BladeOne HTML V2](https://github.com/eftec/BladeOneHtml)
 
 ## Requires ##
-* [PinkCrab Perique Framework V2 and above.](https://github.com/Pink-Crab/Perqiue-Framework)
-* PHP7.4+
+* [PinkCrab Perique Framework V2.1 and above.](https://github.com/Pink-Crab/Perqiue-Framework)
+* PHP8.0+
 
 ## License ##
 
@@ -276,6 +281,11 @@ http://www.opensource.org/licenses/mit-license.html
 * For support of all versions before Perique V2, please use the [BladeOne_Provider](https://github.com/Pink-Crab/Perique-BladeOne-Provider)
 
 ## Change Log ##
+* 2.1.1 - Updated dev dependencies.
+* 2.1.0 - Updated to support Perique V2.1.x
+-- Please note version number jumped to match rest of Perique Framework --
+* 1.1.0 - Provides BladeOne 4.12+ and BladeOneHTML 2.4+. With comment mode support.
+* 1.0.1 - Last version to support pre 4.12 BladeOne (will be the last)
 * 1.0.0 - Migrated over from the Perique V2 Prep branch of BladeOne_Provider.
   * New Features
   * Auth and Permissions now hooked up and based on the current user.
