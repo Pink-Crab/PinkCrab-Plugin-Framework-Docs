@@ -1,35 +1,45 @@
----
-description: A chainable MySQL schema and wpdb (db delta) table builder.
----
-
-> **Table Builder**
->
-> » [Schema](Schema.md)
-> 
-> » [Index](Table_Index.md)
-> 
-> » [Foreign_Key](Foreign_Key.md) 
-> 
-> » [Examples](examples.md)
-
-# Table Builder
-
-## Version ##
-**Release 0.3.0**
+# Table-Builder
+A chainable table schema constructor with (WPDB) DB Delta builder built in.
 
 
-## Why? ##
-For those of you who have used DB_Delta to create tables in WordPress, to say its a bit fussy, is an understatement. 
+[![Latest Stable Version](http://poser.pugx.org/pinkcrab/table_builder/v)](https://packagist.org/packages/pinkcrab/table_builder) [![Total Downloads](http://poser.pugx.org/pinkcrab/table_builder/downloads)](https://packagist.org/packages/pinkcrab/table_builder) [![Latest Unstable Version](http://poser.pugx.org/pinkcrab/table_builder/v/unstable)](https://packagist.org/packages/pinkcrab/table_builder) [![License](http://poser.pugx.org/pinkcrab/table_builder/license)](https://packagist.org/packages/pinkcrab/table_builder) [![PHP Version Require](http://poser.pugx.org/pinkcrab/table_builder/require/php)](https://packagist.org/packages/pinkcrab/table_builder)
+![GitHub contributors](https://img.shields.io/github/contributors/Pink-Crab/WPDB-Table-Builder?label=Contributors)
+![GitHub issues](https://img.shields.io/github/issues-raw/Pink-Crab/WPDB-Table-Builder)
 
-The PinkCrab Table_Builder module, makes creating you tables much easier as you have more expressive chainable API to define the schema, which can be passed to builder to create the table. 
+[![WP6.6 [PHP8.0-8.4] Tests](https://github.com/Pink-Crab/WPDB-Table-Builder/actions/workflows/WP_6_6.yaml/badge.svg)](https://github.com/Pink-Crab/WPDB-Table-Builder/actions/workflows/WP_6_6.yaml)
+[![WP6.7 [PHP8.0-8.4] Tests](https://github.com/Pink-Crab/WPDB-Table-Builder/actions/workflows/WP_6_7.yaml/badge.svg)](https://github.com/Pink-Crab/WPDB-Table-Builder/actions/workflows/WP_6_7.yaml)
+[![WP6.8 [PHP8.0-8.4] Tests](https://github.com/Pink-Crab/WPDB-Table-Builder/actions/workflows/WP_6_8.yaml/badge.svg)](https://github.com/Pink-Crab/WPDB-Table-Builder/actions/workflows/WP_6_8.yaml)
+[![WP6.9 [PHP8.0-8.4] Tests](https://github.com/Pink-Crab/WPDB-Table-Builder/actions/workflows/WP_6_9.yaml/badge.svg)](https://github.com/Pink-Crab/WPDB-Table-Builder/actions/workflows/WP_6_9.yaml)
 
-Out of the box, this package comes with the DB_Delta builder only, but thanks to the SQL_Builder interface, other table formats can be created easily.
+[![codecov](https://codecov.io/gh/Pink-Crab/WPDB-Table-Builder/branch/master/graph/badge.svg?token=UBWL8S4O8L)](https://codecov.io/gh/Pink-Crab/WPDB-Table-Builder)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Pink-Crab/WPDB-Table-Builder/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Pink-Crab/WPDB-Table-Builder/?branch=master)
+[![Maintainability](https://api.codeclimate.com/v1/badges/116cab42353b20f4366e/maintainability)](https://codeclimate.com/github/Pink-Crab/WPDB-Table-Builder/maintainability)
 
 
+> **Related Pages**  
+> » [Schema](Schema)  
+> » [Column](Column)  
+> » [Index](Table_Index)  
+> » [Foreign_Key](Foreign_Key)  
 
-## Defining a Tables Schema
 
-You can define a tables schema in a few different ways.
+## Why?
+For those of you who have used `dbDelta` to create tables in WordPress, to say it's a bit fussy is an understatement. 
+
+The `PinkCrab\Table_Builder` module makes creating tables much easier by providing a more expressive fluent API to define the schema, which can be passed to the Builder to create the table. 
+
+Out of the box, this package comes with the `DB_Delta` builder engine only, but thanks to the `SQL_Builder` interface, engines for other table formats can be created easily.
+
+## Install
+
+```bash
+composer require pinkcrab/table_builder
+```
+
+
+## Defining a Table's Schema
+
+You can define a table's schema in a few different ways.
 
 ```php
 <?php
@@ -53,15 +63,19 @@ $schema_b->column('user')->int(11);
 $schema_b->index('id')->primary();
 $schema_b->index('user')->unique();
 ```
-> Please note unless like previous versions, the column and index data can not be defined fluently.
+> [See Schema Docs](Schema)
+
+## Columns
+
+The schema is defined from various columns, each column is defined as its own object with a collection of [methods](Column#setters) and [helper/shortcuts](Column#type-helpers-shortcuts)
 
 ## Indexes and Foreign Keys
 
-You can setup a variety of Indexes and Foreign_Key's for your table(s). These can be set as the schema example above.
+You can setup a variety of indexes and foreign keys for your table(s). These can be set as in the schema example above.
 
 ### Index
 
-You can create index for any column of your table and denote the field as either just an index, unique, primary, full text or as a hash.
+You can create an index for any column of your table and denote the field as either unique, primary, full text, hash, or just a regular index.
 
 ```php
 <?php
@@ -78,14 +92,14 @@ $schema_a = new Schema('my_table', function(Schema $schema){
     $schema->index('details')->full_text();
 });
 ```
-The above would generate
+The above would generate:
 
 ```sql
 CREATE TABLE my_table(
     id INT AUTO_INCREMENT
     user INT(11),
     details TEXT,
-    PIRMARY KEY ix_id (id),
+    PRIMARY KEY ix_id (id),
     UNIQUE INDEX ix_user (user),
     FULLTEXT INDEX ix_details (details)
 );
@@ -107,7 +121,7 @@ $schema = new Schema('my_table', function(Schema $schema){
     $schema->index('details', 'unique_keys')->unique();
 });
 ```
-The above would generate the following for MYSQL
+The above would generate the following for MySQL:
 
 ```sql
 CREATE TABLE my_table(
@@ -118,8 +132,11 @@ CREATE TABLE my_table(
     UNIQUE INDEX unique_keys (user, details)
 );
 ```
+
+> See [INDEX docs](Table_Index)  
+
 ### Foreign Key
-Like regular indexes, foreign keys can be assigned against a table. When the table is built, it will assume the reference table exists, so ensure that you create them in the correct order if you are creating all tables at once.
+Like regular indexes, foreign keys can be assigned to a table. When the table is built, it will assume the reference table exists, so ensure that you create them in the correct order if you are creating all tables at once.
 
 ```php
 <?php
@@ -137,22 +154,24 @@ $schema = new Schema('my_table', function(Schema $schema){
         ->reference('users', 'id');
 });
 ```
-The above would produce for MYSQL (provided the user table exists with an ID column)
+The above would produce for MySQL (provided the user table exists with an ID column):
 
 ```sql
 CREATE TABLE my_table(
     id INT AUTO_INCREMENT
     user INT(11),
     details TEXT,
-    PIRMARY KEY ix_id (id),
+    PRIMARY KEY ix_id (id),
     FOREIGN INDEX custom_keyname (user) REFERENCES users(id)
 );
 ```
 
+> See [Foreign Key docs](Table_Index)  
 
-## Creating & Droppings Tables
 
-You can populate the builder with any engine, included in this package is the WPDB/dbDelta engine which can be used to create and drop table
+## Creating & Dropping Tables
+
+You can populate the builder with any engine. Included in this package is the `DB_Delta_Engine` engine, which internally uses the WordPress `dbDelta` function to create and drop tables.
 
 ### Create
 ```php
@@ -193,8 +212,69 @@ try{
 
 ```
 
+## License ##
 
+### MIT License ###
+http://www.opensource.org/licenses/mit-license.html  
 
+<details markdown="1">
+<summary><strong>All 200 tested combinations</strong> — 5 PHP × 4 WordPress × 10 database — click to expand</summary>
 
+### WordPress 6.6
 
+| PHP \ DB | mysql:9 | mysql:8.4 | mysql:8.0 | mariadb:12 | mariadb:11.8 | mariadb:11.4 | mariadb:11.2 | mariadb:11.0 | mariadb:10.11 | mariadb:10.6 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| **8.0** | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| **8.1** | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| **8.2** | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| **8.3** | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| **8.4** | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+
+### WordPress 6.7
+
+| PHP \ DB | mysql:9 | mysql:8.4 | mysql:8.0 | mariadb:12 | mariadb:11.8 | mariadb:11.4 | mariadb:11.2 | mariadb:11.0 | mariadb:10.11 | mariadb:10.6 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| **8.0** | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| **8.1** | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| **8.2** | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| **8.3** | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| **8.4** | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+
+### WordPress 6.8
+
+| PHP \ DB | mysql:9 | mysql:8.4 | mysql:8.0 | mariadb:12 | mariadb:11.8 | mariadb:11.4 | mariadb:11.2 | mariadb:11.0 | mariadb:10.11 | mariadb:10.6 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| **8.0** | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| **8.1** | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| **8.2** | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| **8.3** | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| **8.4** | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+
+### WordPress 6.9
+
+| PHP \ DB | mysql:9 | mysql:8.4 | mysql:8.0 | mariadb:12 | mariadb:11.8 | mariadb:11.4 | mariadb:11.2 | mariadb:11.0 | mariadb:10.11 | mariadb:10.6 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| **8.0** | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| **8.1** | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| **8.2** | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| **8.3** | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| **8.4** | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+
+</details>
+
+## Change Log ##
+* 1.2.1 - Updated dev dependencies, PHP min to 8.0, WP test matrix to 6.6–6.9, aligned configs with shared standards.
+* 1.2.0 - Added in helper method for unsigned_big() (thanks [iniznet](https://github.com/iniznet)), updated dev deps and GH pipelines.
+* 1.1.0 - Added JSON column support, fixed precision issue with floating point column, improved docs (with help from [ZebulanStanphill](https://github.com/ZebulanStanphill))
+* 1.0.0 - Added 2 new methods to the engine interface and wpdb implementation to return the queries used to create table and drop table. 
+* 0.3.0 - Changed how much of the API works; some of the externals have changed. It no longer accepts fully fluent creation, and index/foreign keys have been separated.
+* 0.2.2 - No change, branches a mess.
+* 0.2.1 - Added in more tests, now has 100% test coverage. Added in more valdation around columns, tablename and indexes. Previously threw PHP errors for missing or malformed data. Now throws exceptions if Table has no name, a column is lacking key, null, type or length and all indexes which are foreign keys, must have a valid reference table and column. No changes to public methods.
+* 0.2.0 - Moved to Composer, renamed all namespaces to match the Composer format.
+
+## Contributions ##
+If you would like to contribute to this project, please feel to create an issue, then submit a PR.
+
+> [Glynn Quelch](https://github.com/gin0115/)  
+> [ZebulanStanphill](https://github.com/ZebulanStanphill)
 
