@@ -19,7 +19,7 @@ $this->component( new Input_Component(
 
 ![Basic](screenshots/number/basic.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -57,7 +57,7 @@ Sets the visible label text above the input.
 Number::make( 'quantity' )->label( 'Quantity' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -80,7 +80,7 @@ Number::make( 'quantity' )
     ->set_existing( 42 )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -108,7 +108,7 @@ Number::make( 'amount' )
 
 ![placeholder](screenshots/number/placeholder.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -129,7 +129,7 @@ Number::make( 'age' )
     ->min( 0 )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -153,7 +153,7 @@ Number::make( 'age' )
     ->max( 120 )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -182,7 +182,7 @@ Number::make( 'age' )
 
 ![range](screenshots/number/range.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -203,7 +203,7 @@ Number::make( 'price' )
     ->step( 0.01 )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -227,7 +227,7 @@ Number::make( 'quantity' )
     ->required( true )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -252,7 +252,7 @@ Number::make( 'total' )
     ->readonly( true )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -276,7 +276,7 @@ Number::make( 'age' )
     ->autocomplete( 'off' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -336,7 +336,7 @@ Number::make( 'rating' )
     ->datalist_items( array( '1', '2', '3', '4', '5' ) )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -367,7 +367,7 @@ Number::make( 'invalid_qty' )
     ->error_notification( 'Please enter a valid number.' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -392,7 +392,7 @@ Number::make( 'low_qty' )
     ->warning_notification( 'Quantity is zero.' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -418,7 +418,7 @@ Number::make( 'ok_qty' )
     ->success_notification( 'Stock available.' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -443,7 +443,7 @@ Number::make( 'info_qty' )
     ->info_notification( 'Enter quantity between 1 and 100.' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -490,7 +490,7 @@ Number::make( 'wrapped_num' )
 
 ![before/after](screenshots/number/before-after.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -511,7 +511,7 @@ Sets a custom HTML `id` on the input element.
 Number::make( 'quantity' )->id( 'my-quantity' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -531,7 +531,7 @@ Sets a custom HTML `id` on the wrapper div.
 Number::make( 'quantity' )->wrapper_id( 'qty-wrapper' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -551,7 +551,7 @@ Adds a `data-*` attribute to the input.
 Number::make( 'quantity' )->data( 'min-stock', '5' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -572,7 +572,7 @@ Adds a `data-*` attribute to the wrapper div.
 Number::make( 'quantity' )->wrapper_data( 'section', 'cart' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -592,7 +592,7 @@ Adds a CSS class to the input element.
 Number::make( 'quantity' )->add_class( 'wide-input' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -612,7 +612,7 @@ Adds a CSS class to the wrapper div.
 Number::make( 'quantity' )->add_wrapper_class( 'number-field' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -632,7 +632,7 @@ Controls whether the wrapping `<div>` is rendered.
 Number::make( 'quantity' )->show_wrapper( false )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -650,7 +650,7 @@ Sets the tab order of the input.
 Number::make( 'quantity' )->tabindex( 3 )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -671,7 +671,7 @@ Sets an arbitrary HTML attribute on the input.
 Number::make( 'quantity' )->attribute( 'aria-label', 'Product quantity' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -695,7 +695,7 @@ Number::make( 'quantity' )->attributes( array(
 ) )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html

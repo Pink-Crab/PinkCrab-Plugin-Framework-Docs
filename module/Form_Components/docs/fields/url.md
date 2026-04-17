@@ -19,7 +19,7 @@ $this->component( new Input_Component(
 
 ![Basic](screenshots/url/basic.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -55,7 +55,7 @@ Sets the visible label text above the input.
 Url::make( 'website' )->label( 'Website' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -78,7 +78,7 @@ Url::make( 'website' )
     ->set_existing( 'https://example.com' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -102,7 +102,7 @@ Url::make( 'website' )
     ->placeholder( 'https://example.com' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -126,7 +126,7 @@ Url::make( 'website' )
     ->required( true )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -151,7 +151,7 @@ Url::make( 'locked_url' )
     ->disabled( true )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -176,7 +176,7 @@ Url::make( 'readonly_url' )
     ->readonly( true )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -201,7 +201,7 @@ Url::make( 'website' )
     ->placeholder( 'Must start with https://' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -226,7 +226,7 @@ Url::make( 'website' )
     ->maxlength( 255 )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -250,7 +250,7 @@ Url::make( 'website' )
     ->size( 40 )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -274,7 +274,7 @@ Url::make( 'website' )
     ->autocomplete( 'url' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -333,7 +333,7 @@ Url::make( 'website' )
     ->inputmode( 'url' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -370,7 +370,7 @@ Url::make( 'website' )
     ->spellcheck( 'false' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -394,7 +394,7 @@ Url::make( 'website' )
     ->datalist_items( array( 'https://google.com', 'https://github.com', 'https://wordpress.org' ) )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -424,7 +424,7 @@ Url::make( 'url_error' )
     ->error_notification( 'A valid URL is required.' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -450,7 +450,7 @@ Url::make( 'url_warning' )
     ->warning_notification( 'URL does not use HTTPS.' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -476,7 +476,7 @@ Url::make( 'url_success' )
     ->success_notification( 'URL is valid and reachable.' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -501,7 +501,7 @@ Url::make( 'url_info' )
     ->info_notification( 'Must include the protocol (https://).' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -548,7 +548,7 @@ Url::make( 'wrapped_url' )
 
 ![before/after](screenshots/url/before-after.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -570,7 +570,7 @@ Url::make( 'website' )
     ->id( 'my-custom-url-id' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -591,7 +591,7 @@ Url::make( 'website' )
     ->wrapper_id( 'my-custom-wrapper-id' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -612,7 +612,7 @@ Url::make( 'website' )
     ->data( 'validate', 'url' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -634,7 +634,7 @@ Url::make( 'website' )
     ->wrapper_data( 'section', 'links' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -655,7 +655,7 @@ Url::make( 'website' )
     ->add_class( 'my-input-class' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -676,7 +676,7 @@ Url::make( 'website' )
     ->add_wrapper_class( 'my-wrapper-class' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -697,7 +697,7 @@ Url::make( 'bare' )
     ->show_wrapper( false )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -716,7 +716,7 @@ Url::make( 'website' )
     ->tabindex( 5 )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -738,7 +738,7 @@ Url::make( 'website' )
     ->attribute( 'aria-label', 'Enter your website URL' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -763,7 +763,7 @@ Url::make( 'website' )
     ) )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html

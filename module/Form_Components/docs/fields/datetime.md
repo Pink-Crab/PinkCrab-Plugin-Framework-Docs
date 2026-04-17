@@ -18,7 +18,7 @@ $this->component( new Input_Component(
 
 ![Basic](screenshots/datetime/basic.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -56,7 +56,7 @@ Sets the visible label text above the input.
 Datetime::make( 'event_start' )->label( 'Event Start' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -81,7 +81,7 @@ Datetime::make( 'scheduled' )
 
 ![set_existing](screenshots/datetime/value.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -102,7 +102,7 @@ Datetime::make( 'event_start' )
     ->min( '2026-01-01T00:00' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -126,7 +126,7 @@ Datetime::make( 'event_start' )
     ->max( '2026-12-31T23:59' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -150,7 +150,7 @@ Datetime::make( 'event_start' )
     ->range( '2026-01-01T00:00', '2026-12-31T23:59' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -174,7 +174,7 @@ Datetime::make( 'event_start' )
     ->step( 900 )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -198,7 +198,7 @@ Datetime::make( 'precise_event' )
     ->step_by_seconds( 30 )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -222,7 +222,7 @@ Datetime::make( 'appointment' )
     ->step_by_minutes( 15 )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -246,7 +246,7 @@ Datetime::make( 'shift_start' )
     ->step_by_hours( 1 )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -270,7 +270,7 @@ Datetime::make( 'daily_event' )
     ->step_by_days( 1 )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -294,7 +294,7 @@ Datetime::make( 'weekly_meeting' )
     ->step_by_weeks( 1 )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -320,7 +320,7 @@ Datetime::make( 'required_dt' )
 
 ![required](screenshots/datetime/required.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -342,7 +342,7 @@ Datetime::make( 'created_at' )
     ->readonly( true )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -366,7 +366,7 @@ Datetime::make( 'event_start' )
     ->autocomplete( 'off' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -430,7 +430,7 @@ Datetime::make( 'meeting' )
     ) )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -459,7 +459,7 @@ Datetime::make( 'invalid_event' )
     ->error_notification( 'Please enter a valid date and time.' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -484,7 +484,7 @@ Datetime::make( 'past_event' )
     ->warning_notification( 'This date is in the past.' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -510,7 +510,7 @@ Datetime::make( 'ok_event' )
     ->success_notification( 'Slot confirmed.' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -535,7 +535,7 @@ Datetime::make( 'info_event' )
     ->info_notification( 'All times are in your local timezone.' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -582,7 +582,7 @@ Datetime::make( 'wrapped_dt' )
 
 ![before/after](screenshots/datetime/before-after.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -603,7 +603,7 @@ Sets a custom HTML `id` on the input element.
 Datetime::make( 'event_start' )->id( 'my-datetime-picker' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -623,7 +623,7 @@ Sets a custom HTML `id` on the wrapper div.
 Datetime::make( 'event_start' )->wrapper_id( 'event-start-wrapper' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -643,7 +643,7 @@ Adds a `data-*` attribute to the input.
 Datetime::make( 'event_start' )->data( 'timezone', 'Europe/London' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -664,7 +664,7 @@ Adds a `data-*` attribute to the wrapper div.
 Datetime::make( 'event_start' )->wrapper_data( 'section', 'scheduling' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -684,7 +684,7 @@ Adds a CSS class to the input element.
 Datetime::make( 'event_start' )->add_class( 'datetime-picker' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -704,7 +704,7 @@ Adds a CSS class to the wrapper div.
 Datetime::make( 'event_start' )->add_wrapper_class( 'datetime-field' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -724,7 +724,7 @@ Controls whether the wrapping `<div>` is rendered.
 Datetime::make( 'event_start' )->show_wrapper( false )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -742,7 +742,7 @@ Sets the tab order of the input.
 Datetime::make( 'event_start' )->tabindex( 3 )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -763,7 +763,7 @@ Sets an arbitrary HTML attribute on the input.
 Datetime::make( 'event_start' )->attribute( 'aria-label', 'Select event start date and time' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -787,7 +787,7 @@ Datetime::make( 'event_start' )->attributes( array(
 ) )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html

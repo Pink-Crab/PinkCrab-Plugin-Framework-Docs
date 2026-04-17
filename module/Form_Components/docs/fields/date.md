@@ -18,7 +18,7 @@ $this->component( new Input_Component(
 
 ![Basic](screenshots/date/basic.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -56,7 +56,7 @@ Sets the visible label text above the input.
 Date::make( 'birthday' )->label( 'Date of Birth' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -81,7 +81,7 @@ Date::make( 'event_date' )
 
 ![set_existing](screenshots/date/value.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -102,7 +102,7 @@ Date::make( 'booking' )
     ->min( '2026-01-01' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -126,7 +126,7 @@ Date::make( 'booking' )
     ->max( '2026-12-31' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -150,7 +150,7 @@ Date::make( 'weekly' )
     ->step_by_days( 1 )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -174,7 +174,7 @@ Date::make( 'biweekly' )
     ->step_by_weeks( 2 )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -198,7 +198,7 @@ Date::make( 'start_date' )
     ->required( true )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -223,7 +223,7 @@ Date::make( 'locked_date' )
     ->disabled( true )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -248,7 +248,7 @@ Date::make( 'confirmed' )
     ->readonly( true )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -272,7 +272,7 @@ Date::make( 'bday' )
     ->autocomplete( 'bday' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -332,7 +332,7 @@ Date::make( 'holiday' )
     ->datalist_items( array( '2026-01-01', '2026-12-25', '2026-12-26' ) )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -361,7 +361,7 @@ Date::make( 'invalid_date' )
     ->error_notification( 'Please select a valid date.' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -386,7 +386,7 @@ Date::make( 'past_date' )
     ->warning_notification( 'This date is in the past.' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -412,7 +412,7 @@ Date::make( 'ok_date' )
     ->success_notification( 'Date is available.' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -437,7 +437,7 @@ Date::make( 'info_date' )
     ->info_notification( 'Select a date within the next 30 days.' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -484,7 +484,7 @@ Date::make( 'wrapped_date' )
 
 ![before/after](screenshots/date/before-after.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -505,7 +505,7 @@ Sets a custom HTML `id` on the input element.
 Date::make( 'date' )->id( 'my-date-picker' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -525,7 +525,7 @@ Sets a custom HTML `id` on the wrapper div.
 Date::make( 'date' )->wrapper_id( 'date-wrapper' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -545,7 +545,7 @@ Adds a `data-*` attribute to the input.
 Date::make( 'date' )->data( 'format', 'iso' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -566,7 +566,7 @@ Adds a `data-*` attribute to the wrapper div.
 Date::make( 'date' )->wrapper_data( 'section', 'booking' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -586,7 +586,7 @@ Adds a CSS class to the input element.
 Date::make( 'date' )->add_class( 'wide-picker' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -606,7 +606,7 @@ Adds a CSS class to the wrapper div.
 Date::make( 'date' )->add_wrapper_class( 'date-field' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -626,7 +626,7 @@ Controls whether the wrapping `<div>` is rendered.
 Date::make( 'date' )->show_wrapper( false )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -644,7 +644,7 @@ Sets the tab order of the input.
 Date::make( 'date' )->tabindex( 4 )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -665,7 +665,7 @@ Sets an arbitrary HTML attribute on the input.
 Date::make( 'date' )->attribute( 'aria-label', 'Select a date' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -689,7 +689,7 @@ Date::make( 'date' )->attributes( array(
 ) )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html

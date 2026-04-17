@@ -18,7 +18,7 @@ $this->component( new Input_Component(
 
 ![Basic](screenshots/time/basic.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -56,7 +56,7 @@ Sets the visible label text above the input.
 Time::make( 'start_time' )->label( 'Start Time' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -81,7 +81,7 @@ Time::make( 'start_time' )
 
 ![set_existing](screenshots/time/value.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -102,7 +102,7 @@ Time::make( 'start_time' )
     ->min( '08:00' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -126,7 +126,7 @@ Time::make( 'start_time' )
     ->max( '18:00' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -150,7 +150,7 @@ Time::make( 'meeting_time' )
     ->range( '09:00', '17:00' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -174,7 +174,7 @@ Time::make( 'alarm' )
     ->step( 60 )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -198,7 +198,7 @@ Time::make( 'precise_time' )
     ->step_by_seconds( 30 )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -222,7 +222,7 @@ Time::make( 'appointment' )
     ->step_by_minutes( 15 )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -246,7 +246,7 @@ Time::make( 'shift' )
     ->step_by_hours( 1 )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -270,7 +270,7 @@ Time::make( 'start_time' )
     ->required( true )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -297,7 +297,7 @@ Time::make( 'locked_time' )
 
 ![disabled](screenshots/time/disabled.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -319,7 +319,7 @@ Time::make( 'created_at' )
     ->readonly( true )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -343,7 +343,7 @@ Time::make( 'start_time' )
     ->autocomplete( 'off' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -403,7 +403,7 @@ Time::make( 'start_time' )
     ->inputmode( 'numeric' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -441,7 +441,7 @@ Time::make( 'meeting_time' )
     ->datalist_items( array( '09:00', '10:00', '11:00', '14:00', '15:00' ) )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -474,7 +474,7 @@ Time::make( 'notif_time' )
 
 ![notification](screenshots/time/notification.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -497,7 +497,7 @@ Time::make( 'late_time' )
     ->warning_notification( 'This is outside working hours.' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -523,7 +523,7 @@ Time::make( 'ok_time' )
     ->success_notification( 'Time slot available.' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -548,7 +548,7 @@ Time::make( 'info_time' )
     ->info_notification( 'All times are in UTC.' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -595,7 +595,7 @@ Time::make( 'wrapped_time' )
 
 ![before/after](screenshots/time/before-after.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -616,7 +616,7 @@ Sets a custom HTML `id` on the input element.
 Time::make( 'start_time' )->id( 'my-time-picker' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -636,7 +636,7 @@ Sets a custom HTML `id` on the wrapper div.
 Time::make( 'start_time' )->wrapper_id( 'time-wrapper' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -656,7 +656,7 @@ Adds a `data-*` attribute to the input.
 Time::make( 'start_time' )->data( 'timezone', 'UTC' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -677,7 +677,7 @@ Adds a `data-*` attribute to the wrapper div.
 Time::make( 'start_time' )->wrapper_data( 'section', 'schedule' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -697,7 +697,7 @@ Adds a CSS class to the input element.
 Time::make( 'start_time' )->add_class( 'time-picker' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -717,7 +717,7 @@ Adds a CSS class to the wrapper div.
 Time::make( 'start_time' )->add_wrapper_class( 'time-field' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -737,7 +737,7 @@ Controls whether the wrapping `<div>` is rendered.
 Time::make( 'start_time' )->show_wrapper( false )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -755,7 +755,7 @@ Sets the tab order of the input.
 Time::make( 'start_time' )->tabindex( 5 )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -776,7 +776,7 @@ Sets an arbitrary HTML attribute on the input.
 Time::make( 'start_time' )->attribute( 'aria-label', 'Choose start time' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -800,7 +800,7 @@ Time::make( 'start_time' )->attributes( array(
 ) )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html

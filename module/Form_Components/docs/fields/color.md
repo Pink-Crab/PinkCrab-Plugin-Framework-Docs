@@ -18,7 +18,7 @@ $this->component( new Input_Component(
 
 ![Basic](screenshots/color/basic.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -54,7 +54,7 @@ Sets the visible label text above the input.
 Color::make( 'brand_color' )->label( 'Brand Colour' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -79,7 +79,7 @@ Color::make( 'theme_color' )
 
 ![set_existing](screenshots/color/value.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -100,7 +100,7 @@ Color::make( 'accent' )
     ->required( true )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -127,7 +127,7 @@ Color::make( 'locked_color' )
 
 ![disabled](screenshots/color/disabled.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -148,7 +148,7 @@ Color::make( 'bg_color' )
     ->autocomplete( 'off' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -208,7 +208,7 @@ Color::make( 'preset_color' )
     ->datalist_items( array( '#ff0000', '#00ff00', '#0000ff', '#ff9900', '#9900ff' ) )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -239,7 +239,7 @@ Color::make( 'invalid_color' )
     ->error_notification( 'Please select a valid colour.' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -263,7 +263,7 @@ Color::make( 'warn_color' )
     ->warning_notification( 'This colour may have accessibility issues.' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -287,7 +287,7 @@ Color::make( 'ok_color' )
     ->success_notification( 'Colour meets contrast requirements.' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -314,7 +314,7 @@ Color::make( 'info_color' )
 
 ![info_notification](screenshots/color/notification.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -360,7 +360,7 @@ Color::make( 'wrapped_color' )
 
 ![before/after](screenshots/color/before-after.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -381,7 +381,7 @@ Sets a custom HTML `id` on the input element.
 Color::make( 'color' )->id( 'my-color-picker' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -401,7 +401,7 @@ Sets a custom HTML `id` on the wrapper div.
 Color::make( 'color' )->wrapper_id( 'color-wrapper' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -421,7 +421,7 @@ Adds a `data-*` attribute to the input.
 Color::make( 'color' )->data( 'target', 'preview-box' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -442,7 +442,7 @@ Adds a `data-*` attribute to the wrapper div.
 Color::make( 'color' )->wrapper_data( 'section', 'branding' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -462,7 +462,7 @@ Adds a CSS class to the input element.
 Color::make( 'color' )->add_class( 'large-swatch' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -482,7 +482,7 @@ Adds a CSS class to the wrapper div.
 Color::make( 'color' )->add_wrapper_class( 'color-field' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -502,7 +502,7 @@ Controls whether the wrapping `<div>` is rendered.
 Color::make( 'color' )->show_wrapper( false )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -520,7 +520,7 @@ Sets the tab order of the input.
 Color::make( 'color' )->tabindex( 3 )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -541,7 +541,7 @@ Sets an arbitrary HTML attribute on the input.
 Color::make( 'color' )->attribute( 'aria-label', 'Pick a colour' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -565,7 +565,7 @@ Color::make( 'color' )->attributes( array(
 ) )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html

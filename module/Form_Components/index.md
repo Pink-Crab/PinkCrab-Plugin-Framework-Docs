@@ -125,7 +125,7 @@ $this->component( Make::form( 'enquiry', fn( $f ) => $f
 ) );
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html

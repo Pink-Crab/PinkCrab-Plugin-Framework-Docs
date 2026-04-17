@@ -18,7 +18,7 @@ $this->component( new Input_Component(
 
 ![Basic](screenshots/text/basic.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -66,7 +66,7 @@ Text::make( 'fullname' )
 
 ![set_existing](screenshots/text/value.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -89,7 +89,7 @@ Text::make( 'search_query' )
 
 ![placeholder](screenshots/text/placeholder.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -112,7 +112,7 @@ Text::make( 'email_addr' )
 
 ![required](screenshots/text/required.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -136,7 +136,7 @@ Text::make( 'locked_field' )
 
 ![disabled](screenshots/text/disabled.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -158,7 +158,7 @@ Text::make( 'readonly_field' )
     ->readonly( true )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -183,7 +183,7 @@ Text::make( 'postcode' )
     ->placeholder( 'e.g. SW1A 1AA' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -208,7 +208,7 @@ Text::make( 'nickname' )
     ->maxlength( 20 )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -232,7 +232,7 @@ Text::make( 'code' )
     ->size( 10 )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -256,7 +256,7 @@ Text::make( 'given_name' )
     ->autocomplete( 'given-name' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -315,7 +315,7 @@ Text::make( 'pin_code' )
     ->inputmode( 'numeric' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -352,7 +352,7 @@ Text::make( 'code_field' )
     ->spellcheck( 'false' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -379,7 +379,7 @@ Text::make( 'fruit' )
 
 ![datalist](screenshots/text/datalist.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -415,7 +415,7 @@ Text::make( 'name_error' )
 
 ![error_notification](screenshots/text/notification-error.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -440,7 +440,7 @@ Text::make( 'name_warning' )
 
 ![warning_notification](screenshots/text/notification-warning.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -465,7 +465,7 @@ Text::make( 'name_success' )
 
 ![success_notification](screenshots/text/notification-success.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -489,7 +489,7 @@ Text::make( 'name_info' )
 
 ![info_notification](screenshots/text/notification-info.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -534,7 +534,7 @@ Text::make( 'wrapped_field' )
 
 ![before/after](screenshots/text/before-after.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -556,7 +556,7 @@ Text::make( 'field' )
     ->id( 'my-custom-input-id' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -577,7 +577,7 @@ Text::make( 'field' )
     ->wrapper_id( 'my-custom-wrapper-id' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -599,7 +599,7 @@ Text::make( 'field' )
     ->data( 'max-words', '100' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -621,7 +621,7 @@ Text::make( 'field' )
     ->wrapper_data( 'section', 'personal' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -642,7 +642,7 @@ Text::make( 'field' )
     ->add_class( 'my-input-class' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -663,7 +663,7 @@ Text::make( 'field' )
     ->add_wrapper_class( 'my-wrapper-class' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -684,7 +684,7 @@ Text::make( 'bare' )
     ->show_wrapper( false )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -703,7 +703,7 @@ Text::make( 'field' )
     ->tabindex( 5 )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -725,7 +725,7 @@ Text::make( 'field' )
     ->attribute( 'aria-label', 'Custom accessible label' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -750,7 +750,7 @@ Text::make( 'field' )
     ) )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html

@@ -25,7 +25,7 @@ $this->component( new Select_Component(
 
 ![Basic](screenshots/select/basic.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -71,7 +71,7 @@ Sets the visible label text above the select.
 Select::make( 'country' )->label( 'Country' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -99,7 +99,7 @@ Select::make( 'colour' )
     ) )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -134,7 +134,7 @@ Select::make( 'role' )
 
 ![selected](screenshots/select/selected.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -160,7 +160,7 @@ Select::make( 'colours' )
     ->set_existing( array( 'red', 'blue' ) )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -221,7 +221,7 @@ Select::make( 'vehicle' )
 
 ![optgroups](screenshots/select/optgroups.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -263,7 +263,7 @@ Select::make( 'languages' )
 
 ![multiple](screenshots/select/multiple.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -299,7 +299,7 @@ Select::make( 'visible_list' )
 
 ![size](screenshots/select/size.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -327,7 +327,7 @@ Select::make( 'country' )
     ->required( true )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -358,7 +358,7 @@ Select::make( 'locked_plan' )
 
 ![disabled](screenshots/select/disabled.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -382,7 +382,7 @@ Select::make( 'country' )
     ->autocomplete( 'country-name' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -448,7 +448,7 @@ Select::make( 'bad_select' )
 
 ![notification](screenshots/select/notification.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -475,7 +475,7 @@ Select::make( 'country' )
     ->warning_notification( 'This cannot be changed later.' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -504,7 +504,7 @@ Select::make( 'country' )
     ->success_notification( 'Country confirmed.' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -532,7 +532,7 @@ Select::make( 'country' )
     ->info_notification( 'Used for shipping calculations.' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -581,7 +581,7 @@ Select::make( 'country' )
     ->after( '<span>Used for tax calculations</span>' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -608,7 +608,7 @@ Select::make( 'country' )
     ->id( 'my-custom-select-id' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -630,7 +630,7 @@ Select::make( 'country' )
     ->wrapper_id( 'my-custom-wrapper-id' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -652,7 +652,7 @@ Select::make( 'country' )
     ->data( 'region', 'europe' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -675,7 +675,7 @@ Select::make( 'country' )
     ->wrapper_data( 'section', 'address' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -697,7 +697,7 @@ Select::make( 'country' )
     ->add_class( 'my-select-class' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -719,7 +719,7 @@ Select::make( 'country' )
     ->add_wrapper_class( 'my-wrapper-class' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -742,7 +742,7 @@ Select::make( 'country' )
     ->show_wrapper( false )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -764,7 +764,7 @@ Select::make( 'country' )
     ->tabindex( 5 )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -787,7 +787,7 @@ Select::make( 'country' )
     ->attribute( 'aria-label', 'Select your country' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -813,7 +813,7 @@ Select::make( 'country' )
     ) )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html

@@ -18,7 +18,7 @@ $this->component( new Input_Component(
 
 ![Basic](screenshots/month/basic.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -56,7 +56,7 @@ Sets the visible label text above the input.
 Month::make( 'birth_month' )->label( 'Birth Month' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -81,7 +81,7 @@ Month::make( 'expiry' )
 
 ![set_existing](screenshots/month/value.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -102,7 +102,7 @@ Month::make( 'billing_month' )
     ->min( '2026-01' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -126,7 +126,7 @@ Month::make( 'billing_month' )
     ->max( '2026-12' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -150,7 +150,7 @@ Month::make( 'quarter' )
     ->step_by_months( 3 )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -174,7 +174,7 @@ Month::make( 'birth_month' )
     ->required( true )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -201,7 +201,7 @@ Month::make( 'locked_month' )
 
 ![disabled](screenshots/month/disabled.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -223,7 +223,7 @@ Month::make( 'confirmed' )
     ->readonly( true )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -247,7 +247,7 @@ Month::make( 'birth_month' )
     ->autocomplete( 'off' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -307,7 +307,7 @@ Month::make( 'birth_month' )
     ->inputmode( 'numeric' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -345,7 +345,7 @@ Month::make( 'quarter_start' )
     ->datalist_items( array( '2026-01', '2026-04', '2026-07', '2026-10' ) )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -378,7 +378,7 @@ Month::make( 'expired_month' )
 
 ![notification](screenshots/month/notification.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -401,7 +401,7 @@ Month::make( 'expiry_month' )
     ->warning_notification( 'This month has passed.' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -427,7 +427,7 @@ Month::make( 'ok_month' )
     ->success_notification( 'Month confirmed.' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -452,7 +452,7 @@ Month::make( 'info_month' )
     ->info_notification( 'Format: YYYY-MM' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -499,7 +499,7 @@ Month::make( 'wrapped_month' )
 
 ![before/after](screenshots/month/before-after.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -520,7 +520,7 @@ Sets a custom HTML `id` on the input element.
 Month::make( 'birth_month' )->id( 'my-month-picker' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -540,7 +540,7 @@ Sets a custom HTML `id` on the wrapper div.
 Month::make( 'birth_month' )->wrapper_id( 'month-wrapper' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -560,7 +560,7 @@ Adds a `data-*` attribute to the input.
 Month::make( 'birth_month' )->data( 'format', 'month' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -581,7 +581,7 @@ Adds a `data-*` attribute to the wrapper div.
 Month::make( 'birth_month' )->wrapper_data( 'section', 'personal' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -601,7 +601,7 @@ Adds a CSS class to the input element.
 Month::make( 'birth_month' )->add_class( 'month-picker' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -621,7 +621,7 @@ Adds a CSS class to the wrapper div.
 Month::make( 'birth_month' )->add_wrapper_class( 'month-field' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -641,7 +641,7 @@ Controls whether the wrapping `<div>` is rendered.
 Month::make( 'birth_month' )->show_wrapper( false )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -659,7 +659,7 @@ Sets the tab order of the input.
 Month::make( 'birth_month' )->tabindex( 4 )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -680,7 +680,7 @@ Sets an arbitrary HTML attribute on the input.
 Month::make( 'birth_month' )->attribute( 'aria-label', 'Select your birth month' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -704,7 +704,7 @@ Month::make( 'birth_month' )->attributes( array(
 ) )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html

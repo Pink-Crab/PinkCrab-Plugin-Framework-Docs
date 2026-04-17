@@ -19,7 +19,7 @@ $this->component( new Input_Component(
 
 ![Basic](screenshots/email/basic.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -55,7 +55,7 @@ Sets the visible label text above the input.
 Email::make( 'email' )->label( 'Email Address' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -78,7 +78,7 @@ Email::make( 'contact_email' )
     ->set_existing( 'john@example.com' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -102,7 +102,7 @@ Email::make( 'email' )
     ->placeholder( 'you@example.com' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -126,7 +126,7 @@ Email::make( 'email' )
     ->required( true )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -151,7 +151,7 @@ Email::make( 'verified_email' )
     ->disabled( true )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -176,7 +176,7 @@ Email::make( 'registered_email' )
     ->readonly( true )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -201,7 +201,7 @@ Email::make( 'corp_email' )
     ->placeholder( 'name@company.com' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -226,7 +226,7 @@ Email::make( 'email' )
     ->maxlength( 100 )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -250,7 +250,7 @@ Email::make( 'email' )
     ->size( 40 )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -274,7 +274,7 @@ Email::make( 'recipients' )
     ->multiple( true )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -298,7 +298,7 @@ Email::make( 'email' )
     ->autocomplete( 'email' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -358,7 +358,7 @@ Email::make( 'email' )
     ->datalist_items( array( 'admin@example.com', 'info@example.com', 'support@example.com' ) )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -390,7 +390,7 @@ Email::make( 'invalid_email' )
 
 ![error_notification](screenshots/email/notification.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -412,7 +412,7 @@ Email::make( 'warn_email' )
     ->warning_notification( 'This email domain looks suspicious.' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -437,7 +437,7 @@ Email::make( 'ok_email' )
     ->success_notification( 'Email verified!' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -462,7 +462,7 @@ Email::make( 'info_email' )
     ->info_notification( 'We will send a verification link.' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -509,7 +509,7 @@ Email::make( 'wrapped_email' )
 
 ![before/after](screenshots/email/before-after.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -530,7 +530,7 @@ Sets a custom HTML `id` on the input element.
 Email::make( 'email' )->id( 'signup-email' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -550,7 +550,7 @@ Sets a custom HTML `id` on the wrapper div.
 Email::make( 'email' )->wrapper_id( 'email-wrapper' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -570,7 +570,7 @@ Adds a `data-*` attribute to the input.
 Email::make( 'email' )->data( 'validate', 'email' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -591,7 +591,7 @@ Adds a `data-*` attribute to the wrapper div.
 Email::make( 'email' )->wrapper_data( 'section', 'contact' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -611,7 +611,7 @@ Adds a CSS class to the input element.
 Email::make( 'email' )->add_class( 'email-field' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -631,7 +631,7 @@ Adds a CSS class to the wrapper div.
 Email::make( 'email' )->add_wrapper_class( 'email-wrapper' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -651,7 +651,7 @@ Controls whether the wrapping `<div>` is rendered.
 Email::make( 'email' )->show_wrapper( false )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -669,7 +669,7 @@ Sets the tab order of the input.
 Email::make( 'email' )->tabindex( 2 )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -690,7 +690,7 @@ Sets an arbitrary HTML attribute on the input.
 Email::make( 'email' )->attribute( 'aria-describedby', 'email-help' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -714,7 +714,7 @@ Email::make( 'email' )->attributes( array(
 ) )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html

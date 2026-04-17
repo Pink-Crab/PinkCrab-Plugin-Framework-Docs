@@ -19,7 +19,7 @@ $this->component( new Input_Component(
 
 ![Basic](screenshots/password/basic.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -55,7 +55,7 @@ Sets the visible label text above the input.
 Password::make( 'password' )->label( 'Password' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -80,7 +80,7 @@ Password::make( 'current_pw' )
 
 ![set_existing](screenshots/password/value.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -101,7 +101,7 @@ Password::make( 'password' )
     ->placeholder( 'Enter your password' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -125,7 +125,7 @@ Password::make( 'password' )
     ->required( true )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -150,7 +150,7 @@ Password::make( 'locked_pw' )
     ->disabled( true )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -175,7 +175,7 @@ Password::make( 'readonly_pw' )
     ->readonly( true )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -200,7 +200,7 @@ Password::make( 'password' )
     ->placeholder( 'Min 8 chars, upper, lower and number' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -225,7 +225,7 @@ Password::make( 'password' )
     ->maxlength( 64 )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -249,7 +249,7 @@ Password::make( 'password' )
     ->size( 30 )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -273,7 +273,7 @@ Password::make( 'password' )
     ->autocomplete( 'current-password' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -308,7 +308,7 @@ Password::make( 'pw_error' )
     ->error_notification( 'Password is required.' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -333,7 +333,7 @@ Password::make( 'pw_warning' )
     ->warning_notification( 'Password is weak.' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -357,7 +357,7 @@ Password::make( 'pw_success' )
     ->success_notification( 'Password is strong!' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -381,7 +381,7 @@ Password::make( 'pw_info' )
     ->info_notification( 'Must contain at least 8 characters.' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -428,7 +428,7 @@ Password::make( 'wrapped_pw' )
 
 ![before/after](screenshots/password/before-after.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -450,7 +450,7 @@ Password::make( 'password' )
     ->id( 'my-custom-password-id' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -471,7 +471,7 @@ Password::make( 'password' )
     ->wrapper_id( 'my-custom-wrapper-id' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -492,7 +492,7 @@ Password::make( 'password' )
     ->data( 'strength', 'required' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -514,7 +514,7 @@ Password::make( 'password' )
     ->wrapper_data( 'section', 'auth' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -535,7 +535,7 @@ Password::make( 'password' )
     ->add_class( 'my-input-class' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -556,7 +556,7 @@ Password::make( 'password' )
     ->add_wrapper_class( 'my-wrapper-class' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -577,7 +577,7 @@ Password::make( 'bare' )
     ->show_wrapper( false )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -596,7 +596,7 @@ Password::make( 'password' )
     ->tabindex( 3 )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -618,7 +618,7 @@ Password::make( 'password' )
     ->attribute( 'aria-label', 'Enter your password' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -643,7 +643,7 @@ Password::make( 'password' )
     ) )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html

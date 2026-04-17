@@ -22,7 +22,7 @@ $this->component( new Input_Component(
 
 ![Basic](screenshots/hidden/basic.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -56,7 +56,7 @@ Hidden::make( 'action' )
     ->value( 'update_profile' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -76,7 +76,7 @@ Hidden::make( 'record_id' )
     ->set_existing( '99' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -97,7 +97,7 @@ Hidden::make( 'token' )
     ->value( 'abc123' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -117,7 +117,7 @@ Controls whether the wrapping `<div>` is rendered. Defaults to `false` for hidde
 Hidden::make( 'user_id' )->value( '42' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -135,7 +135,7 @@ Hidden::make( 'user_id' )
     ->value( '42' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -158,7 +158,7 @@ Hidden::make( 'token' )
     ->value( 'abc123' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -180,7 +180,7 @@ Hidden::make( 'token' )
     ->value( 'abc123' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -203,7 +203,7 @@ Hidden::make( 'action' )
     ->value( 'submit' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -225,7 +225,7 @@ Hidden::make( 'action' )
     ->value( 'submit' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -248,7 +248,7 @@ Hidden::make( 'action' )
     ->value( 'submit' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -270,7 +270,7 @@ Hidden::make( 'action' )
     ->value( 'submit' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -313,7 +313,7 @@ Hidden::make( 'action' )
     ->value( 'submit' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -338,7 +338,7 @@ Hidden::make( 'field' )
     ->value( 'skip' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -359,7 +359,7 @@ Hidden::make( 'token' )
     ->value( 'abc123' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -383,7 +383,7 @@ Hidden::make( 'meta' )
     ->value( 'config' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -405,7 +405,7 @@ Hidden::make( 'token' )
     ->value( 'abc123' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -430,7 +430,7 @@ Hidden::make( 'token' )
     ->value( 'abc123' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -455,7 +455,7 @@ Hidden::make( 'token' )
     ->value( 'abc123' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -480,7 +480,7 @@ Hidden::make( 'token' )
     ->value( 'abc123' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html

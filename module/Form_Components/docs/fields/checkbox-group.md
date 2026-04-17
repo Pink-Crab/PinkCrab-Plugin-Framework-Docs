@@ -23,7 +23,7 @@ $this->component( new Checkbox_Group_Component(
 
 ![Basic](screenshots/checkbox-group/basic.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -68,7 +68,7 @@ Sets the visible label text above the checkbox group. Rendered as a `<legend>` e
 Checkbox_Group::make( 'interests' )->label( 'Your Interests' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -93,7 +93,7 @@ Checkbox_Group::make( 'interests' )
     ) )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -137,7 +137,7 @@ Checkbox_Group::make( 'languages' )
 
 ![selected](screenshots/checkbox-group/selected.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -170,7 +170,7 @@ Checkbox_Group::make( 'interests' )
     ->set_existing( array( 'coding', 'design' ) )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -223,7 +223,7 @@ Checkbox_Group::make( 'locked_choices' )
 
 ![disabled](screenshots/checkbox-group/disabled.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -256,7 +256,7 @@ Checkbox_Group::make( 'features' )
 
 ![notification](screenshots/checkbox-group/notification.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -284,7 +284,7 @@ Checkbox_Group::make( 'interests' )
     ->warning_notification( 'Your selections will be public.' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -315,7 +315,7 @@ Checkbox_Group::make( 'interests' )
     ->success_notification( 'Interests saved.' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -345,7 +345,7 @@ Checkbox_Group::make( 'interests' )
     ->info_notification( 'Select all that apply.' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -402,7 +402,7 @@ Checkbox_Group::make( 'topics' )
 
 ![before/after](screenshots/checkbox-group/before-after.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -429,7 +429,7 @@ Checkbox_Group::make( 'interests' )
     ->id( 'my-custom-group-id' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -447,7 +447,7 @@ Checkbox_Group::make( 'interests' )
     ->wrapper_id( 'my-custom-wrapper-id' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -465,7 +465,7 @@ Checkbox_Group::make( 'interests' )
     ->data( 'max-selections', '3' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -483,7 +483,7 @@ Checkbox_Group::make( 'interests' )
     ->wrapper_data( 'section', 'preferences' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -501,7 +501,7 @@ Checkbox_Group::make( 'interests' )
     ->add_class( 'my-group-class' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -519,7 +519,7 @@ Checkbox_Group::make( 'interests' )
     ->add_wrapper_class( 'my-wrapper-class' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -538,7 +538,7 @@ Checkbox_Group::make( 'interests' )
     ->show_wrapper( false )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -562,7 +562,7 @@ Checkbox_Group::make( 'interests' )
     ->attribute( 'aria-label', 'Select your interests' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -583,7 +583,7 @@ Checkbox_Group::make( 'interests' )
     ) )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html

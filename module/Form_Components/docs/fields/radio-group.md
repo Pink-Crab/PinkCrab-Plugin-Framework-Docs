@@ -23,7 +23,7 @@ $this->component( new Radio_Group_Component(
 
 ![Basic](screenshots/radio-group/basic.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -68,7 +68,7 @@ Sets the visible label text above the radio group. Rendered as a `<legend>` elem
 Radio_Group::make( 'gender' )->label( 'Gender' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -92,7 +92,7 @@ Radio_Group::make( 'plan' )
     ) )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -131,7 +131,7 @@ Radio_Group::make( 'plan' )
 
 ![selected](screenshots/radio-group/selected.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -158,7 +158,7 @@ Radio_Group::make( 'plan' )
     ->set_existing( 'free' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -200,7 +200,7 @@ Radio_Group::make( 'plan' )
     ->required( true )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -235,7 +235,7 @@ Radio_Group::make( 'locked_choice' )
 
 ![disabled](screenshots/radio-group/disabled.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -266,7 +266,7 @@ Radio_Group::make( 'required_choice' )
 
 ![notification](screenshots/radio-group/notification.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -294,7 +294,7 @@ Radio_Group::make( 'plan' )
     ->warning_notification( 'Plan cannot be downgraded later.' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -325,7 +325,7 @@ Radio_Group::make( 'plan' )
     ->success_notification( 'Plan confirmed.' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -355,7 +355,7 @@ Radio_Group::make( 'plan' )
     ->info_notification( 'You can change your plan at any time.' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -412,7 +412,7 @@ Radio_Group::make( 'payment' )
 
 ![before/after](screenshots/radio-group/before-after.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -439,7 +439,7 @@ Radio_Group::make( 'plan' )
     ->id( 'my-custom-group-id' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -457,7 +457,7 @@ Radio_Group::make( 'plan' )
     ->wrapper_id( 'my-custom-wrapper-id' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -475,7 +475,7 @@ Radio_Group::make( 'plan' )
     ->data( 'pricing', 'dynamic' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -493,7 +493,7 @@ Radio_Group::make( 'plan' )
     ->wrapper_data( 'section', 'billing' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -511,7 +511,7 @@ Radio_Group::make( 'plan' )
     ->add_class( 'my-group-class' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -529,7 +529,7 @@ Radio_Group::make( 'plan' )
     ->add_wrapper_class( 'my-wrapper-class' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -548,7 +548,7 @@ Radio_Group::make( 'plan' )
     ->show_wrapper( false )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -572,7 +572,7 @@ Radio_Group::make( 'plan' )
     ->attribute( 'aria-label', 'Select your plan' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -593,7 +593,7 @@ Radio_Group::make( 'plan' )
     ) )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html

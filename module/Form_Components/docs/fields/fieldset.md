@@ -24,7 +24,7 @@ $this->component( new Fieldset_Component(
 
 ![Basic](screenshots/fieldset/basic.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -82,7 +82,7 @@ Fieldset::make( 'address' )
     )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -117,7 +117,7 @@ Fieldset::make( 'address' )
 
 ![no-legend](screenshots/fieldset/no-legend.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -158,7 +158,7 @@ Fieldset::make( 'contact' )
     )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -204,7 +204,7 @@ Fieldset::make( 'address' )
     )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -237,7 +237,7 @@ Fieldset::make( 'disabled_section' )
 
 ![disabled](screenshots/fieldset/disabled.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -298,7 +298,7 @@ Fieldset::make( 'wrapped_fs' )
 
 ![before/after](screenshots/fieldset/before-after.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -330,7 +330,7 @@ Fieldset::make( 'address' )
     )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -362,7 +362,7 @@ Fieldset::make( 'data_fs' )
 
 ![wrapper-attrs](screenshots/fieldset/wrapper-attrs.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -395,7 +395,7 @@ Fieldset::make( 'address' )
     )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -423,7 +423,7 @@ Fieldset::make( 'address' )
     )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -452,7 +452,7 @@ Fieldset::make( 'address' )
     )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -480,7 +480,7 @@ Fieldset::make( 'address' )
     )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -507,7 +507,7 @@ Fieldset::make( 'address' )
     )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -534,7 +534,7 @@ Fieldset::make( 'address' )
     )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -561,7 +561,7 @@ Fieldset::make( 'address' )
     )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -591,7 +591,7 @@ Fieldset::make( 'address' )
     )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -620,7 +620,7 @@ Fieldset::make( 'address' )
     )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -649,7 +649,7 @@ Fieldset::make( 'address' )
     )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html

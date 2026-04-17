@@ -20,7 +20,7 @@ $this->component( new Button_Component(
 
 ![Basic](screenshots/button/basic.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -59,7 +59,7 @@ Button::make( 'submit_btn' )
 
 ![submit](screenshots/button/submit.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -77,7 +77,7 @@ Button::make( 'reset_btn' )
 
 ![reset](screenshots/button/reset.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -96,7 +96,7 @@ Button::make( 'action' )
     ->text( 'Click Me' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -121,7 +121,7 @@ Button::make( 'disabled_btn' )
 
 ![disabled](screenshots/button/disabled.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -145,7 +145,7 @@ Button::make( 'wrapped_btn' )
 
 ![before/after](screenshots/button/before-after.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -167,7 +167,7 @@ Button::make( 'save' )
     ->id( 'my-custom-button-id' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -189,7 +189,7 @@ Button::make( 'save' )
     ->wrapper_id( 'my-custom-wrapper-id' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -215,7 +215,7 @@ Button::make( 'action_btn' )
 
 ![data-attrs](screenshots/button/data-attrs.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -235,7 +235,7 @@ Button::make( 'save' )
     ->wrapper_data( 'section', 'actions' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -260,7 +260,7 @@ Button::make( 'styled_btn' )
 
 ![custom-class](screenshots/button/custom-class.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -280,7 +280,7 @@ Button::make( 'save' )
     ->add_wrapper_class( 'my-wrapper-class' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -302,7 +302,7 @@ Button::make( 'save' )
     ->attribute( 'aria-label', 'Save all changes' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -328,7 +328,7 @@ Button::make( 'save' )
     ) )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -353,7 +353,7 @@ Button::make( 'save' )
     ->style( new Default_Style() )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html

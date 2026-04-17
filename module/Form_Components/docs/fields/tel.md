@@ -19,7 +19,7 @@ $this->component( new Input_Component(
 
 ![Basic](screenshots/tel/basic.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -55,7 +55,7 @@ Sets the visible label text above the input.
 Tel::make( 'phone' )->label( 'Phone Number' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -78,7 +78,7 @@ Tel::make( 'phone' )
     ->set_existing( '+44 7700 900000' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -102,7 +102,7 @@ Tel::make( 'phone' )
     ->placeholder( '+44 7700 900000' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -126,7 +126,7 @@ Tel::make( 'phone' )
     ->required( true )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -151,7 +151,7 @@ Tel::make( 'locked_phone' )
     ->disabled( true )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -176,7 +176,7 @@ Tel::make( 'readonly_phone' )
     ->readonly( true )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -201,7 +201,7 @@ Tel::make( 'phone' )
     ->placeholder( '+44 7700 900000' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -226,7 +226,7 @@ Tel::make( 'phone' )
     ->maxlength( 15 )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -250,7 +250,7 @@ Tel::make( 'phone' )
     ->size( 20 )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -274,7 +274,7 @@ Tel::make( 'phone' )
     ->autocomplete( 'tel' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -333,7 +333,7 @@ Tel::make( 'phone' )
     ->inputmode( 'tel' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -370,7 +370,7 @@ Tel::make( 'phone' )
     ->spellcheck( 'false' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -394,7 +394,7 @@ Tel::make( 'phone' )
     ->datalist_items( array( '+44 7700 900000', '+1 555 123 4567', '+33 1 23 45 67 89' ) )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -424,7 +424,7 @@ Tel::make( 'phone_error' )
     ->error_notification( 'Phone number is required.' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -449,7 +449,7 @@ Tel::make( 'phone_warning' )
     ->warning_notification( 'Number format may be incorrect.' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -473,7 +473,7 @@ Tel::make( 'phone_success' )
     ->success_notification( 'Phone number verified.' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -497,7 +497,7 @@ Tel::make( 'phone_info' )
     ->info_notification( 'Include country code for international numbers.' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -544,7 +544,7 @@ Tel::make( 'wrapped_tel' )
 
 ![before/after](screenshots/tel/before-after.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -566,7 +566,7 @@ Tel::make( 'phone' )
     ->id( 'my-custom-phone-id' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -587,7 +587,7 @@ Tel::make( 'phone' )
     ->wrapper_id( 'my-custom-wrapper-id' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -608,7 +608,7 @@ Tel::make( 'phone' )
     ->data( 'country', 'gb' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -630,7 +630,7 @@ Tel::make( 'phone' )
     ->wrapper_data( 'section', 'contact' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -651,7 +651,7 @@ Tel::make( 'phone' )
     ->add_class( 'my-input-class' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -672,7 +672,7 @@ Tel::make( 'phone' )
     ->add_wrapper_class( 'my-wrapper-class' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -693,7 +693,7 @@ Tel::make( 'bare' )
     ->show_wrapper( false )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -712,7 +712,7 @@ Tel::make( 'phone' )
     ->tabindex( 4 )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -734,7 +734,7 @@ Tel::make( 'phone' )
     ->attribute( 'aria-label', 'Enter your phone number' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -759,7 +759,7 @@ Tel::make( 'phone' )
     ) )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html

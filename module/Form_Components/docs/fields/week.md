@@ -18,7 +18,7 @@ $this->component( new Input_Component(
 
 ![Basic](screenshots/week/basic.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -56,7 +56,7 @@ Sets the visible label text above the input.
 Week::make( 'delivery_week' )->label( 'Delivery Week' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -81,7 +81,7 @@ Week::make( 'current_week' )
 
 ![set_existing](screenshots/week/value.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -102,7 +102,7 @@ Week::make( 'delivery_week' )
     ->min( '2026-W01' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -126,7 +126,7 @@ Week::make( 'delivery_week' )
     ->max( '2026-W52' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -150,7 +150,7 @@ Week::make( 'biweekly' )
     ->step_by_weeks( 2 )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -174,7 +174,7 @@ Week::make( 'delivery_week' )
     ->required( true )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -201,7 +201,7 @@ Week::make( 'locked_week' )
 
 ![disabled](screenshots/week/disabled.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -223,7 +223,7 @@ Week::make( 'confirmed' )
     ->readonly( true )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -247,7 +247,7 @@ Week::make( 'delivery_week' )
     ->autocomplete( 'off' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -307,7 +307,7 @@ Week::make( 'delivery_week' )
     ->inputmode( 'numeric' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -345,7 +345,7 @@ Week::make( 'sprint' )
     ->datalist_items( array( '2026-W01', '2026-W03', '2026-W05', '2026-W07' ) )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -378,7 +378,7 @@ Week::make( 'notif_week' )
 
 ![notification](screenshots/week/notification.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -401,7 +401,7 @@ Week::make( 'past_week' )
     ->warning_notification( 'This week has passed.' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -427,7 +427,7 @@ Week::make( 'ok_week' )
     ->success_notification( 'Week confirmed for delivery.' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -452,7 +452,7 @@ Week::make( 'info_week' )
     ->info_notification( 'Format: YYYY-Wnn (e.g. 2026-W26)' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -499,7 +499,7 @@ Week::make( 'wrapped_week' )
 
 ![before/after](screenshots/week/before-after.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -520,7 +520,7 @@ Sets a custom HTML `id` on the input element.
 Week::make( 'delivery_week' )->id( 'my-week-picker' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -540,7 +540,7 @@ Sets a custom HTML `id` on the wrapper div.
 Week::make( 'delivery_week' )->wrapper_id( 'week-wrapper' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -560,7 +560,7 @@ Adds a `data-*` attribute to the input.
 Week::make( 'delivery_week' )->data( 'format', 'week' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -581,7 +581,7 @@ Adds a `data-*` attribute to the wrapper div.
 Week::make( 'delivery_week' )->wrapper_data( 'section', 'shipping' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -601,7 +601,7 @@ Adds a CSS class to the input element.
 Week::make( 'delivery_week' )->add_class( 'week-picker' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -621,7 +621,7 @@ Adds a CSS class to the wrapper div.
 Week::make( 'delivery_week' )->add_wrapper_class( 'week-field' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -641,7 +641,7 @@ Controls whether the wrapping `<div>` is rendered.
 Week::make( 'delivery_week' )->show_wrapper( false )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -659,7 +659,7 @@ Sets the tab order of the input.
 Week::make( 'delivery_week' )->tabindex( 6 )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -680,7 +680,7 @@ Sets an arbitrary HTML attribute on the input.
 Week::make( 'delivery_week' )->attribute( 'aria-label', 'Select delivery week' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -704,7 +704,7 @@ Week::make( 'delivery_week' )->attributes( array(
 ) )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html

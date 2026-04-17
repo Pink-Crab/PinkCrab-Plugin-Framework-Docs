@@ -18,7 +18,7 @@ $this->component( new Input_Component(
 
 ![Basic](screenshots/checkbox/unchecked.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -54,7 +54,7 @@ Sets the visible label text for the checkbox.
 Checkbox::make( 'subscribe' )->label( 'Subscribe to newsletter' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -80,7 +80,7 @@ Checkbox::make( 'opt_in' )
 
 ![value](screenshots/checkbox/value.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -102,7 +102,7 @@ Checkbox::make( 'subscribe' )
     ->set_existing( 'yes' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -128,7 +128,7 @@ Checkbox::make( 'newsletter' )
 
 ![checked](screenshots/checkbox/checked.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -150,7 +150,7 @@ $checkbox = Checkbox::make( 'opt_in' )
 $checkbox->is_checked(); // true
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -176,7 +176,7 @@ Checkbox::make( 'mandatory' )
 
 ![disabled](screenshots/checkbox/disabled.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -199,7 +199,7 @@ Checkbox::make( 'confirm' )
 
 ![error_notification](screenshots/checkbox/notification.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -221,7 +221,7 @@ Checkbox::make( 'data_sharing' )
     ->warning_notification( 'Your data will be shared with partners.' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -246,7 +246,7 @@ Checkbox::make( 'verified' )
     ->success_notification( 'Your email has been verified.' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -271,7 +271,7 @@ Checkbox::make( 'optional' )
     ->info_notification( 'You can change this later in settings.' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -316,7 +316,7 @@ Checkbox::make( 'agree' )
     ->after( '<span>Required</span>' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -339,7 +339,7 @@ Sets a custom HTML `id` on the input element.
 Checkbox::make( 'agree' )->id( 'terms-checkbox' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -359,7 +359,7 @@ Sets a custom HTML `id` on the wrapper div.
 Checkbox::make( 'agree' )->wrapper_id( 'terms-wrapper' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -379,7 +379,7 @@ Adds a `data-*` attribute to the input.
 Checkbox::make( 'feature' )->data( 'toggle', 'section-advanced' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -400,7 +400,7 @@ Adds a `data-*` attribute to the wrapper div.
 Checkbox::make( 'feature' )->wrapper_data( 'group', 'preferences' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -420,7 +420,7 @@ Adds a CSS class to the input element.
 Checkbox::make( 'agree' )->add_class( 'terms-checkbox' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -440,7 +440,7 @@ Adds a CSS class to the wrapper div.
 Checkbox::make( 'agree' )->add_wrapper_class( 'checkbox-field' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -460,7 +460,7 @@ Controls whether the wrapping `<div>` is rendered.
 Checkbox::make( 'inline' )->show_wrapper( false )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -478,7 +478,7 @@ Sets the tab order of the input.
 Checkbox::make( 'agree' )->tabindex( 2 )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -499,7 +499,7 @@ Sets an arbitrary HTML attribute on the input.
 Checkbox::make( 'agree' )->attribute( 'aria-describedby', 'terms-description' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -523,7 +523,7 @@ Checkbox::make( 'agree' )->attributes( array(
 ) )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html

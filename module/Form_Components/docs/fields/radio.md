@@ -19,7 +19,7 @@ $this->component( new Input_Component(
 
 ![Basic](screenshots/radio/unchecked.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -55,7 +55,7 @@ Sets the visible label text for the radio button.
 Radio::make( 'size' )->label( 'Large' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -78,7 +78,7 @@ Radio::make( 'size' )
     ->value( 'lg' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -103,7 +103,7 @@ Radio::make( 'colour' )
     ->set_existing( 'blue' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -130,7 +130,7 @@ Radio::make( 'option_b' )
 
 ![checked](screenshots/radio/checked.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -153,7 +153,7 @@ $radio = Radio::make( 'plan' )
 $radio->is_checked(); // true
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -180,7 +180,7 @@ Radio::make( 'locked_option' )
 
 ![disabled](screenshots/radio/disabled.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -204,7 +204,7 @@ Radio::make( 'required_radio' )
 
 ![error_notification](screenshots/radio/notification.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -227,7 +227,7 @@ Radio::make( 'plan' )
     ->warning_notification( 'Trial expires in 7 days.' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -254,7 +254,7 @@ Radio::make( 'plan' )
     ->success_notification( 'Best value plan selected.' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -280,7 +280,7 @@ Radio::make( 'plan' )
     ->info_notification( 'Limited to 100 requests per day.' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -327,7 +327,7 @@ Radio::make( 'plan' )
     ->after( '<span>Best value</span>' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -351,7 +351,7 @@ Sets a custom HTML `id` on the input element.
 Radio::make( 'colour' )->id( 'colour-red' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -371,7 +371,7 @@ Sets a custom HTML `id` on the wrapper div.
 Radio::make( 'colour' )->wrapper_id( 'colour-red-wrapper' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -391,7 +391,7 @@ Adds a `data-*` attribute to the input.
 Radio::make( 'plan' )->data( 'price', '9.99' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -412,7 +412,7 @@ Adds a `data-*` attribute to the wrapper div.
 Radio::make( 'plan' )->wrapper_data( 'group', 'pricing' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -432,7 +432,7 @@ Adds a CSS class to the input element.
 Radio::make( 'plan' )->add_class( 'plan-radio' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -452,7 +452,7 @@ Adds a CSS class to the wrapper div.
 Radio::make( 'plan' )->add_wrapper_class( 'plan-radio-wrapper' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -472,7 +472,7 @@ Controls whether the wrapping `<div>` is rendered.
 Radio::make( 'inline_option' )->show_wrapper( false )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -490,7 +490,7 @@ Sets the tab order of the input.
 Radio::make( 'plan' )->tabindex( 3 )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -511,7 +511,7 @@ Sets an arbitrary HTML attribute on the input.
 Radio::make( 'plan' )->attribute( 'aria-describedby', 'plan-description' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -535,7 +535,7 @@ Radio::make( 'plan' )->attributes( array(
 ) )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html

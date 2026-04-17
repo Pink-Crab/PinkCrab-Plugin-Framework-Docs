@@ -18,7 +18,7 @@ $this->component( new Input_Component(
 
 ![Basic](screenshots/file/basic.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -55,7 +55,7 @@ Sets the visible label text above the input.
 File::make( 'document' )->label( 'Upload Document' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -78,7 +78,7 @@ File::make( 'photo' )
     ->accept( 'image/png, image/jpeg' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -103,7 +103,7 @@ File::make( 'selfie' )
     ->capture( 'user' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -127,7 +127,7 @@ File::make( 'attachments' )
     ->multiple( true )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -151,7 +151,7 @@ File::make( 'cv' )
     ->required( true )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -175,7 +175,7 @@ File::make( 'locked_upload' )
     ->disabled( true )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -199,7 +199,7 @@ File::make( 'document' )
     ->set_existing( 'report.pdf' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -223,7 +223,7 @@ File::make( 'invalid_upload' )
     ->error_notification( 'File type not supported.' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -247,7 +247,7 @@ File::make( 'large_upload' )
     ->warning_notification( 'Maximum file size is 5MB.' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -271,7 +271,7 @@ File::make( 'ok_upload' )
     ->success_notification( 'File uploaded successfully.' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -295,7 +295,7 @@ File::make( 'info_upload' )
     ->info_notification( 'Accepted formats: PNG, JPG, PDF' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -340,7 +340,7 @@ File::make( 'wrapped_upload' )
     ->after( '<span>Max size: 10MB</span>' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -363,7 +363,7 @@ Sets a custom HTML `id` on the input element.
 File::make( 'upload' )->id( 'file-upload-input' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -383,7 +383,7 @@ Sets a custom HTML `id` on the wrapper div.
 File::make( 'upload' )->wrapper_id( 'file-upload-wrapper' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -403,7 +403,7 @@ Adds a `data-*` attribute to the input.
 File::make( 'upload' )->data( 'max-size', '5242880' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -424,7 +424,7 @@ Adds a `data-*` attribute to the wrapper div.
 File::make( 'upload' )->wrapper_data( 'section', 'uploads' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -444,7 +444,7 @@ Adds a CSS class to the input element.
 File::make( 'upload' )->add_class( 'custom-file' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -464,7 +464,7 @@ Adds a CSS class to the wrapper div.
 File::make( 'upload' )->add_wrapper_class( 'file-wrapper' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -484,7 +484,7 @@ Controls whether the wrapping `<div>` is rendered.
 File::make( 'upload' )->show_wrapper( false )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -502,7 +502,7 @@ Sets the tab order of the input.
 File::make( 'upload' )->tabindex( 4 )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -523,7 +523,7 @@ Sets an arbitrary HTML attribute on the input.
 File::make( 'upload' )->attribute( 'aria-label', 'Upload your document' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -547,7 +547,7 @@ File::make( 'upload' )->attributes( array(
 ) )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html

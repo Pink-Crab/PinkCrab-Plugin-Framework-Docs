@@ -19,7 +19,7 @@ $this->component( new Input_Component(
 
 ![Basic](screenshots/search/basic.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -55,7 +55,7 @@ Sets the visible label text above the input.
 Search::make( 'query' )->label( 'Search' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -78,7 +78,7 @@ Search::make( 'query' )
     ->set_existing( 'previous search term' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -102,7 +102,7 @@ Search::make( 'query' )
     ->placeholder( 'Type to search...' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -126,7 +126,7 @@ Search::make( 'query' )
     ->required( true )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -151,7 +151,7 @@ Search::make( 'locked_query' )
     ->disabled( true )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -176,7 +176,7 @@ Search::make( 'readonly_query' )
     ->readonly( true )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -201,7 +201,7 @@ Search::make( 'query' )
     ->placeholder( 'Letters and numbers only' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -226,7 +226,7 @@ Search::make( 'query' )
     ->maxlength( 100 )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -250,7 +250,7 @@ Search::make( 'query' )
     ->autocomplete( 'off' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -309,7 +309,7 @@ Search::make( 'query' )
     ->inputmode( 'search' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -346,7 +346,7 @@ Search::make( 'code_query' )
     ->spellcheck( 'false' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -371,7 +371,7 @@ Search::make( 'query' )
     ->placeholder( 'Start typing...' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -402,7 +402,7 @@ Search::make( 'query_error' )
     ->error_notification( 'Please enter a search term.' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -428,7 +428,7 @@ Search::make( 'query_warning' )
     ->warning_notification( 'Search term is very short.' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -454,7 +454,7 @@ Search::make( 'query_success' )
     ->success_notification( '12 results found.' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -479,7 +479,7 @@ Search::make( 'query_info' )
     ->info_notification( 'Search across all post types.' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -526,7 +526,7 @@ Search::make( 'wrapped_search' )
 
 ![before/after](screenshots/search/before-after.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -548,7 +548,7 @@ Search::make( 'query' )
     ->id( 'my-custom-search-id' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -569,7 +569,7 @@ Search::make( 'query' )
     ->wrapper_id( 'my-custom-wrapper-id' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -590,7 +590,7 @@ Search::make( 'query' )
     ->data( 'live-search', 'true' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -612,7 +612,7 @@ Search::make( 'query' )
     ->wrapper_data( 'section', 'search' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -633,7 +633,7 @@ Search::make( 'query' )
     ->add_class( 'my-input-class' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -654,7 +654,7 @@ Search::make( 'query' )
     ->add_wrapper_class( 'my-wrapper-class' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -675,7 +675,7 @@ Search::make( 'bare' )
     ->show_wrapper( false )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -694,7 +694,7 @@ Search::make( 'query' )
     ->tabindex( 2 )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -716,7 +716,7 @@ Search::make( 'query' )
     ->attribute( 'aria-label', 'Search the site' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -741,7 +741,7 @@ Search::make( 'query' )
     ) )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html

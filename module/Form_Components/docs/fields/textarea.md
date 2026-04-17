@@ -19,7 +19,7 @@ $this->component( new Textarea_Component(
 
 ![Basic](screenshots/textarea/basic.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -57,7 +57,7 @@ Sets the visible label text above the textarea.
 Textarea::make( 'bio' )->label( 'Biography' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -83,7 +83,7 @@ Textarea::make( 'bio' )
 
 ![value](screenshots/textarea/value.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -107,7 +107,7 @@ Textarea::make( 'notes' )
 
 ![placeholder](screenshots/textarea/placeholder.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -129,7 +129,7 @@ Textarea::make( 'bio' )
     ->rows( 8 )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -153,7 +153,7 @@ Textarea::make( 'bio' )
     ->cols( 40 )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -177,7 +177,7 @@ Textarea::make( 'bio' )
     ->required( true )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -205,7 +205,7 @@ Textarea::make( 'disabled_ta' )
 
 ![disabled](screenshots/textarea/disabled.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -227,7 +227,7 @@ Textarea::make( 'bio' )
     ->readonly( true )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -252,7 +252,7 @@ Textarea::make( 'bio' )
     ->maxlength( 500 )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -276,7 +276,7 @@ Textarea::make( 'code' )
     ->spellcheck( 'false' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -300,7 +300,7 @@ Textarea::make( 'address' )
     ->autocomplete( 'street-address' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -364,7 +364,7 @@ Textarea::make( 'short_msg' )
 
 ![notification](screenshots/textarea/notification.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -386,7 +386,7 @@ Textarea::make( 'bio' )
     ->warning_notification( 'This will be publicly visible.' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -411,7 +411,7 @@ Textarea::make( 'bio' )
     ->success_notification( 'Biography saved successfully.' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -435,7 +435,7 @@ Textarea::make( 'bio' )
     ->info_notification( 'Maximum 500 characters.' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -480,7 +480,7 @@ Textarea::make( 'bio' )
     ->after( '<span>Markdown supported</span>' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -504,7 +504,7 @@ Textarea::make( 'bio' )
     ->id( 'my-custom-textarea-id' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -525,7 +525,7 @@ Textarea::make( 'bio' )
     ->wrapper_id( 'my-custom-wrapper-id' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -546,7 +546,7 @@ Textarea::make( 'bio' )
     ->data( 'char-count', 'true' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -568,7 +568,7 @@ Textarea::make( 'bio' )
     ->wrapper_data( 'section', 'profile' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -589,7 +589,7 @@ Textarea::make( 'bio' )
     ->add_class( 'my-textarea-class' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -610,7 +610,7 @@ Textarea::make( 'bio' )
     ->add_wrapper_class( 'my-wrapper-class' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -631,7 +631,7 @@ Textarea::make( 'bio' )
     ->show_wrapper( false )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -650,7 +650,7 @@ Textarea::make( 'bio' )
     ->tabindex( 5 )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -672,7 +672,7 @@ Textarea::make( 'bio' )
     ->attribute( 'aria-label', 'Enter your biography' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -697,7 +697,7 @@ Textarea::make( 'bio' )
     ) )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html

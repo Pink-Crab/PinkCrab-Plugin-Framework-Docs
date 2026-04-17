@@ -21,7 +21,7 @@ $this->component( new Input_Component(
 
 ![Basic](screenshots/range/basic.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -59,7 +59,7 @@ Sets the visible label text above the input.
 Range::make( 'volume' )->label( 'Volume' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -84,7 +84,7 @@ Range::make( 'volume' )
     ->set_existing( '75' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -108,7 +108,7 @@ Range::make( 'brightness' )
     ->min( 0 )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -132,7 +132,7 @@ Range::make( 'brightness' )
     ->max( 100 )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -156,7 +156,7 @@ Range::make( 'brightness' )
     ->range( 0, 100 )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -185,7 +185,7 @@ Range::make( 'brightness' )
 
 ![step](screenshots/range/step.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -206,7 +206,7 @@ Range::make( 'volume' )
     ->required( true )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -230,7 +230,7 @@ Range::make( 'volume' )
     ->autocomplete( 'off' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -292,7 +292,7 @@ Range::make( 'volume' )
     ->datalist_items( array( '0', '25', '50', '75', '100' ) )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -323,7 +323,7 @@ Range::make( 'invalid_vol' )
     ->error_notification( 'Volume must be set.' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -348,7 +348,7 @@ Range::make( 'loud_vol' )
     ->warning_notification( 'Volume is at maximum.' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -374,7 +374,7 @@ Range::make( 'ok_vol' )
     ->success_notification( 'Volume set.' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -399,7 +399,7 @@ Range::make( 'info_vol' )
     ->info_notification( 'Drag the slider to adjust volume.' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -449,7 +449,7 @@ Range::make( 'labeled_range' )
 
 ![before/after](screenshots/range/before-after.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -470,7 +470,7 @@ Sets a custom HTML `id` on the input element.
 Range::make( 'volume' )->id( 'my-slider' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -490,7 +490,7 @@ Sets a custom HTML `id` on the wrapper div.
 Range::make( 'volume' )->wrapper_id( 'volume-wrapper' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -510,7 +510,7 @@ Adds a `data-*` attribute to the input.
 Range::make( 'volume' )->data( 'output', 'volume-display' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -531,7 +531,7 @@ Adds a `data-*` attribute to the wrapper div.
 Range::make( 'volume' )->wrapper_data( 'section', 'audio' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -551,7 +551,7 @@ Adds a CSS class to the input element.
 Range::make( 'volume' )->add_class( 'slider-lg' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -571,7 +571,7 @@ Adds a CSS class to the wrapper div.
 Range::make( 'volume' )->add_wrapper_class( 'range-wrapper' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -591,7 +591,7 @@ Controls whether the wrapping `<div>` is rendered.
 Range::make( 'volume' )->show_wrapper( false )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -609,7 +609,7 @@ Sets the tab order of the input.
 Range::make( 'volume' )->tabindex( 2 )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -630,7 +630,7 @@ Sets an arbitrary HTML attribute on the input.
 Range::make( 'volume' )->attribute( 'aria-label', 'Adjust volume' )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -654,7 +654,7 @@ Range::make( 'volume' )->attributes( array(
 ) )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html

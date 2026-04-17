@@ -34,7 +34,7 @@ $this->component( new Form_Component(
 
 ![Basic](screenshots/form/basic.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -102,7 +102,7 @@ Form::make( 'search_form' )
 
 ![get-form](screenshots/form/get-form.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -130,7 +130,7 @@ Form::make( 'contact' )
     )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -165,7 +165,7 @@ Form::make( 'upload_form' )
 
 ![enctype](screenshots/form/enctype.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -203,7 +203,7 @@ Form::make( 'secure_form' )
 
 ![nonce](screenshots/form/nonce.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -236,7 +236,7 @@ Form::make( 'contact' )
     )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -264,7 +264,7 @@ Form::make( 'wrapped_form' )
 
 ![before/after](screenshots/form/before-after.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -294,7 +294,7 @@ Form::make( 'contact' )
     )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -321,7 +321,7 @@ Form::make( 'contact' )
     )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -351,7 +351,7 @@ Form::make( 'contact' )
     )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -378,7 +378,7 @@ Form::make( 'contact' )
     )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -405,7 +405,7 @@ Form::make( 'contact' )
     )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -434,7 +434,7 @@ Form::make( 'contact' )
     )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -463,7 +463,7 @@ Form::make( 'contact' )
     )
 ```
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
@@ -508,7 +508,7 @@ Form::make( 'complex_form' )
 
 ![complex](screenshots/form/complex.png)
 
-<details>
+<details markdown="1">
 <summary>Generated HTML</summary>
 
 ```html
