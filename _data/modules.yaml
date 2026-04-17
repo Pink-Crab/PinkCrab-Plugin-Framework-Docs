@@ -44,3 +44,13 @@
   url: /module/Migrations/
   github: https://github.com/Pink-Crab/Perique_Migrations
   description: Create custom REST routes for your WordPress website with this library which allows for a more conventional (PHP style) way to define single routes and route groups.
+
+- title: Form Components
+  url: /module/Form_Components/
+  github: https://github.com/Pink-Crab/Perique-Form-Components
+  description: A collection of View Components for rendering form fields in the Perique Framework. Build forms with a fluent PHP API, automatic HTML rendering, built-in sanitization and validation.
+
+- title: Settings Page
+  url: /module/Settings_Page/
+  github: https://github.com/Pink-Crab/Perique-Settings-Page
+  description: Build admin settings pages for the Perique Framework with a fluent PHP API. Define fields, layouts, themes and validation in pure PHP; the library handles persistence, sanitisation and rendering via Form Components.
