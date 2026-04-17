@@ -4,8 +4,8 @@
 ----
 ### **Echo String \[Escaped\]**
 
-```twig
-{%raw%}{{$name}}{%endraw%}
+```blade
+{{$name}}
 ```
 ```php
 // Parses to
@@ -17,7 +17,7 @@
 
 ### **Echo String \[Unescaped\]**
 
-```twig
+```blade
 {!!$name!!}
 ```
 ```php
@@ -30,8 +30,8 @@
 
 You can also define a default value for a variable if it is not set.
 
-```twig
-{%raw%}{{$name or 'Default Name'}}{%endraw%}
+```blade
+{{$name or 'Default Name'}}
 ```
 ```php
 // Parses to
@@ -42,8 +42,8 @@ You can also define a default value for a variable if it is not set.
 
 ### **Calling PHP Functions**
 
-```twig
-{%raw%}{{time()}}{%endraw%}
+```blade
+{{time()}}
 ```
 ```php
 // Parses to
@@ -55,7 +55,7 @@ You can also define a default value for a variable if it is not set.
 
 ### **Running PHP Blocks**
 
-```twig
+```blade
 @php
     $foo = 'bar';
     printf('Hello %s', $foo);
@@ -67,7 +67,7 @@ You can also define a default value for a variable if it is not set.
 
 ### **If Statements**
 
-```twig
+```blade
 @if($foo)
     <p>Foo is true</p>
 @elseif($bar)
@@ -95,7 +95,7 @@ You can also define a default value for a variable if it is not set.
 
 ### **Switch Statements**
 
-```twig
+```blade
 @switch($i)
     @case(1)
         <p>One</p>
@@ -128,9 +128,9 @@ You can also define a default value for a variable if it is not set.
 
 ### **For Loops**
 
-```twig
+```blade
 @for($i = 0; $i < 10; $i++)
-    <p>Looping {%raw%}{{$i}}{%endraw%}</p>
+    <p>Looping {{$i}}</p>
 @endfor
 ```
 ```php
@@ -147,9 +147,9 @@ You can also define a default value for a variable if it is not set.
 
 ### **Foreach Loops**
 
-```twig
+```blade
 @foreach($users as $user)
-    <p>{%raw%}{{$user->name}}{%endraw%}</p>
+    <p>{{$user->name}}</p>
 @endforeach
 ```
 ```php
@@ -167,9 +167,9 @@ You can also define a default value for a variable if it is not set.
 
 ### **Forelse Loops**
 
-```twig
+```blade
 @forelse($users as $user)
-    <p>{%raw%}{{$user->name}}{%endraw%}</p>
+    <p>{{$user->name}}</p>
 @empty
     <p>No users found</p>
 @endforelse
@@ -191,9 +191,9 @@ You can also define a default value for a variable if it is not set.
 
 ### **While Loops**
 
-```twig
+```blade
 @while($i < 10)
-    <p>Looping {%raw%}{{$i}}{%endraw%}</p>
+    <p>Looping {{$i}}</p>
     <?php $i++; ?>
 @endwhile
 ```
@@ -211,7 +211,7 @@ You can also define a default value for a variable if it is not set.
 
 ### **Include**
 
-```twig
+```blade
 @include('path.to.view')
 ```
 ```php
@@ -234,7 +234,7 @@ Out of the box, Perique BladeOne comes bundled with a selection of HTML helpers 
 
 ### **Form**
 
-```twig
+```blade
 @form(method="post" action="testform")
     @input(type="text" name="myform" value=$value)
     @textarea(name="description" value="default")
@@ -260,7 +260,7 @@ There are a number built in BladeOne Directives which have been adapted from the
 
 ### **Auth**
 
-```twig
+```blade
 @auth
     <p>Authenticated</p>
 @else
@@ -279,7 +279,7 @@ There are a number built in BladeOne Directives which have been adapted from the
 
 ### It is also possible to use the `@auth` directive to check for specific roles.
 
-```twig
+```blade
 @auth(role="administrator")
     <p>Administrator</p>
 @elseauth(role="editor")
@@ -291,7 +291,7 @@ There are a number built in BladeOne Directives which have been adapted from the
 
 ### You can also check if in reverse
 
-```twig
+```blade
 @guest('administrator')
     (not administrator)
 @elseguest('editor')
@@ -304,7 +304,7 @@ There are a number built in BladeOne Directives which have been adapted from the
 
 ### **Permissions**
 
-```twig
+```blade
 @can(permission="edit_posts")
     <p>Can Edit Posts</p>
 @elsecan(permission="manage_options")
@@ -316,9 +316,9 @@ There are a number built in BladeOne Directives which have been adapted from the
 
 ### **View Model**
 
-```twig
+```blade
 @viewModel(new View_Model('some.template', ['key' => 'value']))
-{%raw%}{{-- You can also call the underlying method from the Perique View/Renderable system --}}{%endraw%}
+{{-- You can also call the underlying method from the Perique View/Renderable system --}}
 {!!  $this->view_model(new View_Model('some.template', ['key' => 'value'])) !!}
 ```
 
@@ -330,9 +330,9 @@ There are a number built in BladeOne Directives which have been adapted from the
 
 ### **Component**
 
-```twig
+```blade
 @viewComponent(new SomeComponent('arg1', 12.45))
-{%raw%}{{-- You can also call the underlying method from the Perique View/Renderable system --}}{%endraw%}
+{{-- You can also call the underlying method from the Perique View/Renderable system --}}
 {!! $this->component(new SomeComponent('arg1', 12.45)) !!}
 ```
 
@@ -344,19 +344,19 @@ There are a number built in BladeOne Directives which have been adapted from the
 
 You can render a WP Nonce field using the `@nonce` directive.
 
-```twig
+```blade
 @nonce("my_action")
 ```
 The above will render a nonce field with the action `my_action` and the name `_pcnonce`. *Including the `_wp_http_referer` field*
 
 
-```twig
+```blade
 @nonce("my_action", "_nonce_field")
 ```
 The above will render a nonce field with the action `my_action` and the name `_nonce_field`. *Including the `_wp_http_referer` field*
 *
 
-```twig
+```blade
 @nonce("my_action", "_nonce_field", false)
 ```
 The above will render a nonce field with the action `my_action` and the name `_nonce_field`. *Not including the `_wp_http_referer` field*
