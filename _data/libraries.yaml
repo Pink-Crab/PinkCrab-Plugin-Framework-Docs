@@ -54,3 +54,8 @@
   url: /lib/Function_Constructors
   github: https://github.com/gin0115/pinkcrab_function_constructors
   description: This library provides a small selection of functions for making functional programming a little cleaner and easier in php.
+
+- title: WPDB Migrations
+  url: /lib/WPDB_Migrations/
+  github: https://github.com/Pink-Crab/WPDB_Migrations
+  description: A system for creating database migrations with WordPress. Wraps the Table Builder to handle table creation, seeding, and drops with a migration log so each change runs only once.
