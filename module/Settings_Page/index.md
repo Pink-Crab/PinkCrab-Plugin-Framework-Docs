@@ -29,14 +29,14 @@ Register the module in your Perique bootstrap:
 
 ```php
 use PinkCrab\Perique\Application\App_Factory;
-use PinkCrab\Perique_Admin_Menu\Module\Perique_Admin_Menu;
+use PinkCrab\Perique_Admin_Menu\Module\Admin_Menu;
 use PinkCrab\Form_Components\Module\Form_Components;
 use PinkCrab\Perique_Settings_Page\Registration\Settings_Page_Module;
 
 ( new App_Factory() )
     ->default_setup()
     ->module( Form_Components::class )
-    ->module( Perique_Admin_Menu::class )
+    ->module( Admin_Menu::class )
     ->module( Settings_Page_Module::class )
     ->boot();
 ```

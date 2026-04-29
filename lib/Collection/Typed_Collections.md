@@ -6,7 +6,7 @@
     * [Sequence](Trait_sequence.md)
     * [Indexed](Trait_indexed.md)
     * [Is_Iterable](Trait_is_iterable.md)
-    * [JSONSeriliable](Trait_jsonserializable.md)
+    * [Is_JsonSerializable](Trait_jsonserializable.md)
     * [Has_Array_Access](Trait_has_arrayaccess.md)
 
 ***

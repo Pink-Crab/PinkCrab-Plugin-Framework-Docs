@@ -92,7 +92,7 @@ Paths can either be retrieved as a full array or by key.
  * @param string|null $path
  * @return array<string, mixed>|string|null
  */
-public function path( ?string $path = null )
+public function path( ?string $path = null, ?string $default_value = null )
 ```
 
 * If called with no arguments `path()`Will return the paths array. 
@@ -144,7 +144,7 @@ Paths can either be retrieved as a full array or by key.
  * @param string|null $path
  * @return array<string, mixed>|string|null
  */
-public function url( ?string $path = null )
+public function url( ?string $path = null, ?string $default_value = null )
 ```
 
 * If called with no arguments `url()`, will return the paths array. 
@@ -188,7 +188,7 @@ Out of the box only cache and rest are defined \(and come with helper methods\),
  * @param string $key
  * @return string|null
  */
-public function namespace( string $key ): ?string
+public function namespace( string $key, ?string $default_value = null ): ?string
 ```
 
 Can only be called with a key, but will just return null if the key is not defined.
@@ -593,7 +593,7 @@ Now we have access to these value anywhere in our codebase (as above)
  * @param string $key
  * @return mixed
  */
-public function additional( string $key )
+public function additional( string $key, ?string $default_value = null )
 ```
 
 * Calling $app_config->additional('key1'); // 'value1'
@@ -708,3 +708,53 @@ Config::wpdb_prefix(); // 'wp_'
 App::config('wpdb_prefix'); // 'wp_'
  
 ```
+
+## Additional Helpers
+
+These are convenience methods for working with the most common path/url and meta values. None of them take a key argument.
+
+### Path / URL shortcuts
+
+```php
+public function asset_path(): string;   // path('assets')
+public function view_path(): string;    // path('view')
+public function plugin_path(): string;  // path('plugin')
+
+public function asset_url(): string;    // url('assets')
+public function view_url(): string;     // url('view')
+public function plugin_url(): string;   // url('plugin')
+```
+
+```php
+$config->asset_path();   // /path/to/wp-content/plugins/my-plugin/assets/
+$config->view_url();     // https://site.com/wp-content/plugins/my-plugin/views/
+```
+
+### Generic `meta()` accessor
+
+```php
+public function meta( string $key, string $type = self::POST_META ): string
+```
+
+Type-aware lookup using the `App_Config::POST_META` / `USER_META` / `TERM_META` constants. The dedicated `post_meta()` / `user_meta()` / `term_meta()` methods just delegate to this one.
+
+```php
+$config->meta( 'foo' );                            // == post_meta('foo')
+$config->meta( 'bar', App_Config::TERM_META );     // == term_meta('bar')
+```
+
+### `set_meta()`
+
+```php
+public function set_meta( array $meta ): void
+```
+
+Replaces the entire meta config map at runtime. Rarely needed — used by tests and module extension hooks.
+
+### `export_settings()`
+
+```php
+public function export_settings(): array
+```
+
+Returns the full normalised settings array (paths, urls, namespaces, post_types, taxonomies, meta, db_tables, plugin, additional). Useful for debugging or for writing config to disk.

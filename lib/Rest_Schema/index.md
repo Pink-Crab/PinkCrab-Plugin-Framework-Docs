@@ -81,8 +81,8 @@ $ composer require pinkcrab/wp-rest-schema
 | Number | `Number_Type` | `minimum()`, `maximum()`, `exclusive_minimum()`, `exclusive_maximum()`, `multiple_of()` |
 | Boolean | `Boolean_Type` | *No type-specific methods* |
 | Null | `Null_Type` | *No type-specific methods* |
-| Array | `Array_Type` | `string_item()`, `integer_item()`, `min_items()`, `max_items()`, `unique_items()`, `any_of()`, `one_of()` |
-| Object | `Object_Type` | `string_property()`, `integer_property()`, `additional_properties()`, `pattern_properties()`, `min_properties()`, `max_properties()`, `required_properties()` |
+| Array | `Array_Type` | `string_item()`, `number_item()`, `integer_item()`, `boolean_item()`, `array_item()`, `null_item()`, `object_item()`, `min_items()`, `max_items()`, `unique_items()`. Plus item-relationship toggles `any_of()` / `one_of()` (no args — change how multiple items combine; default is `allOf`) |
+| Object | `Object_Type` | `string_property()`, `number_property()`, `integer_property()`, `boolean_property()`, `null_property()`, `array_property()`, `object_property()`, `additional_properties(bool)`, `additional_properties_schema(Argument)`, `min_properties()`, `max_properties()`, `required_properties(string ...)`, plus typed pattern-property variants `string_pattern_property()` / `number_pattern_property()` / … / `object_pattern_property()` (no flat `pattern_properties()` method) |
 | OneOf | `One_Of_Type` | `variant( Argument )` — schema-root `oneOf` combinator (exactly one variant must match) |
 | AnyOf | `Any_Of_Type` | `variant( Argument )` — schema-root `anyOf` combinator (any variant matches) |
 
