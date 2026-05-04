@@ -479,7 +479,7 @@ Number::make( 'quantity' )
 
 ### before( string $html ) / after( string $html )
 
-HTML content before or after the input within the wrapper.
+HTML content before or after the input; renders whether or not the wrapper is shown.
 
 ```php
 Number::make( 'wrapped_num' )

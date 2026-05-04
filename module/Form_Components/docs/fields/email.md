@@ -498,7 +498,7 @@ Email::make( 'email' )
 
 ### before( string $html ) / after( string $html )
 
-HTML content before or after the input within the wrapper.
+HTML content before or after the input; renders whether or not the wrapper is shown.
 
 ```php
 Email::make( 'wrapped_email' )

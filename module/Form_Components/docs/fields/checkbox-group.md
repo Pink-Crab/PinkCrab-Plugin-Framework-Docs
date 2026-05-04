@@ -386,7 +386,7 @@ Checkbox_Group::make( 'interests' )
 
 ### before( string $html ) / after( string $html )
 
-HTML content before or after the checkbox group within the wrapper.
+HTML content before or after the checkbox group; renders whether or not the wrapper is shown.
 
 ```php
 Checkbox_Group::make( 'topics' )

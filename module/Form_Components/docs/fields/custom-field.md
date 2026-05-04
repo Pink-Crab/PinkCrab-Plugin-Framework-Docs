@@ -171,7 +171,7 @@ Custom_Field::make( 'preview' )
 
 ### before( string $html ) / after( string $html )
 
-HTML content before or after the field within the wrapper.
+HTML content before or after the field; renders whether or not the wrapper is shown.
 
 ### show_wrapper( bool $show = true )
 

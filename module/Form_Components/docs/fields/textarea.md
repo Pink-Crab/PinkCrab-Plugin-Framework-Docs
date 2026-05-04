@@ -471,7 +471,7 @@ Textarea::make( 'bio' )
 
 ### before( string $html ) / after( string $html )
 
-HTML content before or after the textarea within the wrapper.
+HTML content before or after the textarea; renders whether or not the wrapper is shown.
 
 ```php
 Textarea::make( 'bio' )

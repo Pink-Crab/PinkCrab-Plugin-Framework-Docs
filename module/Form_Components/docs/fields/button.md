@@ -133,7 +133,7 @@ Button::make( 'disabled_btn' )
 
 ### before( string $html ) / after( string $html )
 
-HTML content before or after the button within the wrapper.
+HTML content before or after the button; renders whether or not the wrapper is shown.
 
 ```php
 Button::make( 'wrapped_btn' )

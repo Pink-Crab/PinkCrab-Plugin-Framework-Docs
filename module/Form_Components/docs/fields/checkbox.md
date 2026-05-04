@@ -307,7 +307,7 @@ Checkbox::make( 'agree' )
 
 ### before( string $html ) / after( string $html )
 
-HTML content before or after the input within the wrapper.
+HTML content before or after the input; renders whether or not the wrapper is shown.
 
 ```php
 Checkbox::make( 'agree' )

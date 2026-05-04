@@ -108,6 +108,27 @@ class Acme_Settings_Page extends Settings_Page {
 
 Register the page through the Admin Menu module as normal. The settings object is resolved via the DI container, so you can type-hint dependencies on the constructor.
 
+### Registering inside an Abstract_Group
+
+A `Settings_Page` may live inside an [`Abstract_Group`](https://github.com/Pink-Crab/Perique_Admin_Menu/blob/master/docs/group.md) (`$primary_page` or `$pages`) without also being listed in `App::registration_classes()`. The module subscribes to admin-menu's `Hooks::GROUPS_PROCESSED` action and auto-wires the same DI rules (`shared` settings instance + `set_settings()` call rule) for every `Settings_Page` subclass it discovers inside a Group.
+
+```php
+use PinkCrab\Perique_Admin_Menu\Group\Abstract_Group;
+
+class Acme_Group extends Abstract_Group {
+    protected $group_title  = 'Acme';
+    protected $primary_page = Acme_Settings_Page::class;
+    protected $pages        = array( Acme_Settings_Page::class, Acme_Help_Page::class );
+}
+
+// In your plugin bootstrap — only the Group needs to be registered.
+$app->registration_classes( array( Acme_Group::class ) );
+```
+
+A page may appear in both `registration_classes()` AND inside a Group's `$pages` without registering twice — admin-menu's `Group_Page_Registry` (introduced in `pinkcrab/perique-admin-menu` 2.1.1) claims the page on the Group's behalf and the single-page registration path short-circuits.
+
+> Requires `pinkcrab/perique-admin-menu` 2.1.1 or later. Plain `Menu_Page` subclasses inside a Group are unaffected — only `Settings_Page` subclasses receive the auto-wiring.
+
 ****
 
 ## Building a Complete Settings Page
@@ -293,7 +314,7 @@ class My_Settings_Page extends Settings_Page {
 | `Settings_Page::STYLE_MINIMAL` | `assets/themes/minimal.css` |
 | `Settings_Page::STYLE_NONE` | No theme (structural CSS only). |
 
-See [docs/themes](docs/themes) for the full visual guide.
+See [docs/themes.md](docs/themes) for the full visual guide.
 
 ### Methods
 
@@ -380,7 +401,7 @@ class My_Settings_Page extends Settings_Page {
 }
 ```
 
-See [docs/settings-facade-pattern](docs/settings-facade-pattern) for the rationale behind the split between `Abstract_Settings` (data) and `Settings_Page` (rendering).
+See [docs/settings-facade-pattern.md](docs/settings-facade-pattern) for the rationale behind the split between `Abstract_Settings` (data) and `Settings_Page` (rendering).
 
 ****
 
@@ -459,7 +480,7 @@ Notice::success( 'Connection verified.' );
 
 ## Field Types
 
-19 fields, all extending `Field`. See [docs/fields](docs/fields) for the full method reference.
+19 fields, all extending `Field`. See [docs/fields.md](docs/fields) for the full method reference.
 
 | Field | Class | Summary |
 |---|---|---|
@@ -498,7 +519,7 @@ Six bundled themes, each a single CSS file layered over `core.css`.
 | WP Admin | `STYLE_WP_ADMIN` | Native WordPress admin look. |
 | Minimal | `STYLE_MINIMAL` | Bare-bones, maximum density. |
 
-Custom themes can be loaded via absolute path or URL. See [docs/themes](docs/themes) for screenshots and details.
+Custom themes can be loaded via absolute path or URL. See [docs/themes.md](docs/themes) for screenshots and details.
 
 ****
 
@@ -515,11 +536,40 @@ Persistence is handled by an implementation of `Setting_Repository`. Four are bu
 
 Implement `Setting_Repository` for a custom backend (transients, custom tables, remote API, etc.).
 
+### Default binding & per-class overrides
+
+`Settings_Page_Module` binds `Setting_Repository` to `WP_Options_Settings_Repository` as the default in `pre_boot()`, so a settings class with no constructor override (the example at the top of this README) gets it auto-injected.
+
+Override per settings class via a DI `substitutions` rule — that wins over the default for that one class only:
+
+```php
+$container->addRule( My_Settings::class, array(
+    'substitutions' => array(
+        Setting_Repository::class => WP_Options_Individual_Repository::class,
+    ),
+) );
+```
+
+Decorator stacks compose naturally — substituting `WP_Site_Options_Decorator` for one settings class injects it with the default repo as its inner:
+
+```php
+$container->addRule( My_Multisite_Settings::class, array(
+    'substitutions' => array(
+        Setting_Repository::class => WP_Site_Options_Decorator::class,
+    ),
+) );
+```
+
+If a settings class needs a repository with required constructor args (e.g. `WP_Options_Named_Groups_Repository`), or a hand-built decorator chain, the alternative is to override the settings class's own `__construct()` and pass the built repo to `parent::__construct()`.
+
+> Re-binding `Setting_Repository` itself (`addRule( Setting_Repository::class, [...] )`) is **not** the override path — `pre_boot` runs after consumer DI rules, so an interface-level rebinding gets clobbered. Use per-class `substitutions` instead.
+
 ****
 
 ## Change Log
 
-* **2.1.0** — Full rewrite for Perique Framework 2.1. Rendering moved to [Form Components](https://github.com/Pink-Crab/Perique-Form-Components). New layout helpers (Section, Row, Grid, Stack, Divider, Notice). Six bundled themes. Pickers backed by a REST endpoint. Repeater with add / remove / drag-reorder. Full jQuery removal — everything runs on vanilla JS. 648+ unit and integration tests (100% coverage), 70+ Playwright end-to-end tests. Drops support for Perique Framework `< 2.1`.
+* **2.1.1** — Default DI binding for `Setting_Repository` → `WP_Options_Settings_Repository` in `Settings_Page_Module::pre_boot()` (per-class `substitutions` remain the override path). Subscribes to `pinkcrab/perique-admin-menu` 2.1.1's `Hooks::GROUPS_PROCESSED` action so a `Settings_Page` declared only inside an `Abstract_Group`'s `$pages` is auto-wired with `set_settings()` and no longer renders the "Settings not initialised" fallback. Suppresses the WP 6.8 `wp_is_block_theme` notice in the test harness so integration boots stop crashing.
+* 2.1.0 — Full rewrite for Perique Framework 2.1. Rendering moved to [Form Components](https://github.com/Pink-Crab/Perique-Form-Components). New layout helpers (Section, Row, Grid, Stack, Divider, Notice). Six bundled themes. Pickers backed by a REST endpoint. Repeater with add / remove / drag-reorder. Full jQuery removal — everything runs on vanilla JS. 648+ unit and integration tests (100% coverage), 70+ Playwright end-to-end tests. Drops support for Perique Framework `< 2.1`.
 * 0.1.0 — Initial recreation of the legacy settings page module on top of `WP_Settings_API`.
 
 ## License

@@ -435,7 +435,7 @@ Range::make( 'volume' )
 
 ### before( string $html ) / after( string $html )
 
-HTML content before or after the input within the wrapper. Useful for showing min/max labels alongside the slider.
+HTML content before or after the input; renders whether or not the wrapper is shown. Useful for showing min/max labels alongside the slider.
 
 ```php
 Range::make( 'labeled_range' )

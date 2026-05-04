@@ -396,7 +396,7 @@ Radio_Group::make( 'priority' )
 
 ### before( string $html ) / after( string $html )
 
-HTML content before or after the radio group within the wrapper.
+HTML content before or after the radio group; renders whether or not the wrapper is shown.
 
 ```php
 Radio_Group::make( 'payment' )

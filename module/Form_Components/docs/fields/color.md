@@ -348,7 +348,7 @@ Color::make( 'brand_color' )
 
 ### before( string $html ) / after( string $html )
 
-HTML content before or after the input within the wrapper.
+HTML content before or after the input; renders whether or not the wrapper is shown.
 
 ```php
 Color::make( 'wrapped_color' )

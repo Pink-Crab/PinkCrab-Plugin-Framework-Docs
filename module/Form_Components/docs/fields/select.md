@@ -571,7 +571,7 @@ Select::make( 'country' )
 
 ### before( string $html ) / after( string $html )
 
-HTML content before or after the select within the wrapper.
+HTML content before or after the select; renders whether or not the wrapper is shown.
 
 ```php
 Select::make( 'country' )

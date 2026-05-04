@@ -251,6 +251,7 @@ $this->component( Make::form( 'enquiry', fn( $f ) => $f
 
 ## Change Log
 
+* 2.1.4 - Field names containing PHP-style brackets (e.g. `wm_loc_coordinates[0][latlong]`) and case-sensitive characters are now preserved verbatim rather than being mangled by `sanitize_title()`. `before()` / `after()` adornments now render whether `show_wrapper(false)` or `show_wrapper(true)` is set — they were previously dropped when the wrapper was off. (Issue #23)
 *2.1.3 - Adds description pre and post fields within the field wrapper.
 * 2.1.2 - Fixed label/input accessibility, wrapper class duplication and unnecessary `list` attribute rendering.
 * 2.1.1 - Added Custom_Field element for rendering arbitrary HTML with full field treatment (wrapper, label, notifications, configurable kses filtering)

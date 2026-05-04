@@ -171,7 +171,7 @@ Hidden::make( 'token' )
 
 ### wrapper_id( string $id )
 
-Sets a custom HTML `id` on the wrapper div. Only relevant if `show_wrapper(true)` has been called.
+Sets a custom HTML `id` on the wrapper div.
 
 ```php
 Hidden::make( 'token' )
@@ -216,7 +216,7 @@ Hidden::make( 'action' )
 
 ### wrapper_data( string $key, string $value )
 
-Adds a `data-*` attribute to the wrapper div. Only relevant if `show_wrapper(true)` has been called.
+Adds a `data-*` attribute to the wrapper div.
 
 ```php
 Hidden::make( 'action' )
@@ -261,7 +261,7 @@ Hidden::make( 'action' )
 
 ### add_wrapper_class( string $class )
 
-Adds a CSS class to the wrapper div. Only relevant if `show_wrapper(true)` has been called.
+Adds a CSS class to the wrapper div.
 
 ```php
 Hidden::make( 'action' )
@@ -303,7 +303,7 @@ Hidden::make( 'form_id' )
 
 ### before( string $html ) / after( string $html )
 
-HTML content before or after the input within the wrapper. Only relevant if `show_wrapper(true)` has been called.
+HTML content before or after the input; renders whether or not the wrapper is shown.
 
 ```php
 Hidden::make( 'action' )
