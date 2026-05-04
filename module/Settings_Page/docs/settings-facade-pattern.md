@@ -56,65 +56,65 @@ use My_Plugin\Settings\My_Settings; // extends Abstract_Settings
 
 final class Settings_Facade {
 
-	public function __construct(
-		private readonly My_Settings $settings,
-		private readonly App_Config $app_config,
-	) {}
+    public function __construct(
+        private readonly My_Settings $settings,
+        private readonly App_Config $app_config,
+    ) {}
 
-	/* ─── Stored settings ─── */
+    /* ─── Stored settings ─── */
 
-	public function posts_per_page(): int {
-		return (int) $this->settings->get( 'posts_per_page', 10 );
-	}
+    public function posts_per_page(): int {
+        return (int) $this->settings->get( 'posts_per_page', 10 );
+    }
 
-	public function primary_colour(): string {
-		return (string) $this->settings->get( 'primary_colour', '#000000' );
-	}
+    public function primary_colour(): string {
+        return (string) $this->settings->get( 'primary_colour', '#000000' );
+    }
 
-	public function enabled_features(): array {
-		$value = $this->settings->get( 'features', array() );
-		return is_array( $value ) ? $value : array();
-	}
+    public function enabled_features(): array {
+        $value = $this->settings->get( 'features', array() );
+        return is_array( $value ) ? $value : array();
+    }
 
-	public function feature_enabled( string $feature ): bool {
-		return in_array( $feature, $this->enabled_features(), true );
-	}
+    public function feature_enabled( string $feature ): bool {
+        return in_array( $feature, $this->enabled_features(), true );
+    }
 
-	public function featured_post_id(): ?int {
-		$value = $this->settings->get( 'featured_post' );
-		return is_numeric( $value ) ? (int) $value : null;
-	}
+    public function featured_post_id(): ?int {
+        $value = $this->settings->get( 'featured_post' );
+        return is_numeric( $value ) ? (int) $value : null;
+    }
 
-	public function address_city(): string {
-		$address = $this->settings->get( 'address', array() );
-		return is_array( $address ) ? (string) ( $address['city'] ?? '' ) : '';
-	}
+    public function address_city(): string {
+        $address = $this->settings->get( 'address', array() );
+        return is_array( $address ) ? (string) ( $address['city'] ?? '' ) : '';
+    }
 
-	/* ─── Config-derived keys ─── */
+    /* ─── Config-derived keys ─── */
 
-	public function events_post_type(): string {
-		return $this->app_config->post_types( 'events' );
-	}
+    public function events_post_type(): string {
+        return $this->app_config->post_types( 'events' );
+    }
 
-	public function featured_meta_key(): string {
-		return $this->app_config->post_meta( 'is_featured' );
-	}
+    public function featured_meta_key(): string {
+        return $this->app_config->post_meta( 'is_featured' );
+    }
 
-	public function orders_table(): string {
-		return $this->app_config->db_tables( 'orders' );
-	}
+    public function orders_table(): string {
+        return $this->app_config->db_tables( 'orders' );
+    }
 
-	public function rest_namespace(): string {
-		return $this->app_config->namespace( 'rest' ) ?? 'my-plugin/v1';
-	}
+    public function rest_namespace(): string {
+        return $this->app_config->namespace( 'rest' ) ?? 'my-plugin/v1';
+    }
 
-	/* ─── Composite / derived values ─── */
+    /* ─── Composite / derived values ─── */
 
-	public function is_sidebar_visible_for_post_type( string $post_type ): bool {
-		return (bool) $this->settings->get( 'show_sidebar', false )
-			&& $this->feature_enabled( 'sidebar' )
-			&& $post_type === $this->events_post_type();
-	}
+    public function is_sidebar_visible_for_post_type( string $post_type ): bool {
+        return (bool) $this->settings->get( 'show_sidebar', false )
+            && $this->feature_enabled( 'sidebar' )
+            && $post_type === $this->events_post_type();
+    }
 }
 ```
 
@@ -137,28 +137,28 @@ You're not limited to one `Abstract_Settings` subclass. A single façade can wra
 ```php
 final class Settings_Facade {
 
-	public function __construct(
-		private readonly Display_Settings $display,
-		private readonly Integration_Settings $integrations,
-		private readonly Email_Settings $emails,
-		private readonly App_Config $app_config,
-	) {}
+    public function __construct(
+        private readonly Display_Settings $display,
+        private readonly Integration_Settings $integrations,
+        private readonly Email_Settings $emails,
+        private readonly App_Config $app_config,
+    ) {}
 
-	public function primary_colour(): string {
-		return (string) $this->display->get( 'primary_colour', '#000000' );
-	}
+    public function primary_colour(): string {
+        return (string) $this->display->get( 'primary_colour', '#000000' );
+    }
 
-	public function api_key(): string {
-		return (string) $this->integrations->get( 'api_key', '' );
-	}
+    public function api_key(): string {
+        return (string) $this->integrations->get( 'api_key', '' );
+    }
 
-	public function from_email(): string {
-		return (string) $this->emails->get( 'from_email', get_option( 'admin_email' ) );
-	}
+    public function from_email(): string {
+        return (string) $this->emails->get( 'from_email', get_option( 'admin_email' ) );
+    }
 
-	public function events_post_type(): string {
-		return $this->app_config->post_types( 'events' );
-	}
+    public function events_post_type(): string {
+        return $this->app_config->post_types( 'events' );
+    }
 }
 ```
 
@@ -171,23 +171,23 @@ Any service, controller, or view just type-hints the façade:
 ```php
 class Event_Archive_Controller {
 
-	public function __construct(
-		private Settings_Facade $settings,
-	) {}
+    public function __construct(
+        private Settings_Facade $settings,
+    ) {}
 
-	public function render(): void {
-		$args = array(
-			'post_type'      => $this->settings->events_post_type(),
-			'posts_per_page' => $this->settings->posts_per_page(),
-			'meta_query'     => array(
-				array(
-					'key'   => $this->settings->featured_meta_key(),
-					'value' => '1',
-				),
-			),
-		);
-		// ...
-	}
+    public function render(): void {
+        $args = array(
+            'post_type'      => $this->settings->events_post_type(),
+            'posts_per_page' => $this->settings->posts_per_page(),
+            'meta_query'     => array(
+                array(
+                    'key'   => $this->settings->featured_meta_key(),
+                    'value' => '1',
+                ),
+            ),
+        );
+        // ...
+    }
 }
 ```
 
