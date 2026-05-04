@@ -11,9 +11,9 @@ Renders `<input type="time">` with a browser-native time picker. Values are form
 
 ```php
 $this->component( new Input_Component(
-		Time::make( 'meeting_time' )
-			->label( 'Meeting Time' )
-	) )
+        Time::make( 'meeting_time' )
+            ->label( 'Meeting Time' )
+    ) )
 ```
 
 ![Basic](screenshots/time/basic.png)
@@ -75,8 +75,8 @@ Sets the current value. Runs through a time format sanitizer (`H:i:s`) by defaul
 
 ```php
 Time::make( 'start_time' )
-			->label( 'Start Time' )
-			->set_existing( '14:30' )
+            ->label( 'Start Time' )
+            ->set_existing( '14:30' )
 ```
 
 ![set_existing](screenshots/time/value.png)
@@ -290,9 +290,9 @@ Disables the input. Value is visible but cannot be changed or submitted.
 
 ```php
 Time::make( 'locked_time' )
-			->label( 'Locked Time' )
-			->set_existing( '09:00' )
-			->disabled( true )
+            ->label( 'Locked Time' )
+            ->set_existing( '09:00' )
+            ->disabled( true )
 ```
 
 ![disabled](screenshots/time/disabled.png)
@@ -468,8 +468,8 @@ Displays an error message below the field.
 
 ```php
 Time::make( 'notif_time' )
-			->label( 'Time' )
-			->info_notification( 'Business hours: 09:00 - 17:00' )
+            ->label( 'Time' )
+            ->info_notification( 'Business hours: 09:00 - 17:00' )
 ```
 
 ![notification](screenshots/time/notification.png)
@@ -588,9 +588,9 @@ HTML content before or after the input; renders whether or not the wrapper is sh
 
 ```php
 Time::make( 'wrapped_time' )
-			->label( 'Appointment' )
-			->before( '<span style="color:#6b7280;font-size:13px;">Select appointment time</span>' )
-			->after( '<span style="color:#6b7280;font-size:13px;">Times shown in GMT</span>' )
+            ->label( 'Appointment' )
+            ->before( '<span style="color:#6b7280;font-size:13px;">Select appointment time</span>' )
+            ->after( '<span style="color:#6b7280;font-size:13px;">Times shown in GMT</span>' )
 ```
 
 ![before/after](screenshots/time/before-after.png)

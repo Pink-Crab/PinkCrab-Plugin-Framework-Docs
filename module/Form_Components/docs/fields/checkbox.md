@@ -11,9 +11,9 @@ Renders `<input type="checkbox">`. A single toggle input that can be checked or 
 
 ```php
 $this->component( new Input_Component(
-		Checkbox::make( 'agree' )
-			->label( 'I agree to the terms' )
-	) )
+        Checkbox::make( 'agree' )
+            ->label( 'I agree to the terms' )
+    ) )
 ```
 
 ![Basic](screenshots/checkbox/unchecked.png)
@@ -73,9 +73,9 @@ Sets the value submitted when the checkbox is checked. Non-string values are cas
 
 ```php
 Checkbox::make( 'opt_in' )
-			->label( 'Opt in to marketing' )
-			->value( 'yes' )
-			->checked( true )
+            ->label( 'Opt in to marketing' )
+            ->value( 'yes' )
+            ->checked( true )
 ```
 
 ![value](screenshots/checkbox/value.png)
@@ -122,8 +122,8 @@ Sets whether the checkbox is in a checked state.
 
 ```php
 Checkbox::make( 'newsletter' )
-			->label( 'Subscribe to newsletter' )
-			->checked( true )
+            ->label( 'Subscribe to newsletter' )
+            ->checked( true )
 ```
 
 ![checked](screenshots/checkbox/checked.png)
@@ -169,9 +169,9 @@ Disables the checkbox. It is visible but cannot be toggled or submitted.
 
 ```php
 Checkbox::make( 'mandatory' )
-			->label( 'Mandatory option' )
-			->checked( true )
-			->disabled( true )
+            ->label( 'Mandatory option' )
+            ->checked( true )
+            ->disabled( true )
 ```
 
 ![disabled](screenshots/checkbox/disabled.png)
@@ -193,8 +193,8 @@ Displays an error message below the field.
 
 ```php
 Checkbox::make( 'confirm' )
-			->label( 'Confirm your choice' )
-			->warning_notification( 'Please confirm to continue.' )
+            ->label( 'Confirm your choice' )
+            ->warning_notification( 'Please confirm to continue.' )
 ```
 
 ![error_notification](screenshots/checkbox/notification.png)

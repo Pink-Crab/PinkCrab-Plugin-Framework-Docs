@@ -11,9 +11,9 @@ Renders `<input type="month">` with a browser-native month/year picker. Values a
 
 ```php
 $this->component( new Input_Component(
-		Month::make( 'birth_month' )
-			->label( 'Birth Month' )
-	) )
+        Month::make( 'birth_month' )
+            ->label( 'Birth Month' )
+    ) )
 ```
 
 ![Basic](screenshots/month/basic.png)
@@ -75,8 +75,8 @@ Sets the current value. Runs through a month format sanitizer (`Y-m`) by default
 
 ```php
 Month::make( 'expiry' )
-			->label( 'Expiry Month' )
-			->set_existing( '2026-06' )
+            ->label( 'Expiry Month' )
+            ->set_existing( '2026-06' )
 ```
 
 ![set_existing](screenshots/month/value.png)
@@ -194,9 +194,9 @@ Disables the input. Value is visible but cannot be changed or submitted.
 
 ```php
 Month::make( 'locked_month' )
-			->label( 'Locked' )
-			->set_existing( '2026-01' )
-			->disabled( true )
+            ->label( 'Locked' )
+            ->set_existing( '2026-01' )
+            ->disabled( true )
 ```
 
 ![disabled](screenshots/month/disabled.png)
@@ -371,9 +371,9 @@ Displays an error message below the field.
 
 ```php
 Month::make( 'expired_month' )
-			->label( 'Expiry' )
-			->set_existing( '2020-01' )
-			->error_notification( 'This month has expired.' )
+            ->label( 'Expiry' )
+            ->set_existing( '2020-01' )
+            ->error_notification( 'This month has expired.' )
 ```
 
 ![notification](screenshots/month/notification.png)
@@ -492,9 +492,9 @@ HTML content before or after the input; renders whether or not the wrapper is sh
 
 ```php
 Month::make( 'wrapped_month' )
-			->label( 'Billing Month' )
-			->before( '<span style="color:#6b7280;font-size:13px;">Select billing period</span>' )
-			->after( '<span style="color:#6b7280;font-size:13px;">Charges applied at month end</span>' )
+            ->label( 'Billing Month' )
+            ->before( '<span style="color:#6b7280;font-size:13px;">Select billing period</span>' )
+            ->after( '<span style="color:#6b7280;font-size:13px;">Charges applied at month end</span>' )
 ```
 
 ![before/after](screenshots/month/before-after.png)

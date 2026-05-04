@@ -13,11 +13,11 @@ Hidden inputs have no visible UI. The wrapper is disabled by default (`show_wrap
 
 ```php
 $this->component( new Input_Component(
-		Hidden::make( 'form_id' )
-			->set_existing( '42' )
-			->show_wrapper( false )
-	) );
-	<p style="color:#6b7280;font-size:13px;">A hidden input is rendered above but not visible. Defaults to show_wrapper(false).</p>
+        Hidden::make( 'form_id' )
+            ->set_existing( '42' )
+            ->show_wrapper( false )
+    ) );
+    <p style="color:#6b7280;font-size:13px;">A hidden input is rendered above but not visible. Defaults to show_wrapper(false).</p>
 ```
 
 ![Basic](screenshots/hidden/basic.png)

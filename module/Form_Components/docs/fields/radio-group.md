@@ -11,14 +11,14 @@ Renders a group of `<input type="radio">` elements from an options array, allowi
 
 ```php
 $this->component( new Radio_Group_Component(
-		Radio_Group::make( 'size' )
-			->label( 'Size' )
-			->options( array(
-				'small'  => 'Small',
-				'medium' => 'Medium',
-				'large'  => 'Large',
-			) )
-	) )
+        Radio_Group::make( 'size' )
+            ->label( 'Size' )
+            ->options( array(
+                'small'  => 'Small',
+                'medium' => 'Medium',
+                'large'  => 'Large',
+            ) )
+    ) )
 ```
 
 ![Basic](screenshots/radio-group/basic.png)
@@ -120,13 +120,13 @@ Sets which radio button is selected by passing a single value string.
 
 ```php
 Radio_Group::make( 'plan' )
-			->label( 'Plan' )
-			->options( array(
-				'free' => 'Free',
-				'pro'  => 'Professional',
-				'ent'  => 'Enterprise',
-			) )
-			->selected( 'pro' )
+            ->label( 'Plan' )
+            ->options( array(
+                'free' => 'Free',
+                'pro'  => 'Professional',
+                'ent'  => 'Enterprise',
+            ) )
+            ->selected( 'pro' )
 ```
 
 ![selected](screenshots/radio-group/selected.png)
@@ -224,13 +224,13 @@ Disables the entire radio group. Each individual radio button receives the `disa
 
 ```php
 Radio_Group::make( 'locked_choice' )
-			->label( 'Status' )
-			->options( array(
-				'active'   => 'Active',
-				'inactive' => 'Inactive',
-			) )
-			->selected( 'active' )
-			->disabled( true )
+            ->label( 'Status' )
+            ->options( array(
+                'active'   => 'Active',
+                'inactive' => 'Inactive',
+            ) )
+            ->selected( 'active' )
+            ->disabled( true )
 ```
 
 ![disabled](screenshots/radio-group/disabled.png)
@@ -255,13 +255,13 @@ Displays an error message below the group.
 
 ```php
 Radio_Group::make( 'required_choice' )
-			->label( 'Shipping Method' )
-			->options( array(
-				'standard' => 'Standard (3-5 days)',
-				'express'  => 'Express (1-2 days)',
-				'next_day' => 'Next Day',
-			) )
-			->error_notification( 'Please select a shipping method.' )
+            ->label( 'Shipping Method' )
+            ->options( array(
+                'standard' => 'Standard (3-5 days)',
+                'express'  => 'Express (1-2 days)',
+                'next_day' => 'Next Day',
+            ) )
+            ->error_notification( 'Please select a shipping method.' )
 ```
 
 ![notification](screenshots/radio-group/notification.png)
@@ -400,14 +400,14 @@ HTML content before or after the radio group; renders whether or not the wrapper
 
 ```php
 Radio_Group::make( 'payment' )
-			->label( 'Payment Method' )
-			->options( array(
-				'card'   => 'Credit Card',
-				'paypal' => 'PayPal',
-				'bank'   => 'Bank Transfer',
-			) )
-			->before( '<span style="color:#6b7280;font-size:13px;">Select payment method:</span>' )
-			->after( '<span style="color:#6b7280;font-size:13px;">All payments are processed securely.</span>' )
+            ->label( 'Payment Method' )
+            ->options( array(
+                'card'   => 'Credit Card',
+                'paypal' => 'PayPal',
+                'bank'   => 'Bank Transfer',
+            ) )
+            ->before( '<span style="color:#6b7280;font-size:13px;">Select payment method:</span>' )
+            ->after( '<span style="color:#6b7280;font-size:13px;">All payments are processed securely.</span>' )
 ```
 
 ![before/after](screenshots/radio-group/before-after.png)

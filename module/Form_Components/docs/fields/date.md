@@ -11,9 +11,9 @@ Renders `<input type="date">` with a browser-native date picker. Values are form
 
 ```php
 $this->component( new Input_Component(
-		Date::make( 'birthday' )
-			->label( 'Date of Birth' )
-	) )
+        Date::make( 'birthday' )
+            ->label( 'Date of Birth' )
+    ) )
 ```
 
 ![Basic](screenshots/date/basic.png)
@@ -75,8 +75,8 @@ Sets the current value. Runs through a date format sanitizer (`Y-m-d`) by defaul
 
 ```php
 Date::make( 'event_date' )
-			->label( 'Event Date' )
-			->set_existing( '2026-06-15' )
+            ->label( 'Event Date' )
+            ->set_existing( '2026-06-15' )
 ```
 
 ![set_existing](screenshots/date/value.png)
@@ -477,9 +477,9 @@ HTML content before or after the input; renders whether or not the wrapper is sh
 
 ```php
 Date::make( 'wrapped_date' )
-			->label( 'Event Date' )
-			->before( '<span style="color:#6b7280;font-size:13px;">Select your preferred date</span>' )
-			->after( '<span style="color:#6b7280;font-size:13px;">Format: YYYY-MM-DD</span>' )
+            ->label( 'Event Date' )
+            ->before( '<span style="color:#6b7280;font-size:13px;">Select your preferred date</span>' )
+            ->after( '<span style="color:#6b7280;font-size:13px;">Format: YYYY-MM-DD</span>' )
 ```
 
 ![before/after](screenshots/date/before-after.png)

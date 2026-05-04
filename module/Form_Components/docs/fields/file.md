@@ -11,9 +11,9 @@ Renders `<input type="file">`. Allows users to select one or more files for uplo
 
 ```php
 $this->component( new Input_Component(
-		File::make( 'upload' )
-			->label( 'Upload File' )
-	) )
+        File::make( 'upload' )
+            ->label( 'Upload File' )
+    ) )
 ```
 
 ![Basic](screenshots/file/basic.png)

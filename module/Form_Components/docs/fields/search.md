@@ -11,10 +11,10 @@ Renders `<input type="search">`. A text input styled for search queries, with br
 
 ```php
 $this->component( new Input_Component(
-		Search::make( 'search' )
-			->label( 'Search' )
-			->placeholder( 'Search...' )
-	) )
+        Search::make( 'search' )
+            ->label( 'Search' )
+            ->placeholder( 'Search...' )
+    ) )
 ```
 
 ![Basic](screenshots/search/basic.png)
@@ -519,9 +519,9 @@ HTML content before or after the input; renders whether or not the wrapper is sh
 
 ```php
 Search::make( 'wrapped_search' )
-			->label( 'Search' )
-			->before( '<span style="color:#6b7280;font-size:13px;">Search the documentation</span>' )
-			->after( '<span style="color:#6b7280;font-size:13px;">Use quotes for exact match</span>' )
+            ->label( 'Search' )
+            ->before( '<span style="color:#6b7280;font-size:13px;">Search the documentation</span>' )
+            ->after( '<span style="color:#6b7280;font-size:13px;">Use quotes for exact match</span>' )
 ```
 
 ![before/after](screenshots/search/before-after.png)

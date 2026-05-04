@@ -11,10 +11,10 @@ Renders `<input type="password">`. Values are masked with dots in the browser.
 
 ```php
 $this->component( new Input_Component(
-		Password::make( 'password' )
-			->label( 'Password' )
-			->placeholder( 'Enter your password' )
-	) )
+        Password::make( 'password' )
+            ->label( 'Password' )
+            ->placeholder( 'Enter your password' )
+    ) )
 ```
 
 ![Basic](screenshots/password/basic.png)
@@ -74,8 +74,8 @@ Sets the current value. The value is masked in the browser. Runs through the san
 
 ```php
 Password::make( 'current_pw' )
-			->label( 'Current Password' )
-			->set_existing( 'secretpass' )
+            ->label( 'Current Password' )
+            ->set_existing( 'secretpass' )
 ```
 
 ![set_existing](screenshots/password/value.png)
@@ -421,9 +421,9 @@ HTML content before or after the input; renders whether or not the wrapper is sh
 
 ```php
 Password::make( 'wrapped_pw' )
-			->label( 'Password' )
-			->before( '<span style="color:#6b7280;font-size:13px;">Must be at least 8 characters</span>' )
-			->after( '<span style="color:#6b7280;font-size:13px;">Include uppercase, lowercase and numbers</span>' )
+            ->label( 'Password' )
+            ->before( '<span style="color:#6b7280;font-size:13px;">Must be at least 8 characters</span>' )
+            ->after( '<span style="color:#6b7280;font-size:13px;">Include uppercase, lowercase and numbers</span>' )
 ```
 
 ![before/after](screenshots/password/before-after.png)

@@ -11,16 +11,16 @@ Renders a `<select>` dropdown with options and optional optgroups.
 
 ```php
 $this->component( new Select_Component(
-		Select::make( 'country' )
-			->label( 'Country' )
-			->options( array(
-				''   => '-- Select --',
-				'uk' => 'United Kingdom',
-				'us' => 'United States',
-				'ca' => 'Canada',
-				'au' => 'Australia',
-			) )
-	) )
+        Select::make( 'country' )
+            ->label( 'Country' )
+            ->options( array(
+                ''   => '-- Select --',
+                'uk' => 'United Kingdom',
+                'us' => 'United States',
+                'ca' => 'Canada',
+                'au' => 'Australia',
+            ) )
+    ) )
 ```
 
 ![Basic](screenshots/select/basic.png)
@@ -122,14 +122,14 @@ Sets the current value. Runs through the sanitizer if one is set. When `multiple
 
 ```php
 Select::make( 'role' )
-			->label( 'Role' )
-			->options( array(
-				'admin'      => 'Administrator',
-				'editor'     => 'Editor',
-				'author'     => 'Author',
-				'subscriber' => 'Subscriber',
-			) )
-			->set_existing( 'editor' )
+            ->label( 'Role' )
+            ->options( array(
+                'admin'      => 'Administrator',
+                'editor'     => 'Editor',
+                'author'     => 'Author',
+                'subscriber' => 'Subscriber',
+            ) )
+            ->set_existing( 'editor' )
 ```
 
 ![selected](screenshots/select/selected.png)
@@ -207,16 +207,16 @@ Adds an optgroup with its own set of options. Can be called multiple times to ad
 
 ```php
 Select::make( 'vehicle' )
-			->label( 'Vehicle' )
-			->optgroup( 'Cars', array(
-				'volvo' => 'Volvo',
-				'bmw'   => 'BMW',
-				'audi'  => 'Audi',
-			) )
-			->optgroup( 'Bikes', array(
-				'honda'  => 'Honda',
-				'yamaha' => 'Yamaha',
-			) )
+            ->label( 'Vehicle' )
+            ->optgroup( 'Cars', array(
+                'volvo' => 'Volvo',
+                'bmw'   => 'BMW',
+                'audi'  => 'Audi',
+            ) )
+            ->optgroup( 'Bikes', array(
+                'honda'  => 'Honda',
+                'yamaha' => 'Yamaha',
+            ) )
 ```
 
 ![optgroups](screenshots/select/optgroups.png)
@@ -248,17 +248,17 @@ Enables multi-select. When enabled, the `name` attribute gets a `[]` suffix and 
 
 ```php
 Select::make( 'languages' )
-			->label( 'Languages' )
-			->options( array(
-				'php'    => 'PHP',
-				'js'     => 'JavaScript',
-				'python' => 'Python',
-				'go'     => 'Go',
-				'rust'   => 'Rust',
-			) )
-			->multiple( true )
-			->size( 5 )
-			->set_existing( array( 'php', 'go' ) )
+            ->label( 'Languages' )
+            ->options( array(
+                'php'    => 'PHP',
+                'js'     => 'JavaScript',
+                'python' => 'Python',
+                'go'     => 'Go',
+                'rust'   => 'Rust',
+            ) )
+            ->multiple( true )
+            ->size( 5 )
+            ->set_existing( array( 'php', 'go' ) )
 ```
 
 ![multiple](screenshots/select/multiple.png)
@@ -286,15 +286,15 @@ Sets the number of visible rows in the dropdown (useful with `multiple()`).
 
 ```php
 Select::make( 'visible_list' )
-			->label( 'Items (3 visible)' )
-			->options( array(
-				'a' => 'Alpha',
-				'b' => 'Bravo',
-				'c' => 'Charlie',
-				'd' => 'Delta',
-				'e' => 'Echo',
-			) )
-			->size( 3 )
+            ->label( 'Items (3 visible)' )
+            ->options( array(
+                'a' => 'Alpha',
+                'b' => 'Bravo',
+                'c' => 'Charlie',
+                'd' => 'Delta',
+                'e' => 'Echo',
+            ) )
+            ->size( 3 )
 ```
 
 ![size](screenshots/select/size.png)
@@ -350,10 +350,10 @@ Disables the select. Value is visible but cannot be changed or submitted.
 
 ```php
 Select::make( 'locked_plan' )
-			->label( 'Plan' )
-			->options( array( 'pro' => 'Professional' ) )
-			->set_existing( 'pro' )
-			->disabled( true )
+            ->label( 'Plan' )
+            ->options( array( 'pro' => 'Professional' ) )
+            ->set_existing( 'pro' )
+            ->disabled( true )
 ```
 
 ![disabled](screenshots/select/disabled.png)
@@ -441,9 +441,9 @@ Displays an error message below the field.
 
 ```php
 Select::make( 'bad_select' )
-			->label( 'Category' )
-			->options( array( '' => 'Select...', 'bug' => 'Bug', 'feature' => 'Feature' ) )
-			->error_notification( 'Please select a category.' )
+            ->label( 'Category' )
+            ->options( array( '' => 'Select...', 'bug' => 'Bug', 'feature' => 'Feature' ) )
+            ->error_notification( 'Please select a category.' )
 ```
 
 ![notification](screenshots/select/notification.png)

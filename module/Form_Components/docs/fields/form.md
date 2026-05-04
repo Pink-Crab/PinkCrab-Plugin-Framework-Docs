@@ -12,24 +12,24 @@ Renders a `<form>` element that wraps child field components. Acts as a containe
 
 ```php
 $this->component( new Form_Component(
-		Form::make( 'contact' )
-			->method( 'POST' )
-			->action( '/submit' )
-			->fields(
-				Text::make( 'name' )
-					->label( 'Name' )
-					->required( true ),
-				Email::make( 'email' )
-					->label( 'Email' )
-					->required( true ),
-				Textarea::make( 'message' )
-					->label( 'Message' )
-					->rows( 4 ),
-				Button::make( 'submit' )
-					->type( 'submit' )
-					->text( 'Send' )
-			)
-	) )
+        Form::make( 'contact' )
+            ->method( 'POST' )
+            ->action( '/submit' )
+            ->fields(
+                Text::make( 'name' )
+                    ->label( 'Name' )
+                    ->required( true ),
+                Email::make( 'email' )
+                    ->label( 'Email' )
+                    ->required( true ),
+                Textarea::make( 'message' )
+                    ->label( 'Message' )
+                    ->rows( 4 ),
+                Button::make( 'submit' )
+                    ->type( 'submit' )
+                    ->text( 'Send' )
+            )
+    ) )
 ```
 
 ![Basic](screenshots/form/basic.png)
@@ -88,16 +88,16 @@ Sets the HTTP method for the form. Defaults to `POST`. Automatically uppercased.
 
 ```php
 Form::make( 'search_form' )
-			->method( 'GET' )
-			->action( '/search' )
-			->fields(
-				Text::make( 'query' )
-					->label( 'Search' )
-					->placeholder( 'Search...' ),
-				Button::make( 'go' )
-					->type( 'submit' )
-					->text( 'Go' )
-			)
+            ->method( 'GET' )
+            ->action( '/search' )
+            ->fields(
+                Text::make( 'query' )
+                    ->label( 'Search' )
+                    ->placeholder( 'Search...' ),
+                Button::make( 'go' )
+                    ->type( 'submit' )
+                    ->text( 'Go' )
+            )
 ```
 
 ![get-form](screenshots/form/get-form.png)
@@ -151,16 +151,16 @@ Sets the form encoding type. Required for file uploads.
 
 ```php
 Form::make( 'upload_form' )
-			->method( 'POST' )
-			->action( '/upload' )
-			->enctype( 'multipart/form-data' )
-			->fields(
-				Text::make( 'file_label' )
-					->label( 'File Label' ),
-				Button::make( 'upload' )
-					->type( 'submit' )
-					->text( 'Upload' )
-			)
+            ->method( 'POST' )
+            ->action( '/upload' )
+            ->enctype( 'multipart/form-data' )
+            ->fields(
+                Text::make( 'file_label' )
+                    ->label( 'File Label' ),
+                Button::make( 'upload' )
+                    ->type( 'submit' )
+                    ->text( 'Upload' )
+            )
 ```
 
 ![enctype](screenshots/form/enctype.png)
@@ -187,18 +187,18 @@ Adds child elements (fields, buttons, nonces, fieldsets, raw HTML) to the form. 
 
 ```php
 Form::make( 'secure_form' )
-			->method( 'POST' )
-			->fields(
-				Hidden::make( 'form_id' )
-					->set_existing( '42' )
-					->show_wrapper( false ),
-				Nonce::make( 'save_action', 'form_nonce' ),
-				Text::make( 'title' )
-					->label( 'Title' ),
-				Button::make( 'save' )
-					->type( 'submit' )
-					->text( 'Save' )
-			)
+            ->method( 'POST' )
+            ->fields(
+                Hidden::make( 'form_id' )
+                    ->set_existing( '42' )
+                    ->show_wrapper( false ),
+                Nonce::make( 'save_action', 'form_nonce' ),
+                Text::make( 'title' )
+                    ->label( 'Title' ),
+                Button::make( 'save' )
+                    ->type( 'submit' )
+                    ->text( 'Save' )
+            )
 ```
 
 ![nonce](screenshots/form/nonce.png)
@@ -258,8 +258,8 @@ HTML content before or after the form's child elements, rendered inside the `<fo
 
 ```php
 Form::make( 'wrapped_form' )
-			->method( 'POST' )
-			->before( '<div style="padding:8px 0;color:#374151;font-weight:500;">Contact Us
+            ->method( 'POST' )
+            ->before( '<div style="padding:8px 0;color:#374151;font-weight:500;">Contact Us
 ```
 
 ![before/after](screenshots/form/before-after.png)
@@ -482,28 +482,28 @@ Form::make( 'contact' )
 
 ```php
 Form::make( 'complex_form' )
-			->method( 'POST' )
-			->fields(
-				Raw_HTML::make( 'intro' )
-					->html( '<p style="color:#6b7280;margin:0 0 12px;">Fill in all required fields.</p>' ),
-				Select::make( 'category' )
-					->label( 'Category' )
-					->options( array(
-						''        => 'Select...',
-						'bug'     => 'Bug Report',
-						'feature' => 'Feature Request',
-					) )
-					->required( true ),
-				Text::make( 'subject' )
-					->label( 'Subject' )
-					->required( true ),
-				Textarea::make( 'details' )
-					->label( 'Details' )
-					->rows( 4 ),
-				Button::make( 'submit' )
-					->type( 'submit' )
-					->text( 'Submit' )
-			)
+            ->method( 'POST' )
+            ->fields(
+                Raw_HTML::make( 'intro' )
+                    ->html( '<p style="color:#6b7280;margin:0 0 12px;">Fill in all required fields.</p>' ),
+                Select::make( 'category' )
+                    ->label( 'Category' )
+                    ->options( array(
+                        ''        => 'Select...',
+                        'bug'     => 'Bug Report',
+                        'feature' => 'Feature Request',
+                    ) )
+                    ->required( true ),
+                Text::make( 'subject' )
+                    ->label( 'Subject' )
+                    ->required( true ),
+                Textarea::make( 'details' )
+                    ->label( 'Details' )
+                    ->rows( 4 ),
+                Button::make( 'submit' )
+                    ->type( 'submit' )
+                    ->text( 'Submit' )
+            )
 ```
 
 ![complex](screenshots/form/complex.png)

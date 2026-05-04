@@ -11,10 +11,10 @@ Renders a `<textarea>` element for multi-line text input.
 
 ```php
 $this->component( new Textarea_Component(
-		Textarea::make( 'message' )
-			->label( 'Message' )
-			->rows( 4 )
-	) )
+        Textarea::make( 'message' )
+            ->label( 'Message' )
+            ->rows( 4 )
+    ) )
 ```
 
 ![Basic](screenshots/textarea/basic.png)
@@ -76,9 +76,9 @@ Sets the current value. Runs through the sanitizer if one is set.
 
 ```php
 Textarea::make( 'bio' )
-			->label( 'Bio' )
-			->set_existing( 'A software developer with a passion for clean code and good documentation.' )
-			->rows( 3 )
+            ->label( 'Bio' )
+            ->set_existing( 'A software developer with a passion for clean code and good documentation.' )
+            ->rows( 3 )
 ```
 
 ![value](screenshots/textarea/value.png)
@@ -100,9 +100,9 @@ Placeholder text shown when the textarea is empty.
 
 ```php
 Textarea::make( 'notes' )
-			->label( 'Notes' )
-			->placeholder( 'Enter your notes here...' )
-			->rows( 3 )
+            ->label( 'Notes' )
+            ->placeholder( 'Enter your notes here...' )
+            ->rows( 3 )
 ```
 
 ![placeholder](screenshots/textarea/placeholder.png)
@@ -197,10 +197,10 @@ Disables the textarea. Value is visible but cannot be changed or submitted.
 
 ```php
 Textarea::make( 'disabled_ta' )
-			->label( 'Disabled' )
-			->set_existing( 'This textarea is disabled.' )
-			->disabled( true )
-			->rows( 2 )
+            ->label( 'Disabled' )
+            ->set_existing( 'This textarea is disabled.' )
+            ->disabled( true )
+            ->rows( 2 )
 ```
 
 ![disabled](screenshots/textarea/disabled.png)
@@ -356,10 +356,10 @@ Displays an error message below the field.
 
 ```php
 Textarea::make( 'short_msg' )
-			->label( 'Message' )
-			->set_existing( 'Hi' )
-			->error_notification( 'Message must be at least 10 characters.' )
-			->rows( 3 )
+            ->label( 'Message' )
+            ->set_existing( 'Hi' )
+            ->error_notification( 'Message must be at least 10 characters.' )
+            ->rows( 3 )
 ```
 
 ![notification](screenshots/textarea/notification.png)

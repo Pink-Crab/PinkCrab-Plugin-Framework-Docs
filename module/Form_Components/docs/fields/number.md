@@ -11,10 +11,10 @@ Renders `<input type="number">` with spinner controls for incrementing/decrement
 
 ```php
 $this->component( new Input_Component(
-		Number::make( 'quantity' )
-			->label( 'Quantity' )
-			->set_existing( '42' )
-	) )
+        Number::make( 'quantity' )
+            ->label( 'Quantity' )
+            ->set_existing( '42' )
+    ) )
 ```
 
 ![Basic](screenshots/number/basic.png)
@@ -100,10 +100,10 @@ Placeholder text shown when the field is empty.
 
 ```php
 Number::make( 'amount' )
-			->label( 'Amount' )
-			->placeholder( '0-1000' )
-			->min( 0 )
-			->max( 1000 )
+            ->label( 'Amount' )
+            ->placeholder( '0-1000' )
+            ->min( 0 )
+            ->max( 1000 )
 ```
 
 ![placeholder](screenshots/number/placeholder.png)
@@ -173,11 +173,11 @@ Sets both min and max in a single call.
 
 ```php
 Number::make( 'age' )
-			->label( 'Age' )
-			->min( 1 )
-			->max( 120 )
-			->step( 1 )
-			->set_existing( '25' )
+            ->label( 'Age' )
+            ->min( 1 )
+            ->max( 120 )
+            ->step( 1 )
+            ->set_existing( '25' )
 ```
 
 ![range](screenshots/number/range.png)
@@ -483,9 +483,9 @@ HTML content before or after the input; renders whether or not the wrapper is sh
 
 ```php
 Number::make( 'wrapped_num' )
-			->label( 'Price' )
-			->before( '<span style="color:#6b7280;font-size:13px;">Enter amount in GBP</span>' )
-			->after( '<span style="color:#6b7280;font-size:13px;">Excluding VAT</span>' )
+            ->label( 'Price' )
+            ->before( '<span style="color:#6b7280;font-size:13px;">Enter amount in GBP</span>' )
+            ->after( '<span style="color:#6b7280;font-size:13px;">Excluding VAT</span>' )
 ```
 
 ![before/after](screenshots/number/before-after.png)

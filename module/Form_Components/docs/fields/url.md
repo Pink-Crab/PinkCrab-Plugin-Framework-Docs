@@ -11,10 +11,10 @@ Renders `<input type="url">`. The browser provides built-in URL format validatio
 
 ```php
 $this->component( new Input_Component(
-		Url::make( 'website' )
-			->label( 'Website' )
-			->placeholder( 'https://example.com' )
-	) )
+        Url::make( 'website' )
+            ->label( 'Website' )
+            ->placeholder( 'https://example.com' )
+    ) )
 ```
 
 ![Basic](screenshots/url/basic.png)
@@ -541,9 +541,9 @@ HTML content before or after the input; renders whether or not the wrapper is sh
 
 ```php
 Url::make( 'wrapped_url' )
-			->label( 'Website' )
-			->before( '<span style="color:#6b7280;font-size:13px;">Your public profile URL</span>' )
-			->after( '<span style="color:#6b7280;font-size:13px;">Must start with https://</span>' )
+            ->label( 'Website' )
+            ->before( '<span style="color:#6b7280;font-size:13px;">Your public profile URL</span>' )
+            ->after( '<span style="color:#6b7280;font-size:13px;">Must start with https://</span>' )
 ```
 
 ![before/after](screenshots/url/before-after.png)

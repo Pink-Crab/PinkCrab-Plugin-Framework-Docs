@@ -11,10 +11,10 @@ Renders `<input type="radio">`. A single radio button, typically used within a g
 
 ```php
 $this->component( new Input_Component(
-		Radio::make( 'option_a' )
-			->label( 'Option A' )
-			->value( 'a' )
-	) )
+        Radio::make( 'option_a' )
+            ->label( 'Option A' )
+            ->value( 'a' )
+    ) )
 ```
 
 ![Basic](screenshots/radio/unchecked.png)
@@ -123,9 +123,9 @@ Sets whether the radio button is in a selected state.
 
 ```php
 Radio::make( 'option_b' )
-			->label( 'Option B' )
-			->value( 'b' )
-			->checked( true )
+            ->label( 'Option B' )
+            ->value( 'b' )
+            ->checked( true )
 ```
 
 ![checked](screenshots/radio/checked.png)
@@ -172,10 +172,10 @@ Disables the radio button. It is visible but cannot be selected or submitted.
 
 ```php
 Radio::make( 'locked_option' )
-			->label( 'Locked Option' )
-			->value( 'locked' )
-			->checked( true )
-			->disabled( true )
+            ->label( 'Locked Option' )
+            ->value( 'locked' )
+            ->checked( true )
+            ->disabled( true )
 ```
 
 ![disabled](screenshots/radio/disabled.png)
@@ -197,9 +197,9 @@ Displays an error message below the field.
 
 ```php
 Radio::make( 'required_radio' )
-			->label( 'Choose this option' )
-			->value( 'choice' )
-			->error_notification( 'You must select an option.' )
+            ->label( 'Choose this option' )
+            ->value( 'choice' )
+            ->error_notification( 'You must select an option.' )
 ```
 
 ![error_notification](screenshots/radio/notification.png)
