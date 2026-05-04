@@ -53,8 +53,8 @@ Sets the button type. Common values: `button` (default), `submit`, `reset`.
 
 ```php
 Button::make( 'submit_btn' )
-            ->type( 'submit' )
-            ->text( 'Submit Form' )
+    ->type( 'submit' )
+    ->text( 'Submit Form' )
 ```
 
 ![submit](screenshots/button/submit.png)
@@ -71,8 +71,8 @@ Button::make( 'submit_btn' )
 
 ```php
 Button::make( 'reset_btn' )
-            ->type( 'reset' )
-            ->text( 'Reset Form' )
+    ->type( 'reset' )
+    ->text( 'Reset Form' )
 ```
 
 ![reset](screenshots/button/reset.png)
@@ -114,9 +114,9 @@ Disables the button. It is visible but cannot be clicked.
 
 ```php
 Button::make( 'disabled_btn' )
-            ->type( 'button' )
-            ->text( 'Disabled' )
-            ->disabled( true )
+    ->type( 'button' )
+    ->text( 'Disabled' )
+    ->disabled( true )
 ```
 
 ![disabled](screenshots/button/disabled.png)
@@ -137,10 +137,10 @@ HTML content before or after the button; renders whether or not the wrapper is s
 
 ```php
 Button::make( 'wrapped_btn' )
-            ->type( 'button' )
-            ->text( 'Wrapped Button' )
-            ->before( '<span style="color:#6b7280;font-size:13px;">Action:</span>' )
-            ->after( '<span style="color:#6b7280;font-size:13px;">Click to proceed</span>' )
+    ->type( 'button' )
+    ->text( 'Wrapped Button' )
+    ->before( '<span style="color:#6b7280;font-size:13px;">Action:</span>' )
+    ->after( '<span style="color:#6b7280;font-size:13px;">Click to proceed</span>' )
 ```
 
 ![before/after](screenshots/button/before-after.png)
@@ -207,10 +207,10 @@ Adds a `data-*` attribute to the button element.
 
 ```php
 Button::make( 'action_btn' )
-            ->type( 'button' )
-            ->text( 'Save Draft' )
-            ->data( 'action', 'save-draft' )
-            ->data( 'target', 'form-1' )
+    ->type( 'button' )
+    ->text( 'Save Draft' )
+    ->data( 'action', 'save-draft' )
+    ->data( 'target', 'form-1' )
 ```
 
 ![data-attrs](screenshots/button/data-attrs.png)
@@ -253,9 +253,9 @@ Adds a CSS class to the button element.
 
 ```php
 Button::make( 'styled_btn' )
-            ->type( 'button' )
-            ->text( 'Custom Class' )
-            ->add_class( 'my-button-class' )
+    ->type( 'button' )
+    ->text( 'Custom Class' )
+    ->add_class( 'my-button-class' )
 ```
 
 ![custom-class](screenshots/button/custom-class.png)

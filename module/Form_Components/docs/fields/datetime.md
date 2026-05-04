@@ -75,8 +75,8 @@ Sets the current value. Runs through a datetime format sanitizer (`Y-m-d\TH:i:s`
 
 ```php
 Datetime::make( 'scheduled' )
-            ->label( 'Scheduled For' )
-            ->set_existing( '2026-06-15T14:30' )
+    ->label( 'Scheduled For' )
+    ->set_existing( '2026-06-15T14:30' )
 ```
 
 ![set_existing](screenshots/datetime/value.png)
@@ -314,8 +314,8 @@ Marks the field as required. The label displays a `*` indicator via CSS.
 
 ```php
 Datetime::make( 'required_dt' )
-            ->label( 'Deadline' )
-            ->required( true )
+    ->label( 'Deadline' )
+    ->required( true )
 ```
 
 ![required](screenshots/datetime/required.png)
@@ -575,9 +575,9 @@ HTML content before or after the input; renders whether or not the wrapper is sh
 
 ```php
 Datetime::make( 'wrapped_dt' )
-            ->label( 'Event' )
-            ->before( '<span style="color:#6b7280;font-size:13px;">Select date and time</span>' )
-            ->after( '<span style="color:#6b7280;font-size:13px;">All times in UTC</span>' )
+    ->label( 'Event' )
+    ->before( '<span style="color:#6b7280;font-size:13px;">Select date and time</span>' )
+    ->after( '<span style="color:#6b7280;font-size:13px;">All times in UTC</span>' )
 ```
 
 ![before/after](screenshots/datetime/before-after.png)

@@ -108,11 +108,11 @@ When no legend is set, the fieldset renders without a `<legend>` tag.
 
 ```php
 Fieldset::make( 'address' )
-            ->fields(
-                Text::make( 'street' )->label( 'Street' ),
-                Text::make( 'city' )->label( 'City' ),
-                Text::make( 'postcode' )->label( 'Postcode' )
-            )
+    ->fields(
+        Text::make( 'street' )->label( 'Street' ),
+        Text::make( 'city' )->label( 'City' ),
+        Text::make( 'postcode' )->label( 'Postcode' )
+    )
 ```
 
 ![no-legend](screenshots/fieldset/no-legend.png)
@@ -227,12 +227,12 @@ Disables the entire fieldset, which disables all child form elements.
 
 ```php
 Fieldset::make( 'disabled_section' )
-            ->legend( 'Disabled Section' )
-            ->disabled( true )
-            ->fields(
-                Text::make( 'disabled_name' )->label( 'Name' ),
-                Tel::make( 'disabled_phone' )->label( 'Phone' )
-            )
+    ->legend( 'Disabled Section' )
+    ->disabled( true )
+    ->fields(
+        Text::make( 'disabled_name' )->label( 'Name' ),
+        Tel::make( 'disabled_phone' )->label( 'Phone' )
+    )
 ```
 
 ![disabled](screenshots/fieldset/disabled.png)
@@ -287,13 +287,13 @@ HTML content before or after the fieldset's child elements, rendered inside the 
 
 ```php
 Fieldset::make( 'wrapped_fs' )
-            ->legend( 'Contact Details' )
-            ->before( '<p style="color:#6b7280;font-size:13px;margin:0 0 8px;">Please fill in your details below.</p>' )
-            ->after( '<p style="color:#6b7280;font-size:13px;margin:8px 0 0;">All fields are optional.</p>' )
-            ->fields(
-                Text::make( 'company' )->label( 'Company' ),
-                Tel::make( 'phone' )->label( 'Phone' )
-            )
+    ->legend( 'Contact Details' )
+    ->before( '<p style="color:#6b7280;font-size:13px;margin:0 0 8px;">Please fill in your details below.</p>' )
+    ->after( '<p style="color:#6b7280;font-size:13px;margin:8px 0 0;">All fields are optional.</p>' )
+    ->fields(
+        Text::make( 'company' )->label( 'Company' ),
+        Tel::make( 'phone' )->label( 'Phone' )
+    )
 ```
 
 ![before/after](screenshots/fieldset/before-after.png)
@@ -351,13 +351,13 @@ Sets an arbitrary HTML attribute on the fieldset element.
 
 ```php
 Fieldset::make( 'data_fs' )
-            ->legend( 'Preferences' )
-            ->wrapper_data( 'section', 'preferences' )
-            ->add_wrapper_class( 'highlighted-fieldset' )
-            ->fields(
-                Text::make( 'language' )->label( 'Language' ),
-                Text::make( 'timezone' )->label( 'Timezone' )
-            )
+    ->legend( 'Preferences' )
+    ->wrapper_data( 'section', 'preferences' )
+    ->add_wrapper_class( 'highlighted-fieldset' )
+    ->fields(
+        Text::make( 'language' )->label( 'Language' ),
+        Text::make( 'timezone' )->label( 'Timezone' )
+    )
 ```
 
 ![wrapper-attrs](screenshots/fieldset/wrapper-attrs.png)

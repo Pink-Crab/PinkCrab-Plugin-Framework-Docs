@@ -519,9 +519,9 @@ HTML content before or after the input; renders whether or not the wrapper is sh
 
 ```php
 Search::make( 'wrapped_search' )
-            ->label( 'Search' )
-            ->before( '<span style="color:#6b7280;font-size:13px;">Search the documentation</span>' )
-            ->after( '<span style="color:#6b7280;font-size:13px;">Use quotes for exact match</span>' )
+    ->label( 'Search' )
+    ->before( '<span style="color:#6b7280;font-size:13px;">Search the documentation</span>' )
+    ->after( '<span style="color:#6b7280;font-size:13px;">Use quotes for exact match</span>' )
 ```
 
 ![before/after](screenshots/search/before-after.png)

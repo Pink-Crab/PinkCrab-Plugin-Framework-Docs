@@ -60,8 +60,8 @@ Sets the current value. Runs through the sanitizer if one is set.
 
 ```php
 Text::make( 'fullname' )
-            ->label( 'Full Name' )
-            ->set_existing( 'John Smith' )
+    ->label( 'Full Name' )
+    ->set_existing( 'John Smith' )
 ```
 
 ![set_existing](screenshots/text/value.png)
@@ -83,8 +83,8 @@ Placeholder text shown when the field is empty.
 
 ```php
 Text::make( 'search_query' )
-            ->label( 'Search' )
-            ->placeholder( 'Type to search...' )
+    ->label( 'Search' )
+    ->placeholder( 'Type to search...' )
 ```
 
 ![placeholder](screenshots/text/placeholder.png)
@@ -106,8 +106,8 @@ Marks the field as required. The label displays a `*` indicator via CSS.
 
 ```php
 Text::make( 'email_addr' )
-            ->label( 'Email Address' )
-            ->required( true )
+    ->label( 'Email Address' )
+    ->required( true )
 ```
 
 ![required](screenshots/text/required.png)
@@ -129,9 +129,9 @@ Disables the input. Value is visible but cannot be changed or submitted.
 
 ```php
 Text::make( 'locked_field' )
-            ->label( 'Locked Field' )
-            ->set_existing( 'Cannot edit' )
-            ->disabled( true )
+    ->label( 'Locked Field' )
+    ->set_existing( 'Cannot edit' )
+    ->disabled( true )
 ```
 
 ![disabled](screenshots/text/disabled.png)
@@ -372,9 +372,9 @@ Autocomplete suggestions via an HTML `<datalist>` element.
 
 ```php
 Text::make( 'fruit' )
-            ->label( 'Favourite Fruit' )
-            ->datalist_items( array( 'Apple', 'Banana', 'Cherry', 'Date', 'Elderberry' ) )
-            ->placeholder( 'Start typing...' )
+    ->label( 'Favourite Fruit' )
+    ->datalist_items( array( 'Apple', 'Banana', 'Cherry', 'Date', 'Elderberry' ) )
+    ->placeholder( 'Start typing...' )
 ```
 
 ![datalist](screenshots/text/datalist.png)
@@ -408,9 +408,9 @@ Displays an error message below the field.
 
 ```php
 Text::make( 'name_error' )
-            ->label( 'Name' )
-            ->required( true )
-            ->error_notification( 'This field is required.' )
+    ->label( 'Name' )
+    ->required( true )
+    ->error_notification( 'This field is required.' )
 ```
 
 ![error_notification](screenshots/text/notification-error.png)
@@ -433,9 +433,9 @@ Displays a warning message below the field.
 
 ```php
 Text::make( 'name_warning' )
-            ->label( 'Display Name' )
-            ->set_existing( 'ab' )
-            ->warning_notification( 'Name is very short.' )
+    ->label( 'Display Name' )
+    ->set_existing( 'ab' )
+    ->warning_notification( 'Name is very short.' )
 ```
 
 ![warning_notification](screenshots/text/notification-warning.png)
@@ -458,9 +458,9 @@ Displays a success message below the field.
 
 ```php
 Text::make( 'name_success' )
-            ->label( 'Username' )
-            ->set_existing( 'johndoe' )
-            ->success_notification( 'Username is available!' )
+    ->label( 'Username' )
+    ->set_existing( 'johndoe' )
+    ->success_notification( 'Username is available!' )
 ```
 
 ![success_notification](screenshots/text/notification-success.png)
@@ -483,8 +483,8 @@ Displays an info message below the field.
 
 ```php
 Text::make( 'name_info' )
-            ->label( 'Slug' )
-            ->info_notification( 'Only lowercase letters and hyphens.' )
+    ->label( 'Slug' )
+    ->info_notification( 'Only lowercase letters and hyphens.' )
 ```
 
 ![info_notification](screenshots/text/notification-info.png)
@@ -527,9 +527,9 @@ HTML content before or after the input; renders whether or not the wrapper is sh
 
 ```php
 Text::make( 'wrapped_field' )
-            ->label( 'Amount' )
-            ->before( '<span style="color:#6b7280;font-size:13px;">Enter the amount below</span>' )
-            ->after( '<span style="color:#6b7280;font-size:13px;">Amount in GBP</span>' )
+    ->label( 'Amount' )
+    ->before( '<span style="color:#6b7280;font-size:13px;">Enter the amount below</span>' )
+    ->after( '<span style="color:#6b7280;font-size:13px;">Amount in GBP</span>' )
 ```
 
 ![before/after](screenshots/text/before-after.png)

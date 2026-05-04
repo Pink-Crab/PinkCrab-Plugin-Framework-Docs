@@ -125,14 +125,14 @@ Sets which checkboxes are checked by passing an array of values.
 
 ```php
 Checkbox_Group::make( 'languages' )
-            ->label( 'Languages' )
-            ->options( array(
-                'php'  => 'PHP',
-                'js'   => 'JavaScript',
-                'go'   => 'Go',
-                'rust' => 'Rust',
-            ) )
-            ->selected( array( 'php', 'js' ) )
+    ->label( 'Languages' )
+    ->options( array(
+        'php'  => 'PHP',
+        'js'   => 'JavaScript',
+        'go'   => 'Go',
+        'rust' => 'Rust',
+    ) )
+    ->selected( array( 'php', 'js' ) )
 ```
 
 ![selected](screenshots/checkbox-group/selected.png)
@@ -211,14 +211,14 @@ Disables the entire checkbox group. Each individual checkbox receives the `disab
 
 ```php
 Checkbox_Group::make( 'locked_choices' )
-            ->label( 'Locked Choices' )
-            ->options( array(
-                'a' => 'Option A',
-                'b' => 'Option B',
-                'c' => 'Option C',
-            ) )
-            ->selected( array( 'a', 'c' ) )
-            ->disabled( true )
+    ->label( 'Locked Choices' )
+    ->options( array(
+        'a' => 'Option A',
+        'b' => 'Option B',
+        'c' => 'Option C',
+    ) )
+    ->selected( array( 'a', 'c' ) )
+    ->disabled( true )
 ```
 
 ![disabled](screenshots/checkbox-group/disabled.png)
@@ -245,13 +245,13 @@ Displays an error message below the group.
 
 ```php
 Checkbox_Group::make( 'features' )
-            ->label( 'Features' )
-            ->options( array(
-                'sso'  => 'Single Sign-On',
-                '2fa'  => 'Two Factor Auth',
-                'api'  => 'API Access',
-            ) )
-            ->info_notification( 'Select at least one feature.' )
+    ->label( 'Features' )
+    ->options( array(
+        'sso'  => 'Single Sign-On',
+        '2fa'  => 'Two Factor Auth',
+        'api'  => 'API Access',
+    ) )
+    ->info_notification( 'Select at least one feature.' )
 ```
 
 ![notification](screenshots/checkbox-group/notification.png)
@@ -390,14 +390,14 @@ HTML content before or after the checkbox group; renders whether or not the wrap
 
 ```php
 Checkbox_Group::make( 'topics' )
-            ->label( 'Topics' )
-            ->options( array(
-                'tech'    => 'Technology',
-                'science' => 'Science',
-                'art'     => 'Art',
-            ) )
-            ->before( '<span style="color:#6b7280;font-size:13px;">Choose your interests:</span>' )
-            ->after( '<span style="color:#6b7280;font-size:13px;">You can change these later.</span>' )
+    ->label( 'Topics' )
+    ->options( array(
+        'tech'    => 'Technology',
+        'science' => 'Science',
+        'art'     => 'Art',
+    ) )
+    ->before( '<span style="color:#6b7280;font-size:13px;">Choose your interests:</span>' )
+    ->after( '<span style="color:#6b7280;font-size:13px;">You can change these later.</span>' )
 ```
 
 ![before/after](screenshots/checkbox-group/before-after.png)

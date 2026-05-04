@@ -176,11 +176,11 @@ Sets the step increment for the slider.
 
 ```php
 Range::make( 'brightness' )
-            ->label( 'Brightness' )
-            ->min( 0 )
-            ->max( 100 )
-            ->step( 10 )
-            ->set_existing( '70' )
+    ->label( 'Brightness' )
+    ->min( 0 )
+    ->max( 100 )
+    ->step( 10 )
+    ->set_existing( '70' )
 ```
 
 ![step](screenshots/range/step.png)
@@ -439,12 +439,12 @@ HTML content before or after the input; renders whether or not the wrapper is sh
 
 ```php
 Range::make( 'labeled_range' )
-            ->label( 'Opacity' )
-            ->min( 0 )
-            ->max( 100 )
-            ->set_existing( '75' )
-            ->before( '<span style="color:#6b7280;font-size:13px;">0%</span>' )
-            ->after( '<span style="color:#6b7280;font-size:13px;">100%</span>' )
+    ->label( 'Opacity' )
+    ->min( 0 )
+    ->max( 100 )
+    ->set_existing( '75' )
+    ->before( '<span style="color:#6b7280;font-size:13px;">0%</span>' )
+    ->after( '<span style="color:#6b7280;font-size:13px;">100%</span>' )
 ```
 
 ![before/after](screenshots/range/before-after.png)

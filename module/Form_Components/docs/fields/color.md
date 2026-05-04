@@ -73,8 +73,8 @@ Sets the current colour value. Runs through `sanitize_hex_color()` by default.
 
 ```php
 Color::make( 'theme_color' )
-            ->label( 'Theme Colour' )
-            ->set_existing( '#3b82f6' )
+    ->label( 'Theme Colour' )
+    ->set_existing( '#3b82f6' )
 ```
 
 ![set_existing](screenshots/color/value.png)
@@ -120,9 +120,9 @@ Disables the input. The colour swatch is visible but cannot be changed.
 
 ```php
 Color::make( 'locked_color' )
-            ->label( 'Locked Colour' )
-            ->set_existing( '#dc2626' )
-            ->disabled( true )
+    ->label( 'Locked Colour' )
+    ->set_existing( '#dc2626' )
+    ->disabled( true )
 ```
 
 ![disabled](screenshots/color/disabled.png)
@@ -307,9 +307,9 @@ Displays an info message below the field.
 
 ```php
 Color::make( 'info_color' )
-            ->label( 'Accent Colour' )
-            ->set_existing( '#3b82f6' )
-            ->info_notification( 'Choose your brand accent colour.' )
+    ->label( 'Accent Colour' )
+    ->set_existing( '#3b82f6' )
+    ->info_notification( 'Choose your brand accent colour.' )
 ```
 
 ![info_notification](screenshots/color/notification.png)
@@ -352,10 +352,10 @@ HTML content before or after the input; renders whether or not the wrapper is sh
 
 ```php
 Color::make( 'wrapped_color' )
-            ->label( 'Background' )
-            ->set_existing( '#f3f4f6' )
-            ->before( '<span style="color:#6b7280;font-size:13px;">Pick a background colour</span>' )
-            ->after( '<span style="color:#6b7280;font-size:13px;">Used across all pages</span>' )
+    ->label( 'Background' )
+    ->set_existing( '#f3f4f6' )
+    ->before( '<span style="color:#6b7280;font-size:13px;">Pick a background colour</span>' )
+    ->after( '<span style="color:#6b7280;font-size:13px;">Used across all pages</span>' )
 ```
 
 ![before/after](screenshots/color/before-after.png)

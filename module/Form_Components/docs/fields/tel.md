@@ -537,9 +537,9 @@ HTML content before or after the input; renders whether or not the wrapper is sh
 
 ```php
 Tel::make( 'wrapped_tel' )
-            ->label( 'Phone' )
-            ->before( '<span style="color:#6b7280;font-size:13px;">Include country code</span>' )
-            ->after( '<span style="color:#6b7280;font-size:13px;">e.g. +44 7700 900000</span>' )
+    ->label( 'Phone' )
+    ->before( '<span style="color:#6b7280;font-size:13px;">Include country code</span>' )
+    ->after( '<span style="color:#6b7280;font-size:13px;">e.g. +44 7700 900000</span>' )
 ```
 
 ![before/after](screenshots/tel/before-after.png)

@@ -75,8 +75,8 @@ Sets the current value. Runs through a week format sanitizer (`Y-\WW`) by defaul
 
 ```php
 Week::make( 'current_week' )
-            ->label( 'Current Week' )
-            ->set_existing( '2026-W14' )
+    ->label( 'Current Week' )
+    ->set_existing( '2026-W14' )
 ```
 
 ![set_existing](screenshots/week/value.png)
@@ -194,9 +194,9 @@ Disables the input. Value is visible but cannot be changed or submitted.
 
 ```php
 Week::make( 'locked_week' )
-            ->label( 'Locked' )
-            ->set_existing( '2026-W01' )
-            ->disabled( true )
+    ->label( 'Locked' )
+    ->set_existing( '2026-W01' )
+    ->disabled( true )
 ```
 
 ![disabled](screenshots/week/disabled.png)
@@ -371,9 +371,9 @@ Displays an error message below the field.
 
 ```php
 Week::make( 'notif_week' )
-            ->label( 'Week' )
-            ->set_existing( '2026-W52' )
-            ->warning_notification( 'This is a holiday week.' )
+    ->label( 'Week' )
+    ->set_existing( '2026-W52' )
+    ->warning_notification( 'This is a holiday week.' )
 ```
 
 ![notification](screenshots/week/notification.png)
@@ -492,9 +492,9 @@ HTML content before or after the input; renders whether or not the wrapper is sh
 
 ```php
 Week::make( 'wrapped_week' )
-            ->label( 'Sprint Week' )
-            ->before( '<span style="color:#6b7280;font-size:13px;">Select sprint period</span>' )
-            ->after( '<span style="color:#6b7280;font-size:13px;">Sprints run Monday to Friday</span>' )
+    ->label( 'Sprint Week' )
+    ->before( '<span style="color:#6b7280;font-size:13px;">Select sprint period</span>' )
+    ->after( '<span style="color:#6b7280;font-size:13px;">Sprints run Monday to Friday</span>' )
 ```
 
 ![before/after](screenshots/week/before-after.png)

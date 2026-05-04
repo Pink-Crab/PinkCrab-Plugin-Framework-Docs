@@ -383,9 +383,9 @@ Displays an error message below the field.
 
 ```php
 Email::make( 'invalid_email' )
-            ->label( 'Email' )
-            ->set_existing( 'not-an-email' )
-            ->error_notification( 'Please enter a valid email address.' )
+    ->label( 'Email' )
+    ->set_existing( 'not-an-email' )
+    ->error_notification( 'Please enter a valid email address.' )
 ```
 
 ![error_notification](screenshots/email/notification.png)
@@ -502,9 +502,9 @@ HTML content before or after the input; renders whether or not the wrapper is sh
 
 ```php
 Email::make( 'wrapped_email' )
-            ->label( 'Email' )
-            ->before( '<span style="color:#6b7280;font-size:13px;">We will never share your email</span>' )
-            ->after( '<span style="color:#6b7280;font-size:13px;">Used for account recovery</span>' )
+    ->label( 'Email' )
+    ->before( '<span style="color:#6b7280;font-size:13px;">We will never share your email</span>' )
+    ->after( '<span style="color:#6b7280;font-size:13px;">Used for account recovery</span>' )
 ```
 
 ![before/after](screenshots/email/before-after.png)
